@@ -137,7 +137,7 @@ df.resample('1T').median()
 ```
 Also read https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/
 
-To understand the implications and robustness of resampling and dealing with missing data in motion-related time series, consult the followings:
+To understand the implications and robustness of resampling and dealing with missing data in motion-related time series, consult the following:
 
 - https://towardsdatascience.com/preprocessing-iot-data-linear-resampling-dde750910531
 - Impact of Reduced Sampling Rate on Accelerometer-based Physical Activity Monitoring and Machine Learning Activity Classification: https://www.medrxiv.org/content/10.1101/2020.10.22.20217927v1.full
@@ -168,7 +168,7 @@ Alternatively, convert your exported data to GPS using https://github.com/mhaber
 
 ### Aligning & Interpolating Measurements Across Sensors
 Often, one has to align measurements across sensors -- for instance, gyroscope and accelerometer so that you can apply rotation matrixes to the acceleration vectors. 
-- Option 1: Perform an outer join and then interpolate missing values for both sensors. By default, `pandas` interpolate linearly, but see the documentation for more advanced options.
+- Option 1: Perform an outer join and then interpolate missing values for both sensors. By default, `pandas` interpolates linearly, but see the documentation for more advanced options.
 ```
 import pandas as pd
 import numpy as np
@@ -201,8 +201,8 @@ Different applications require different smoothing and denoising strategies. Thi
 - Also try `scipy.ndimage.median_filter`
 
 Referencing the previous section on interpolation, performing downsampling with a suitable aggregator (e.g. median) or interpolation with suitable spline or polynomial functions may also achieve smoothing. 
-### Fourier Transforming
-Use Fourier transformation to understand any periodicity in your logged values. For example, you can detect walking by simply thresholding the gravity vector measurements in frequency space. Here is a simple example of Fourier transforming the gravity measurements taken on [Zodiac, a spinning ride at Thorpe Park](https://en.wikipedia.org/wiki/Zodiac_(ride)). As you can see, there is a peak around 0.25 Hz (i.e. the ride goes around one revolution every 4 seconds). 
+### Fourier Transforms
+Use Fourier transforms to understand any periodicity in your logged values. For example, you can detect walking by simply thresholding the gravity vector measurements in frequency space. Here is a simple example of Fourier transforming the gravity measurements taken on [Zodiac, a spinning ride at Thorpe Park](https://en.wikipedia.org/wiki/Zodiac_(ride)). As you can see, there is a peak around 0.25 Hz (i.e. the ride goes around one revolution every 4 seconds). 
 
 ```
 import pandas as pd
@@ -235,7 +235,7 @@ You can use algorithms like Douglas-Peucker to simplify recorded GPS tracks to s
 - https://en.wikipedia.org/wiki/Topographic_prominence
 - https://stackoverflow.com/questions/1713335/peak-finding-algorithm-for-python-scipy
 
-### Activity Detection & Segmentic Segmentation
+### Activity Detection & Semantic Segmentation
 - A Comprehensive Study of Activity Recognition Using Accelerometers: https://www.researchgate.net/publication/325470495_A_Comprehensive_Study_of_Activity_Recognition_Using_Accelerometers
 - Useful tool for time series data mining tasks: https://stumpy.readthedocs.io/en/latest/
 - Kang et al. 2017 A Novel Walking Detection and Step Counting Algorithm Using Unconstrained Smartphones
@@ -274,6 +274,7 @@ Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feed
     - https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1993640?journalCode=rjsp20
 - Vehicle tracking
 - Figure skating analysis
+- Whale watching
 - Video stabilisation
     - https://docs.gyroflow.xyz/
 - Inertial navigation
