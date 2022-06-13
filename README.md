@@ -49,6 +49,10 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 
 Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger. 
 
+| Android | iOS |
+|:-:|:-:|
+| [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="50">](https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) | [<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50">](https://apps.apple.com/app/id1531582925) |
+
 ## Getting Started with Data Analysis
 Measurements made using the Sensor Logger can be exported in either `.csv` or `.json` formats. For data analysis, the former is recommended. See www.tszheichoi.com/sensorloggerhelp for more about how exporting works.
 
