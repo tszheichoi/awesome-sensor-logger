@@ -78,6 +78,9 @@ The `metadata.csv` file conatins information about the device that performed the
 - recording time: The start time of the recording in UTC.
 - platform: Either iOS or Android.
 
+### When to Use Uncalibrated Data
+Sensor Logger gives you the option to log raw, uncalibrated data from the accelerometer, gyroscope and magnetometer. Calibrated data is always logged. The raw stream is useful for performing lower-level post-processing or custom sensor fusion. If in doubt, *always* use the calibrated version unless you have a good reason not to. 
+
 ### Plotting Data
 Use `pandas` to import `.csv` and convert timestamps. Use Plotly to visualise data interactively. Here, we show the acceleration experienced by a user during a roller coaster ride. 
 ```
