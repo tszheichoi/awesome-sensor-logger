@@ -277,6 +277,8 @@ Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feed
 - Hotair balloon tracking
 - Flight data logging
 - Wearable technology research
+- Pedestrian dead reckoning
+    - https://github.com/IdoMatan/PDR
 - Roller coaster tracking
     - https://www.tszheichoi.com/coaster
 - Sports research
