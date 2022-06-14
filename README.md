@@ -27,7 +27,7 @@ This repository contains a collection of tools, resources and sample code to use
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
-![image](https://user-images.githubusercontent.com/30114997/173239322-938f90d0-1d10-483f-af1e-8887ce4c0688.png)
+<img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
 
 
 ## The Sensor Logger App
