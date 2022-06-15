@@ -14,21 +14,19 @@ This repository contains a collection of tools, resources and sample code to use
   * [Aligning & Interpolating Measurements Across Sensors](#aligning---interpolating-measurements-across-sensors)
   * [Smoothing & Denoising](#smoothing---denoising)
   * [Fourier Transforms](#fourier-transforms)
-  * [Converting to GPX](#converting-to-gpx)
   * [Track Simplification](#track-simplification)
   * [Peak Detection](#peak-detection)
   * [Activity Detection & Semantic Segmentation](#activity-detection---semantic-segmentation)
   * [Time Series Classification](#time-series-classification)
   * [Removing Duplicated Entries](#removing-duplicated-entries)
   * [Audio Analysis](#audio-analysis)
+- [Converting to GPX / InfluxDB](#converting-to-gpx---influxdb)
 - [Further Use Cases & Applications](#further-use-cases---applications)
 - [Contribute](#contribute)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 <img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
-
 
 ## The Sensor Logger App
 Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readings from common motion-related sensors on smartphones. Once completed, recordings can be exported as a zipped CSV file, JSON or be viewed within the app via interactive plots. The iOS version comes with a free companion watch app that allows you to log heart rate & wrist motion, and control recording sessions remotely from your wrist. Supported sensors and measurements include:
@@ -233,9 +231,6 @@ fig.show()
 
 <img width="935" alt="zodiac" src="https://user-images.githubusercontent.com/30114997/173238828-438cf3db-e767-4dd3-a0af-7295393aae4e.png">
 
-### Converting to GPX
-Michael Haberler has helpfully put together a few command-line tools to take the JSON exported from Sensor Logger and convert it to GPX formats: https://github.com/mhaberler/sensorlogger-util
-
 ### Track Simplification
 You can use algorithms like Douglas-Peucker to simplify recorded GPS tracks to save storage space for long recordings. A Sensor Logger specific implementation can be found here: https://github.com/mhaberler/sensorlogger-util/blob/master/simplify.py
 
@@ -271,6 +266,16 @@ def remove_duplicated_rows(df: pd.DataFrame):
 - Audio transcription with Google Cloud: https://github.com/kkroening/ffmpeg-python/blob/master/examples/transcribe.py
 
 `pyAudioAnalysis` is also worth checking out for audio feature extraction, classification and segmentation: https://github.com/tyiannak/pyAudioAnalysis
+
+## Converting to GPX / InfluxDB
+Michael Haberler has helpfully put together a command-line tool `sensorlogger-utils` to take the JSON exported from Sensor Logger and convert it to GPX or InfluxDB formats: https://github.com/mhaberler/sensorlogger-util
+
+```
+python sensorlogger -g <json file>
+```
+```
+python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
+```
 
 ## Further Use Cases & Applications
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
