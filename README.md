@@ -20,7 +20,8 @@ This repository contains a collection of tools, resources and sample code to use
   * [Time Series Classification](#time-series-classification)
   * [Removing Duplicated Entries](#removing-duplicated-entries)
   * [Audio Analysis](#audio-analysis)
-- [Converting to GPX / InfluxDB](#converting-to-gpx---influxdb)
+  * [Converting to GPX / InfluxDB](#converting-to-gpx---influxdb)
+- [Live Data Streaming](#live-data-streaming)
 - [Further Use Cases & Applications](#further-use-cases---applications)
 - [Contribute](#contribute)
 
@@ -57,10 +58,11 @@ Measurements made using the Sensor Logger can be exported in either `.csv` or `.
 ### Recommended Tools
 Python is recommended for analysing the outputs from Sensor Logger. For interactive data exploration and visualisation, use Jupyter Notebooks, which you can run for free easily with tools like Google Colab or Deep Notes. Your typical data science Python packages apply:
 
-- Pandas
-- Numpy
-- SciPy
-- Folium / Leaflet.js 
+- Pandas for CSV parsing and manipulation
+- Numpy for data analysis
+- SciPy for time series analysis
+- Folium / Leaflet.js for geospatial visualisation
+- Dash / Flask for data streaming
 
 ### Understanding Timestamps
 All exported data have synchronised time stamps, meaning they can be cross-referenced. However, they do not necessarily align due to varied sampling rates. Note the followings:
@@ -267,7 +269,7 @@ def remove_duplicated_rows(df: pd.DataFrame):
 
 `pyAudioAnalysis` is also worth checking out for audio feature extraction, classification and segmentation: https://github.com/tyiannak/pyAudioAnalysis
 
-## Converting to GPX / InfluxDB
+### Converting to GPX / InfluxDB
 Michael Haberler has helpfully put together a command-line tool `sensorlogger-utils` to take the JSON exported from Sensor Logger and convert it to GPX or InfluxDB formats: https://github.com/mhaberler/sensorlogger-util
 
 ```
@@ -276,6 +278,113 @@ python sensorlogger -g <json file>
 ```
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
+
+## Live Data Streaming
+
+As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can be enabled by tapping the gear icon on the Logger page. All enabled sensors during a recording will be streamed every 200ms to the specified URL. To display the streamed data, you will need to set up a websever on another computer. 
+
+The schema of the streamed data is a json string of format `{messageId: int, payload: List}`. The `payload` is a list of `{time: int, name: str, values: Dict}`, where the name is the name of the sensor. The time is in UTC epoch nanoseconds. The `messageId` is useful because the messages can be recieved out-of-order, which may need to be handled depending on your use case.
+
+Here is an example Python implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and update the plot with any accumulated measurements so far. You will have to custimse this script yourself if you want to plot measurements from other sensors. 
+
+```
+import dash
+from dash.dependencies import Output, Input
+from dash import dcc, html, dcc
+from datetime import datetime
+import json
+import plotly.graph_objs as go
+from collections import deque
+from flask import Flask, request
+
+server = Flask(__name__)
+app = dash.Dash(__name__, server=server)
+
+MAX_DATA_POINTS = 1000
+UPDATE_FREQ_MS = 100
+
+time = deque(maxlen=MAX_DATA_POINTS)
+accel_x = deque(maxlen=MAX_DATA_POINTS)
+accel_y = deque(maxlen=MAX_DATA_POINTS)
+accel_z = deque(maxlen=MAX_DATA_POINTS)
+
+app.layout = html.Div(
+	[
+		dcc.Markdown(
+			children="""
+			# Live Sensor Readings
+			Streamed from Sensor Logger: tszheichoi.com/sensorlogger
+		"""
+		),
+		dcc.Graph(id="live_graph"),
+		dcc.Interval(id="counter", interval=UPDATE_FREQ_MS),
+	]
+)
+
+
+@app.callback(Output("live_graph", "figure"), Input("counter", "n_intervals"))
+def update_graph(_counter):
+	data = [
+		go.Scatter(x=list(time), y=list(d), name=name)
+		for d, name in zip([accel_x, accel_y, accel_z], ["X", "Y", "Z"])
+	]
+
+	graph = {
+		"data": data,
+		"layout": go.Layout(
+			{
+				"xaxis": {"type": "date"},
+				"yaxis": {"title": "Acceleration ms<sup>-2</sup>"},
+			}
+		),
+	}
+	if (
+		len(time) > 0
+	):  #  cannot adjust plot ranges until there is at least one data point
+		graph["layout"]["xaxis"]["range"] = [min(time), max(time)]
+		graph["layout"]["yaxis"]["range"] = [
+			min(accel_x + accel_y + accel_z),
+			max(accel_x + accel_y + accel_z),
+		]
+
+	return graph
+
+
+@server.route("/data", methods=["POST"])
+def data():  # listens to the data streamed from the sensor logger
+	if str(request.method) == "POST":
+		print(f'received data: {request.data}')
+		data = json.loads(request.data)
+		for d in data['payload']:
+			if (
+				d.get("name", None) == "accelerometer"
+			):  #  modify to access different sensors
+				ts = datetime.fromtimestamp(d["time"] / 1000000000)
+				if len(time) == 0 or ts > time[-1]:
+					time.append(ts)
+					# modify the following based on which sensor is accessed, log the raw json for guidance
+					accel_x.append(d["values"]["x"])
+					accel_y.append(d["values"]["y"])
+					accel_z.append(d["values"]["z"])
+	return "success"
+
+
+if __name__ == "__main__":
+	app.run_server(port=8000, host="0.0.0.0")
+```
+
+Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the localhost of the device you are running the websever on, you can, for example, do something like this in Python. 
+
+```
+import socket
+hostname = socket.gethostname()
+print(socket.gethostbyname(hostname))
+```
+
+For example, if it returns `192.168.1.168`, then you want to enter `http://192.168.1.168:8000/data` in Sensor Logger. Use the "Tap to Test Pushing" button to test whether Sensor Logger can properly reach the endpoint. If you get a 200 response, then you are good to go! Start a recording as usual, and you should begin to see data being streamed in:
+
+<img width="1440" alt="Screenshot 2022-07-10 at 10 23 03" src="https://user-images.githubusercontent.com/30114997/178138947-8522be59-4c0b-4966-84ad-49416fda5fc0.png">
+
 
 ## Further Use Cases & Applications
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
