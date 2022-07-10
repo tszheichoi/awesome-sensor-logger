@@ -285,7 +285,7 @@ As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can 
 
 The schema of the streamed data is a json string of format `{messageId: int, payload: List}`. The `payload` is a list of `{time: int, name: str, values: Dict}`, where the name is the name of the sensor. The time is in UTC epoch nanoseconds. The `messageId` is useful because the messages can be recieved out-of-order, which may need to be handled depending on your use case.
 
-Here is an example Python implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and update the plot with any accumulated measurements so far. You will have to custimse this script yourself if you want to plot measurements from other sensors. 
+To simply consume and explore the data, you may want to use something like https://pipedream.com/. To plot the data in real-time, you may need something more custom. Here is an example Python implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and update the plot with any accumulated measurements so far. You will have to custimse this script yourself if you want to plot measurements from other sensors. 
 
 ```
 import dash
