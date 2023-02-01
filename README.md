@@ -78,7 +78,7 @@ All exported data have synchronised time stamps, meaning they can be cross-refer
     - Use https://librosa.org/doc/latest/index.html
 
 ### Accessing Recording Metadata
-The `metadata.csv` file conatins information about the device that performed the logging.
+The `metadata.csv` file contains information about the device that performed the logging.
 - version: The schema version of the exported data. This is different to the version of the app. When this version increments, you may have to update your data analysis script as things such as the column names, file names, or data structure may have changed. 
 - device name: The name of the device used for recording.
 - recording time: The start time of the recording in UTC.
