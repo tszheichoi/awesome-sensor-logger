@@ -21,6 +21,7 @@ This repository contains a collection of tools, resources and sample code to use
   * [Removing Duplicated Entries](#removing-duplicated-entries)
   * [Audio Analysis](#audio-analysis)
   * [Converting to GPX / InfluxDB](#converting-to-gpx---influxdb)
+- [Recording Blueotooth LE sensors](#recording-blueotooth-le-sensors)
 - [Live Data Streaming](#live-data-streaming)
 - [Further Use Cases & Applications](#further-use-cases---applications)
 - [Contribute](#contribute)
@@ -279,6 +280,69 @@ python sensorlogger -g <json file>
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
 
+## Recording BLueotooth LE sensors
+Version 1.18 adds the capability to record values reported from a wide range of Bluetooth LE sensors which report values via periodic advertisements.
+
+Sensorlogger lets you scan for, and choose to record such BLE sensors, and will record their advertisements in the log. As such, Sensorlogger supports this method of reporting values, but cannot possibly aware as to how any particular sensor encodes its values. Therefore, Sensorlogger records the advertisment (and in particular the manufacurer data field) and leaves the interpretation of these records to a later postprocessing step.
+
+This means that any - existing or yet to be designed - BLE sensor using this reporting method is _supported_ by Sensorlogger - because it implements just the recording, but not the sensor-specific interpretation step.
+
+A list of sensors which should work out of the box with Sensorlogger can be found here: https://decoder.theengs.io/devices/devices.html - however, any device using this method can be recorded.
+
+Also, custom-built sensors can be recorded - an example project which has been verified to work with Sensorlogger can be found here: https://github.com/mhaberler/flowsensor
+
+### Postprocessing Bluetooth LE sensor recordings
+To interpret BLE sensor recordings, the exported log must be postprocessed. An experimental service has been put together here: https://sensorlogger.mah.priv.at/sensorlogger - the source code can be found here: https://github.com/mhaberler/sensorlogger-utils . Feel free to fork and roll your own.
+
+#### example: how Sensorlogger records a Ruuvi Tag
+This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
+```
+{
+    "sensor": "bluetooth-DB08D33338EF",
+    "time": "1690316310897000000",
+    "seconds_elapsed": "0.906",
+    "rssi": "-79",
+    "id": "DB:08:D3:33:38:EF",
+    "txPowerLevel": "",
+    "manufacturerData": "99040512735828ffff0070fc18012890962ec379db08d33338ef"
+}
+```
+The values are contained in the `manufacturerData` field, but make no sense as they stand.
+
+#### example after postprocessing: the Ruuvi Tag's reported values
+Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into the  values which actually make sense:
+
+```
+{
+    "sensor": "bluetooth-DB08D33338EF",
+    "time": 1690316310896.9998,
+    "seconds_elapsed": 0.906,
+    "rssi": -79,
+    "id": "DB:08:D3:33:38:EF",
+    "txPowerLevel": "",
+    "values": {
+      "name": "Ruuvi 38EF",
+      "rssi": -79,
+      "brand": "Ruuvi",
+      "model": "RuuviTag",
+      "model_id": "RuuviTag_RAWv2",
+      "type": "ACEL",
+      "track": true,
+      "tempc": 23.615,
+      "tempf": 74.507,
+      "hum": 56.42,
+      "pres": 1155.35,
+      "accx": 0.10983448,
+      "accy": -0.980665,
+      "accz": 0.29027684,
+      "volt": 2.756,
+      "tx": 4,
+      "mov": 46,
+      "seq": 50041,
+      "mac": "DB:08:D3:33:38:EF"
+    }
+  }
+```
 ## Live Data Streaming
 
 As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can be enabled by tapping the gear icon on the Logger page. All enabled sensors during a recording will be streamed every 200ms to the specified URL. To display the streamed data, you will need to set up a websever on another computer. 
