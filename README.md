@@ -280,21 +280,21 @@ python sensorlogger -g <json file>
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
 
-## Recording BLueotooth LE sensors
-Version 1.18 adds the capability to record values reported from a wide range of Bluetooth LE sensors which report values via periodic advertisements.
+## Recording Bluetooth LE sensors
+Version 1.17 adds the capability to record values reported from a wide range of Bluetooth LE sensors which report values via periodic advertisements.
 
-Sensorlogger lets you scan for, and choose to record such BLE sensors, and will record their advertisements in the log. As such, Sensorlogger supports this method of reporting values, but cannot possibly aware as to how any particular sensor encodes its values. Therefore, Sensorlogger records the advertisment (and in particular the manufacurer data field) and leaves the interpretation of these records to a later postprocessing step.
+Sensor Logger lets you scan for, and choose to record such BLE sensors, and will record their advertisements in the log. Sensor Logger supports this method of reporting values, but is unaware of how any particular sensor encodes its values. Therefore, Sensor Logger records the advertisement (and in particular the manufacturer data field) and leaves the interpretation of these records to a later postprocessing step.
 
-This means that any - existing or yet to be designed - BLE sensor using this reporting method is _supported_ by Sensorlogger - because it implements just the recording, but not the sensor-specific interpretation step.
+This means that any - existing or yet-to-be-designed - BLE sensor using this reporting method is _supported_ by Sensorlogger - because it implements just the recording, but not the sensor-specific interpretation step.
 
-A list of sensors which should work out of the box with Sensorlogger can be found here: https://decoder.theengs.io/devices/devices.html - however, any device using this method can be recorded.
+A list of sensors that should work out of the box with Sensorlogger can be found here: https://decoder.theengs.io/devices/devices.html - however, any device using this method can be recorded.
 
-Also, custom-built sensors can be recorded - an example project which has been verified to work with Sensorlogger can be found here: https://github.com/mhaberler/flowsensor
+Also, custom-built sensors can be recorded - an example project which has been verified to work with Sensor Logger can be found here: https://github.com/mhaberler/flowsensor
 
 ### Postprocessing Bluetooth LE sensor recordings
-To interpret BLE sensor recordings, the exported log must be postprocessed. An experimental service has been put together here: https://sensorlogger.mah.priv.at/sensorlogger - the source code can be found here: https://github.com/mhaberler/sensorlogger-utils . Feel free to fork and roll your own.
+To interpret BLE sensor recordings, the exported log must be post-processed. An experimental service has been put together here: https://sensorlogger.mah.priv.at/sensorlogger - the source code can be found [here](https://github.com/mhaberler/sensorlogger-utils). Feel free to fork and roll your own.
 
-#### example: how Sensorlogger records a Ruuvi Tag
+#### Example Logging a Ruuvi Tag with Sensor Logger
 This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
 ```
 {
@@ -309,8 +309,8 @@ This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
 ```
 The values are contained in the `manufacturerData` field, but make no sense as they stand.
 
-#### example after postprocessing: the Ruuvi Tag's reported values
-Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into the  values which actually make sense:
+#### Example After Post-processing Ruuvi Tag's Reported Values
+Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into the values which actually make sense:
 
 ```
 {
