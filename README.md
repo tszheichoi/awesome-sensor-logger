@@ -21,7 +21,7 @@ This repository contains a collection of tools, resources and sample code to use
   * [Removing Duplicated Entries](#removing-duplicated-entries)
   * [Audio Analysis](#audio-analysis)
   * [Converting to GPX / InfluxDB](#converting-to-gpx---influxdb)
-- [Recording Blueotooth LE sensors](#recording-blueotooth-le-sensors)
+- [Recording Bluetooth LE sensors](#recording-bluetooth-le-sensors)
 - [Live Data Streaming](#live-data-streaming)
 - [Further Use Cases & Applications](#further-use-cases---applications)
 - [Contribute](#contribute)
