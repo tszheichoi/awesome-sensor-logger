@@ -345,17 +345,25 @@ Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into th
 ```
 ## Live Data Streaming
 
-As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can be enabled by tapping the gear icon on the Logger page. All enabled sensors during a recording will be streamed every 200ms to the specified URL. To display the streamed data, you will need to set up a websever on another computer. 
+As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can be enabled by tapping the gear icon on the Logger page. All enabled sensors during a recording will be streamed every 200ms to the specified URL. To display the streamed data, you will need to set up a webserver on another computer. 
 
 <img width="586" alt="Screenshot 2022-07-12 at 09 33 42" src="https://user-images.githubusercontent.com/30114997/178447207-69379436-ca6e-4836-b0b8-8bac3b120ed0.png">
 
-The schema of the streamed data is a json string of format `{messageId: int, payload: List}`. The `payload` is a list of `{time: int, name: str, values: Dict}`, where the name is the name of the sensor. The time is in UTC epoch nanoseconds. The `messageId` is useful because the messages can be recieved out-of-order, which may need to be handled depending on your use case.
+The schema of the streamed data is a JSON string of format `{messageId: int, payload: List}`. The `payload` is a list of `{time: int, name: str, values: Dict}`, where the name is the name of the sensor. The time is in UTC epoch nanoseconds. The `messageId` is useful because the messages can be received out-of-order, which may need to be handled depending on your use case.
 
-To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. Also checkout Timeplus, a real time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE
+### RequestBin
+To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. 
+
+### Timeplus
+Also checkout Timeplus, a real-time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE
 
 ![image](https://user-images.githubusercontent.com/30114997/224557365-dfe593f5-e84f-4fcf-9900-9bcfd31c5e44.png)
 
-If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and update the plot with any accumulated measurements so far. You will have to custimse this script yourself if you want to plot measurements from other sensors. 
+### Javascript Webserver
+Thanks to [Harshad Joshi](github.com/user/hj91), you can find a javascript implementation using nodejs for a webserver that is designed for Sensor Logger: https://github.com/hj91/json-server
+
+### Python Webserver
+If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and updates the plot with any accumulated measurements so far. You will have to customise this script yourself if you want to plot measurements from other sensors. 
 
 ```
 import dash
