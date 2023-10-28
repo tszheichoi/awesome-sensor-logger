@@ -7,6 +7,7 @@ This repository contains a collection of tools, resources and sample code to use
   * [Understanding Timestamps](#understanding-timestamps)
   * [File Handling](#file-handling)
     + [Zip and CSV](#zip-and-csv)
+    + [JSON](#json)
     + [SQLite](#sqlite)
   * [Accessing Recording Metadata](#accessing-recording-metadata)
   * [When to Use Uncalibrated Data](#when-to-use-uncalibrated-data)
@@ -28,14 +29,16 @@ This repository contains a collection of tools, resources and sample code to use
     + [Example Logging a Ruuvi Tag with Sensor Logger](#example-logging-a-ruuvi-tag-with-sensor-logger)
     + [Example After Post-processing Ruuvi Tag Reported Values](#example-after-post-processing-ruuvi-tag-reported-values)
 - [Live Data Streaming](#live-data-streaming)
-  * [RequestBin](#requestbin)
-  * [Timeplus](#timeplus)
-  * [Javascript Webserver](#javascript-webserver)
-  * [Python Webserver](#python-webserver)
+  + [Setting Up Server](#setting-up-server)
+  	+ [RequestBin](#requestbin)
+  	+ [Timeplus](#timeplus)
+  	+ [Javascript Webserver](#javascript-webserver)
+  	+ [Python Webserver](#python-webserver)
 - [Further Use Cases and Applications](#further-use-cases-and-applications)
 - [Contribute](#contribute)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 <img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
 
@@ -88,7 +91,45 @@ All exported data have synchronised time stamps, meaning they can be cross-refer
 - Reading audio file: Depends on whether you have compression enabled in the Sensor Logger's settings. 
     - Do read https://hackernoon.com/audio-handling-basics-how-to-process-audio-files-using-python-cli-jo283u3y
     - Use https://librosa.org/doc/latest/index.html
- 
+
+#### JSON
+The JSON export format is a single file, where the contents are an array of objects. Each object represents a single record (row).
+All records for a given sensor are grouped together and are then sorted by time.
+```
+[
+  {
+    "sensor": "Accelerometer",
+    "time": "1698501144401773000",
+    "seconds_elapsed": "0.21677294921875",
+    "z": "-0.10382747650146484",
+    "y": "-0.0009566396474838257",
+    "x": "0.06110857427120209"
+  },
+  {
+    "sensor": "Accelerometer",
+    "time": "1698501144411773000",
+    "seconds_elapsed": "0.22677294921875",
+    "z": "-0.10387134552001953",
+    "y": "-0.002205267548561096",
+    "x": "0.06393256038427353"
+  },
+  {
+    "sensor": "Location",
+    "time": "1698501145514000000",
+    "seconds_elapsed": "1.328999755859375",
+    "bearingAccuracy": "0",
+    "speedAccuracy": "0",
+    "verticalAccuracy": "1.773818016052246",
+    "horizontalAccuracy": "15.102999687194824",
+    "speed": "0",
+    "bearing": "0",
+    "altitude": "214.1999969482422",
+    "longitude": "0.0",
+    "latitude": "0.0"
+  }
+]
+```
+
 #### SQLite
 For reading data exported using the SQLite option in Python, you may try:
 ```
@@ -426,20 +467,43 @@ As of version 1.10, Sensor Logger supports pushing live data via HTTP. This can 
 
 <img width="667" alt="Screenshot 2023-10-25 at 15 09 43" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/19e800bb-3efd-40ae-b25b-22c92da1e071">
 
-The schema of the streamed data is a JSON string of format `{messageId: int, payload: List}`. The `payload` is a list of `{time: int, name: str, values: Dict}`, where the name is the name of the sensor. The time is in UTC epoch nanoseconds. The `messageId` is useful because the messages can be received out-of-order, which may need to be handled depending on your use case.
+HTTP Push sends a POST request to the supplied URL with content-type "application/json". The request body is of the following format:
+```
+{
+    messageId: 0,
+    sessionId: "identifier",
+    deviceId: "identifier",
+    payload: [
+        {
+            "name": "accelerometer",
+            "time": 1698501144401773000,
+            <other fields depending on sensor>
+        },
+        {
+            "name": "location",
+            "time": 1698501145514000000,
+            <other fields depending on sensor>
+        },
+    ],
+}
+```
+The `messageId` is incremented for each message sent. The `messageId` is useful because the messages can be received out-of-order, which may need to be handled depending on your use case. The `sessionId` is the same for all messages in a single recording, and the `deviceId` is the same for all messages from a single device.
 
-### RequestBin
+### Setting Up Server
+There are many ways to setup a server that can accept messages pushed from Sensor Logger -- from off-the-shelf solutions to running the server yourself. Here are some pointers to get you started. 
+
+#### RequestBin
 To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. 
 
-### Timeplus
+#### Timeplus
 Also checkout Timeplus, a real-time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE
 
 ![image](https://user-images.githubusercontent.com/30114997/224557365-dfe593f5-e84f-4fcf-9900-9bcfd31c5e44.png)
 
-### Javascript Webserver
+#### Javascript Webserver
 Thanks to [Harshad Joshi](github.com/user/hj91), you can find a javascript implementation using nodejs for a webserver that is designed for Sensor Logger: https://github.com/hj91/json-server
 
-### Python Webserver
+#### Python Webserver
 If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and updates the plot with any accumulated measurements so far. You will have to customise this script yourself if you want to plot measurements from other sensors. 
 
 ```
