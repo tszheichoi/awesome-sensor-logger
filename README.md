@@ -493,9 +493,14 @@ HTTP Push sends a POST request to the supplied URL with content-type "applicatio
 ```
 The `messageId` is incremented for each message sent. The `messageId` is useful because the messages can be received out-of-order, which may need to be handled depending on your use case. The `sessionId` is the same for all messages in a single recording, and the `deviceId` is the same for all messages from a single device. The time is in UTC epoch nanoseconds.
 
+Note: due to legacy reasons, on Android only, some sensors report accuracy alongside `name` and `time`. This is left in-place for backwards compatibility. Interpreting this field:
+- 0 means unreliable
+- 1 means low accuracy
+- 2 means medium accuracy
+- 3 means maximum accuracy
+
 ### Setting Up Server
 There are many ways to setup a server that can accept messages pushed from Sensor Logger -- from off-the-shelf solutions to running the server yourself. Here are some pointers to get you started. It is recommended (but not required) for servers to respond with HTTP code 200. If the server responds with HTTP code 499 and the body contains text, then this message will be shown to the user (once per recording).
-
 
 #### RequestBin
 To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. 
