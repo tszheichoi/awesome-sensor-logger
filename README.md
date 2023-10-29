@@ -5,6 +5,7 @@ This repository contains a collection of tools, resources and sample code to use
 - [Getting Started with Data Analysis](#getting-started-with-data-analysis)
   * [Recommended Tools](#recommended-tools)
   * [Understanding Timestamps](#understanding-timestamps)
+  * [Understanding Units](#understanding-units)
   * [File Handling](#file-handling)
     + [Zip and CSV](#zip-and-csv)
     + [JSON](#json)
@@ -82,6 +83,9 @@ All exported data have synchronised time stamps, meaning they can be cross-refer
 - The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps. By definition, these are UTC times -- whereas the filenames are in local times. 
 - The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching. 
 - Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
+
+### Understanding Units
+See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
 
 ### File Handling
 
