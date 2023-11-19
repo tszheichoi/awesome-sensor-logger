@@ -2,7 +2,7 @@
 
 This page is a comprehensive documentation of the units of values reported in the Sensor Logger app. Much effort has been spent to ensure correctness and consistency across iOS and Android. Should you notice any error, please report by making an Issue or make a pull request directly. Additional information about sensors and measurements is available in-app by tapping the "eye" icon next to each sensor.
 
-For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhelp](https://www.tszheichoi.com/sensorloggerhelp)
+For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhelp](https://www.tszheichoi.comjjgg/sensorloggerhelp)
 
 ## Time
 - `time` is in nanoseconds since epoch.
