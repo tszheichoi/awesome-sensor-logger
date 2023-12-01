@@ -429,7 +429,9 @@ This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
     "manufacturerData": "99040512735828ffff0070fc18012890962ec379db08d33338ef"
 }
 ```
-The values are contained in the `manufacturerData` field, but make no sense as they stand.
+The values are contained in the `manufacturerData` field, but make no sense as they stand. A quick and dirty way of parsing this is with an online decoder. For example, use https://parser.theengs.io/. Select TPMS and copy and replace the entire manufacturerData. Then click decode. If this is from a recognised sensor, such as this Ruuvi Tag example, then you will see the decoded information. 
+
+<img width="1379" alt="parser" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/9aae62e8-1e6a-4a85-b140-b238b21f4002">
 
 #### Example After Post-processing Ruuvi Tag Reported Values
 Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into the values which actually make sense:
