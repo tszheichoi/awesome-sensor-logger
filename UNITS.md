@@ -100,5 +100,11 @@ For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhel
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
 
 ## Light
-- `lux` is in lux. 
+- `lux` is in lux.
+
+## WiFi
+- `ssid` is the name of the WiFI network.
+- `bssid` is the MAC address.
+- `frequency` is the network frequency.
+- `level` is the signal strength in dBm.
  
