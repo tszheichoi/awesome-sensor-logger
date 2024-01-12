@@ -11,6 +11,8 @@ For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhel
 ## Accelerometer
 - `x`, `y` and `z` in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>.
 
+Note: On iOS, Sensor Logger uses the `CMAttitudeReferenceFrameXTrueNorthZVertical` coordinate system. 
+
 ## Accelerometer Uncalibrated
 - `x`, `y` and `z`:
     - On iOS, this is in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
