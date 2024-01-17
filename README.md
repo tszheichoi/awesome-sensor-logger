@@ -508,7 +508,7 @@ There are many ways to setup a server that can accept messages pushed from Senso
 To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. 
 
 #### Timeplus
-Also checkout Timeplus, a real-time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE
+Also checkout Timeplus, a real-time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE. They also offer a dockerised solution. See https://github.com/timeplus-io/proton/tree/develop/examples/awesome-sensor-logger
 
 ![image](https://user-images.githubusercontent.com/30114997/224557365-dfe593f5-e84f-4fcf-9900-9bcfd31c5e44.png)
 
