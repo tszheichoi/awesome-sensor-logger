@@ -5,7 +5,7 @@ This page is a comprehensive documentation of the units of values reported in th
 For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhelp](https://www.tszheichoi.com/sensorloggerhelp)
 
 ## Time
-- `time` is in nanoseconds since epoch.
+- `time` is in nanoseconds since epoch. For more information about conversion, use tools like https://www.epochconverter.com/. 
 - `seconds_elapsed` is in seconds since the start of the recording.
 
 ## Accelerometer
