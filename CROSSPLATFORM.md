@@ -1,4 +1,4 @@
-# Cross-Platform Differences
+# Cross-Platform Differences & Standardisation
 Sensor Logger is a cross-platform app available on both iOS and Android. Whilst the user experience of the application is largely the same, some units and reference frame definitions are different. 
 
 - [Cross-Platform Differences](#cross-platform-differences)
