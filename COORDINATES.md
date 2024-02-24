@@ -30,16 +30,18 @@ _Source: https://developer.apple.com/documentation/coremotion/cmheadphonemotionm
 
 Note: The Gravity sensor in Sensor Logger has the same coordinate system as the Accelerometer linear acceleration measurements. 
 
-## Gyroscope & Orientation
+## Gyroscope
 
-The rotation rates and orientation are measured around the axes, as the acceleration. Again, following the right-hand convention. When you read off the Gyroscope sensor in Sensor Logger, refer to the diagram below.
+The rotation rates and orientation are measured around the same axes as acceleration. When you read off the Gyroscope sensor in Sensor Logger, refer to the diagram below.
 
 <img src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/ac11f346-2c49-40f1-a5e0-4c711ab978f3" width="200"/>
 
 _Source: https://developer.apple.com/documentation/coremotion/getting_raw_gyroscope_events_
 
-The orientation is derived from the rotation rate and references the same axes, but are called:
+For the rotation rate readings from the Gyroscope sensor, iOS and Android have consistent definitions. 
 
+## Orientation
+The orientation is derived from the rotation rate and references the same axes. To be specific:
 - `roll` refers to the rotation around `y`;
 - `pitch` refers to the rotation around `x`;
 - `yaw` refers to the rotation around `z`. Sometimes also called the `azimuth`. 
@@ -49,8 +51,9 @@ Additionally, orientation has an arbitrary offset, as it is an integrated value 
 ### Differences Between iOS and Android
 Due to legacy reasons and backwards compatibility reasons, there are some key differences in interpreting the yaw value:
 
-- On iOS, north means the _true north_, whereas on Android, it refers to the _magnetic north_. You may have to account for this difference if you are comparing absolute values measured across platforms, though factors such as the accuracy of the magnetometer may outweigh such differences. 
-- On iOS, `yaw` increases when you turn counter-clockwise around the `z` axis (as pictured above). On Android, `yaw` increases when you turn clockwise around the `z` axis (opposite to pictured above, i.e. east is +π/2 and west is -π/2).
+1. On iOS, north means the _true north_, whereas on Android, it refers to the _magnetic north_. You may have to account for this difference if you are comparing absolute values measured across platforms, though factors such as the accuracy of the magnetometer may outweigh such differences. 
+2. On iOS, `yaw` increases when you turn counterclockwise around the `z` axis (as pictured above). On Android, `yaw` increases when you turn clockwise around the `z` axis (opposite to pictured above, i.e. east is +π/2 and west is -π/2).
+3. On iOS, `pitch` decreases as you rotate around the `x` axis clockwise. On Android, `pitch` decreases as you rotate around the `x` axis counterclockwise (i.e. tiling the phone's top edge towards you and the phone's bottom edge away from you when you hold your phone normally)
 
 Further, on Android, there are additional Orientations you can log with various trade-offs. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/ORIENTATION.md. 
 
