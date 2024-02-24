@@ -13,7 +13,7 @@ Acceleration is reported in the following coordinate system, with `x` and `y` be
 _Adapted from https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager to reflect the sign convention differences between operating systems._ 
 
 ### Differences Between iOS and Android
-While the directions of the axes are the same across platforms, **there is a negative sign difference for all three axes** between iOS and Android. For example, if you move your phone to the right, along the `x` axis, you will register positive acceleration on Android, but negative acceleration on iOS. This is simply a difference in definition -- likely because iOS' convention is in the context of _inertial force_, whereas Android's convention is in the context of _accelerating force_. 
+While the directions of the axes are the same across platforms, **there is a negative sign difference for all three axes** between iOS and Android. For example, if you move your phone to the right, along the `x` axis, you will register positive values on Android, but negative values on iOS. This is simply a difference in definition -- likely because iOS' convention is in the context of _inertial force_, whereas Android's convention is in the context of _accelerating force_. 
 
 Accordingly, the Gravity sensor is also different by a negative sign between iOS and Android. When you place your phone flat on a table, the gravity vector points in `-z` on iOS and `+z` on Android. 
 
