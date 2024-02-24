@@ -75,6 +75,8 @@ Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger.
 ## Performing Cross-Platform Analysis?
 If you are performing cross-platform analysis using Sensor Logger, please beware of some minor unit differences and some important coordinate system differences between iOS and Android. Depending on your analysis, you may have to multiply values by a negative sign. See the [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md). 
 
+> 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate a lot of convention differences between iOS and Android. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information. 
+
 ## Getting Started with Data Analysis
 Measurements made using the Sensor Logger can be exported in `.zip`, `.csv`, `.json`, `.kml` or `.sqlite` formats. For data analysis, the zip export is recommended as it is free and contains all the raw data. See www.tszheichoi.com/sensorloggerhelp for more about how exporting works.
 
