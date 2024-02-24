@@ -17,6 +17,8 @@ While the directions of the axes are the same across platforms, **there is a neg
 
 Accordingly, the Gravity sensor is also different by a negative sign between iOS and Android. When you place your phone flat on a table, the gravity vector points in `-z` on iOS and `+z` on Android. 
 
+For more cross-platform differences, please see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md. 
+
 ## Acceleration on Apple Watch & AirPods
 Acceleration data from the Apple Watch follows the same convention as the iPhone. Simply replace the screen of the phone with the screen of the phone in the diagram below. 
  
@@ -52,3 +54,4 @@ Due to legacy reasons and backwards compatibility reasons, there are some key di
 
 Further, on Android, there are additional Orientations you can log with various trade-offs. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/ORIENTATION.md. 
 
+For more cross-platform differences, please see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md. 
