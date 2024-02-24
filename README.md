@@ -72,6 +72,9 @@ Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger.
 |:-:|:-:|
 | [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="50">](https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) | [<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50">](https://apps.apple.com/app/id1531582925) |
 
+## Performing Cross-Platform Analysis?
+If you are performing cross-platform analysis using Sensor Logger, please beware of some minor unit differences and some important coordinate system differences between iOS and Android. Depending on your analysis, you may have to multiply values by a negative sign. See the [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md). 
+
 ## Getting Started with Data Analysis
 Measurements made using the Sensor Logger can be exported in `.zip`, `.csv`, `.json`, `.kml` or `.sqlite` formats. For data analysis, the zip export is recommended as it is free and contains all the raw data. See www.tszheichoi.com/sensorloggerhelp for more about how exporting works.
 
