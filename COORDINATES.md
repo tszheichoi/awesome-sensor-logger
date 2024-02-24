@@ -1,17 +1,25 @@
 # One-Page Coordinates Reference
 
-This page is a comprehensive documentation of the coordinate systems used by Sensor Logger. Much effort has been spent to ensure correctness and consistency across iOS and Android. Should you notice any error, please report by making an Issue or make a pull request directly. Additional information about sensors and measurements is available in-app by tapping the "eye" icon next to each sensor.
+This page is a comprehensive documentation of the coordinate systems used by Sensor Logger. Much effort has been spent to ensure correctness and consistency across iOS and Android. Should you notice any error, please report by making an Issue or making a pull request directly. Additional information about sensors and measurements is available in-app by tapping the "eye" icon next to each sensor.
 
 For information about units, refer to https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md
 
-## Acceleration
+## Acceleration on Phones
 
-Acceleration is reported in the following right-handed coordinate system, with `x` and `y` being the horizontal and vertical axes of the screen and `z` pointing out of the screen. These axes "stick" to the device, and never change even when the phone rotates. Acceleration data from the Apple Watch follows the **exact same convention** -- simply replace the screen of the phone with the screen of the phone in the diagram below. 
+Acceleration is reported in the following coordinate system, with `x` and `y` being the horizontal and vertical axes of the screen and `z` pointing into/out of the screen. These axes "stick" to the device, so they never change even when the phone rotates.
 
-<img src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/4e7699df-b532-4eb9-958c-337582b45bd4" width="200"/>
+<img width="966" alt="Screenshot 2024-02-24 at 00 57 04" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/ec93559b-5443-48a1-85e0-7c05fde6b723">
 
-_Source: https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager_. Note that even though this image is taken from Apple's documentation, it also applies to Android devices. 
+_Adapted from https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager to reflect the sign convention differences between operating systems._ 
 
+### Differences Between iOS and Android
+While the directions of the axes are the same across platforms, **there is a negative sign difference for all three axes** between iOS and Android. For example, if you move your phone to the right, along the `x` axis, you will register positive acceleration on Android, but negative acceleration on iOS. This is simply a difference in definition -- likely because iOS' convention is in the context of _inertial force_, whereas Android's convention is in the context of _accelerating force_. 
+
+Accordingly, the Gravity sensor is also different by a negative sign between iOS and Android. When you place your phone flat on a table, the gravity vector points in `-z` on iOS and `+z` on Android. 
+
+## Acceleration on Apple Watch & AirPods
+Acceleration data from the Apple Watch follows the same convention as the iPhone. Simply replace the screen of the phone with the screen of the phone in the diagram below. 
+ 
 The acceleration values from the Headphone motion sensor follow the following convention. 
 
 <img src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/bf2600df-d624-4cb3-acd2-44ef633628f5" width="200"/>
