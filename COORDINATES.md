@@ -1,6 +1,6 @@
 # One-Page Coordinates Reference
 
-This page is a comprehensive documentation of the coordinate systems used by Sensor Logger. Much effort has been spent to ensure correctness and consistency across iOS and Android. Should you notice any error, please report by making an Issue or making a pull request directly. Additional information about sensors and measurements is available in-app by tapping the "eye" icon next to each sensor.
+This page is a comprehensive documentation of the coordinate systems used by Sensor Logger. Should you notice any error, please report by making an Issue or making a pull request directly. Additional information about sensors and measurements is available in-app by tapping the "eye" icon next to each sensor.
 
 For information about units, refer to https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md
 
