@@ -1,7 +1,7 @@
 # Orientation
 On Android, the system provides up to three different orientation estimates. 
 
-The default **Orientation** sensor on Sensor Logger utilizes the accelerometer, magnetometer, and gyroscope. The gyroscope is the primary orientation input, with compensation from the accelerometer and magnetometer. See [Unit Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for more details.
+The default **Orientation** sensor on Sensor Logger utilizes the accelerometer, magnetometer, and gyroscope. The gyroscope is the primary orientation input, with compensation from the accelerometer and magnetometer. See [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for more details. 
 
 Additionally, you can enable the following in Settings > Sensor Configuration > Additional Orientation Data. You will, in addition to the default orientation measurements get:
 
