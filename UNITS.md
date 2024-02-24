@@ -11,7 +11,7 @@ For full documentation, please visit [https://www.tszheichoi.com/sensorloggerhel
 ## Accelerometer
 - `x`, `y` and `z` in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>.
 
-Note: On iOS, Sensor Logger uses the `CMAttitudeReferenceFrameXTrueNorthZVertical` coordinate system. 
+See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for definitions of axes. 
 
 ## Accelerometer Uncalibrated
 - `x`, `y` and `z`:
@@ -30,6 +30,8 @@ Note: On iOS, Sensor Logger uses the `CMAttitudeReferenceFrameXTrueNorthZVertica
 ## Orientation
 - `pitch`, `roll` and `yaw`, in radians.
 - `qx`, `qy`, `qz` and `qw`, dimensionless.
+
+See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for definitions of axes. Note that the `yaw` definition is different between iOS and Android.
 
 ## Pedometer
 - `steps` is an integer.  
