@@ -40,7 +40,6 @@ This repository contains a collection of tools, resources and sample code to use
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 <img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
 
 ## The Sensor Logger App
@@ -48,17 +47,24 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 
 - Device Acceleration (Accelerometer; Raw & Calibrated)
 - Gravity Vector (Accelerometer)
-- Device Rotation Rate (Gyroscope; Raw & Calibrated)
-- Device Orientation (Gyroscope)
+- Device Rotation Rate (Gyroscope)
+- Device Orientation (Gyroscope; Raw & Calibrated)
 - Magnetic Heading (Magnetometer; Raw & Calibrated)
 - Barometric Altitude (Barometer)
 - GPS Coordinate, Altitude, Speed & Heading
-- Proximity Sensor (Android Only)
-- Audio Recording (Microphone)
-- Ambient Sound Level (Microphone)
-- Heart Rate (via Companion Watch App)
-- Wrist Motion (via Companion Watch App)
+- Audio (Microphone)
+- Loudness (Microphone)
+- Camera Images (Front & Back, Foreground only)
+- Camera Video (Front & Back, Foreground only)
+- Pedometer (Estimated by operating system)
+- Heart Rate (Requires watch app to be installed)
+- Wrist Motion (Requires watch app to be installed)
+- Light Sensor (Android only)
 - Annotations (Timestamp and optional accompanying text comment)
+- Device battery level and state
+- Device screen brightness level
+- Nearby Bluetooth beacons (All advertised data)
+- Headphone Motion (Requires AirPods)
 
 Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger. 
 
@@ -79,13 +85,22 @@ Python is recommended for analysing the outputs from Sensor Logger. For interact
 - Dash / Flask for data streaming
 
 ### Understanding Timestamps
-All exported data have synchronised time stamps, meaning they can be cross-referenced. However, they do not necessarily align due to varied sampling rates. Note the followings:
+All exported data have synchronised time stamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below. 
+
 - The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps. By definition, these are UTC times -- whereas the filenames are in local times. 
 - The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching. 
 - Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
 
 ### Understanding Units
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
+
+> :warning: **If you are analysing uncalibrated acceleration data across platforms**, there are important differences in unit definitions that you should be aware of.
+> 
+### Understanding Coordinate Systems
+
+See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for the full documentation of coordinate systems.
+
+> :warning: **If you are analysing yaw measurements from the Orientation sensor across platforms**, there are important differences in the reference frame definitions that you should be aware of.
 
 ### File Handling
 
