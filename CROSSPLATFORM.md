@@ -18,8 +18,9 @@ If "Standardise Units & Frames" is toggled on, Sensor Logger will conform to the
 ### Orientation
 On iOS, `yaw` is zero when the `x` points to true north, whereas on Android, it is the magnetic north. Understand the [differences between the two](https://www.rmg.co.uk/stories/topics/true-north-magnetic-north-whats-difference), and consider whether this matters to your analysis.
 On iOS, `yaw` increases when you turn counterclockwise around the `z` axis. On Android, `yaw` increases when you turn clockwise around the `z` axis. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md#differences-between-ios-and-android-1) for a diagram.
+On iOS, pitch decreases as you rotate around the `x` axis clockwise. On Android, pitch decreases as you rotate around the `x` axis counterclockwise. 
 
-If "Standardise Units & Frames" is toggled on, Sensor Logger will conform to the Android definition. However, the difference of true and magnetic north remains unaccounted for. 
+If "Standardise Units & Frames" is toggled on, Sensor Logger will conform to the Android definition. However, the difference between true and magnetic north remains unaccounted for. 
 
 ## Unit Differences
 Only for _uncalibrated_ acceleration:
