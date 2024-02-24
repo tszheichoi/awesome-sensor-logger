@@ -100,7 +100,7 @@ See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](htt
 
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for the full documentation of coordinate systems.
 
-> :warning: **If you are analysing yaw measurements from the Orientation sensor across platforms**, there are important differences in the reference frame definitions that you should be aware of.
+> :warning: **If you are analysing acceleration & orientation values across platforms**, there are important differences in the reference frame definitions that you should be aware of.
 
 ### File Handling
 
