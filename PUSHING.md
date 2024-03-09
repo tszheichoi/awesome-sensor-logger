@@ -1,5 +1,5 @@
 # Data Pushing
-Sensor Logger supports HTTP Push and MQTT publishing during a recording session. This can be enabled by tapping the gear icon on the Logger page. All supported sensors during a recording will be streamed in JSON, once every configurable batch period, to the specified web server / broker via the specified protocol.
+Sensor Logger supports HTTP Push and MQTT Publishing during a recording session. This can be enabled by tapping the gear icon on the Logger page. All supported sensors during a recording will be streamed in JSON, once every configurable batch period, to the specified web server / broker via the specified protocol.
 
 Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports simultaneous HTTP pushing and MQTT publishing. 
 
