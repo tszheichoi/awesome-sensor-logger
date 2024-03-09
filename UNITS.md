@@ -92,13 +92,14 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 - `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
 - `gravityX`, `gravityY` and `gravityZ`, in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>.
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
-- `devicelocation` can be left or right.  
+- `devicelocation` can be left or right.
+- `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s). (_Note: New in version 1.30_)
 
 ## Heartrate
 - `bpm` in beats per minute.
 
 ## WristMotion
-- `rotationX`, `rotationY` and `rotationZ`, in radians per second (rad/s).
+- `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s).
 - `gravityX`, `gravityY` and `gravityZ`, in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
 - `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
