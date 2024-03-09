@@ -488,7 +488,7 @@ Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into th
   }
 ```
 ## Live Data Streaming
-> 💡: **New in Version 1.30**: Sensor Logger now supports pushing live data via HTTP and MQTT. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md for documentation on MQTT. 
+> 💡: **New in Version 1.30**: Sensor Logger now supports pushing live data via MQTT. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md for more. 
 
 Sensor Logger supports pushing live data via HTTP. This can be enabled by tapping the gear icon on the Logger page. All enabled sensors during a recording will be streamed every 200ms to the specified URL. To display the streamed data, you will need to set up a webserver on another computer. 
 
