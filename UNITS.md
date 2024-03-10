@@ -95,6 +95,7 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 - `gravityX`, `gravityY` and `gravityZ`, in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>, regardless of whether "Standardise Units & Frames" is turned on or not. 
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
 - `devicelocation` can be left or right.
+- `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s). (_Note: New in version 1.30_)
 
 > 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences. 
 

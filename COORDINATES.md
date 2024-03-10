@@ -20,15 +20,19 @@ Accordingly, the Gravity sensor is also different by a negative sign between iOS
 > 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate this difference by automatically converting values logged on iOS to the Android convention. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information. 
 
 ## Acceleration on Apple Watch & AirPods
-Acceleration data from the Apple Watch follows the same convention as the iPhone. Simply replace the screen of the phone with the screen of the phone in the diagram below. 
- 
-The acceleration values from the Headphone motion sensor follow the following convention. 
+Acceleration data from the Apple Watch follows the same convention as the iPhone. The acceleration values from the Headphone motion sensor follow the following convention. 
 
 <img src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/bf2600df-d624-4cb3-acd2-44ef633628f5" width="200"/>
 
 _Source: https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager_
 
-Note: The Gravity sensor in Sensor Logger has the same coordinate system as the Accelerometer linear acceleration measurements. 
+This photo below roughly aligns the coordinates for all three Apple devices. The coordinate system across the three pictured devices is always the same and consistent. As such, it is safe to compare and perform data fusion amongst measurements from these devices. However, they collectively are inconsistent with Android's coordinate system, as noted in the previous section. Toggling "Standardise Units & Frames" under _Settings > Sensor Configuration_ will convert _all measurements from Apple Watch and AirPods_ to Android's convention. Also note that the [units](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) of acceleration vary across iPhone, Apple Watch and AirPods if "Standardise Units & Frames" is not toggled on. 
+
+<img width="977" alt="Screenshot 2024-03-07 at 00 39 40" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/ce79333d-75f5-4b83-a8fd-3c87c15222dd">
+
+This plot compares the units and coordinate system of acceleration data from all three Apple devices with "Standardise Units & Frames" toggled on (Note: "Standardise Units & Frames" is off by default). 
+
+<img width="1109" alt="Screenshot 2024-03-07 at 00 34 38" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/1cd383f6-4227-4fd8-8fcd-c54288476214">
 
 ## Gyroscope
 
