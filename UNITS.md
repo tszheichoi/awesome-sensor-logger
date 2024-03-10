@@ -15,8 +15,10 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 
 ## Accelerometer Uncalibrated
 - `x`, `y` and `z`:
-    - On iOS, this is in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
-    - On Android, this is in meters per second squared (ms<sup>-2</sup>)
+    - On iOS, this is in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
+    - On Android, this is in meters per second squared (ms<sup>-2</sup>). 
+ 
+> 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences. 
 
 ## Gravity
 - `x`, `y` and `z`, in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>.
@@ -89,20 +91,25 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 
 ## Headphone
 - `pitch`, `roll` and `yaw`, in radians.
-- `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
-- `gravityX`, `gravityY` and `gravityZ`, in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>.
+- `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
+- `gravityX`, `gravityY` and `gravityZ`, in meters per second squared (ms<sup>-2</sup>); Assumes `g` to be 9.80665ms<sup>-2</sup>, regardless of whether "Standardise Units & Frames" is turned on or not. 
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
 - `devicelocation` can be left or right.
 - `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s). (_Note: New in version 1.30_)
+
+> 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences. 
 
 ## Heartrate
 - `bpm` in beats per minute.
 
 ## WristMotion
-- `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s).
-- `gravityX`, `gravityY` and `gravityZ`, in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
-- `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g).
-- `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless. 
+- `rotationX`, `rotationY` and `rotationZ`, in radians per second (rad/s).
+- `gravityX`, `gravityY` and `gravityZ`, in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
+- `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
+- `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless.
+Note that if you require pitch, roll and yaw information, you can derive them from the quaternions, which are more suitable for most applications anyways. 
+
+> 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences. 
 
 ## Light
 - `lux` is in lux.
