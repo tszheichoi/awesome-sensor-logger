@@ -36,7 +36,7 @@ If **Standardise Units & Frames** is toggled on, Sensor Logger will conform to t
 <img width="1387" alt="orientation" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/d19898b4-7959-4746-8793-04ac610134a4">
 
 ### Rotation Rate
-iOS and Android report with the same sign convention for the rotation rate from the Gyroscope sensor. Toggling **Standardise Units & Frames** has no effects here. 
+iOS and Android report with the same sign convention for the rotation rate from the Gyroscope sensor. Toggling **Standardise Units & Frames** has no effect here. 
 
 <img width="1391" alt="rotation_rate" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/8987be74-a4db-4efc-a43b-f2f599d8a8bf">
 
@@ -55,13 +55,15 @@ The unit for acceleration from the Apple Watch and AirPods is in standard gravit
 - Acceleration and gravity vector values from Apple Watch will be in meters per second squared (ms-2).
 - Acceleration and gravity vector values from AirPods will be in meters per second squared (ms-2).
 
+It is strongly recommended that you toggle **Standardise Units & Frames** on -- by default, it is off for backwards compatibility reasons. 
+
 ## Other Differences
 There are other considerations between iOS and Android, depending on your application and analysis:
 - Sampling frequency;
 - Sensor accuracy and precision;
 - Platform-level data processing and fusion pipelines for calibrated or derived values, such as orientation.
 
-Toggling "Standardise Units & Frames" will not account for these potential differences. 
+Toggling **Standardise Units & Frames**  will not account for these potential differences. 
 
 ## Notice Anything Else
 If you notice any other differences between operating systems when using Sensor Logger, please reach out or raise an issue in this repository. 
