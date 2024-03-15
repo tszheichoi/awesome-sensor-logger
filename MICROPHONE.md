@@ -15,7 +15,7 @@ You can adjust the audio quality level in Sensor Logger. In the latest version, 
 |  | Lossy on iOS | Lossy on Android | Lossless on iOS | Lossless on Android |
 | --- | --- | --- | --- | --- |
 | Extension | .mp4 | .mp4 | .mp4 | .mp4 |
-| Sample Rate | 16000 | 16000 | 44100 | 4100 |
+| Sample Rate | 16000 | 16000 | 44100 | 44100 |
 | Channels | 1 | 1 | 2 | 2 |
 | Bit Rate | 32000 | 32000 | 128000 | 12800 |
 
