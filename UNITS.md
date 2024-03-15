@@ -63,6 +63,8 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 ## Microphone
 - `dBFS` is [decibels relative to full scale](https://en.wikipedia.org/wiki/DBFS) and is dimensionless.
 
+For more information about the audio file, see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/MICROPHONE.md
+
 ## Network
 - `type` can be one of none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn or other. 
 - `isConnected` is a boolean or null.
