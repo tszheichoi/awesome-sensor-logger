@@ -46,8 +46,6 @@ Copy the Broker URL, Username and Password as shown below. Make sure Use TLS is 
 
 To test the connection, navigate to the Online Test section in the sidebar and enter the Topic the same as that as configured in Sensor Logger. Then click Subscribe. On Sensor Logger, tap "Tap to Test Publish". If successful, it should say "Message Sent". On the web client, you should see an incoming test message.  
 
-<img width="1355" alt="Screenshot 2024-03-28 at 11 08 56" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/1842de70-780e-49f1-a2fb-c2dd59fa0bfb">
-
 ### Setting Up a Local Broker
 You can also run EMQX locally if you do not want to use one of the managed cloud services. In this case, unless you expose your IP address, Sensor Logger should be on the same local network as your machine. 
 
