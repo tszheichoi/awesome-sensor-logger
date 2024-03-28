@@ -3,7 +3,7 @@ Sensor Logger supports HTTP Push and MQTT Publishing during a recording session.
 
 Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports simultaneous HTTP pushing and MQTT publishing. 
 
-If you want to push to other protocols currently not supported by Sensor Logger, many managed MQTT brokers support out-of-the-box data forwarding to pretty much anything. For example, [EMQ X Data Integration](https://www.emqx.io/docs/en/latest/data-integration/data-bridges.html) supports message forwarding to Kafka, and GCP PubSub Sources.
+If you want to push to other protocols currently not supported by Sensor Logger, many managed MQTT brokers support out-of-the-box data forwarding to pretty much anything. For example, [EMQ X Cloud Data Integration](https://www.emqx.io/docs/en/latest/data-integration/data-bridges.html) supports message forwarding to Kafka, and GCP PubSub Sources.
 
 ## HTTP Push
 For HTTP Push, you have to set up a web server to receive the messages. For more information and sample code on how to set one up, see https://github.com/tszheichoi/awesome-sensor-logger?tab=readme-ov-file#live-data-streaming.
@@ -11,7 +11,7 @@ For HTTP Push, you have to set up a web server to receive the messages. For more
 ## MQTT Publishing
 MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol that is widely used for IoT (Internet of Things) applications. It is more lightweight than HTTP, but requires a more involved setup. 
 
-### Setting Up a Broker
+### Setting Up a Managed Broker
 You can either run your own broker (e.g. Mosquitto, EMQX, HiveMQ, RabbitMQ, and VerneMQ), or use a managed and hosted one.
 
 #### HiveMQ Cloud Example
@@ -33,8 +33,32 @@ To test the connection, navigate to the Web Client at the top on HiveMQ. Connect
 
 It is also via this web client that you can see incoming messages during a recording session when MQTT Publishing is enabled.
 
-#### EMQX Example
-EMQX works very similarly 
+#### EMQX Cloud Example
+EMQX Cloud works very similarly to HiveHQ Cloud, and also provides a generous free tier for you to try things out. 
+
+1. Sign up for a new account at https://www.emqx.com/en/cloud.
+2. Choose and deploy the Serverless plan.
+3. Select the newly created cluster in the Deployments.
+4. Create a username and password under the Credentials section. 
+
+Copy the Broker URL, Username and Password as shown below. Make sure Use TLS is toggled on. You can change the topic name as you wish. The default is `sensor-logger`. 
+<img width="866" alt="Screenshot 2024-03-28 at 16 47 24" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/a88ac1da-0fa5-4a0e-ab27-bdbcea0c7328">
+
+To test the connection, navigate to the Online Test section in the sidebar and enter the Topic the same as that as configured in Sensor Logger. Then click Subscribe. On Sensor Logger, tap "Tap to Test Publish". If successful, it should say "Message Sent". On the web client, you should see an incoming test message.  
+
+<img width="1355" alt="Screenshot 2024-03-28 at 11 08 56" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/1842de70-780e-49f1-a2fb-c2dd59fa0bfb">
+
+### Setting Up a Local Broker
+You can also run EMQX locally if you do not want to use one of the managed cloud services. In this case, unless you expose your IP address, Sensor Logger should be on the same local network as your machine. 
+
+#### EMQX Locally Using Docker
+1. Install docker on your machine https://docs.docker.com/engine/install/
+2. Get the docker image for EMQX following [these instructions](https://www.emqx.io/downloads). Specifically, run `docker pull emqx/emqx:5.6.0`.
+3. Start the container `docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8084:8084 -p 8883:8883 -p 18083:18083 emqx/emqx:5.6.0`.
+4. Navigate to `http://localhost:18083/` on a browser. The default username and password are `admin` and `public`, which you can change.
+5. Select Authentication from the sidebar and then click `+ Create`. Follow the workflow to create to create a Password-Based authentication. For most options, such as the backend and encryption mechanism, the defaults are fine.
+6. Select Websocket Client in the sidebar. There, you should find the host and port number you should enter into Sensor Logger.
+7. On that same page, you can connect and subscribe to the `sensor-logger` topic for testing. 
 
 ### Publishing to the Broker
 Once you have setup your broker, you can toggle "Enable MQTT Publish" on and start a recording session as usual. The JSON schema for the published MQTT messages is the same as the HTTP Push ones, namely: 
