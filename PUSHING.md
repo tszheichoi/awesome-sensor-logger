@@ -3,6 +3,8 @@ Sensor Logger supports HTTP Push and MQTT Publishing during a recording session.
 
 Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports simultaneous HTTP pushing and MQTT publishing. 
 
+If you want to push to other protocols currently not supported by Sensor Logger, many managed MQTT brokers support out-of-the-box data forwarding to pretty much anything. For example, [EMQ X Data Integration](https://www.emqx.io/docs/en/latest/data-integration/data-bridges.html) supports message forwarding to Kafka, and GCP PubSub Sources.
+
 ## HTTP Push
 For HTTP Push, you have to set up a web server to receive the messages. For more information and sample code on how to set one up, see https://github.com/tszheichoi/awesome-sensor-logger?tab=readme-ov-file#live-data-streaming.
 
@@ -10,7 +12,10 @@ For HTTP Push, you have to set up a web server to receive the messages. For more
 MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol that is widely used for IoT (Internet of Things) applications. It is more lightweight than HTTP, but requires a more involved setup. 
 
 ### Setting Up a Broker
-You can either run your own broker (e.g. Mosquitto, EMQ X, HiveMQ, RabbitMQ, and VerneMQ), or use a managed and hosted one. For this example, we will use HiveMQ Cloud, which is free to use and does not require you to install anything on your computer. 
+You can either run your own broker (e.g. Mosquitto, EMQX, HiveMQ, RabbitMQ, and VerneMQ), or use a managed and hosted one.
+
+#### HiveMQ Cloud Example
+For this example, we will use HiveMQ Cloud, which is free to use and does not require you to install anything on your computer. 
 
 1. Visit https://www.hivemq.com/company/get-hivemq/ and then select HiveMQ Cloud. You will need to create a free account.
 2. Select the free Serverless option.
@@ -22,12 +27,14 @@ Copy the Broker URL, Username and Password as shown below. Make sure Use TLS is 
 
 <img width="1452" alt="Screenshot 2024-03-09 at 17 10 25" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/8d657c37-e4ed-4e08-8255-48727da7a931">
 
-### Testing the Connection
 To test the connection, navigate to the Web Client at the top on HiveMQ. Connect to the client via the same username and password you have just created. Then, enter the topic you have configured on Sensor Logger. It is `sensor-logger` by default. On Sensor Logger, tap "Tap to Test Publish". If successful, it should say "Message Sent". On the web client, you should see an incoming test message.  
 
 <img width="1544" alt="Screenshot 2024-03-09 at 17 24 38" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/7d77c471-e2bc-468a-8e82-46e1d0b90276">
 
 It is also via this web client that you can see incoming messages during a recording session when MQTT Publishing is enabled.
+
+#### EMQX Example
+EMQX works very similarly 
 
 ### Publishing to the Broker
 Once you have setup your broker, you can toggle "Enable MQTT Publish" on and start a recording session as usual. The JSON schema for the published MQTT messages is the same as the HTTP Push ones, namely: 
