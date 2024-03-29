@@ -17,7 +17,9 @@ You can adjust the audio quality level in Sensor Logger. In the latest version, 
 | Extension | .mp4 | .mp4 | .mp4 | .mp4 |
 | Sample Rate | 16000 | 16000 | 44100 | 44100 |
 | Channels | 1 | 1 | 2 | 2 |
-| Bit Rate | 32000 | 32000 | 128000 | 12800 |
+| Bit Rate | 32000 | 32000 | N/A | 128000* |
+
+_* Not actually lossless due to API limitations_
 
 The above configurations are applicable from version 1.31 and onwards. Prior to version 1.31, the following applies. In particular, note that the lossless option made not difference on Android. 
 
