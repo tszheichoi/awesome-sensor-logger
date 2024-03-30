@@ -1,6 +1,14 @@
 # Questionnaire for Studies
 
-Optionally collect additional information from the participants to support your study. This is only available to users with subscriptions. 
+Optionally collect additional information from the participants to support your study. For example, you can use this feature to:
+
+- 📋 Request participants' ages, names, and contact emails upon joining.
+- 🔍 Require a participant identifier for joining Sensor Logger data and other research datasets.
+- ✅ Obtain additional consent from participants upon study enrollment.
+- 🩺 Inquire about participants' physical and mental condition following each data collection session.
+- 🤔 Prompt data collectors for any necessary clarifications to facilitate data analysis.
+- 📝 Gather demographic information such as gender, occupation, and educational background for a comprehensive understanding of participant profiles.
+- 📅 Schedule follow-up surveys or interviews to delve deeper into specific responses or gather longitudinal data.
 
 > ⚠️: **Version 1.32.3** introduced mandatory question fields and multiple choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise they may be able to skip questions and won't see multiple choice questions entirely, respectively. 
 
