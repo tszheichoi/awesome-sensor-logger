@@ -10,7 +10,7 @@ Optionally collect additional information from the participants to support your 
 - 📝 Gather demographic information such as gender, occupation, and educational background for a comprehensive understanding of participant profiles.
 - 📅 Schedule follow-up surveys or interviews to delve deeper into specific responses or gather longitudinal data.
 
-> ⚠️: **Version 1.32.3** introduced mandatory question fields and multiple choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise they may be able to skip questions and won't see multiple choice questions entirely, respectively. 
+> ⚠️: **Version 1.31.3** introduced mandatory question fields and multiple choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise they may be able to skip questions and won't see multiple choice questions entirely, respectively. 
 
 ## When Are Questions Presented?
 
