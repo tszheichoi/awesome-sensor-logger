@@ -30,7 +30,8 @@ Both Join Study questions and Recording End questions are packaged and stored as
 
 **Only if you use Sensor Logger Cloud as your data delivery mechanism. Unavailable if you choose Manual.* 
 
-When viewing on Sensor Logger Cloud, you get a cleaned version of the questionnaire, where the questions are keys and answers are values. You can view them in a table directly on the website or download them CSV. 
+## Viewing Questionnaire Answers Online (Recommended) 
+When viewing via Sensor Logger Cloud, you get a cleaned version of the questionnaire, where the questions are keys and answers are values. You can view them in a table directly on the website. 
 
 ```json
 {
@@ -39,7 +40,65 @@ When viewing on Sensor Logger Cloud, you get a cleaned version of the questionna
    "Age": "32"
 }
 ```
+If you click the "Download Questionnaire" button, then all the answers will be packaged into a CSV. The CSV will be of the following format, where each row is one recording, and the `Questionnaire` column is a json string.
 
+|Download                           |Size     |Questionnaire                                              |Uploader ID|
+|-----------------------------------|---------|-----------------------------------------------------------|-----------|
+|Recording_2-2024-04-23_22-15-51.zip|158.40 kB|{"Age":"23","Name":"John","Email":"anotherEmail@email.com"}|Study Owner|
+|Recording_1-2024-04-23_22-15-30.zip|148.31 kB|{"Age":"33","Name":"Kelvin","Email":"test@test.com"}       |Study Owner|
+
+If you wish to unpack the `Questionnaire` column into a column for each question, you can adapt this simple Python script.
+
+```python
+import pandas as pd
+import json
+
+df = pd.read_csv('my_recording_questionniares.csv')
+df['Questionnaire'] = df['Questionnaire'].apply(json.loads)
+
+for index, row in df.iterrows():
+    for key, value in row['Questionnaire'].items():
+        df.at[index, key] = json.dumps(value) if isinstance(value, list) else value
+```
+
+This yields a Dataframe of the following structure.
+
+|Download                           |Size     |Uploader ID|Age|Name  |Email                 |
+|-----------------------------------|---------|-----------|---|------|----------------------|
+|Recording_2-2024-04-23_22-15-51.zip|158.40 kB|Study Owner|23 |John  |anotherEmail@email.com|
+|Recording_1-2024-04-23_22-15-30.zip|148.31 kB|Study Owner|33 |Kelvin|test@test.com         |
+
+## Processing Signatures
+All signatures are stored as vector strokes. The Sensor Logger online portal renders this for you, but if you want to draw it locally from the downloaded questionnaire CSV, you will have to use a plotting library. The structure of the payload is a list of lists representing each distinct stroke. For each stroke, it is a dictionary with keys `x` and `y`. Note that, following convention, the origin is at the upper left-hand corner, so the y-axis may be reversed. You can adapt the following script for your needs -- it iterates over the rows and plots out each signature, assuming the signature field is named `signature_field` 
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import json
+
+df = pd.read_csv('my_recording_questionniares.csv')
+
+signature_field_name = 'signature_field'
+
+df['Questionnaire'] = df['Questionnaire'].apply(json.loads)
+
+for _, row in df.iterrows():
+    signature = row['Questionnaire'][signature_field_name]
+
+    fig = go.Figure()
+    for stroke in signature:
+        x_values = [point['x'] for point in stroke]
+        y_values = [point['y'] for point in stroke]
+        fig.add_trace(go.Scatter(x=x_values, y=y_values, mode='lines', showlegend=False))
+    fig.update_layout(yaxis_autorange = 'reversed')
+    fig.show()
+```
+
+
+<img width="858" alt="signature_field" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/28416b3a-e160-4da2-8f25-84624a05ec68">
+
+
+## Viewing Questionnaire Answers As Part of Zipped CSV
 If your export format is Zipped CSV, you will get the full questionnaire inside the zip file, as a standalone JSON named `StudyMetadata.json`. For example:
 
 ```json
@@ -69,6 +128,7 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
    }
 ]
 ```
+Unlike the online version, this is more complete -- including the description, type and whether the question was optional. 
 
 ## Question Types
 A type, which can be one of the followings.
