@@ -77,11 +77,12 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
     - Number, where the participants can enter numbers in a keypad.
     - Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
     - Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
+    - Sign, where the participants can scribble their signature. 
 
 ## Number of Questions
 
-- No questionnaire in the Free tier
-- 1 question allowed in the Plus tier
-- 3 questions allowed in the Pro tier
-- 20 questions allowed in the Ultimate tier
+The number of questions you can create for the questionnaire varies based on your subscription tier.
+- 1 questionnaire in the Free tier
+- 3 questions allowed in the Plus and Pro tiers
+- Up to 100 questions allowed in the Ultimate tier
 - Need more? *Contact me*.
