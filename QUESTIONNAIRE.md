@@ -71,13 +71,12 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
 ```
 
 ## Question Types
-
-- A type, which can be one of the followings.
-    - Text, where the participants can enter free-form text.
-    - Number, where the participants can enter numbers in a keypad.
-    - Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
-    - Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
-    - Sign, where the participants can scribble their signature. 
+A type, which can be one of the followings.
+- Text, where the participants can enter free-form text.
+- Number, where the participants can enter numbers in a keypad.
+- Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
+- Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
+- Sign, where the participants can scribble their signature. 
 
 ## Number of Questions
 
