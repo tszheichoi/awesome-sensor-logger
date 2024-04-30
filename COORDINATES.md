@@ -8,11 +8,14 @@ For information about units, refer to https://github.com/tszheichoi/awesome-sens
 
 Acceleration is reported in the following coordinate system, with `x` and `y` being the horizontal and vertical axes of the screen and `z` pointing into/out of the screen. These axes "stick" to the device, so they never change even when the phone rotates.
 
+### Differences Between iOS and Android
+
+This is what the coordinate frames look like by operating systems. 
+
 <img width="966" alt="Screenshot 2024-02-24 at 00 57 04" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/ec93559b-5443-48a1-85e0-7c05fde6b723">
 
-_IMPORTANT: These diagrams follow the conventions of Android. As a result, the iOS version gains a negative sign compared to the official drawings from Apple's documentation https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager._ 
+_IMPORTANT: These diagrams show the direction of the applied force. This is different to the diagrams on Apple's official documentation, which shows the inertial force (exact opposite). https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager._ 
 
-### Differences Between iOS and Android
 While the directions of the axes are the same across platforms, **there is a negative sign difference for all three axes** between iOS and Android. For example, if you move your phone to the right, along the `x` axis, you will register positive values on Android, but negative values on iOS. This is simply a difference in definition -- likely because iOS' convention is in the context of _inertial force_, whereas Android's convention is in the context of _accelerating force_. 
 
 Accordingly, the Gravity sensor is also different by a negative sign between iOS and Android. When you place your phone flat on a table, the gravity vector points in `-z` on iOS and `+z` on Android. 
