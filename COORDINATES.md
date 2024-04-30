@@ -10,7 +10,7 @@ Acceleration is reported in the following coordinate system, with `x` and `y` be
 
 <img width="966" alt="Screenshot 2024-02-24 at 00 57 04" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/ec93559b-5443-48a1-85e0-7c05fde6b723">
 
-_Adapted from https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager to reflect the sign convention differences between operating systems._ 
+_IMPORTANT: These diagrams follow the conventions of Android. As a result, the iOS version gains a negative sign compared to the official drawings from Apple's documentation https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager._ 
 
 ### Differences Between iOS and Android
 While the directions of the axes are the same across platforms, **there is a negative sign difference for all three axes** between iOS and Android. For example, if you move your phone to the right, along the `x` axis, you will register positive values on Android, but negative values on iOS. This is simply a difference in definition -- likely because iOS' convention is in the context of _inertial force_, whereas Android's convention is in the context of _accelerating force_. 
