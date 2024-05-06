@@ -1,6 +1,6 @@
 # Questionnaire for Studies
 
-Optionally collect additional information from the participants to support your study. For example, you can use this feature to:
+Collect additional information from the participants to support your study. For example, you can use this feature to:
 
 - 📋 Request participants' ages, names, and contact emails upon joining.
 - 🔍 Require a participant identifier for joining Sensor Logger data and other research datasets.
@@ -12,13 +12,23 @@ Optionally collect additional information from the participants to support your 
 
 ## When Are Questions Presented?
 
-**Join Study** questions are presented when a user joins a study initially. This is useful for collecting information about the participant — e.g. name, study-specific identifier, contact details etc. Note that once the participant has joined a study, the answers to these questions will not longer be editable. if the same participant leaves and rejoins the study, the latter answers will override the former ones. 
+**Join Study** questions are presented when a user joins a study initially. This is useful for collecting information about the participant — e.g. name, study-specific identifier, contact details etc. Note that once the participant has joined a study, the answers to these questions will not longer be editable. If the same participant leaves and rejoins the study, the latter answers will override the former ones. 
 
-**Recording End** questions are presented every time a recording ends whilst the study is active. This is useful for collecting information that will change across multiple recordings by the same participant — e.g. for a study tracking car journeys, you may want to collect license plate number or the colour of the car; for a medical study, you may want to ask the participant to note down their mood or activity level. These questions can be changed after the fact in the Recordings screen under Study Metadata, up until the recording is uploaded to Sensor Logger Cloud if you opt to use it for your study.
+**Recording End** questions are presented every time a recording ends whilst the study is active. This is useful for collecting information that will change across multiple recordings by the same participant — e.g. for a study tracking car journeys, you may want to collect license plate number or the colour of the car; for a medical study, you may want to ask the participant to note down their mood or activity level. These questions can be edited after the fact in the Recordings screen under Study Metadata, up until the recording is uploaded to Sensor Logger Cloud if you opt to use it for your study.
+
+## Question Types
+A type, which can be one of the followings.
+- Text, where the participants can enter free-form text.
+- Number, where the participants can enter numbers in a keypad.
+- Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
+- Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
+- Sign, where the participants can scribble their signature. *New in version 1.32*
+
+Note: Version 1.31.3 introduced mandatory question fields and multiple-choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise, they may be able to skip questions and won't see multiple-choice questions entirely, respectively.  
 
 ## How Are Questions & Answers Stored?
 
-Both Join Study questions and Recording End questions are packaged and stored as JSON. How you access them depends on the data format you have opted for your study. 
+Both Join Study questions and Recording End questions are packaged and stored as JSON internally. How you access them depends on the data format you have selected for your study. 
 
 | Export Format | Zipped CSV | Combined CSV | JSON | Excel | KML | SQLite |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -30,15 +40,15 @@ Both Join Study questions and Recording End questions are packaged and stored as
 
 *^Complete JSON includes the entire question -- such as when was the question asked and all options in multiple-choice questions. Simplified JSON includes only the question title and answer.*
 
-Signature is a specific type of question where the participants can doodle on a canvas. The availability and presentation are different to other question types:
+Signature is a special type of question where the participants can doodle on a canvas. The availability and presentation of signatures are different to other question types:
 
 | Export Format | Signature |
 | --- | --- |
-| Part of Recording | As coordinates of signature path*  |
-| View On Sensor Logger Cloud Portal | Preview as image and downloadable as SVG |
+| Part of Recording | As array of coordinates, representing the signature path*  |
+| View On Sensor Logger Cloud Portal | Preview as image, and downloadable as SVG |
 | Download From Sensor Logger Cloud Portal | Excluded from CSV |
 
-*\*See below on how to read and render this yourself with example Python code.*
+*\*See below for how to read and render this yourself with example Python code.*
 
 ## Viewing Questionnaire Answers Online (Recommended) 
 When viewing via Sensor Logger Cloud, you get a cleaned version of the questionnaire, where the questions are keys and answers are values. You can view them in a table directly on the website. 
@@ -50,7 +60,13 @@ When viewing via Sensor Logger Cloud, you get a cleaned version of the questionn
    "Age": "32"
 }
 ```
-If you click the "Download Questionnaire" button, then all the answers will be packaged into a CSV. The CSV will be of the following format, where each row is one recording, and the `Questionnaire` column is a json string.
+In the *Recordings* section of the page, you will see all the Recording End questions. In the *Current Participants* section, you will see all the Join Study questions. 
+
+If your questionnaire has signatures, they will appear in a separate column with a clickable link where you can preview the drawing. This is where you can also download each signature as a separate SVG. 
+
+<img width="1133" alt="signature" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/6c6be467-8b8c-4271-b501-e92b01977fcd">
+
+If you click the "Download Questionnaire" button, then all the answers will be packaged into a CSV. The CSV will be of the following format, where each row is one recording, and the `Questionnaire` column is a json string. Note that signatures, if any, are excluded from this CSV. 
 
 |Download                           |Size     |Questionnaire                                              |Uploader ID|
 |-----------------------------------|---------|-----------------------------------------------------------|-----------|
@@ -77,36 +93,6 @@ This yields a Dataframe of the following structure.
 |-----------------------------------|---------|-----------|---|------|----------------------|
 |Recording_2-2024-04-23_22-15-51.zip|158.40 kB|Study Owner|23 |John  |anotherEmail@email.com|
 |Recording_1-2024-04-23_22-15-30.zip|148.31 kB|Study Owner|33 |Kelvin|test@test.com         |
-
-## Processing Signatures
-All signatures are stored as vector strokes. The Sensor Logger online portal renders this for you, but if you want to draw it locally from the downloaded questionnaire CSV, you will have to use a plotting library. The structure of the payload is a list of lists representing each distinct stroke. For each stroke, it is a dictionary with keys `x` and `y`. Note that, following convention, the origin is at the upper left-hand corner, so the y-axis may be reversed. You can adapt the following script for your needs -- it iterates over the rows and plots out each signature, assuming the signature field is named `signature_field` 
-
-```python
-import pandas as pd
-import plotly.graph_objects as go
-import json
-
-df = pd.read_csv('my_recording_questionniares.csv')
-
-signature_field_name = 'signature_field'
-
-df['Questionnaire'] = df['Questionnaire'].apply(json.loads)
-
-for _, row in df.iterrows():
-    signature = row['Questionnaire'][signature_field_name]
-
-    fig = go.Figure()
-    for stroke in signature:
-        x_values = [point['x'] for point in stroke]
-        y_values = [point['y'] for point in stroke]
-        fig.add_trace(go.Scatter(x=x_values, y=y_values, mode='lines', showlegend=False))
-    fig.update_layout(yaxis_autorange = 'reversed')
-    fig.show()
-```
-
-
-<img width="858" alt="signature_field" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/28416b3a-e160-4da2-8f25-84624a05ec68">
-
 
 ## Viewing Questionnaire Answers As Part of Zipped CSV
 If your export format is Zipped CSV, you will get the full questionnaire inside the zip file, as a standalone JSON named `StudyMetadata.json`. For example:
@@ -140,15 +126,35 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
 ```
 Unlike the online version, this is more complete -- including the description, type and whether the question was optional. 
 
-## Question Types
-A type, which can be one of the followings.
-- Text, where the participants can enter free-form text.
-- Number, where the participants can enter numbers in a keypad.
-- Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
-- Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
-- Sign, where the participants can scribble their signature.
+## Processing Signatures Yourself
+All signatures are stored as vector strokes, and the recommended way to view and retrieve them is via the online portal, where it is. However, if you want to draw it locally yourself, you will have to use a plotting library. To do so, ensure you have either Zipped CSV or SQLite as the export options. This way, all signatures are packaged as part of the recording.
 
-Note: Version 1.31.3 introduced mandatory question fields and multiple-choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise, they may be able to skip questions and won't see multiple-choice questions entirely, respectively.  
+The structure of the value field for a question of signature type is a list of lists representing each distinct stroke. For each stroke, it is an array of two values representing the `x` and `y` coordinates. Divide the integers by 1000 to get the relative coordinates. Note that, following convention, the origin (`(0, 0)`, after dividing by 1000) is at the upper left-hand corner, so the y-axis may be reversed. 
+
+As an example, this Python script reads in 
+
+You can adapt the following script for your needs -- it iterates over the rows and plots out each signature, assuming the signature field is named `signature_field` 
+
+```python
+import json
+import plotly.graph_objects as go
+
+with open('/work/StudyMetadata.json', 'r') as f:
+    study_metadata = json.load(f)
+
+question = study_metadata[0] # array of questions, take the first one
+signature_path = question['value'] # we know this is a signature
+
+fig = go.Figure()
+for stroke in signature_path:
+    x_values = [point[0] * 1000 for point in stroke]
+    y_values = [point[1] * 1000 for point in stroke]
+    fig.add_trace(go.Scatter(x=x_values, y=y_values, mode='lines', showlegend=False))
+fig.update_layout(yaxis_autorange='reversed', xaxis_visible=False, yaxis_visible=False)
+fig.show()
+```
+
+<img width="820" alt="plotly_signature" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/fd8c085e-cf8b-42cc-a83d-32573c594159">
 
 ## Number of Questions
 
