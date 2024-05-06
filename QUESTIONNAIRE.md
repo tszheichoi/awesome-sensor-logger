@@ -24,11 +24,11 @@ Both Join Study questions and Recording End questions are packaged and stored as
 
 | Export Format | Zipped CSV | Combined CSV | JSON | Excel | KML | SQLite |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inside Recording | ✅ (JSON) | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Inside Recording | ✅ (JSON) | ❌ | ❌ | ❌ | ❌ | ✅ |
 | View On Sensor Logger Cloud Portal* | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) |
 | Download From Sensor Logger Cloud Portal* | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) |
 
-**Only if you use Sensor Logger Cloud as your data delivery mechanism. Unavailable if you choose Manual.* 
+**Only if you use Sensor Logger Cloud as your data delivery mechanism. Unavailable if you choose Manual.*
 
 ## Viewing Questionnaire Answers Online (Recommended) 
 When viewing via Sensor Logger Cloud, you get a cleaned version of the questionnaire, where the questions are keys and answers are values. You can view them in a table directly on the website. 
