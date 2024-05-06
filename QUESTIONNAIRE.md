@@ -4,13 +4,11 @@ Optionally collect additional information from the participants to support your 
 
 - 📋 Request participants' ages, names, and contact emails upon joining.
 - 🔍 Require a participant identifier for joining Sensor Logger data and other research datasets.
-- ✅ Obtain additional consent from participants upon study enrollment.
+- ✅ Obtain additional consent from participants upon enrollment via signatures.
 - 🩺 Inquire about participants' physical and mental condition following each data collection session.
 - 🤔 Prompt data collectors for any necessary clarifications to facilitate data analysis.
 - 📝 Gather demographic information such as gender, occupation, and educational background for a comprehensive understanding of participant profiles.
 - 📅 Schedule follow-up surveys or interviews to delve deeper into specific responses or gather longitudinal data.
-
-> ⚠️: **Version 1.31.3** introduced mandatory question fields and multiple choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise they may be able to skip questions and won't see multiple choice questions entirely, respectively. 
 
 ## When Are Questions Presented?
 
@@ -24,11 +22,23 @@ Both Join Study questions and Recording End questions are packaged and stored as
 
 | Export Format | Zipped CSV | Combined CSV | JSON | Excel | KML | SQLite |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inside Recording | ✅ (JSON) | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Part of Recording | ✅ (Complete JSON^) | ❌ | ❌ | ❌ | ❌ | ✅ (Table) |
 | View On Sensor Logger Cloud Portal* | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) | ✅ (JSON) |
 | Download From Sensor Logger Cloud Portal* | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) | ✅ (CSV) |
 
-**Only if you use Sensor Logger Cloud as your data delivery mechanism. Unavailable if you choose Manual.*
+*\*Only if you use Sensor Logger Cloud as your data delivery mechanism. Unavailable if you choose Manual.*
+
+*^Complete JSON includes the entire question -- such as when was the question asked and all options in multiple-choice questions. Simplified JSON includes only the question title and answer.*
+
+Signature is a specific type of question where the participants can doodle on a canvas. The availability and presentation are different to other question types:
+
+| Export Format | Signature |
+| --- | --- |
+| Part of Recording | As coordinates of signature path*  |
+| View On Sensor Logger Cloud Portal | Preview as image and downloadable as SVG |
+| Download From Sensor Logger Cloud Portal | Excluded from CSV |
+
+*\*See below on how to read and render this yourself with example Python code.*
 
 ## Viewing Questionnaire Answers Online (Recommended) 
 When viewing via Sensor Logger Cloud, you get a cleaned version of the questionnaire, where the questions are keys and answers are values. You can view them in a table directly on the website. 
@@ -136,7 +146,9 @@ A type, which can be one of the followings.
 - Number, where the participants can enter numbers in a keypad.
 - Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
 - Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
-- Sign, where the participants can scribble their signature. 
+- Sign, where the participants can scribble their signature.
+
+Note: Version 1.31.3 introduced mandatory question fields and multiple-choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise, they may be able to skip questions and won't see multiple-choice questions entirely, respectively.  
 
 ## Number of Questions
 
