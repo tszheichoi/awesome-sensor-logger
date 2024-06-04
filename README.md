@@ -639,7 +639,16 @@ For example, if it returns `192.168.1.168`, then you want to enter `http://192.1
 
 ## Further Use Cases and Applications
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
-- Hotair balloon tracking
+
+### Published Research
+- Rodi Laanen, Maedeh Nasri, Richard van Dĳk, Mitra Baratchi, Alexander Koutamanis, & Carolien Rieffe. (2023). Automated classification of pre-defined movement patterns: A comparison between GNSS and UWB technology.
+- Shin, J. I. and Kim, J. O.: Possibility of Crowdsourcing-based Method for Surveying the Flatness of Pedestrian Spaces, Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci., XLVIII-4/W10-2024, 163–168, https://doi.org/10.5194/isprs-archives-XLVIII-4-W10-2024-163-2024, 2024.
+- N. Loecher, S. King, J. Cabo, T. Neal and K. Kosyluk, "Assessing the Efficacy of a Self-Stigma Reduction Mental Health Program with Mobile Biometrics: Work-in-Progress," 2023 IEEE 17th International Conference on Automatic Face and Gesture Recognition (FG), Waikoloa Beach, HI, USA, 2023, pp. 1-6, doi: 10.1109/FG57933.2023.10042655.
+- Degambur, L.-N. (2024). Replay attack prevention in decentralised contact tracing: A blockchain-based approach. OALib, 11(02), 1–17. https://doi.org/10.4236/oalib.1111179
+- Xiping Sun, Jing Chen, Cong Wu, Kun He, Haozhe Xu, Yebo Feng, Ruiying Du, & Xianhao Chen. (2024). MagLive: Near-Field Magnetic Sensing-Based Voice Liveness Detection on Smartphones.
+
+### Other Uses
+- Hot air balloon tracking
 - Flight data logging
 - Wearable technology research
 - Pedestrian dead reckoning
@@ -649,6 +658,7 @@ Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feed
 - Sports research
     - https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1993640?journalCode=rjsp20
 - Vehicle tracking
+    - https://www.ndss-symposium.org/wp-content/uploads/vehiclesec2024-52-paper.pdf
 - Figure skating analysis
 - Whale watching
 - Video stabilisation
@@ -657,7 +667,7 @@ Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feed
 - Sensor fusion / Kalman filtering / Data assimilation
     - https://scipy-cookbook.readthedocs.io/items/KalmanFiltering.html
     - https://www.youtube.com/watch?v=TmBEryh2OXY
-- GPS data logging for photo / video geolocation. 
+- GPS data logging for photo / video geolocation.
 
 ## Contribute
 Please submit a PR if you have scripts or links that may be useful for other users. I will also feature any project that uses Sensor Logger, integrated as part of a larger workflow. 
