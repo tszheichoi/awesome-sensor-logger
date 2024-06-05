@@ -641,6 +641,8 @@ For example, if it returns `192.168.1.168`, then you want to enter `http://192.1
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
 
 ### Published Research
+Some recently published papers citing / using Sensor Logger:
+
 - Rodi Laanen, Maedeh Nasri, Richard van Dĳk, Mitra Baratchi, Alexander Koutamanis, & Carolien Rieffe. (2023). Automated classification of pre-defined movement patterns: A comparison between GNSS and UWB technology.
 - Shin, J. I. and Kim, J. O.: Possibility of Crowdsourcing-based Method for Surveying the Flatness of Pedestrian Spaces, Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci., XLVIII-4/W10-2024, 163–168, https://doi.org/10.5194/isprs-archives-XLVIII-4-W10-2024-163-2024, 2024.
 - N. Loecher, S. King, J. Cabo, T. Neal and K. Kosyluk, "Assessing the Efficacy of a Self-Stigma Reduction Mental Health Program with Mobile Biometrics: Work-in-Progress," 2023 IEEE 17th International Conference on Automatic Face and Gesture Recognition (FG), Waikoloa Beach, HI, USA, 2023, pp. 1-6, doi: 10.1109/FG57933.2023.10042655.
