@@ -367,7 +367,7 @@ min_distance = 25
 peaks, _ = find_peaks(signal, distance=min_distance)
 
 fig = go.Figure()
-fig.add_trace(go.Scatter(x=peaks, y=signal[peaks], mode='markers', marker=dict(color='red', size=10))
+fig.add_trace(go.Scatter(x=peaks, y=signal[peaks], mode='markers', marker=dict(color='red', size=10)))
 fig.add_trace(go.Scatter(x=range(len(signal)), y=signal, mode='lines'))
 fig.show()
 
