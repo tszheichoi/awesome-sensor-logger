@@ -18,7 +18,7 @@ import requests
 
 studyId = "test" # replace with real id
 secretCode = "secret" # replace with real secret, but be mindful not to commit it to git!
-url = f"<https://sensorlogger.app/api/study/v1?studyId={studyId}>"
+url = f"https://sensorlogger.app/api/study/v1?studyId={studyId}"
 response = requests.get(url, headers={"Authorization": secretCode})
 print(response.json())
 ```
