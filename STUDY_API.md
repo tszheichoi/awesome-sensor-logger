@@ -59,8 +59,9 @@ url = f"<https://dev.sensorlogger.app/api/study/file/v1?studyId={studyId}&upload
 response = requests.get(url, headers={"Authorization": secretCode})
 with open(f"{uploadId}.zip", "wb") as f:
     f.write(response.content)
-
 ```
+
+Replace `.zip` with the desired extension if you have configured your Study export not to be Zip. 
 
 ### Delete a Specific Recording
 
