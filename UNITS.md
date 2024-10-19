@@ -121,4 +121,6 @@ Note that if you require pitch, roll and yaw information, you can derive them fr
 - `bssid` is the MAC address.
 - `frequency` is the network frequency.
 - `level` is the signal strength in dBm.
- 
+
+## Compass
+- `magneticBearing` is in degrees.
