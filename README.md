@@ -646,8 +646,18 @@ Some recently published papers citing / using Sensor Logger:
 - Rodi Laanen, Maedeh Nasri, Richard van Dĳk, Mitra Baratchi, Alexander Koutamanis, & Carolien Rieffe. (2023). Automated classification of pre-defined movement patterns: A comparison between GNSS and UWB technology.
 - Shin, J. I. and Kim, J. O.: Possibility of Crowdsourcing-based Method for Surveying the Flatness of Pedestrian Spaces, Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci., XLVIII-4/W10-2024, 163–168, https://doi.org/10.5194/isprs-archives-XLVIII-4-W10-2024-163-2024, 2024.
 - N. Loecher, S. King, J. Cabo, T. Neal and K. Kosyluk, "Assessing the Efficacy of a Self-Stigma Reduction Mental Health Program with Mobile Biometrics: Work-in-Progress," 2023 IEEE 17th International Conference on Automatic Face and Gesture Recognition (FG), Waikoloa Beach, HI, USA, 2023, pp. 1-6, doi: 10.1109/FG57933.2023.10042655.
+- Etienne, A. J., Field, W. E., Ehlers, S. G., Tormoehlen, R., & Haslett, N. J. (2024). Testing the feasibility of selected, commercially available wearable devices in detecting agricultural-related incidents. Journal of Agricultural Safety and Health, 30(4), 181–204. https://doi.org/10.13031/jash.15985 
 - Degambur, L.-N. (2024). Replay attack prevention in decentralised contact tracing: A blockchain-based approach. OALib, 11(02), 1–17. https://doi.org/10.4236/oalib.1111179
 - Xiping Sun, Jing Chen, Cong Wu, Kun He, Haozhe Xu, Yebo Feng, Ruiying Du, & Xianhao Chen. (2024). MagLive: Near-Field Magnetic Sensing-Based Voice Liveness Detection on Smartphones.
+- Gadelho, J., & Guedes Soares, C. (2024). Experimental Motion Measurements of a Floating Dual Chamber OWC Using the Smartphone Sensors as a Low Budget Solution. In Innovations in Renewable Energies Offshore Proceedings of the 6th International Conference on Renewable Energies Offshore.
+- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU Time-series data. Journal of Machine Intelligence and Data Science, 5. https://doi.org/10.11159/jmids.2024.007
+- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Advanced Exercise Classification with a hybrid CNN-GRU model: Utilising IMU data from cell phones. International Conference of Control, Dynamic Systems, and Robotics. https://doi.org/10.11159/cdsr24.115 
+- Lee, M. J., Lin, J., & Hsu, L. T. (2024). Exploring the Feasibility of Automated Data Standardization using Large Language Models for Seamless Positioning. arXiv preprint arXiv:2408.12080.
+- Vallivaara, I., Dong, Y., & Arslan, T. (2024). Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM. arXiv preprint arXiv:2409.01242.
+- Ray, L. S. S., Geißler, D., Liu, M., Zhou, B., Suh, S., & Lukowicz, P. (2024). ALS-HAR: Harnessing Wearable Ambient Light Sensors to Enhance IMU-based HAR. arXiv preprint arXiv:2408.09527.
+- Yonetani, R., Baba, J., & Furukawa, Y. (2024, October). RetailOpt: Opt-In, Easy-to-Deploy Trajectory Estimation from Smartphone Motion Data and Retail Facility Information. In Proceedings of the 2024 ACM International Symposium on Wearable Computers (pp. 125-132).
+
+If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
 ### Other Uses
 - Hot air balloon tracking
