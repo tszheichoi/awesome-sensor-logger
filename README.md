@@ -92,9 +92,14 @@ Python is recommended for analysing the outputs from Sensor Logger. For interact
 ### Understanding Timestamps
 All exported data have synchronised time stamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below. 
 
-- The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps. By definition, these are UTC times -- whereas the filenames are in local times. 
-- The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching. 
-- Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
+- The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. By definition, these are UTC times -- whereas the filenames are in local times.
+  - You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps.
+  - If you use Python, some libraries may expect miliseconds instead of nanoseconds. Divide by 1000 accoridngly.
+  - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 * 60 * 60 * 24, and then format the column or cell as time.
+- The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching.
+- Optionally, you can enable human readable timestamps to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
+
+Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
 
 ### Understanding Units
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
