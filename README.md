@@ -94,7 +94,7 @@ All exported data have synchronised time stamps, meaning they can be cross-refer
 
 - The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. By definition, these are UTC times -- whereas the filenames are in local times.
   - You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps.
-  - If you use Python, some libraries may expect miliseconds instead of nanoseconds. Divide by 1000 accoridngly.
+  - If you use Python, some libraries may expect miliseconds instead of nanoseconds. Divide by 1000000 accoridngly.
   - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 * 60 * 60 * 24, and then format the column or cell as time.
 - The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching.
 - Optionally, you can enable human readable timestamps to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
