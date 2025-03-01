@@ -43,28 +43,35 @@ This repository contains a collection of tools, resources and sample code to use
 <img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
 
 ## The Sensor Logger App
-Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readings from common motion-related sensors on smartphones. Once completed, recordings can be exported as a zipped CSV file, JSON, SQLite, KML or be viewed within the app via interactive plots. The iOS version comes with a free companion watch app that allows you to log heart rate & wrist motion, and control recording sessions remotely from your wrist. Supported sensors and measurements include:
+Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readings from common motion-related sensors on smartphones. Once completed, recordings can be exported as a zipped CSV file, JSON, SQLite, KML or be viewed within the app via interactive plots. There is also a free companion watch app (WatchOS and WearOS) that allows you to log heart rate & wrist motion, and control recording sessions remotely from your wrist. Supported sensors and measurements include:
 
-- Device Acceleration (Accelerometer; Raw & Calibrated)
+- Device Acceleration (Accelerometer; Raw & Calibrated), G-Force
 - Gravity Vector (Accelerometer)
 - Device Rotation Rate (Gyroscope)
 - Device Orientation (Gyroscope; Raw & Calibrated)
-- Magnetic Heading (Magnetometer; Raw & Calibrated)
-- Barometric Altitude (Barometer)
-- GPS Coordinate, Altitude, Speed & Heading
+- Magnetic Field (Magnetometer; Raw & Calibrated)
+- Compass
+- Barometric Altitude (Barometer), Atmospheric Pressure
+- GPS: Altitude, Speed, Heading, Latitude, Longitude
 - Audio (Microphone)
-- Loudness (Microphone)
-- Camera Images (Front & Back, Foreground only)
-- Camera Video (Front & Back, Foreground only)
-- Pedometer (Estimated by operating system)
-- Heart Rate (Requires watch app to be installed)
-- Wrist Motion (Requires watch app to be installed)
-- Light Sensor (Android only)
-- Annotations (Timestamp and optional accompanying text comment)
-- Device battery level and state
-- Device screen brightness level
-- Nearby Bluetooth beacons (All advertised data)
+- Loudness (Microphone), Sound Meter
+- Camera Images (Front & Back, Foreground)
+- Camera Depth (Front & Back, Foreground, iOS Only)
+- Camera Video (Front & Back, Foreground)
+- Pedometer
+- Heart Rate (Apple Watch or Android WearOS)
+- Wrist Motion (Apple Watch or Android WearOS)
+- Watch Location (Apple Watch or Android WearOS)
+- Watch Barometer (Apple Watch or Android WearOS)
+- Light Sensor (Android Only)
+- Annotations (Timestamp and Text)
+- Device Battery Level and State
+- Device Screen Brightness Level
+- Nearby Bluetooth Beacons (All Advertised Data)
+- Nearby WiFi Networks (Android Only)
+- Battery Temperature (Android Only)
 - Headphone Motion (Requires AirPods)
+- Network
 
 Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger. 
 
