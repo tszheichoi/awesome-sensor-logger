@@ -109,7 +109,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `gravityX`, `gravityY` and `gravityZ`, in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
 - `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on. 
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless.
-Note that if you require pitch, roll and yaw information, you can derive them from the quaternions, which are more suitable for most applications anyways. 
+- `pitch`, `roll` and `yaw`, in radians. (New since version 1.44)
 
 > 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences. 
 
