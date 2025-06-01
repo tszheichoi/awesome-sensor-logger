@@ -694,6 +694,8 @@ If you have published work using Sensor Logger, feel free to reach out or make a
     - https://scipy-cookbook.readthedocs.io/items/KalmanFiltering.html
     - https://www.youtube.com/watch?v=TmBEryh2OXY
 - GPS data logging for photo / video geolocation.
+- Analyzing acceleration and vibration from personal transportation
+    - https://github.com/zmsubin/accelerometers_pub
 
 ## Contribute
 Please submit a PR if you have scripts or links that may be useful for other users. I will also feature any project that uses Sensor Logger, integrated as part of a larger workflow. 
