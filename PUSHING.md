@@ -84,7 +84,7 @@ The `messageId` is incremented for each message sent. The `sessionId` is the sam
 
 Further, note the following:
 - Sensor Logger publishes with a quality of service level 0 (at most once).
-- Sensor Logger only supports websockets. Typically websockets are on port 8000 (no TLS) or 8884 (TLS). TCP connections are not supported, which are typically on port 1883 (no TLS) or 8883 (TLS).
+- Sensor Logger supports both websockets and TCP. Typically websockets are on port 8000 (no TLS) or 8884 (TLS). Typically TCP connections are on port 1883 (no TLS) or 8883 (TLS).
 
 ### Consuming From the Broker
 Once your measurements have reached the broker, it is up to you how to use those messages. Typically, you would set up another client to consume these messages. As an example, you can do this via Python. 
