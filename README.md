@@ -649,6 +649,9 @@ For example, if it returns `192.168.1.168`, then you want to enter `http://192.1
 
 <img width="1440" alt="Screenshot 2022-07-10 at 10 23 03" src="https://user-images.githubusercontent.com/30114997/178138947-8522be59-4c0b-4966-84ad-49416fda5fc0.png">
 
+#### Simple Streaming Demo (MQTT)
+A simple web based demo app is available at https://github.com/tszheichoi/sensor-logger-streaming-demo-app. It connects to an MQTT broker, consumes streaming data, and visualizes it in an interactive plot. The demo also illustrates how to handle data from multiple devices simultaneously.
+
 ## Further Use Cases and Applications
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
 
