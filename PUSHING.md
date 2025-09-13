@@ -86,6 +86,9 @@ Further, note the following:
 - Sensor Logger publishes with a quality of service level 0 (at most once).
 - Sensor Logger supports both websockets and TCP. Typically websockets are on port 8000 (no TLS) or 8884 (TLS). Typically TCP connections are on port 1883 (no TLS) or 8883 (TLS).
 
+### Real-Time Visualization
+A simple web based demo app is available at https://github.com/tszheichoi/sensor-logger-streaming-demo-app. It connects to an MQTT broker, consumes streaming data, and visualizes it in an interactive plot. The demo also illustrates how to handle data from multiple devices simultaneously.
+
 ### Consuming From the Broker
 Once your measurements have reached the broker, it is up to you how to use those messages. Typically, you would set up another client to consume these messages. As an example, you can do this via Python. 
 ```
