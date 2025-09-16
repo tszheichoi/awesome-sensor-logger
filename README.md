@@ -676,6 +676,9 @@ Some recently published papers citing / using Sensor Logger:
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
+### Software Directory
+- https://software.umich.edu/titles/sensor-logger-app
+
 ### Other Uses
 - Hot air balloon tracking
 - Flight data logging
