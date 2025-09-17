@@ -658,6 +658,7 @@ Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feed
 ### Published Research
 Some recently published papers citing / using Sensor Logger:
 
+- Bingnan Duan, Yinhuan Dong, Ilari Vallivaara and Tughrul Arslan, "Anchored by Sound: Indoor Trajectory Mapping with Activity-Driven Audio Anchors", 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere Finland
 - Y. Dong, K. Kwan and T. Arslan, "Enhanced Pedestrian Trajectory Reconstruction Using Bidirectional Extended Kalman Filter and Automatic Refinement," 2024 14th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Kowloon, Hong Kong, 2024, pp. 1-6, doi: 10.1109/IPIN62893.2024.10786127.
 - I. Vallivaara, Y. Dong and T. Arslan, "Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM," 2024 14th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Kowloon, Hong Kong, 2024, pp. 1-7, doi: 10.1109/IPIN62893.2024.10786161.
 - Rodi Laanen, Maedeh Nasri, Richard van Dĳk, Mitra Baratchi, Alexander Koutamanis, & Carolien Rieffe. (2023). Automated classification of pre-defined movement patterns: A comparison between GNSS and UWB technology.
