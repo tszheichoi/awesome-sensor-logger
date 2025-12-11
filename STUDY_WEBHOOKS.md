@@ -24,7 +24,7 @@ With Webhooks, you can get notified whenever a participant uploads a recording, 
 
 ## Webhook API Reference
 
-> Note: A simple Python implementation of this API is available with instructions on deployment in the README.
+> Note: A simple Python implementation of this API is available with instructions on deployment in the README: https://github.com/tszheichoi/sensor-logger-webhook-demo
 
 You will need to create a HTTP endpoint that Sensor Logger Cloud will POST to _for every recording uploaded to your Study_. It should be able to receive a JSON payload as the body:
 
