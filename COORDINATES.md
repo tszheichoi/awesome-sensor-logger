@@ -51,7 +51,9 @@ For the rotation rate readings from the Gyroscope sensor, iOS and Android have c
 The orientation is derived from the rotation rate and references the same axes. To be specific:
 - `roll` refers to the rotation around `y`;
 - `pitch` refers to the rotation around `x`;
-- `yaw` refers to the rotation around `z`. Sometimes also called the `azimuth`. 
+- `yaw` refers to the rotation around `z`. Sometimes also called the `azimuth`.
+
+Orientation is reported using a Tait‑Bryan Z‑X′‑Y″ (yaw → pitch → roll) intrinsic rotation sequence, meaning the device is first rotated around the z axis (yaw), then the rotated x axis (pitch), and finally the twice-rotated y axis (roll). 
 
 Additionally, orientation has an arbitrary offset, as it is an integrated value from the rotation rate (i.e. an integration constant). For this, Sensor Logger uses the `x-north-z-vertical` reference frame, meaning the `yaw` value is 0 when the `x` axis is aligned with the north (i.e. the angle between the device's `y` axis and the north). 
 
@@ -59,8 +61,8 @@ Additionally, orientation has an arbitrary offset, as it is an integrated value 
 Due to legacy reasons and backwards compatibility reasons, there are some key differences in interpreting the yaw value:
 
 1. On iOS, north means the _true north_, whereas on Android, it refers to the _magnetic north_. You may have to account for this difference if you are comparing absolute values measured across platforms, though factors such as the accuracy of the magnetometer may outweigh such differences. 
-2. On iOS, `yaw` increases when you turn counterclockwise around the `z` axis (as pictured above). On Android, `yaw` increases when you turn clockwise around the `z` axis (opposite to pictured above, i.e. east is +π/2 and west is -π/2).
-3. On iOS, `pitch` decreases as you rotate around the `x` axis clockwise. On Android, `pitch` decreases as you rotate around the `x` axis counterclockwise (i.e. tiling the phone's top edge towards you and the phone's bottom edge away from you when you hold your phone normally)
+2. On iOS, `yaw` increases when you turn counterclockwise around the `z` axis (as pictured above, positive rotation around positive `z` following the right-handed system). On Android, `yaw` increases when you turn clockwise around the `z` axis (opposite to pictured above, negative rotation around positive `z` following the right-handed system; i.e. east is +π/2 and west is -π/2).
+3. On iOS, `pitch` decreases as you rotate around the `x` axis clockwise (negative rotation around positive `x` following the right-handed system). On Android, `pitch` decreases as you rotate around the `x` axis counterclockwise (i.e. tiling the phone's top edge towards you and the phone's bottom edge away from you when you hold your phone normally, positive rotation around positive `x` following the right-handed system)
 
 Further, on Android, there are additional Orientations you can log with various trade-offs. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/ORIENTATION.md. 
 
