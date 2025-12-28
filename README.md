@@ -104,9 +104,11 @@ All exported data have synchronised time stamps, meaning they can be cross-refer
   - If you use Python, some libraries may expect miliseconds instead of nanoseconds. Divide by 1000000 accoridngly.
   - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 * 60 * 60 * 24, and then format the column or cell as time.
 - The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching.
-- Optionally, you can enable human readable timestamps to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
+- Optionally, you can _enable human readable timestamps_ to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
 
 Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
+
+Optionally, Network Time Protocol (NTP) synchronization can be enabled to align sensor timestamps across multiple devices to a common time reference. When enabled, the system queries an NTP server (default: time.google.com) using 8 UDP requests and calculates the median clock offset to minimize network jitter. Synchronization occurs on app launch and automatically refreshes every 3 hours. The calculated offset is stored with nanosecond precision and applied to all sensor timestamps during recording. Expected precision is ten's of miliseconds on typical networks. 
 
 ### Understanding Units
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
