@@ -55,8 +55,11 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 
 ## Activity
 
-- `activity` is a string, which can be one of walking, running, cycling, automotive, stationary or unknown.
-- `confidence` is a string, which can be one of low, medium, high or unknown
+- `activity` is a string, which can be one of walking, running, cycling, automotive, stationary, tilting or unknown.
+- `confidence` is a string, which can be one of low, medium, high or unknown.
+
+- Note that Android internally reports "on foot" and "walking", Sensor Logger maps these both to "walking".
+- Note that the "tilting" activity is only reported on Android devices.
 
 ## Location
 
