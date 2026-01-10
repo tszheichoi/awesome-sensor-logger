@@ -35,6 +35,8 @@ If **Standardise Units & Frames** is toggled on, Sensor Logger will conform to t
 
 <img width="1387" alt="orientation" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/d19898b4-7959-4746-8793-04ac610134a4">
 
+> 💡: **In Version 1.51**: Prior to this version, toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ only affected the euler angles. Since this version, the quaternions are also consistently flipped on iOS.
+
 ### Rotation Rate
 iOS and Android report with the same sign convention for the rotation rate from the Gyroscope sensor. Toggling **Standardise Units & Frames** has no effect here. 
 
