@@ -53,6 +53,11 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 
 - `steps` is an integer.
 
+## Activity
+
+- `activity` is a string, which can be one of walking, running, cycling, automotive, stationary or unknown.
+- `confidence` is a string, which can be one of low, medium, high or unknown
+
 ## Location
 
 - `altitude`, in meters as a height above the WGS84 ellipsoid.
