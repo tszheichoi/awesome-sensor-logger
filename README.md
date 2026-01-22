@@ -684,6 +684,8 @@ If you have published work using Sensor Logger, feel free to reach out or make a
 
 ### Other Uses
 - Hot air balloon tracking
+- Train osccilation
+	- https://github.com/zmsubin/accelerometers_pub/blob/main/writeup/StudySummary.md
 - Flight data logging
 - Wearable technology research
 - Pedestrian dead reckoning
