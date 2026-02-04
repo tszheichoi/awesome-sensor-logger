@@ -52,4 +52,4 @@ fig.show()
 ```
 <img width="1135" alt="Screenshot 2025-02-08 at 18 13 08" src="https://github.com/user-attachments/assets/e1f8c1fb-e8ee-4bd2-982e-84d8f784449d" />
 
-Wow! Such cool a [LEGO layout](https://www.lego.com/en-gb/product/ninjago-city-gardens-71741) with a multi-layered, deep and stratified architectual composition!
+Wow! Such a cool [LEGO layout](https://www.lego.com/en-gb/product/ninjago-city-gardens-71741) with a multi-layered, deep and stratified architectual composition!
