@@ -1,0 +1,993 @@
+{
+  "screenTitle": {
+    "logger": "Registrador",
+    "recordings": "Gravações",
+    "studies": "Estudos",
+    "stories": "Histórias",
+    "about": "Sobre",
+    "settings": "Configurações",
+    "viewSensor": "Visualizar Sensor",
+    "details": "Detalhes",
+    "privacy": "Privacidade",
+    "settingsPreview": "Visualização de Configurações",
+    "questionnaire": "Questionário",
+    "whatsNew": "Novidades",
+    "plot": "Gráfico",
+    "tags": "Tags",
+    "subscribe": "Assinar",
+    "appIcon": "Ícone do App",
+    "export": "Exportar",
+    "addStudy": "Adicionar Estudo",
+    "studyDetail": "Detalhes do Estudo",
+    "aggregationSettings": "Configurações de Agregação",
+    "joinStudy": "Participar de Estudo",
+    "allSettings": "Todas as Configurações",
+    "mapSelector": "Seletor de Mapa",
+    "console": "Console",
+    "cloud": "Nuvem",
+    "cloudRecording": "Gravação em Nuvem",
+    "cloudRecordingUpload": "Upload de Gravação em Nuvem",
+    "storyDetails": "Detalhes da História",
+    "addStory": "Adicionar História",
+    "createStory": "Criar História",
+    "storyTemplate": "Modelo de História",
+    "storyTemplateDetails": "Detalhes do Modelo de História",
+    "storyWizard": "Assistente de História",
+    "infoEditor": "Editor de Informações",
+    "update": "Atualizar",
+    "createStudy": "Criar estudo",
+    "rulesEditor": "Editor de regras",
+    "rulesGallery": "Galeria de regras",
+    "rulesHelp": "Ajuda de regras",
+    "rulesSettings": "Configurações de regras"
+  },
+  "quickActions": {
+    "toggleRecording": "Alternar Gravação",
+    "toggleRecordingSubtitle": "Iniciar ou Encerrar Gravação",
+    "joinStudy": "Participar de Estudo",
+    "joinStudySubtitle": "Com Código ou QR Code",
+    "dontDeleteMe": "Espere! Não Me Exclua!",
+    "problemsHelp": "Problemas? Podemos Ajudar!",
+    "hereToHelp": "Estamos Aqui Para Ajudar"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "ok": "OK",
+    "delete": "Excluir",
+    "done": "Concluído",
+    "tags": "Tags",
+    "export": "Exportar",
+    "select": "Selecionar",
+    "add": "Adicionar",
+    "later": "Depois",
+    "continue": "Continuar",
+    "openSettings": "Abrir Configurações",
+    "upgrade": "Atualizar",
+    "error": "Erro",
+    "discard": "Descartar"
+  },
+  "license": {
+    "activated": "Licença Ativada",
+    "activatedMessage": "Sua licença foi ativada"
+  },
+  "validation": {
+    "requiredField": "Este campo é obrigatório e não pode estar vazio."
+  },
+  "api": {
+    "noInternet": "Você não está conectado à internet.",
+    "genericError": "Ocorreu um erro. Por favor, tente novamente mais tarde.",
+    "uploadError": "Ocorreu um erro durante o upload: %{error}"
+  },
+  "storyDetails": {
+    "deleteStory": "Excluir História",
+    "deleteStoryMessage": "Tem certeza de que deseja excluir esta História?",
+    "submitAsTemplate": "Enviar como Modelo",
+    "submitAsTemplateMessage": "Se você acha que outros usuários podem se beneficiar desta História, você pode enviá-la como modelo para que outros possam navegar, usar e aprimorar. Seu envio será revisado.",
+    "submit": "Enviar"
+  },
+  "recordings": {
+    "noRecordings": "Nenhuma Gravação",
+    "createRecordings": "Crie gravações usando o registrador.",
+    "noMatchingTags": "Nenhuma gravação corresponde às tags selecionadas.",
+    "confirmDeletion": "Confirmar Exclusão",
+    "deleteConfirmation": "Tem certeza de que deseja excluir %{count} gravações?",
+    "selected": "selecionado",
+    "showingCount": "Mostrando %{filtered} de %{total} Gravação/Gravações%{plural}",
+    "clearExportCache": "Limpar Cache de Exportação",
+    "nothingToClear": "Nada Para Limpar",
+    "noCachedExports": "Nenhuma exportação em cache para excluir, pois nenhuma gravação foi exportada.",
+    "cacheCleared": "Cache Limpo",
+    "cacheDeletedMessage": "Excluídos %{count} arquivos de exportação em cache, liberando %{size} MB de espaço.",
+    "untitledRecording": "Gravação Sem Título",
+    "showAll": "Mostrar Tudo",
+    "sortOptions": {
+      "newest": "Mais Recente",
+      "oldest": "Mais Antigo",
+      "longestDuration": "Maior Duração",
+      "shortestDuration": "Menor Duração",
+      "nameAZ": "Nome (A-Z)",
+      "nameZA": "Nome (Z-A)"
+    }
+  },
+  "about": {
+    "sectionCustomise": "Personalizar",
+    "sectionUpgrades": "Atualizações",
+    "sectionResources": "Recursos",
+    "sectionReferences": "Referências",
+    "sectionSupport": "Suporte",
+    "sectionInfo": "Informações",
+    "theme": "Tema",
+    "colours": "Cores",
+    "subscribe": "Assinar",
+    "subscribeSubtext": "Recursos pagos adicionais",
+    "cloud": "Nuvem do Sensor Logger",
+    "cloudSubtext": "Armazenamento para Estudos e Histórias",
+    "appIcon": "Ícone do App",
+    "appIconSubtext": "Alterar o Ícone",
+    "helpMe": "Me Ajude!",
+    "helpSubtext": "Documentação útil",
+    "feedback": "Feedback",
+    "feedbackSubtext": "Ajude a melhorar o Sensor Logger",
+    "resources": "Recursos",
+    "resourcesSubtext": "Tutoriais e código de exemplo",
+    "whatsNew": "Novidades",
+    "whatsNewSubtext": "Notas de versão",
+    "privacy": "Privacidade",
+    "privacySubtext": "tldr: Seus dados permanecem privados",
+    "aboutItem": "Sobre",
+    "aboutSubtext": "Site do Sensor Logger",
+    "unitReference": "Referência de Unidades",
+    "unitSubtext": "Guia de unidades",
+    "coordinateReference": "Referência de Coordenadas",
+    "coordinateSubtext": "Guia de definições de eixos",
+    "samplingReference": "Referência de Amostragem",
+    "samplingSubtext": "Guia de taxas de amostragem",
+    "emailSupport": "Suporte por Email",
+    "emailSubtext": "Para usuários Pro e Ultimate",
+    "appName": "Sensor Logger",
+    "versionBuild": "Versão %{version} Build %{build}",
+    "update": "Atualizar",
+    "moreInspiration": "Mais Inspiração",
+    "reservedColours": "Cores Reservadas",
+    "reservedColoursMessage": "Esta cor é reservada para assinantes. Assine o Sensor Logger para desbloquear esta cor.",
+    "language": "Idioma",
+    "languageSubtext": "Alterar o idioma"
+  },
+  "sensorSettings": {
+    "waitingForData": "Aguardando Dados",
+    "waitingForDataSubtitle": "Aguardando valores serem reportados pelos sensores.",
+    "noPlottableData": "Nenhum Dado Plotável",
+    "noPlottableDataSubtitle": "Estes dados Bluetooth não contêm campos plotáveis.",
+    "selectData": "Selecionar Dados",
+    "samples": "Amostras",
+    "connectingDevice": "Conectando ao dispositivo para dados adicionais.",
+    "totalAccelerationWarning": "O Sensor Logger está mostrando aceleração total (incluindo gravidade) pois seu dispositivo não possui os sensores para registrar aceleração sem gravidade.",
+    "compassCalibrationWarning": "Tanto 'Calibração da Bússola' quanto 'Calibração de Movimento e Distância' precisam estar habilitadas em Configurações > Privacidade e Segurança > Serviços de Localização > Serviços do Sistema, caso contrário os dados serão reportados como 0.",
+    "latestReadings": "Leituras Mais Recentes",
+    "waitingForSensor": "Aguardando receber dados do sensor...",
+    "liveReadings": "Leituras ao vivo deste sensor são mostradas abaixo.",
+    "decodedData": "Dados Decodificados",
+    "waitingForAdditional": "Aguardando dados adicionais do sensor...",
+    "decodedInfo": "Decodificou as seguintes informações. Toque para copiar.",
+    "sensorInformation": "Informações do Sensor",
+    "sensorInfoDescription": "O fabricante do dispositivo forneceu as seguintes informações sobre este sensor. Toque para copiar.",
+    "bluetoothResources": "Recursos Bluetooth",
+    "analysisResources": "Recursos de Análise",
+    "cameraPermission": "Aguardando Câmera. Verifique as permissões da câmera do Sensor Logger no app Configurações se isso persistir.",
+    "instantaneous": "Instantâneo",
+    "rollingAverage": "Média Móvel",
+    "description": "Descrição",
+    "importantNotes": "Notas Importantes",
+    "watchConnectionReliability": "Como melhorar a confiabilidade da conexão do relógio?",
+    "sampling": "Amostragem",
+    "settingShortcuts": "Atalhos de Configuração",
+    "units": "Unidades",
+    "viewUnitReference": "Ver Referência de Unidades",
+    "viewCoordinateReference": "Ver Referência de Coordenadas",
+    "standardisationEnabled": "A padronização de unidades e coordenadas está ativada. Toque para aprender."
+  },
+  "logger": {
+    "startRecording": "Iniciar Gravação",
+    "end": "Encerrar",
+    "endRecording": "Encerrar Gravação",
+    "endRecordingConfirm": "Tem certeza de que deseja encerrar esta sessão de gravação?",
+    "continueRecording": "Continuar Gravação",
+    "endNow": "Encerrar Agora",
+    "renameRecording": "Renomear Gravação",
+    "saveAndExport": "Salvar e Exportar",
+    "addCustomAnnotation": "Adicionar Anotação Personalizada",
+    "addAnnotationMessage": "Registre um comentário associado ao timestamp %{time} e duração de pressão %{duration}ms. Deixe vazio para apenas marcar o timestamp.",
+    "problematicPermission": "Permissão Problemática",
+    "locationPermissionMessage": "O acesso à localização deve ser definido como Sempre para medições contínuas em segundo plano, ou pelo menos Enquanto Usar o App para gravação em primeiro plano.",
+    "sensorPermissionMessage": "Por favor, habilite a permissão para este sensor no app Configurações.",
+    "orientationOffset": "Compensação de Orientação",
+    "orientationOffsetMessage": "Define os valores de ângulo para zero para fins de calibração ou montagem. Entra em vigor no momento em que Definir Zero é tocado e dura até o final desta sessão de gravação. Não afeta outros sensores nem altera leituras de orientação anteriores.",
+    "setZero": "Definir Zero",
+    "cameraControls": "Controles da Câmera",
+    "cameraControlsLarge": "Toque em qualquer lugar na visualização para focar, Aperte para aplicar zoom. Use o controle deslizante de exposição para ajustar o brilho.",
+    "cameraControlsSmall": "Toque em qualquer lugar na visualização para focar, Aperte para aplicar zoom. Expanda a câmera para ver os controles de exposição.",
+    "serverError": "Erro do Servidor",
+    "serverErrorMessage": "O servidor HTTP Push respondeu com uma mensagem de erro: %{message}.",
+    "serverErrorCode": "O servidor HTTP Push respondeu com código 499 indicando um erro no lado do servidor",
+    "maxRecordingsReached": "Número Máximo de Gravações Armazenadas Atingido",
+    "maxRecordingsMessage": "O Sensor Logger pode ser usado gratuitamente, para até 10 gravações armazenadas localmente. Para continuar gratuitamente, exporte e exclua algumas de suas gravações existentes. Alternativamente, considere atualizar para qualquer assinatura paga, que desbloqueia o armazenamento de gravações ilimitadas entre outros recursos adicionais.",
+    "noSensorsEnabled": "Nenhum Sensor Habilitado",
+    "noSensorsMessage": "Nenhum sensor está ativado para esta gravação. Ative os sensores dos quais você deseja registrar dados.",
+    "watchDisconnected": "Relógio Desconectado",
+    "watchDisconnectedMessage": "As medições do relógio não serão gravadas até que o app companheiro do relógio seja aberto.",
+    "batteryLevelLow": "Nível de Bateria Baixo",
+    "batteryLevelMessage": "O nível da bateria está em %{level}%. O Sensor Logger pode consumir muita energia durante a gravação.",
+    "lowStorageSpace": "Pouco Espaço de Armazenamento",
+    "lowStorageMessage": "Este dispositivo tem espaço de armazenamento limitado restante, você pode desejar liberar espaço.",
+    "notConnectedInternet": "Não Conectado à Internet",
+    "notConnectedMessage": "Esta gravação será salva apenas localmente. Para contribuir com o estudo, você deve fazer o upload mais tarde na página de Gravações.",
+    "uploadRecording": "Fazer Upload da Gravação",
+    "uploadToCloud": "Fazer upload da gravação para a Nuvem do Sensor Logger para que o investigador do estudo possa baixá-la mais tarde.",
+    "uploadToBucket": "Fazer upload da gravação para um Bucket de armazenamento que o investigador configurou.",
+    "uploadNow": "Fazer Upload Agora",
+    "uploadInstructions": "Instruções de Upload",
+    "uploadInstructionsDefault": "O investigador do estudo não forneceu instruções de upload. Você pode entrar em contato com o investigador do estudo para mais informações.",
+    "unknownDelivery": "Mecanismo de Entrega Desconhecido",
+    "unknownDeliveryMessage": "O investigador do estudo especificou um mecanismo de entrega desconhecido. Você pode entrar em contato com o investigador do estudo para mais informações.",
+    "mqttError": "Erro MQTT",
+    "mqttErrorMessage": "Ocorreu um erro ao configurar o cliente MQTT: %{error}",
+    "installWatchApp": "Instalar App do Relógio",
+    "installWearOSApp": "Instalar App WearOS",
+    "watchConnected": "Relógio Conectado",
+    "clear": "Limpar",
+    "scanning": "Escaneando",
+    "scan": "Escanear",
+    "hintBar": {
+      "studyActive": "Estudo Ativo",
+      "studyActiveMessage": "Participando em \"%{studyName}\". As configurações são prescritas. Toque para mais.",
+      "exporting": "Exportando Gravação...",
+      "uploading": "Enviando Gravação: %{progress}%",
+      "keepAppOpen": "Mantenha o app aberto até que o upload seja concluído."
+    },
+    "sectionTitles": {
+      "inertialSensors": "Sensores Inerciais",
+      "nonInertialSensors": "Sensores Não Inerciais",
+      "vision": "Visão",
+      "watch": "Relógio",
+      "otherSensors": "Outros Sensores",
+      "deviceProperties": "Propriedades do Dispositivo",
+      "bluetoothBeacons": "Beacons Bluetooth"
+    },
+    "tapToExpand": "Toque para expandir e controlar",
+    "keepAwakeAlert": "Manter ativo",
+    "keepAwakeAlertMessage": "Este sensor pode não funcionar de forma confiável quando a tela está desligada. Gostaria de manter a tela ligada durante a gravação? Você pode alterar isso mais tarde nas Configurações.",
+    "keepAwakeNo": "Não, obrigado",
+    "keepAwakeYes": "Manter tela ligada e escurecer",
+    "tapToScanDevices": "Toque para procurar dispositivos individuais",
+    "allBluetoothSensors": "Todos os sensores Bluetooth",
+    "bluetoothUpgradeMessage": "Atualize para desbloquear a gravação de todos os sensores Bluetooth de uma vez, ou escaneie e ative sensores individuais gratuitamente."
+  },
+  "settings": {
+    "language": "Idioma",
+    "troubleshooting": "Para solução de problemas, toque para visitar tszheichoi.com/sensorloggerhelp",
+    "resetToDefaults": "Redefinir para Padrões",
+    "paid": "Pago",
+    "ultimate": "Ultimate",
+    "sectionTitle": {
+      "recordingMechanism": "Mecanismo de Gravação",
+      "recordingWorkflow": "Fluxo de Trabalho de Gravação",
+      "timestamps": "Timestamps",
+      "clock": "Relógio",
+      "microphone": "Microfone",
+      "location": "Localização",
+      "bluetooth": "Bluetooth",
+      "additionalData": "Dados Adicionais",
+      "camera": "Câmera",
+      "checkpoint": "Ponto de Verificação",
+      "standardisation": "Padronização",
+      "httpPush": "HTTP Push",
+      "mqttPublishing": "Publicação MQTT",
+      "mqttSubscription": "Assinatura MQTT",
+      "samplingFrequencies": "Frequências de Amostragem",
+      "samplingReference": "Referência de Amostragem",
+      "sensorSections": "Seções de Sensores",
+      "annotationPresets": "Predefinições de Anotações",
+      "exportShareRestore": "Exportar, Compartilhar e Restaurar",
+      "deviceSettings": "Configurações do Dispositivo",
+      "language": "Idioma"
+    },
+    "recordingMechanism": {
+      "confirmBeforeEnding": "Confirmar Antes de Encerrar",
+      "confirmBeforeEndingSubtitle": "Exibe um diálogo ao tocar no botão \"Encerrar Gravação\" para evitar entradas acidentais.",
+      "smartName": "Nome Inteligente",
+      "smartNameSubtitle": "Nomeia automaticamente as gravações com base na localização, se o sensor de Localização estiver habilitado.",
+      "keepAwake": "Manter Ativo",
+      "keepAwakeSubtitle": "Mantém a tela ligada e evita que o dispositivo bloqueie. Útil para gravações de Câmera e Bluetooth que podem não funcionar em segundo plano.",
+      "keepAwakeOff": "Desligado",
+      "keepAwakeOn": "Ligado",
+      "keepAwakeOnDim": "Ligado e Escurecido",
+      "proximityLock": "Bloqueio de Proximidade",
+      "proximityLockSubtitle": "Desliga a tela, mesmo que Manter Ativo esteja ligado, durante a gravação quando o sensor de proximidade é acionado. Evita entradas acidentais e economiza bateria quando o telefone está no bolso. Caso contrário, se comporta como se a tela estivesse ligada.",
+      "inlinePreview": "Visualização Inline",
+      "inlinePreviewSubtitle": "Exibe dados do sensor ao vivo durante a gravação. Pode impactar o desempenho em dispositivos com recursos limitados.",
+      "startRecordingOnBoot": "Iniciar Gravação na Inicialização",
+      "startRecordingOnBootSubtitle": "Inicia a gravação quando o dispositivo é iniciado. Útil para coleta de dados de longo prazo.",
+      "extraPermissionRequired": "Permissão Extra Necessária",
+      "extraPermissionMessage": "Para iniciar a gravação na inicialização, deve ser concedida a permissão 'Aparecer por cima'. Por favor, conceda-a na tela seguinte."
+    },
+    "workflow": {
+      "workflow": "Fluxo de Trabalho",
+      "workflowSubtitle": "No modo clássico, os dados são salvos em segundo plano para gerenciamento e exportação quando uma gravação termina. No modo integrado, você será solicitado a renomear e exportar. Os dados são sempre salvos independentemente. Gravações encerradas no app do relógio sempre seguem o fluxo de trabalho clássico.",
+      "workflowClassic": "Clássico",
+      "workflowIntegrated": "Integrado",
+      "cacheNames": "Armazenar Nomes em Cache",
+      "cacheNamesSubtitle": "Quando uma gravação é nomeada no fluxo de trabalho Integrado, armazena o nome e localização em cache para que futuras gravações feitas dentro de ~100m usem-no como padrão.",
+      "cannotChangeInStudy": "Você não pode alterar as configurações de fluxo de trabalho enquanto estiver em um estudo."
+    },
+    "clock": {},
+    "checkpoint": {
+      "checkpoint": "Ponto de Verificação",
+      "checkpointSubtitle": "Após cada 24 horas de gravação contínua, esses dados serão salvos automaticamente como uma nova entrada na aba \"Gravações\" sem problemas e sem interrupção. Isso ajuda a coleta de dados de longo prazo organizando gravações diárias."
+    },
+    "additionalData": {
+      "uncalibratedValues": "Valores Não Calibrados",
+      "uncalibratedValuesSubtitle": "Registra valores brutos do acelerômetro, giroscópio e magnetômetro. Útil para realizar pós-processamento de nível mais baixo ou fusão de sensores personalizada. Dados calibrados são sempre registrados.",
+      "additionalLocationData": "Dados de Localização Adicionais",
+      "additionalLocationDataSubtitle": "Por padrão, apenas a localização fundida é registrada. Registra medições adicionais apenas do GPS e apenas da rede.",
+      "learnMoreLocation": "Saiba Mais Sobre Dados de Localização",
+      "additionalOrientationData": "Dados de Orientação Adicionais",
+      "additionalOrientationDataSubtitle": "Este dispositivo também suporta%{gameRotation}. Registra dados de orientação adicionais junto com o sensor de orientação padrão.",
+      "gameRotation": " 'Rotação de Jogo'",
+      "learnMoreOrientation": "Saiba Mais Sobre Dados de Orientação"
+    },
+    "camera": {
+      "cameraType": "Tipo de Câmera",
+      "cameraTypeSubtitle": "Qual câmera usar quando o sensor de câmera estiver habilitado.",
+      "cameraTypeFront": "Frontal",
+      "cameraTypeRear": "Traseira",
+      "cameraFlash": "Flash da Câmera",
+      "cameraFlashSubtitle": "Se deve usar o flash.",
+      "cameraFlashOn": "Ligado",
+      "cameraFlashOff": "Desligado",
+      "cameraFlashAuto": "Automático",
+      "imageQuality": "Qualidade da Imagem",
+      "imageQualitySubtitle": "Maior qualidade usa mais armazenamento.",
+      "imageQualityLowest": "Mais Baixa",
+      "imageQualityLow": "Baixa",
+      "imageQualityMedium": "Média",
+      "imageQualityHigh": "Alta",
+      "cameraMode": "Modo da Câmera",
+      "cameraModeSubtitle": "Se deve capturar imagens em intervalos regulares ou continuamente como um vídeo com áudio.",
+      "cameraModeImages": "Imagens",
+      "cameraModeVideo": "Vídeo",
+      "captureDepth": "Capturar Profundidade",
+      "captureDepthImage": "Imagem",
+      "captureDepthImageDepth": "Imagem + Profundidade",
+      "depthNotSupportedInVideo": "Dados de profundidade não são suportados no modo de vídeo."
+    },
+    "microphone": {
+      "microphoneQuality": "Qualidade do Microfone",
+      "microphoneQualitySubtitle": "Lossless tem a mais alta qualidade, mas cria arquivos maiores. Somente Volume registra apenas o volume do áudio em dBFS, sem áudio.",
+      "microphoneLossy": "Com Perda",
+      "microphoneLossless": "Sem Perda",
+      "microphoneLoudnessOnly": "Somente Volume",
+      "viewMicrophoneReference": "Ver Referência do Microfone"
+    },
+    "location": {
+      "coordinatesCloaking": "Ocultação de Coordenadas",
+      "coordinatesCloakingSubtitle": "Reduz a precisão das coordenadas por privacidade. Arredondamento para 0,001° e 0,1° resultam em precisão de ~100m e ~10km respectivamente. Se Descartar, nenhuma coordenada é registrada.",
+      "coordinatesPrecise": "Preciso",
+      "coordinatesTo0001": "Para 0,001°",
+      "coordinatesTo01": "Para 0,1°",
+      "coordinatesDrop": "Descartar",
+      "optimizeForNavigation": "Otimizar para Navegação",
+      "optimizeForNavigationSubtitle": "Define o sensor de localização para o modo de navegação, que usa sensores adicionais para melhorar a precisão."
+    },
+    "bluetooth": {
+      "scanningDuration": "Duração do Escaneamento",
+      "scanningDurationSubtitle": "Quantos segundos escanear dispositivos Bluetooth próximos ao atualizar a lista.",
+      "rssiThreshold": "Limiar RSSI",
+      "rssiThresholdSubtitle": "Intensidade mínima de sinal durante o escaneamento de dispositivos. Um RSSI mais próximo de 0 é mais forte. -70 dBm é considerado uma boa intensidade de sinal.",
+      "rssiNoLimit": "Sem Limite",
+      "rssiAbove70": "> -70dBm",
+      "rssiAbove60": "> -60dBm",
+      "decodeValues": "Decodificar Valores",
+      "decodeValuesSubtitle": "Se suportado, decodifica dados anunciados e transmitidos. Veja github.com/tszheichoi/sensor-ble para dispositivos suportados."
+    },
+    "export": {
+      "copyExportCode": "Copiar Código de Exportação",
+      "showQrCode": "Mostrar QR Code",
+      "hideQrCode": "Ocultar QR Code",
+      "restoreFromClipboard": "Restaurar da Área de Transferência",
+      "cannotExportInStudy": "Você não pode exportar ou restaurar configurações enquanto estiver em um estudo.",
+      "explanatoryText": "Configurações e o conjunto de sensores atualmente ativados podem ser exportados usando o código gerado. Este código pode ser usado para restaurar essas configurações no mesmo dispositivo ou em outro dispositivo. Você pode compartilhar o código com outros para que eles tenham as mesmas configurações ao coletar dados. Simplesmente encaminhe o código ou peça para escanearem o QR code em seus telefones. Observe que isso exclui sensores Bluetooth devido à sua natureza dependente do dispositivo.",
+      "restoreFailedError": "Falha ao restaurar configurações da área de transferência, verifique se a área de transferência está correta."
+    },
+    "annotationPresets": {
+      "addAnnotationPreset": "Adicionar Predefinição de Anotação",
+      "addAnnotationPresetMessage": "Este texto será adicionado como uma anotação quando você tocar no botão correspondente durante uma gravação.",
+      "emptyAnnotation": "Anotação Vazia",
+      "emptyAnnotationMessage": "Por favor, insira um texto não vazio.",
+      "duplicateAnnotation": "Anotação Duplicada",
+      "duplicateAnnotationMessage": "Esta predefinição de anotação já existe.",
+      "presetTooLong": "Predefinição Muito Longa",
+      "presetTooLongMessage": "Por favor, mantenha o texto da anotação com menos de 100 caracteres.",
+      "addPreset": "Adicionar Predefinição",
+      "subscribeToAddMorePresets": "Assine Para Adicionar Mais Predefinições",
+      "subscribeToAddMorePresetsMessage": "Usuários gratuitos podem ter no máximo 3 predefinições de anotações. Você sempre pode adicionar um número ilimitado de anotações personalizadas durante a gravação. Considere atualizar para qualquer nível para adicionar até 100 predefinições.",
+      "okay": "OK",
+      "upgradeButton": "Atualizar",
+      "maximumPresetsReached": "Número Máximo de Predefinições Atingido",
+      "maximumPresetsReachedMessage": "Você pode ter no máximo 100 predefinições de anotações. Se precisar de mais, entre em contato.",
+      "deleteAnnotationPreset": "Excluir Predefinição de Anotação",
+      "deleteAnnotationPresetMessage": "Tem certeza de que deseja excluir esta predefinição de anotação?",
+      "infoText": "Crie predefinições de anotação para adicionar rapidamente anotações com carimbo de data/hora durante uma gravação. Você sempre pode adicionar anotações personalizadas durante uma gravação. Útil para marcar eventos ou atividades notáveis durante a gravação para facilitar o pós-processamento, filtragem e análise. Arraste para reordenar as predefinições."
+    },
+    "samplingFrequencies": {
+      "infoText": "A frequência de amostragem para cada sensor é dependente do dispositivo. A taxa de amostragem real pode ser mais lenta do que esses valores. É recomendado que você examine a saída para determinar a frequência de amostragem real.",
+      "inertialSensors": "Acelerômetro, Gravidade, Giroscópio, Bússola, Orientação e Magnetômetro",
+      "barometer": "Barômetro",
+      "location": "Localização",
+      "camera": "Câmera",
+      "bluetooth": "Bluetooth",
+      "cameraWarning": "Amostragem frequente de imagens pode causar problemas de desempenho. Definir a Qualidade da Imagem para 'Mais Baixa' pode ajudar. Alternativamente, mude para o modo Vídeo, que contorna a limitação de amostragem.",
+      "bluetoothWarning": "Amostragem frequente de Bluetooth pode causar problemas de desempenho quando muitos dispositivos Bluetooth estão ativos.",
+      "ruleEngineCallout": "Use o motor de regras para mudar dinamicamente a amostragem durante uma gravação.",
+      "maxLabel": "Amostra o mais frequentemente possível, sujeito às limitações do dispositivo",
+      "upToHz": "Até %{frequency} Hz",
+      "upToSec": "Até a cada %{seconds} seg",
+      "upToMin": "Até a cada %{minutes} min",
+      "max": "Máx",
+      "custom": "Personalizado",
+      "customSamplingTitle": "Amostragem Personalizada",
+      "frequencyPromptMessage": "Insira a frequência de amostragem desejada em Hz (amostras por segundo). Insira um valor entre %{min} e %{max}Hz.",
+      "invalidFrequencyTitle": "Frequência de Amostragem Inválida",
+      "maxFrequencyExceeded": "A frequência máxima de amostragem é %{max} Hz. Se você precisar de amostragem mais alta, escolha Máximo para amostrar o mais frequentemente possível.",
+      "minFrequencyNotMet": "A frequência mínima de amostragem é %{min} Hz.",
+      "periodPromptMessage": "Insira o período de amostragem desejado em milissegundos. Insira um valor entre %{min} e %{max}ms.",
+      "invalidPeriodTitle": "Período de Amostragem Inválido",
+      "invalidPeriodMessage": "O período de amostragem deve estar entre %{min} e %{max} milissegundos.",
+      "change": "Alterar",
+      "selectInputTypeTitle": "Selecionar Tipo de Entrada",
+      "selectInputTypeMessage": "Você gostaria de inserir a frequência de amostragem (Hz) ou o período de amostragem (ms)?",
+      "frequency": "Frequência",
+      "period": "Período"
+    },
+    "standardisation": {
+      "title": "Padronizar Unidades e Quadros",
+      "subtitle": "Diferentes plataformas podem reportar valores em diferentes unidades e sistemas de coordenadas, dificultando a análise multiplataforma. Ative para harmonizar as definições entre plataformas.",
+      "learnMore": "Saiba mais sobre diferenças em unidades e coordenadas entre plataformas e quais sensores são afetados."
+    },
+    "orderSensors": {
+      "infoText": "Arraste para alterar a ordem em que os sensores são exibidos. Beacons Bluetooth sempre aparecem na parte inferior."
+    },
+    "samplingReference": {
+      "contributeAnonymously": "Contribuir Anonimamente",
+      "contributeAnonymouslySubtitle": "Ajude outros usuários a entender as taxas de amostragem do mundo real contribuindo anonimamente com as taxas de amostragem do modelo do seu dispositivo ocasionalmente. Apenas estatísticas agregadas de alto nível de sensores habilitados são compartilhadas.",
+      "viewSamplingReference": "Para visualizar a Referência de Amostragem, toque para visitar %{url}."
+    }
+  },
+  "settingsSections": {
+    "language": {
+      "description": "Escolha seu idioma preferido para o app.",
+      "contribute": "Se houver erros de tradução ou se você quiser contribuir com novos idiomas, sinta-se à vontade para entrar em contato.",
+      "reviewAndContribute": "Revisar e Contribuir Traduções"
+    },
+    "recordingWorkflow": {
+      "description": "O que acontece durante, ao encerrar e após uma sessão de gravação."
+    },
+    "ruleEngine": {
+      "title": "Motor de Regras",
+      "description": "Regras de automação para acionar sensores, com base em medições, tempo, localização e muito mais."
+    },
+    "dataStreaming": {
+      "title": "Streaming de Dados",
+      "description": "Use HTTP e MQTT para enviar dados."
+    },
+    "sensorConfiguration": {
+      "title": "Configuração de Sensores",
+      "description": "Configurações para câmeras, microfones, GPS, bluetooth e dados não calibrados."
+    },
+    "standardisation": {
+      "description": "Padronize unidades e coordenadas entre dispositivos."
+    },
+    "samplingFrequencies": {
+      "description": "Controle com que frequência as medições são amostradas."
+    },
+    "timestamps": {
+      "description": "Defina opções de relógio e formato."
+    },
+    "sensorSections": {
+      "description": "Altere a ordem das seções de sensores."
+    },
+    "annotations": {
+      "title": "Anotações",
+      "description": "Predefinições para anotações."
+    },
+    "deviceSettings": {
+      "description": "Configurações avançadas para o dispositivo."
+    },
+    "exportShareRestore": {
+      "description": "Use QR code para compartilhar configurações."
+    }
+  },
+  "exportFormats": {
+    "csvZip": {
+      "description": "Exporta todos os dados para CSV, por sensor, e os empacota em um arquivo zip."
+    },
+    "json": {
+      "description": "Empacota dados em um único arquivo json, excluindo áudio e imagens."
+    },
+    "combinedCsv": {
+      "description": "Reamostra, combina e agrega em um único CSV, alinhando todos os timestamps."
+    },
+    "excelSheets": {
+      "description": "Exporta para .xlsx. Máximo de 10K linhas por sensor, organizadas em planilhas."
+    },
+    "kml": {
+      "description": "Exporta dados GPS para um arquivo KML. Inclui apenas dados de localização."
+    },
+    "sqlite": {
+      "description": "Exporta para um banco de dados SQLite, organizado em tabelas por sensor. Inclui metadados e tags."
+    }
+  },
+  "detailsScreen": {
+    "untitled": "Sem Título",
+    "untitledRecording": "Gravação Sem Título",
+    "renameRecording": "Renomear Gravação",
+    "microphoneLoudness": "Volume do Microfone",
+    "fileCount": "Encontrados %{count} arquivos para esta gravação",
+    "alerts": {
+      "missingLocationData": {
+        "title": "Dados de Localização Ausentes",
+        "message": "Uma ou mais gravações não contêm dados de localização e, portanto, não podem ser exportadas para KML."
+      },
+      "feedback": {
+        "title": "Feedback",
+        "message": "Obrigado por usar o Sensor Logger! Adoraríamos ouvir qualquer feedback que você tenha.",
+        "noThanks": "Não, Obrigado",
+        "provideFeedback": "Fornecer Feedback"
+      },
+      "failedToExport": {
+        "title": "Falha ao exportar",
+        "message": "Ocorreu um erro durante a exportação"
+      },
+      "confirmDeletion": {
+        "title": "Confirmar Exclusão",
+        "message": "Tem certeza de que deseja excluir %{title}?"
+      },
+      "alreadyUploaded": {
+        "title": "Já Enviado",
+        "message": "Esta gravação já foi enviada."
+      }
+    },
+    "hintBar": {
+      "partOfStudy": "Parte de um Estudo",
+      "uploadingRecording": "Enviando Gravação: %{progress}%",
+      "keepAppOpen": "Mantenha o app aberto até que o upload seja concluído.",
+      "uploadToCloud": "Por favor, envie esta gravação para a Nuvem do Sensor Logger. Toque para mais.",
+      "studyNoLongerExists": "Você fez esta gravação para um estudo que não existe mais."
+    },
+    "buttons": {
+      "rename": "Renomear",
+      "upload": "Enviar",
+      "analysisResources": "Recursos de Análise"
+    },
+    "actionSheet": {
+      "freeTutorials": "Tutoriais Gratuitos e Código de Exemplo",
+      "unitsDocumentation": "Unidades e Documentação",
+      "buildDashboards": "Construir Painéis"
+    }
+  },
+  "addStudy": {
+    "investigator": {
+      "title": "Sou um Investigador",
+      "subtitle": "Gostaria de criar um novo estudo para que outros possam gravar e compartilhar seus dados comigo.",
+      "callToAction": "Criar um Estudo"
+    },
+    "participant": {
+      "title": "Sou um Participante",
+      "subtitle": "Gostaria de participar de um estudo para poder gravar e compartilhar meus dados com um investigador.",
+      "callToAction": "Encontrar um Estudo"
+    },
+    "studyActiveAlert": {
+      "title": "Estudo Ativo",
+      "message": "Você tem atualmente um estudo ativo. Você deve primeiro desativá-lo antes de criar um novo.",
+      "deactivate": "Desativar e Continuar"
+    },
+    "tip": "Participe de um estudo escaneando um QR code fornecido pelo investigador do estudo."
+  },
+  "joinStudy": {
+    "instruction": "Peça ao investigador do seu estudo um código de oito dígitos ou QR code para participar de um estudo.",
+    "byCode": "Por Código",
+    "byQrCode": "Por QR Code",
+    "cameraPermissionsAlert": {
+      "title": "Permissões da Câmera",
+      "message": "Você precisa conceder permissões da câmera nas configurações para escanear QR codes."
+    },
+    "enterCode": "Inserir Código",
+    "scanAnotherQrCode": "Escanear Outro QR Code",
+    "invalidQrCode": "QR code inválido detectado.",
+    "invalidCodeAlert": {
+      "title": "Código Inválido",
+      "message": "O código do estudo fornecido pelo investigador do estudo deve ter entre 6 a 8 caracteres."
+    },
+    "viewStudy": "Ver Estudo"
+  },
+  "studyDetail": {
+    "stats": {
+      "daysRemaining": "Dias Restantes",
+      "days": "Dias",
+      "daysRemainingExplanation": "Uma vez encerrado, você não poderá mais coletar dados de seus participantes. Você pode estender a duração do estudo na aba Detalhes.",
+      "participants": "Participantes",
+      "participantsExplanation": "Número de participantes que participaram do seu estudo. Você pode ter até %{count} participantes.",
+      "recordings": "Gravações",
+      "recordingsExplanation": "Número total de gravações que seus participantes enviaram com sucesso para a nuvem.",
+      "byobRecordingsExplanation": "Como você configurou seu próprio bucket de dados, o Sensor Logger não pode rastrear o número de gravações enviadas. Por favor, verifique seu bucket para ver quantas gravações foram enviadas.",
+      "storage": "Armazenamento",
+      "storageExplanation": "Você usou %{studyStorage} GB para este estudo de %{totalStorage} GB de armazenamento total em todos os estudos. O máximo é %{maxStorage} GB.",
+      "loadingStats": "Carregando estatísticas do estudo, conexão com a internet necessária."
+    },
+    "alerts": {
+      "deleteStudyTitle": "Excluir Estudo",
+      "deleteStudyMessage": "Tem certeza de que deseja excluir este estudo? Esta ação não pode ser desfeita e todos os dados coletados serão excluídos.",
+      "studyActive": "Estudo Ativo",
+      "activeStudyDuplicateMessage": "Você tem atualmente um estudo ativo. Você deve primeiro desativá-lo antes de duplicar um estudo.",
+      "studyTooOld": "Estudo Muito Antigo",
+      "studyTooOldMessage": "Este Estudo está inativo há mais de 90 dias. De acordo com a política de privacidade e retenção de dados do Sensor Logger, os dados associados a este Estudo já foram eliminados. Você precisará criar um novo Estudo.",
+      "subscriptionRequired": "Assinatura Necessária",
+      "reactivateSubscriptionMessage": "Você precisa estar inscrito em qualquer um dos níveis pagos para reativar um Estudo. Caso contrário, você pode duplicar este Estudo em 'Gerenciar'.",
+      "joinedStudy": "Estudo Ingressado"
+    },
+    "copiedTitle": "Copiado %{title}",
+    "modifyDescription": "Modificar Descrição",
+    "modifyContact": "Modificar Detalhes de Contato do Investigador do Estudo",
+    "modifyInvestigatorName": "Modificar Nome do Investigador",
+    "enabledSensors": "Sensores Habilitados",
+    "enabledSensorsInfo": "Os sensores que serão habilitados para este estudo. Alguns sensores podem ser desabilitados se não estiverem disponíveis no seu dispositivo.",
+    "fileFormat": "Formato de Arquivo",
+    "fileFormatInfo": "Seus dados serão armazenados neste formato antes de serem enviados ao investigador.",
+    "studySize": "Tamanho do Estudo",
+    "sharingMethod": "Método de Compartilhamento",
+    "sharingMethodInfo": "Este é o método pelo qual seus dados serão enviados ao investigador.",
+    "uploadInstructions": "Instruções de Upload",
+    "privacyStatement": "Declaração de Privacidade",
+    "modifyPrivacyStatement": "Modificar Declaração de Privacidade",
+    "privacyStatementInfo": "Esta é a declaração de privacidade fornecida pelo investigador, descrevendo como seus dados serão usados e protegidos.",
+    "questionnaire": "Questionário",
+    "questionnaireInfo": "O investigador pode usar um questionário para coletar informações adicionais. Perguntas podem ser feitas ao entrar no estudo e ao final de cada gravação.",
+    "numberOfRules": "Número de Regras",
+    "rulesInfo": "Regras são automações projetadas pelo investigador para coletar dados com base em certas condições.",
+    "webhook": "Webhook",
+    "webhookInfo": "Webhooks permitem que o investigador receba notificações em tempo real quando um participante envia uma gravação e, opcionalmente, forneça um relatório de análise em formato PDF ou markdown.",
+    "notificationsAndReminders": "Notificações e Lembretes",
+    "notificationsInfo": "O investigador pode usar notificações para lembrá-lo de gravar ou enviar dados. O investigador configura com que frequência e quando essas notificações são enviadas. Você pode optar por não receber essas notificações a qualquer momento, sem afetar sua participação no estudo.",
+    "createdAt": "Criado em",
+    "endingAt": "Termina em",
+    "studyDuration": "Duração do Estudo",
+    "disclaimer": "O conteúdo deste estudo é fornecido pelo proprietário do estudo. O estudo e os dados coletados não são endossados pelo Sensor Logger. Por favor, entenda o propósito do estudo antes de contribuir.",
+    "noNotifications": "Este estudo não tem notificações.",
+    "uploadReminder": "Você será lembrado uma vez se não tiver enviado sua gravação.",
+    "noUploadReminder": "Nenhum lembrete de upload configurado.",
+    "recordingReminders": " Você também receberá lembretes de início de gravação: ",
+    "notificationAt": " notificação às ",
+    "on": " em ",
+    "notificationsToggleInfo": "Você só receberá lembretes quando este Estudo estiver ativo. Opte por não receber silenciando as notificações.",
+    "notificationsLabel": "Notificações ",
+    "extendOneDay": "Estender por 1 Dia",
+    "extendFiveDays": "Estender por 5 Dias",
+    "extendOneWeek": "Estender por 1 Semana",
+    "extendOneMonth": "Estender por 1 Mês",
+    "extendStudyDuration": "Estender Duração do Estudo",
+    "extendStudyMessage": "Você pode estender repetidamente a duração de um estudo.",
+    "sizeS": "para P (Até 3 Participantes)",
+    "sizeM": "para M (Até 10 Participantes)",
+    "sizeL": "para G (Até 100 Participantes)",
+    "sizeXL": "para GG (Até 2K Participantes)",
+    "changeStudySize": "Alterar Tamanho do Estudo",
+    "changeStudySizeMessage": "Altere o tamanho do seu estudo para permitir que mais ou menos participantes entrem. Se você reduzir o tamanho para menos do que o número de participantes atualmente no estudo, novos participantes não poderão entrar.",
+    "shareLink": "Compartilhar Link",
+    "shareQr": "Compartilhar QR Code",
+    "shareCode": "Compartilhar Código",
+    "shareLinkInstruction1": "Compartilhe o link ",
+    "shareLinkInstruction2": " com os participantes. Eles serão solicitados a instalar o app se ainda não o tiverem instalado.",
+    "downloadSensorLogger": "Baixar Sensor Logger: www.tszheichoi.com/sensorlogger",
+    "scanQrInstruction": "Abra o aplicativo da câmera, escaneie o QR code abaixo e siga as instruções.",
+    "openStudiesTabInstruction": "Abra o Sensor Logger na guia Estudos e toque no botão 'Criar / Participar'. Em seguida, toque em 'Participar de um Estudo'.",
+    "enterCodeInstruction": "Insira o código abaixo.",
+    "investigatorJoinTip": "Como investigador, você também pode participar do estudo para contribuir com suas próprias gravações para o estudo.",
+    "leaveStudyTip": "Você pode sair de um estudo a qualquer momento.",
+    "copied": "Copiado!",
+    "ownerMessage": "Você é o proprietário deste estudo.",
+    "activateMessage": "Ativar para começar a contribuir para este estudo.",
+    "recordingMessage": "Gravações feitas enquanto este estudo estiver ativo estarão em conformidade com a configuração do estudo.",
+    "joinMessage": "Participar para começar a contribuir para este estudo.",
+    "duplicateStudy": "Duplicar Estudo",
+    "manageStudy": "Gerenciar Estudo",
+    "manageStudyMessage": "Exclua este Estudo ou crie um novo com base nele, herdando todas as suas descrições, configurações, contatos, questionário e mais, mas não seus participantes ou gravações. Durante a duplicação, todas as configurações locais serão substituídas pelas deste Estudo.",
+    "deactivateAndContinue": "Desativar e Continuar",
+    "manage": "Gerenciar",
+    "by": "Por ",
+    "pause": "Pausar",
+    "activate": "Ativar",
+    "reactivate": "Reativar",
+    "edit": "Editar",
+    "details": "Detalhes",
+    "invite": "Convidar",
+    "statsTab": "Estatísticas",
+    "dataTab": "Dados",
+    "recordingsTab": "Gravações",
+    "infoTab": "Informações",
+    "description": "Descrição",
+    "pointOfContact": "Ponto de Contato",
+    "investigator": "Investigador",
+    "leave": "Sair",
+    "leaveButton": "Sair do Estudo",
+    "leaveConfirmation": "Tem certeza de que deseja sair deste estudo?",
+    "hintBar": {
+      "studyEnded": "Estudo Encerrado",
+      "studyEndedMessage1": "Participantes não podem mais entrar ou contribuir. Este Estudo e as gravações enviadas serão excluídos 90 dias após o encerramento.",
+      "studyEndedMessage2": "Entre em contato com o investigador ou saia do estudo.",
+      "studyEndedMessage3": "Entre em contato com o investigador para mais informações.",
+      "studyEndedMessage4": "Não é possível entrar. Entre em contato com o investigador do estudo.",
+      "studyEndedMessage5": "Participantes não podem mais contribuir. Você pode estender a duração do estudo ou excluir o estudo.",
+      "viewingAsInvestigator": "Visualizando como Investigador",
+      "viewingAsInvestigatorMessage": "Você pode visualizar o estudo como participante na tela de Estudos.",
+      "viewingAsParticipant": "Visualizando como Participante",
+      "viewingAsParticipantMessage": "Você é o proprietário deste estudo. Visualize-o como investigador na tela de Estudos."
+    },
+    "descriptionInfo": "Qual é o objetivo do estudo, conforme descrito pelo investigador.",
+    "contactInfo": "As informações de contato do investigador. Se você quiser saber mais sobre o estudo, entender como seus dados são usados ou solicitar a exclusão de seus dados, pode entrar em contato com o investigador usando essas informações.",
+    "investigatorInfo": "O investigador que está conduzindo o estudo.",
+    "noRecordingsYet": "Ainda não há gravações. Inicie o estudo e comece a gravar para vê-las aqui."
+  },
+  "exportScreen": {
+    "fileFormat": "Formato de Arquivo",
+    "namingPattern": "Padrão de Nomenclatura",
+    "resample": "Reamostrar",
+    "downsample": "Subamostragem",
+    "upsample": "Superamostragem",
+    "namingPatternReset": "Redefinição do Padrão de Nomenclatura",
+    "namingPatternResetMessage": "Como você selecionou um formato de arquivo que não realiza nenhuma agregação, o padrão de nomenclatura foi redefinido para o padrão.",
+    "advancedExportFormats": "Formatos de Exportação Avançados",
+    "advancedExportFormatsMessage": "Exportar CSV Combinado, Excel, KML ou SQLite está disponível apenas para assinantes pagos.",
+    "incompatibleNamingPattern": "Padrão de Nomenclatura Incompatível",
+    "incompatibleNamingPatternMessage": "Como você selecionou um formato de arquivo que não realiza nenhuma agregação, você não pode selecionar um padrão de nomenclatura que inclua agregadores.",
+    "customFileNames": "Nomes de Arquivos Personalizados",
+    "customFileNamesMessage": "Nome de arquivo personalizado está disponível apenas para assinantes pagos.",
+    "help": "Ajuda",
+    "footerNote": "Horários locais são determinados no momento da exportação, não no momento da gravação. Exportações são armazenadas em cache. Reduza o uso de armazenamento usando periodicamente o botão \"Limpar Cache de Exportação\" na tela de Gravações, sem risco de perda de dados.",
+    "exportRecording": "Exportar Gravação",
+    "exportRecordings": "Exportar %{count} Gravações",
+    "tokens": {
+      "name": "Nome",
+      "local": "Local",
+      "utc": "UTC",
+      "device": "Dispositivo",
+      "platform": "Plataforma",
+      "epoch": "Época",
+      "aggregators": "Agregadores"
+    }
+  },
+  "tagsScreen": {
+    "bulkModeInstruction": "Adicionando tags a %{count} gravações. Crie novas tags ou toque para atribuir/desatribuir tags em todas as gravações selecionadas.",
+    "singleModeInstruction": "Adicione tags às gravações para ajudá-lo a organizá-las e filtrá-las melhor. Crie novas tags, toque para atribuir e desatribuir tags.",
+    "enterNewTag": "Inserir uma Nova Tag",
+    "addTag": "Adicionar Tag",
+    "tagTooLong": "Tag Muito Longa",
+    "tagTooLongMessage": "As tags devem ter menos de 20 caracteres.",
+    "invalidTag": "Tag Inválida",
+    "invalidTagMessage": "Esta tag é reservada para uso interno. Por favor, escolha outra tag.",
+    "deleteTag": "Excluir Tag?",
+    "deleteTagMessage": "Esta tag não está associada a nenhuma outra gravação. Gostaria de excluí-la?",
+    "keepTag": "Manter Tag",
+    "deleteTagButton": "Excluir Tag",
+    "noTags": "Nenhuma Tag",
+    "noTagsSubtitle": "Adicione uma tag a uma gravação para ajudá-lo a organizá-las e filtrá-las melhor.",
+    "bulkModeTip": "Tags com uma marca de verificação são aplicadas a todas as gravações selecionadas. Tags com borda tracejada são parcialmente aplicadas. Toque em qualquer tag para alternar em todas as gravações selecionadas.",
+    "singleModeTip": "Uma vez que uma tag foi desassociada de todas as gravações, ela será excluída."
+  },
+  "studiesScreen": {
+    "asParticipant": "Como Participante",
+    "asInvestigator": "Como Investigador",
+    "by": "Por %{investigatorName}",
+    "createJoin": "Criar / Participar",
+    "joinStudy": "Participar de um Estudo",
+    "joinStudySubtitle": "Contribua com suas gravações para outros pesquisadores facilmente e com segurança.",
+    "createStudy": "Criar um Estudo",
+    "createStudySubtitle": "Solicite dados de outros usuários do Sensor Logger perfeitamente.",
+    "whatAreStudies": "O Que São Estudos?",
+    "bullet1": "Coletar dados para pesquisa em grupo",
+    "bullet2": "Reunir gravações de amigos para hobbies",
+    "bullet3": "Gravar consistentemente entre dispositivos",
+    "foundStudies": "Encontrados %{count} estudos.%{activeText}",
+    "activeText": " Um estudo ativo.",
+    "cloudStorageExplanation": "Armazenamento em nuvem em todos os seus Estudos e Histórias. Atualize a assinatura para aumentar."
+  },
+  "sensors": {
+    "batteryWarning": "Alta frequência de amostragem pode drenar a bateria rapidamente.",
+    "changeSamplingFrequency": "Alterar Frequência de Amostragem",
+    "logAdditionalData": "Registrar Dados Adicionais",
+    "gpsConfiguration": "Configuração GPS",
+    "cameraConfiguration": "Configuração da Câmera",
+    "microphoneConfiguration": "Configuração do Microfone",
+    "accelerometer": {
+      "subtitle": "Aceleração Linear",
+      "description": "Mede a aceleração no sistema de coordenadas do dispositivo. A influência da gravidade foi removida. Este pós-processamento é realizado pelo sistema operacional, não por este app. Quando disponível, um arquivo adicional chamado Aceleração Total é gravado, contendo a soma da aceleração linear e do vetor de aceleração gravitacional.",
+      "units": "Reporta em m/s². Sempre no sistema de coordenadas do dispositivo (x, y, z). Assume g como 9,80665m/s²."
+    },
+    "gravity": {
+      "subtitle": "Vetor de Gravidade",
+      "description": "Mede a aceleração devido à gravidade. Esta é a contribuição do vetor de aceleração gravitacional para o vetor de aceleração total.",
+      "units": "Reporta em m/s². Sempre no sistema de coordenadas do dispositivo (x, y, z). Assume g como 9,80665m/s²."
+    },
+    "gyroscope": {
+      "subtitle": "Taxa de Rotação",
+      "description": "Mede a taxa de rotação do dispositivo no sistema de coordenadas do dispositivo.",
+      "units": "Velocidade angular é reportada em radianos por segundo em (x, y, z)."
+    },
+    "orientation": {
+      "subtitle": "Orientação do Dispositivo",
+      "description": "Mede o pitch, roll e yaw do dispositivo em relação ao sistema de coordenadas do dispositivo. Quando disponível, os quaternions também são gravados.",
+      "units": "Pitch, roll e yaw são reportados em radianos. Quaternions são reportados na forma de (qx, qy, qz, qw).",
+      "warning": "Quando disponível, é recomendado que você use quaternions em vez de pitch, roll e yaw."
+    },
+    "magnetometer": {
+      "subtitle": "Campo Magnético",
+      "description": "Mede o vetor do campo magnético local no sistema de coordenadas do dispositivo.",
+      "units": "Reporta em microteslas.",
+      "warning": "As leituras podem ser influenciadas por qualquer campo magnético local forte."
+    },
+    "compass": {
+      "subtitle": "Orientação Magnética",
+      "description": "Mede a orientação da bússola em relação ao dispositivo, derivada do campo magnético local. Não suporta compensação de inclinação do dispositivo, então o dispositivo deve ser mantido plano.",
+      "units": "Reporta em graus.",
+      "warning": "As leituras podem ser influenciadas por qualquer campo magnético local forte."
+    },
+    "barometer": {
+      "subtitle": "Altitude e Pressão",
+      "description": "Mede a altitude barométrica acima do nível do mar.",
+      "units": "Pressão é reportada em mbar e altitude relativa é reportada em metros desde o início da gravação."
+    },
+    "location": {
+      "subtitle": "Coordenadas GPS",
+      "description": "Mede as coordenadas GPS e altitude. Longitude e latitude são reportadas em graus. A menos que especificado de outra forma nos dados exportados, altitude refere-se à altitude elipsoidal (WGS84). Em alguns casos, a altitude acima do nível médio do mar também é reportada. Também registra velocidade e orientação.",
+      "units": "Latitude está em graus, com valores positivos indicando localizações ao norte do equador (dentro de -90 a 90 graus), enquanto longitude, também em graus, usa valores positivos para denotar localizações a leste da linha meridiana (dentro de -180 a 180 graus). Altitude está em metros e é a altura acima do elipsoide WGS84. Orientação, em graus de 0 a 360, é a direção relativa ao norte verdadeiro, com valores negativos indicando dados inválidos. Precisão da orientação, também em graus, representa a precisão da medição da orientação, com valores negativos denotando dados inválidos. Precisões horizontal e vertical estão em metros. Velocidade e precisão da velocidade estão ambas em metros por segundo.",
+      "warning": "A precisão do sensor GPS depende da intensidade do sinal."
+    },
+    "camera": {
+      "subtitle": "Imagens ou Vídeo",
+      "description": "Captura imagens em intervalos definidos ou continuamente como um vídeo da câmera do dispositivo, dependendo do Modo da Câmera nas configurações. Se o modo estiver definido como Imagens, as imagens capturadas são marcadas com timestamp e sincronizadas com outras medições. Se o modo estiver definido como Vídeo, um único arquivo de vídeo com áudio é criado, mas pode não estar sincronizado com outras medições. Você pode ter que realizar sincronização manual, por exemplo, usando a faixa de áudio do vídeo contra o sensor de microfone. Em ambos os casos, escolha usar a câmera frontal ou traseira nas configurações.",
+      "units": "em formato JPG (Modo Imagem) ou formato MP4 (Modo Vídeo).",
+      "warning": "Para capturar imagens ou vídeos, o visor da câmera deve estar visível na tela e a tela do telefone deve estar ligada. Quando imagens são capturadas, seu dispositivo pode reproduzir um som de obturador. Silencie seu dispositivo para evitar isso, especialmente se o sensor de Microfone estiver habilitado."
+    },
+    "heartRate": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Mede a frequência cardíaca em BPM do app companheiro do relógio. O app do relógio deve estar em primeiro plano quando a gravação inicia para que a medição da frequência cardíaca comece. O app do relógio pode ir para segundo plano posteriormente e a medição continuará.",
+      "frequency": "Não configurável. A taxa de amostragem pode ser imprevisível. Pode haver um longo atraso antes que a primeira medição chegue.",
+      "units": "Batimentos por minuto (BPM).",
+      "warning": "Para que este sensor funcione, você precisará conceder a permissão para medições de frequência cardíaca no relógio.",
+      "warningIos": " Isso pode ser feito no relógio em Configurações > Saúde > Apps > Sensor Logger.",
+      "warningEnd": " Este app só monitorará o sensor de frequência cardíaca e não lerá outros dados de saúde no seu telefone. Também não escreverá nenhum dado de saúde."
+    },
+    "wristMotion": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Registra leituras relacionadas ao movimento do seu relógio no seu pulso. Isso inclui a taxa de rotação (em x, y e z), vetor de gravidade (em x, y e z), aceleração (em x, y e z) e a atitude em quaternion.",
+      "frequency": "Não configurável, tipicamente a 100Hz",
+      "units": "Mesmas unidades que os sensores correspondentes no telefone.",
+      "warning": "Esses sensores sempre funcionarão se o app do relógio estiver em primeiro plano com a tela do relógio ligada. Se você quiser gravação em segundo plano, você também deve habilitar o sensor de frequência cardíaca e conceder as permissões relevantes. Isso habilita indiretamente a gravação em segundo plano de dados de movimento do pulso."
+    },
+    "watchLocation": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Registra leituras de localização do seu relógio no seu pulso.",
+      "frequency": "Não configurável.",
+      "units": "Mesmas unidades que os sensores correspondentes no telefone.",
+      "warning": "Esses sensores sempre funcionarão se o app do relógio estiver em primeiro plano com a tela do relógio ligada. Se você quiser gravação em segundo plano, você também deve habilitar o sensor de frequência cardíaca e conceder as permissões relevantes. Isso habilita indiretamente a gravação em segundo plano de dados de localização."
+    },
+    "watchBarometer": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Registra leituras de barômetro do seu relógio no seu pulso.",
+      "frequencyIos": "Aproximadamente uma vez a cada 2,5 segundos (0,4Hz). Não configurável.",
+      "frequencyAndroid": "Depende do modelo do dispositivo. Não configurável.",
+      "units": "Mesmas unidades que os sensores correspondentes no telefone.",
+      "warning": "Esses sensores sempre funcionarão se o app do relógio estiver em primeiro plano com a tela do relógio ligada. Se você quiser gravação em segundo plano, você também deve habilitar o sensor de frequência cardíaca e conceder as permissões relevantes. Isso habilita indiretamente a gravação em segundo plano de dados do barômetro."
+    },
+    "watchMagnetometer": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Registra leituras de magnetômetro do seu relógio no seu pulso.",
+      "frequencyIos": "Não configurável, tipicamente 100Hz.",
+      "frequencyAndroid": "Depende do modelo do dispositivo. Não configurável.",
+      "units": "Mesmas unidades que os sensores correspondentes no telefone.",
+      "warning": "Esses sensores sempre funcionarão se o app do relógio estiver em primeiro plano com a tela do relógio ligada. Se você quiser gravação em segundo plano, você também deve habilitar o sensor de frequência cardíaca e conceder as permissões relevantes. Isso habilita indiretamente a gravação em segundo plano de dados do magnetômetro."
+    },
+    "watchCompass": {
+      "subtitle": "Do Relógio Pareado",
+      "description": "Mede a orientação da bússola em relação ao relógio.",
+      "frequencyIos": "Não configurável.",
+      "frequencyAndroid": "Depende do modelo do dispositivo. Não configurável.",
+      "units": "Reporta em graus.",
+      "warning": "As leituras podem ser influenciadas por qualquer campo magnético local forte. Esses sensores sempre funcionarão se o app do relógio estiver em primeiro plano com a tela do relógio ligada. Se você quiser gravação em segundo plano, você também deve habilitar o sensor de frequência cardíaca e conceder as permissões relevantes."
+    },
+    "microphone": {
+      "subtitle": "Áudio e Nível",
+      "description": "Retorna uma gravação de áudio que é sincronizada por timestamp com outras medições. Também retorna medida de volume em dBFS (Decibéis relativos à escala completa), onde o nível de 0 dBFS é o nível digital máximo possível. Veja wikipedia.org/wiki/DBFS para mais informações.",
+      "frequency": "Você pode alterar a compressão entre com perda e sem perda usando o ícone de engrenagem ao lado do botão Iniciar Gravação. A frequência de amostragem para o volume não pode ser ajustada.",
+      "units": "Volume em dbFS. O áudio está em .mp4, a taxa de amostragem varia dependendo da configuração.",
+      "warning": "Observe que o Sensor Logger sempre usa o microfone do seu telefone, não de fones de ouvido conectados."
+    },
+    "light": {
+      "subtitle": "Brilho Ambiente",
+      "description": "Mede o brilho ambiente relativo usando o sensor de luz ambiente.",
+      "frequency": "Não configurável.",
+      "units": "Medido em lux."
+    },
+    "pedometer": {
+      "subtitle": "Contagem de Passos",
+      "description": "Registra o número de passos dados desde o início da sessão de gravação. Isso é calculado pelo sistema operacional, não pelo Sensor Logger.",
+      "frequency": "Não configurável.",
+      "units": "Medido em passos.",
+      "warning": "Pode haver um atraso de vários segundos antes que um passo seja contado. Assim, certifique-se de que sua gravação seja longa o suficiente para capturar todos os passos que você deseja contar."
+    },
+    "headphone": {
+      "subtitle": "Movimento dos AirPods",
+      "description": "Registra leituras de movimento dos seus fones de ouvido sem fio Bluetooth AirPods. Você pode usar isso para aplicações como rastreamento de cabeça. Isso inclui a aceleração (em x, y e z), vetor de gravidade (em x, y e z), taxa de rotação (em x, y e z) e a atitude. Devido a limitações, apenas um fone de ouvido registra dados de movimento por vez. O fone de ouvido ativo é indicado pelo campo sensorLocation.",
+      "frequency": "Não configurável e variável, até 25Hz nos modelos mais recentes e 15Hz nos modelos mais antigos.",
+      "units": "Mesmas unidades que os sensores correspondentes no telefone.",
+      "warning": "Você deve estar usando seus AirPods pareados -- você pode usar ambos ou apenas um dos fones de ouvido. Se você desligar 'Detecção Automática de Ouvido' nas configurações dos AirPods, é possível gravar o movimento dos AirPods quando eles não estão em seus ouvidos, desde que estejam conectados ao seu telefone."
+    },
+    "battery": {
+      "subtitle": "Nível de Bateria",
+      "description": "Mede o nível de bateria do dispositivo. Também registra o estado da bateria (carregando, cheia, etc.). Valor negativo significa que o estado da bateria é desconhecido.",
+      "frequency": "Amostra a 1Hz, não configurável.",
+      "units": "Reporta em fração, por exemplo, 0,5 é 50%."
+    },
+    "batteryTemp": {
+      "subtitle": "Temperatura da Bateria",
+      "description": "Mede a temperatura da bateria do dispositivo.",
+      "frequency": "Amostra a 1Hz, não configurável.",
+      "units": "Reporta em celsius."
+    },
+    "brightness": {
+      "subtitle": "Brilho da Tela",
+      "description": "Mede o brilho da tela do dispositivo. Isso é útil para determinar se a tela está ligada ou desligada. Se o brilho automático estiver habilitado, em dispositivos suportados, esses valores também podem atuar como um proxy para o brilho ambiente.",
+      "frequency": "Amostra a 1Hz, não configurável.",
+      "units": "Reporta em fração, por exemplo, 0,5 é 50%."
+    },
+    "network": {
+      "subtitle": "Tipo e Qualidade",
+      "description": "Reporta informações sobre o tipo de conexão de rede e sua qualidade. Isso inclui o tipo de rede (por exemplo, WiFi, celular) e mais. Isso também pode ser usado como um proxy para a localização do dispositivo, especialmente se o sensor GPS não estiver disponível.",
+      "frequency": "Amostra a 2Hz, não configurável.",
+      "units": "Tipo pode ser um de nenhum, desconhecido, celular, wifi, Bluetooth, ethernet, wimax, vpn ou outro. Intensidade é um número entre 0 e 100. Endereço IP é o endereço IP externo. Pode ser IPv4 ou IPv6. Frequência é a frequência da rede. Por exemplo, 2,4GHz retornará 2457. Geração celular pode ser um de 2g, 3g, 4g, 5g ou nulo."
+    },
+    "wifi": {
+      "subtitle": "Redes Próximas",
+      "description": "Reporta informações sobre redes WiFi próximas. Isso inclui o SSID e frequência.",
+      "frequency": "Escaneia redes WiFi a cada 40 segundos.",
+      "units": "SSID é o nome da rede WiFi. BSSID é o endereço MAC. Frequência é a frequência da rede. Por exemplo, 2,4GHz retornará 2457. Capacidades é uma lista de capacidades da rede. Nível é a intensidade do sinal em dBm."
+    },
+    "activity": {
+      "subtitle": "Caminhar, Correr, Dirigir",
+      "description": "Rastreia a atividade de movimento como caminhar, correr, andar de bicicleta ou dirigir desde o início da sessão de gravação. Isso é estimado pelo sistema operacional, não pelo Sensor Logger.",
+      "frequency": "Acionado por evento, o que significa que novos dados só são gravados quando há uma mudança na atividade. Não configurável.",
+      "units": "O tipo de atividade pode ser um de caminhar, correr, andar de bicicleta, automotivo, estacionário, inclinação ou desconhecido. A confiança pode ser uma de baixa, média, alta ou desconhecida."
+    },
+    "bluetooth": {
+      "subtitle": "Todos os dispositivos próximos",
+      "description": "Bluetooth é um padrão de tecnologia sem fio usado para trocar dados entre dispositivos fixos e móveis em curtas distâncias.",
+      "frequency": "Depende do dispositivo Bluetooth, geralmente tão frequente quanto o dispositivo se anuncia.",
+      "units": "O Indicador de Intensidade do Sinal Recebido (RSSI) é medido em dBm. Um valor negativo maior indica um sinal mais fraco. Os dados do fabricante são registrados brutos para maximizar a compatibilidade. Você deve decodificá-los por conta própria.",
+      "warning": "Os dados de Bluetooth são gravados apenas quando o aplicativo está aberto e a tela ligada. Algumas informações estão disponíveis apenas de dispositivos Bluetooth emparelhados com seu telefone. Todas as vírgulas nos nomes são substituídas por hífens; nas exportações CSV, listas separadas por vírgulas são delimitadas por barras verticais.",
+      "configuration": "Configuração de Bluetooth"
+    }
+  },
+  "stateAlerts": {
+    "error": "Erro",
+    "sensorsUnavailable": "Sensores Indisponíveis",
+    "sensorsUnavailableMessage": "Os seguintes sensores estão indisponíveis e não foram configurados: %{sensors}.",
+    "incompleteRestoration": "Restauração Incompleta",
+    "incompleteRestorationMessage": "Algumas configurações não foram restauradas porque a configuração contém recursos que estão disponíveis apenas na versão pro. Por favor, considere atualizar para a versão pro para restaurar a configuração completa.",
+    "feedback": "Feedback",
+    "feedbackMessage": "Notamos que você cancelou a assinatura do Sensor Logger. Adoraríamos ouvir seu feedback sobre como podemos melhorar o Sensor Logger. Gostaria de fornecer feedback?",
+    "noThanks": "Não, Obrigado",
+    "provideFeedback": "Fornecer Feedback"
+  },
+  "plotsScreen": {
+    "annotationHint": "Para adicionar anotações durante uma sessão de gravação, toque no ícone de lápis na tela do Logger. Pressione e segure para controlar a duração.",
+    "timeSeriesPartial": "Mostrando apenas partes da série temporal. Para mostrar mais pontos, toque aqui para diminuir a resolução"
+  }
+}

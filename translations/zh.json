@@ -1,0 +1,993 @@
+{
+  "screenTitle": {
+    "logger": "记录器",
+    "recordings": "数据记录",
+    "studies": "研究",
+    "stories": "故事",
+    "about": "关于",
+    "settings": "设置",
+    "viewSensor": "查看传感器",
+    "details": "详情",
+    "privacy": "隐私",
+    "settingsPreview": "设置预览",
+    "questionnaire": "问卷",
+    "whatsNew": "新功能",
+    "plot": "图表",
+    "tags": "标签",
+    "subscribe": "订阅",
+    "appIcon": "应用图标",
+    "export": "导出",
+    "addStudy": "添加研究",
+    "studyDetail": "研究详情",
+    "aggregationSettings": "聚合设置",
+    "joinStudy": "加入研究",
+    "allSettings": "所有设置",
+    "mapSelector": "地图选择器",
+    "console": "控制台",
+    "cloud": "云",
+    "cloudRecording": "云端记录",
+    "cloudRecordingUpload": "上传到云",
+    "storyDetails": "故事详情",
+    "addStory": "添加故事",
+    "createStory": "创建故事",
+    "storyTemplate": "故事模板",
+    "storyTemplateDetails": "模板详情",
+    "storyWizard": "故事向导",
+    "infoEditor": "信息编辑器",
+    "update": "更新",
+    "createStudy": "创建研究",
+    "rulesEditor": "规则编辑器",
+    "rulesGallery": "规则库",
+    "rulesHelp": "规则帮助",
+    "rulesSettings": "规则设置"
+  },
+  "quickActions": {
+    "toggleRecording": "切换记录",
+    "toggleRecordingSubtitle": "开始或结束记录",
+    "joinStudy": "加入研究",
+    "joinStudySubtitle": "使用代码或二维码",
+    "dontDeleteMe": "等等！别删我！",
+    "problemsHelp": "有问题？我们能帮忙！",
+    "hereToHelp": "我们随时提供帮助"
+  },
+  "common": {
+    "cancel": "取消",
+    "ok": "确定",
+    "delete": "删除",
+    "done": "完成",
+    "tags": "标签",
+    "export": "导出",
+    "select": "选择",
+    "add": "添加",
+    "later": "稍后",
+    "continue": "继续",
+    "openSettings": "打开设置",
+    "upgrade": "升级",
+    "error": "错误",
+    "discard": "放弃"
+  },
+  "license": {
+    "activated": "许可证已激活",
+    "activatedMessage": "您的许可证已激活"
+  },
+  "validation": {
+    "requiredField": "此字段为必填项，不能为空。"
+  },
+  "api": {
+    "noInternet": "您未连接到互联网。",
+    "genericError": "发生错误。请稍后再试。",
+    "uploadError": "上传过程中发生错误：%{error}"
+  },
+  "storyDetails": {
+    "deleteStory": "删除故事",
+    "deleteStoryMessage": "您确定要删除此故事吗？",
+    "submitAsTemplate": "提交为模板",
+    "submitAsTemplateMessage": "如果您认为其他用户可能会从此故事中受益，您可以将其提交为模板，供其他人浏览、使用和构建。您的提交将被审核。",
+    "submit": "提交"
+  },
+  "recordings": {
+    "noRecordings": "无数据记录",
+    "createRecordings": "使用记录器创建数据记录。",
+    "noMatchingTags": "没有匹配所选标签的数据记录。",
+    "confirmDeletion": "确认删除",
+    "deleteConfirmation": "确定要删除 %{count} 个数据记录吗？",
+    "selected": "已选择",
+    "showingCount": "显示 %{filtered}/%{total} 个数据记录",
+    "clearExportCache": "清除已导出文件",
+    "nothingToClear": "无需清除",
+    "noCachedExports": "没有缓存的导出文件需要删除。",
+    "cacheCleared": "缓存已清除",
+    "cacheDeletedMessage": "已删除 %{count} 个缓存文件，释放 %{size} MB 空间。",
+    "untitledRecording": "未命名数据记录",
+    "showAll": "显示全部",
+    "sortOptions": {
+      "newest": "最新",
+      "oldest": "最旧",
+      "longestDuration": "最长时长",
+      "shortestDuration": "最短时长",
+      "nameAZ": "名称 (A-Z)",
+      "nameZA": "名称 (Z-A)"
+    }
+  },
+  "about": {
+    "sectionCustomise": "自定义",
+    "sectionUpgrades": "升级",
+    "sectionResources": "资源",
+    "sectionReferences": "参考",
+    "sectionSupport": "支持",
+    "sectionInfo": "信息",
+    "theme": "主题",
+    "colours": "颜色",
+    "subscribe": "订阅",
+    "subscribeSubtext": "付费功能",
+    "cloud": "Sensor Logger Cloud",
+    "cloudSubtext": "研究和故事的存储",
+    "appIcon": "应用图标",
+    "appIconSubtext": "更改图标",
+    "language": "语言",
+    "languageSubtext": "更改语言",
+    "helpMe": "帮助！",
+    "helpSubtext": "有用的文档",
+    "feedback": "反馈",
+    "feedbackSubtext": "帮助改进 Sensor Logger",
+    "resources": "资源",
+    "resourcesSubtext": "教程和示例代码",
+    "whatsNew": "新功能",
+    "whatsNewSubtext": "版本说明",
+    "privacy": "隐私",
+    "privacySubtext": "简而言之：您的数据是私密的",
+    "aboutItem": "关于",
+    "aboutSubtext": "Sensor Logger 网站",
+    "unitReference": "单位参考",
+    "unitSubtext": "单位指南",
+    "coordinateReference": "坐标参考",
+    "coordinateSubtext": "轴定义指南",
+    "samplingReference": "采样参考",
+    "samplingSubtext": "采样率指南",
+    "emailSupport": "电子邮件支持",
+    "emailSubtext": "适用于 Pro 和 Ultimate 用户",
+    "appName": "Sensor Logger",
+    "versionBuild": "版本 %{version} 构建 %{build}",
+    "update": "更新",
+    "moreInspiration": "更多灵感",
+    "reservedColours": "保留颜色",
+    "reservedColoursMessage": "此颜色为订阅用户保留。订阅 Sensor Logger 以解锁此颜色。"
+  },
+  "sensorSettings": {
+    "waitingForData": "等待数据",
+    "waitingForDataSubtitle": "等待传感器报告数值。",
+    "noPlottableData": "无可绘制数据",
+    "noPlottableDataSubtitle": "此蓝牙数据不包含任何可绘制字段。",
+    "selectData": "选择数据",
+    "samples": "样本",
+    "connectingDevice": "正在连接设备以获取额外数据。",
+    "totalAccelerationWarning": "Sensor Logger显示总加速度（包括重力），因为您的设备缺少记录不含重力加速度的传感器。",
+    "compassCalibrationWarning": "需要在\"设置\">\"隐私与安全\">\"定位服务\">\"系统服务\"中启用\"指南针校准\"和\"运动校准与距离\"，否则数据将报告为0。",
+    "latestReadings": "最新读数",
+    "waitingForSensor": "等待传感器数据...",
+    "liveReadings": "此传感器的实时读数。",
+    "decodedData": "解码数据",
+    "waitingForAdditional": "等待额外数据...",
+    "decodedInfo": "已解码信息。点击复制。",
+    "sensorInformation": "传感器信息",
+    "sensorInfoDescription": "设备制造商提供的传感器信息。点击复制。",
+    "bluetoothResources": "蓝牙资源",
+    "analysisResources": "分析资源",
+    "cameraPermission": "等待相机。如果问题持续，请在设置中检查 Sensor Logger 的相机权限。",
+    "instantaneous": "瞬时",
+    "rollingAverage": "滚动平均",
+    "description": "描述",
+    "importantNotes": "重要说明",
+    "watchConnectionReliability": "如何提高手表连接可靠性？",
+    "sampling": "采样",
+    "settingShortcuts": "设置快捷方式",
+    "units": "单位",
+    "viewUnitReference": "查看单位参考",
+    "viewCoordinateReference": "查看坐标参考",
+    "standardisationEnabled": "单位和坐标标准化已启用。点击了解。"
+  },
+  "plotsScreen": {
+    "annotationHint": "要在记录过程中添加注释，请点击日志屏幕上的铅笔图标。按住可控制持续时间。",
+    "timeSeriesPartial": "仅显示部分时间序列。要显示更多数据点，请点击此处降低分辨率"
+  },
+  "logger": {
+    "startRecording": "开始记录",
+    "end": "结束",
+    "endRecording": "结束记录",
+    "endRecordingConfirm": "确定要结束此记录会话吗？",
+    "continueRecording": "继续记录",
+    "endNow": "立即结束",
+    "renameRecording": "重命名数据记录",
+    "saveAndExport": "保存并导出",
+    "addCustomAnnotation": "添加自定义注释",
+    "addAnnotationMessage": "在时间戳 %{time} 处记录注释，按压时长 %{duration}毫秒。留空仅标记时间戳。",
+    "problematicPermission": "权限问题",
+    "locationPermissionMessage": "位置访问应设置为\"始终\"以进行持续后台测量，或至少\"使用期间\"以进行前台记录。",
+    "sensorPermissionMessage": "请在设置应用中启用此传感器的权限。",
+    "orientationOffset": "方向偏移",
+    "orientationOffsetMessage": "将角度值设置为零以进行校准或安装。点击设置零时生效，持续到本次记录会话结束。不影响其他传感器或之前的方向读数。",
+    "setZero": "设置零点",
+    "cameraControls": "相机控制",
+    "cameraControlsLarge": "点击预览区域对焦，捏合缩放。使用曝光滑块调整亮度。",
+    "cameraControlsSmall": "点击预览区域对焦，捏合缩放。展开相机查看曝光控制。",
+    "tapToExpand": "点击展开和控制",
+    "keepAwakeAlert": "保持唤醒",
+    "keepAwakeAlertMessage": "此传感器在屏幕关闭时可能无法正常工作。您是否希望在录制期间保持屏幕常亮？您可以稍后在设置中更改此选项。",
+    "serverError": "服务器错误",
+    "serverErrorMessage": "HTTP推送服务器响应错误消息：%{message}。",
+    "serverErrorCode": "HTTP推送服务器响应代码499，表示服务器端错误",
+    "maxRecordingsReached": "已达存储数据记录数量上限",
+    "maxRecordingsMessage": "Sensor Logger免费版最多可存储10个本地数据记录。要继续免费使用，请导出并删除一些现有数据记录。或升级到付费订阅以解锁无限数据记录存储等功能。",
+    "noSensorsEnabled": "未启用传感器",
+    "noSensorsMessage": "此数据记录未启用任何传感器。请打开要记录数据的传感器。",
+    "watchDisconnected": "手表未连接",
+    "watchDisconnectedMessage": "在打开配套手表应用之前，手表测量不会被记录。",
+    "batteryLevelLow": "电池电量低",
+    "batteryLevelMessage": "电池电量为 %{level}%。Sensor Logger在记录期间可能消耗大量电量。",
+    "lowStorageSpace": "存储空间不足",
+    "lowStorageMessage": "此设备剩余存储空间有限，建议释放一些空间。",
+    "notConnectedInternet": "未连接到互联网",
+    "notConnectedMessage": "此数据记录仅保存在本地。要为研究做贡献，请稍后从数据记录页面上传。",
+    "uploadRecording": "上传数据记录",
+    "uploadToCloud": "将数据记录上传到 Sensor Logger Cloud，以便研究人员稍后下载。",
+    "uploadToBucket": "将数据记录上传到研究人员设置的存储桶。",
+    "uploadNow": "立即上传",
+    "uploadInstructions": "上传说明",
+    "uploadInstructionsDefault": "研究人员未提供上传说明。您可以联系研究人员了解更多信息。",
+    "unknownDelivery": "未知传送机制",
+    "unknownDeliveryMessage": "研究人员指定了未知的传送机制。您可以联系研究人员了解更多信息。",
+    "mqttError": "MQTT错误",
+    "mqttErrorMessage": "设置MQTT客户端时发生错误：%{error}",
+    "installWatchApp": "安装手表应用",
+    "installWearOSApp": "安装WearOS应用",
+    "watchConnected": "手表已连接",
+    "clear": "清除",
+    "scanning": "扫描中",
+    "scan": "扫描",
+    "hintBar": {
+      "studyActive": "研究活动中",
+      "studyActiveMessage": "参与“%{studyName}”。设置已规定。点击了解更多。",
+      "exporting": "正在导出记录...",
+      "uploading": "正在上传记录：%{progress}%",
+      "keepAppOpen": "保持应用程序打开，直到上传完成。"
+    },
+    "sectionTitles": {
+      "inertialSensors": "惯性传感器",
+      "nonInertialSensors": "非惯性传感器",
+      "vision": "视觉",
+      "watch": "手表",
+      "otherSensors": "其他传感器",
+      "deviceProperties": "设备属性",
+      "bluetoothBeacons": "蓝牙设备"
+    },
+    "keepAwakeNo": "不用了",
+    "keepAwakeYes": "保持屏幕常亮并调暗",
+    "tapToScanDevices": "点击扫描单个设备",
+    "allBluetoothSensors": "所有蓝牙传感器",
+    "bluetoothUpgradeMessage": "升级以解锁同时记录所有蓝牙传感器，或免费扫描并启用单个传感器。"
+  },
+  "settings": {
+    "language": "语言",
+    "troubleshooting": "如需故障排除，点击访问 tszheichoi.com/sensorloggerhelp",
+    "resetToDefaults": "恢复默认设置",
+    "paid": "付费",
+    "ultimate": "Ultimate",
+    "sectionTitle": {
+      "recordingMechanism": "记录机制",
+      "recordingWorkflow": "记录工作流",
+      "timestamps": "时间戳",
+      "clock": "时钟",
+      "microphone": "麦克风",
+      "location": "位置",
+      "bluetooth": "蓝牙",
+      "additionalData": "附加数据",
+      "camera": "相机",
+      "checkpoint": "检查点",
+      "standardisation": "标准化",
+      "httpPush": "HTTP推送",
+      "mqttPublishing": "MQTT发布",
+      "mqttSubscription": "MQTT订阅",
+      "samplingFrequencies": "采样频率",
+      "samplingReference": "采样参考",
+      "sensorSections": "传感器部分",
+      "annotationPresets": "注释预设",
+      "exportShareRestore": "导出、分享和恢复",
+      "deviceSettings": "设备设置",
+      "language": "语言"
+    },
+    "recordingMechanism": {
+      "confirmBeforeEnding": "结束前确认",
+      "confirmBeforeEndingSubtitle": "点击\"结束记录\"按钮时显示对话框，防止意外操作。",
+      "smartName": "智能命名",
+      "smartNameSubtitle": "如果启用位置传感器，根据位置自动命名数据记录。",
+      "keepAwake": "保持唤醒",
+      "keepAwakeSubtitle": "保持屏幕开启，防止设备锁定。对于可能无法在后台工作的相机和蓝牙数据记录很有用。",
+      "keepAwakeOff": "关闭",
+      "keepAwakeOn": "开启",
+      "keepAwakeOnDim": "开启并调暗",
+      "proximityLock": "接近锁定",
+      "proximityLockSubtitle": "记录期间触发接近传感器时关闭屏幕，即使保持唤醒已启用。避免意外操作并节省电量。",
+      "inlinePreview": "实时预览",
+      "inlinePreviewSubtitle": "记录期间显示实时传感器数据。可能影响资源有限设备的性能。",
+      "startRecordingOnBoot": "启动时开始记录",
+      "startRecordingOnBootSubtitle": "设备启动时开始记录。适用于长期数据收集。",
+      "extraPermissionRequired": "需要额外权限",
+      "extraPermissionMessage": "要启动时开始记录，必须授予\"显示在顶部\"权限。请在下一个屏幕上授予权限。"
+    },
+    "workflow": {
+      "workflow": "工作流",
+      "workflowSubtitle": "经典模式下，数据在后台保存。集成模式下，将提示重命名和导出。数据始终会保存。",
+      "workflowClassic": "经典",
+      "workflowIntegrated": "集成",
+      "cacheNames": "缓存名称",
+      "cacheNamesSubtitle": "在集成工作流中命名数据记录时，缓存名称和位置，以便在约100米内的未来数据记录默认使用它。",
+      "cannotChangeInStudy": "在研究中时无法更改工作流设置。"
+    },
+    "clock": {},
+    "checkpoint": {
+      "checkpoint": "检查点",
+      "checkpointSubtitle": "每24小时连续记录后，数据将自动保存为\"数据记录\"标签中的新条目，无中断。有助于通过组织每日数据记录进行长期数据收集。"
+    },
+    "additionalData": {
+      "uncalibratedValues": "未校准值",
+      "uncalibratedValuesSubtitle": "记录加速度计、陀螺仪和磁力计的原始值。适用于执行较低级别的后处理或自定义传感器融合。始终记录校准数据。",
+      "additionalLocationData": "额外位置数据",
+      "additionalLocationDataSubtitle": "默认情况下，仅记录融合位置。记录来自仅GPS和仅网络的额外测量。",
+      "learnMoreLocation": "了解更多位置数据",
+      "additionalOrientationData": "额外方向数据",
+      "additionalOrientationDataSubtitle": "此设备还支持%{gameRotation}。记录额外的方向数据以及默认方向传感器。",
+      "gameRotation": "\"游戏旋转\"",
+      "learnMoreOrientation": "了解更多方向数据"
+    },
+    "camera": {
+      "cameraType": "相机类型",
+      "cameraTypeSubtitle": "启用相机传感器时使用哪个相机。",
+      "cameraTypeFront": "前置",
+      "cameraTypeRear": "后置",
+      "cameraFlash": "闪光灯",
+      "cameraFlashSubtitle": "是否使用闪光灯。",
+      "cameraFlashOn": "开启",
+      "cameraFlashOff": "关闭",
+      "cameraFlashAuto": "自动",
+      "imageQuality": "图像质量",
+      "imageQualitySubtitle": "更高质量占用更多存储空间。",
+      "imageQualityLowest": "最低",
+      "imageQualityLow": "低",
+      "imageQualityMedium": "中等",
+      "imageQualityHigh": "高",
+      "cameraMode": "相机模式",
+      "cameraModeSubtitle": "是定期捕获图像，还是连续捕获带音频的视频。",
+      "cameraModeImages": "图像",
+      "cameraModeVideo": "视频",
+      "captureDepth": "捕获深度",
+      "captureDepthImage": "图像",
+      "captureDepthImageDepth": "图像+深度",
+      "depthNotSupportedInVideo": "视频模式不支持深度数据。"
+    },
+    "microphone": {
+      "microphoneQuality": "麦克风质量",
+      "microphoneQualitySubtitle": "无损质量最高，但创建较大文件。仅响度仅记录dBFS中的音频响度，不记录音频。",
+      "microphoneLossy": "有损",
+      "microphoneLossless": "无损",
+      "microphoneLoudnessOnly": "仅响度",
+      "viewMicrophoneReference": "查看麦克风参考"
+    },
+    "location": {
+      "coordinatesCloaking": "坐标隐藏",
+      "coordinatesCloakingSubtitle": "为保护隐私降低坐标精度。四舍五入到0.001°和0.1°分别产生约100米和约10公里精度。如果删除，则不记录坐标。",
+      "coordinatesPrecise": "精确",
+      "coordinatesTo0001": "到0.001°",
+      "coordinatesTo01": "到0.1°",
+      "coordinatesDrop": "删除",
+      "optimizeForNavigation": "优化导航",
+      "optimizeForNavigationSubtitle": "将位置传感器设置为导航模式，使用额外传感器提高精度。"
+    },
+    "bluetooth": {
+      "scanningDuration": "扫描持续时间",
+      "scanningDurationSubtitle": "刷新列表时扫描附近蓝牙设备的秒数。",
+      "rssiThreshold": "RSSI阈值",
+      "rssiThresholdSubtitle": "设备扫描期间的最小信号强度。RSSI越接近0越强。-70 dBm被认为是良好的信号强度。",
+      "rssiNoLimit": "无限制",
+      "rssiAbove70": "> -70dBm",
+      "rssiAbove60": "> -60dBm",
+      "decodeValues": "解码值",
+      "decodeValuesSubtitle": "如果支持，解码广播和流式数据。查看github.com/tszheichoi/sensor-ble了解支持的设备。"
+    },
+    "export": {
+      "copyExportCode": "复制导出代码",
+      "showQrCode": "显示二维码",
+      "hideQrCode": "隐藏二维码",
+      "restoreFromClipboard": "从剪贴板恢复",
+      "cannotExportInStudy": "在研究中时无法导出或恢复设置。",
+      "explanatoryText": "可以使用生成的代码导出设置和当前切换的传感器集。此代码可用于在同一设备或另一设备上恢复这些设置。您可以与他人共享代码，以便他们在收集数据时具有相同的设置。只需将代码转发给他们或让他们在手机上扫描二维码即可。请注意，由于蓝牙传感器依赖于设备，因此不包括蓝牙传感器。",
+      "restoreFailedError": "无法从剪贴板恢复设置，请检查剪贴板是否正确。"
+    },
+    "annotationPresets": {
+      "addAnnotationPreset": "添加注释预设",
+      "addAnnotationPresetMessage": "记录期间点击相应按钮时，将添加此文本作为注释。",
+      "emptyAnnotation": "空注释",
+      "emptyAnnotationMessage": "请输入非空文本。",
+      "duplicateAnnotation": "重复注释",
+      "duplicateAnnotationMessage": "此注释预设已存在。",
+      "presetTooLong": "预设太长",
+      "presetTooLongMessage": "请将注释文本保持在100个字符以下。",
+      "addPreset": "添加预设",
+      "subscribeToAddMorePresets": "订阅以添加更多预设",
+      "subscribeToAddMorePresetsMessage": "免费用户最多只能有3个注释预设。您始终可以在记录期间添加无限数量的自定义注释。考虑升级到任何级别以添加最多100个预设。",
+      "okay": "确定",
+      "upgradeButton": "升级",
+      "maximumPresetsReached": "已达到最大预设数",
+      "maximumPresetsReachedMessage": "您最多只能有100个注释预设。如果需要更多，请联系我们。",
+      "deleteAnnotationPreset": "删除注释预设",
+      "deleteAnnotationPresetMessage": "确定要删除此注释预设吗？",
+      "infoText": "创建注释预设，以便在录制过程中快速添加带时间戳的注释。您始终可以在录制过程中添加自定义注释。这对于标记录制过程中的重要事件或活动非常有用，便于后期处理、筛选和分析。拖动可重新排序预设。"
+    },
+    "samplingFrequencies": {
+      "infoText": "每个传感器的采样频率取决于设备。实际采样率可能比这些值慢。建议检查输出以确定实际采样频率。",
+      "inertialSensors": "加速度计、重力、陀螺仪、指南针、方向和磁力计",
+      "barometer": "气压计",
+      "location": "位置",
+      "camera": "相机",
+      "bluetooth": "蓝牙",
+      "cameraWarning": "频繁的图像采样可能会导致性能问题。将图像质量设置为\"最低\"可能会有所帮助。或者，更改为视频模式，可以绕过采样限制。",
+      "bluetoothWarning": "当许多蓝牙设备处于活动状态时，频繁的蓝牙采样可能会导致性能问题。",
+      "ruleEngineCallout": "使用规则引擎在记录过程中动态更改采样。",
+      "maxLabel": "在设备限制范围内尽可能频繁地采样",
+      "upToHz": "最高 %{frequency} Hz",
+      "upToSec": "最多每 %{seconds} 秒",
+      "upToMin": "最多每 %{minutes} 分钟",
+      "max": "最大",
+      "custom": "自定义",
+      "customSamplingTitle": "自定义采样",
+      "frequencyPromptMessage": "输入所需的采样频率（Hz，每秒样本数）。输入 %{min} 到 %{max}Hz 之间的值。",
+      "invalidFrequencyTitle": "无效采样频率",
+      "maxFrequencyExceeded": "最大采样频率为 %{max} Hz。如果需要更高的采样，请选择最大值以尽可能频繁地采样。",
+      "minFrequencyNotMet": "最小采样频率为 %{min} Hz。",
+      "periodPromptMessage": "输入所需的采样周期（毫秒）。输入 %{min} 到 %{max}ms 之间的值。",
+      "invalidPeriodTitle": "无效采样周期",
+      "invalidPeriodMessage": "采样周期必须在 %{min} 到 %{max} 毫秒之间。",
+      "change": "更改",
+      "selectInputTypeTitle": "选择输入类型",
+      "selectInputTypeMessage": "您想输入采样频率（Hz）还是采样周期（ms）？",
+      "frequency": "频率",
+      "period": "周期"
+    },
+    "standardisation": {
+      "title": "标准化单位和坐标系",
+      "subtitle": "不同平台可能以不同的单位和坐标系报告值，这使得跨平台分析变得困难。启用以协调各平台的定义。",
+      "learnMore": "了解更多关于各平台单位和坐标差异以及受影响的传感器。"
+    },
+    "orderSensors": {
+      "infoText": "拖动以更改传感器的显示顺序。蓝牙信标始终显示在底部。"
+    },
+    "samplingReference": {
+      "contributeAnonymously": "匿名贡献",
+      "contributeAnonymouslySubtitle": "通过偶尔匿名贡献您设备型号的采样率，帮助其他用户了解实际采样率。仅共享已启用传感器的高级聚合统计信息。",
+      "viewSamplingReference": "要查看采样参考，请点击访问 %{url}。"
+    }
+  },
+  "settingsSections": {
+    "language": {
+      "description": "首选语言。",
+      "contribute": "如果有翻译错误或您想贡献新语言，请随时联系我们。",
+      "reviewAndContribute": "查看并贡献翻译"
+    },
+    "recordingWorkflow": {
+      "description": "记录会话期间、结束时和之后发生的事情。"
+    },
+    "ruleEngine": {
+      "title": "规则引擎",
+      "description": "基于测量值、时间、位置等触发传感器的自动化规则。"
+    },
+    "dataStreaming": {
+      "title": "数据流",
+      "description": "使用 HTTP 和 MQTT 推送数据。"
+    },
+    "sensorConfiguration": {
+      "title": "传感器配置",
+      "description": "相机、麦克风、GPS、蓝牙和未校准数据的设置。"
+    },
+    "standardisation": {
+      "description": "在设备之间标准化单位和坐标。"
+    },
+    "samplingFrequencies": {
+      "description": "控制测量的采样频率。"
+    },
+    "timestamps": {
+      "description": "设置时钟和格式选项。"
+    },
+    "sensorSections": {
+      "description": "更改传感器部分的顺序。"
+    },
+    "annotations": {
+      "title": "注释",
+      "description": "注释的预设。"
+    },
+    "deviceSettings": {
+      "description": "设备的高级设置。"
+    },
+    "exportShareRestore": {
+      "description": "使用二维码共享设置。"
+    }
+  },
+  "exportFormats": {
+    "csvZip": {
+      "description": "将所有数据按传感器导出为CSV，并打包成zip文件。"
+    },
+    "json": {
+      "description": "将数据打包到单个json文件中，不包括音频和图像。"
+    },
+    "combinedCsv": {
+      "description": "重新采样、合并并聚合到单个CSV中，对齐所有时间戳。"
+    },
+    "excelSheets": {
+      "description": "导出为.xlsx。每个传感器最多10K行，组织成工作表。"
+    },
+    "kml": {
+      "description": "将GPS数据导出为KML文件。仅包括位置数据。"
+    },
+    "sqlite": {
+      "description": "导出到SQLite数据库，按传感器组织成表。包括元数据和标签。"
+    }
+  },
+  "detailsScreen": {
+    "untitled": "无标题",
+    "untitledRecording": "无标题数据记录",
+    "renameRecording": "重命名数据记录",
+    "microphoneLoudness": "麦克风响度",
+    "fileCount": "找到此数据记录的 %{count} 个文件",
+    "alerts": {
+      "missingLocationData": {
+        "title": "缺少位置数据",
+        "message": "一个或多个数据记录不包含位置数据，因此无法导出为KML。"
+      },
+      "feedback": {
+        "title": "反馈",
+        "message": "感谢使用Sensor Logger！我们很乐意听取您的任何反馈。",
+        "noThanks": "不用了，谢谢",
+        "provideFeedback": "提供反馈"
+      },
+      "failedToExport": {
+        "title": "导出失败",
+        "message": "导出过程中发生错误"
+      },
+      "confirmDeletion": {
+        "title": "确认删除",
+        "message": "您确定要删除 %{title} 吗？"
+      },
+      "alreadyUploaded": {
+        "title": "已上传",
+        "message": "此数据记录已经上传。"
+      }
+    },
+    "hintBar": {
+      "partOfStudy": "研究的一部分",
+      "uploadingRecording": "上传数据记录中：%{progress}%",
+      "keepAppOpen": "保持应用打开，直到上传完成。",
+      "uploadToCloud": "请将此数据记录上传到Sensor Logger Cloud。点击了解更多。",
+      "studyNoLongerExists": "您为一个不再存在的研究制作了此数据记录。"
+    },
+    "buttons": {
+      "rename": "重命名",
+      "upload": "上传",
+      "analysisResources": "分析资源"
+    },
+    "actionSheet": {
+      "freeTutorials": "免费教程和示例代码",
+      "unitsDocumentation": "单位和文档",
+      "buildDashboards": "构建仪表板"
+    }
+  },
+  "addStudy": {
+    "investigator": {
+      "title": "我是研究员",
+      "subtitle": "我想创建一项新研究，以便其他人可以记录并与我分享他们的数据。",
+      "callToAction": "创建研究"
+    },
+    "participant": {
+      "title": "我是参与者",
+      "subtitle": "我想加入一项研究，以便我可以记录并与研究员分享我的数据。",
+      "callToAction": "查找研究"
+    },
+    "studyActiveAlert": {
+      "title": "研究已激活",
+      "message": "您当前有一项活动研究。您必须先停用它才能创建新研究。",
+      "deactivate": "停止并继续"
+    },
+    "tip": "通过扫描研究调查员提供的二维码加入研究。"
+  },
+  "joinStudy": {
+    "instruction": "向您的研究调查员索取八位数代码或二维码以加入研究。",
+    "byCode": "通过代码",
+    "byQrCode": "通过二维码",
+    "cameraPermissionsAlert": {
+      "title": "相机权限",
+      "message": "您需要在设置中授予相机权限才能扫描二维码。"
+    },
+    "enterCode": "输入代码",
+    "scanAnotherQrCode": "扫描另一个二维码",
+    "invalidQrCode": "检测到无效的二维码。",
+    "invalidCodeAlert": {
+      "title": "代码无效",
+      "message": "研究调查员提供的研究代码应为6到8个字符。"
+    },
+    "viewStudy": "查看研究"
+  },
+  "studyDetail": {
+    "stats": {
+      "daysRemaining": "剩余天数",
+      "days": "天",
+      "daysRemainingExplanation": "结束后，您将无法再从参与者那里收集数据。您可以在详细信息选项卡中延长研究持续时间。",
+      "participants": "参与者",
+      "participantsExplanation": "已加入您研究的参与者人数。您最多可以有 %{count} 名参与者。",
+      "recordings": "数据记录",
+      "recordingsExplanation": "您的参与者成功上传到云的数据记录总数。",
+      "byobRecordingsExplanation": "由于您已配置自己的数据存储桶，Sensor Logger无法跟踪上传的数据记录数量。请检查您的存储桶以查看已上传多少数据记录。",
+      "storage": "存储",
+      "storageExplanation": "您已为此研究使用 %{studyStorage} GB，所有研究的总存储空间为 %{totalStorage} GB。最大值为 %{maxStorage} GB。",
+      "loadingStats": "正在加载研究统计数据，需要互联网连接。"
+    },
+    "alerts": {
+      "deleteStudyTitle": "删除研究",
+      "deleteStudyMessage": "您确定要删除此研究吗？此操作无法撤消，收集的所有数据都将被删除。",
+      "studyActive": "研究已激活",
+      "activeStudyDuplicateMessage": "您当前有一项活动研究。您必须先停用它才能复制研究。",
+      "studyTooOld": "研究太旧",
+      "studyTooOldMessage": "此研究已超过90天不活动。根据Sensor Logger的数据隐私和保留政策，与此研究相关的数据已被清除。您需要创建一个新研究。",
+      "subscriptionRequired": "需要订阅",
+      "reactivateSubscriptionMessage": "您需要订阅任何付费层级才能重新激活研究。否则，您可以在“管理”下复制此研究。",
+      "joinedStudy": "已加入研究"
+    },
+    "copiedTitle": "已复制 %{title}",
+    "modifyDescription": "修改描述",
+    "modifyContact": "修改研究调查员联系方式",
+    "modifyInvestigatorName": "修改调查员姓名",
+    "enabledSensors": "已启用传感器",
+    "enabledSensorsInfo": "将为此研究启用的传感器。如果在您的设备上不可用，某些传感器可能会被禁用。",
+    "fileFormat": "文件格式",
+    "fileFormatInfo": "在发送给调查员之前，您的数据将以此格式存储。",
+    "studySize": "研究规模",
+    "sharingMethod": "共享方式",
+    "sharingMethodInfo": "这是将您的数据发送给调查员的方式。",
+    "uploadInstructions": "上传说明",
+    "privacyStatement": "隐私声明",
+    "modifyPrivacyStatement": "修改隐私声明",
+    "privacyStatementInfo": "这是调查员提供的隐私声明，概述了如何使用和保护您的数据。",
+    "questionnaire": "问卷",
+    "questionnaireInfo": "调查员可以使用问卷收集其他信息。可以在加入研究时和每次记录结束时提问。",
+    "numberOfRules": "规则数量",
+    "rulesInfo": "规则是调查员设计的自动化，用于根据特定条件收集数据。",
+    "webhook": "Web钩子",
+    "webhookInfo": "Web钩子允许调查员在参与者上传记录时接收实时通知，并可选择提供PDF或markdown格式的分析报告。",
+    "notificationsAndReminders": "通知和提醒",
+    "notificationsInfo": "调查员可以使用通知来提醒您记录或上传数据。调查员配置发送这些通知的频率和时间。您可以随时选择退出这些通知，而不会影响您参与研究。",
+    "createdAt": "创建于",
+    "endingAt": "结束于",
+    "studyDuration": "研究持续时间",
+    "disclaimer": "本研究的内容由研究所有者提供。该研究和收集的数据未经Sensor Logger认可。在做出贡献之前，请了解研究的目的。",
+    "noNotifications": "此研究没有通知。",
+    "uploadReminder": "如果您尚未上传记录，将会提醒您一次。",
+    "noUploadReminder": "未配置上传提醒。",
+    "recordingReminders": " 您还将收到开始记录提醒： ",
+    "notificationAt": " 提醒时间 ",
+    "on": " 在 ",
+    "notificationsToggleInfo": "您仅在此研究处于活动状态时才会收到提醒。通过静音通知来选择退出。",
+    "notificationsLabel": "通知 ",
+    "extendOneDay": "延长1天",
+    "extendFiveDays": "延长5天",
+    "extendOneWeek": "延长1周",
+    "extendOneMonth": "延长1个月",
+    "extendStudyDuration": "延长研究持续时间",
+    "extendStudyMessage": "您可以反复延长研究的持续时间。",
+    "sizeS": "至S（最多3名参与者）",
+    "sizeM": "至M（最多10名参与者）",
+    "sizeL": "至L（最多100名参与者）",
+    "sizeXL": "至XL（最多2K名参与者）",
+    "changeStudySize": "更改研究规模",
+    "changeStudySizeMessage": "更改研究规模以允许更多或更少的参与者加入。如果您将规模减小到少于当前研究中的参与者人数，则新参与者将无法加入。",
+    "shareLink": "分享链接",
+    "shareQr": "分享二维码",
+    "shareCode": "分享代码",
+    "shareLinkInstruction1": "与参与者分享链接 ",
+    "shareLinkInstruction2": " 。如果他们尚未安装该应用程序，系统将要求他们安装。",
+    "downloadSensorLogger": "下载Sensor Logger：www.tszheichoi.com/sensorlogger",
+    "scanQrInstruction": "打开相机应用，扫描下面的二维码并按照说明操作。",
+    "openStudiesTabInstruction": "打开Sensor Logger到“研究”选项卡，然后点击“创建/加入”按钮。然后点击“加入研究”。",
+    "enterCodeInstruction": "在下方输入代码。",
+    "investigatorJoinTip": "作为调查员，您也可以自己加入研究，为研究贡献自己的记录。",
+    "leaveStudyTip": "您可以随时退出研究。",
+    "copied": "已复制！",
+    "ownerMessage": "您是此研究的所有者。",
+    "activateMessage": "开始为此研究做出贡献。",
+    "recordingMessage": "在此研究处于活动状态时进行的记录将符合研究的配置。",
+    "joinMessage": "加入以开始为此研究做出贡献。",
+    "duplicateStudy": "复制研究",
+    "manageStudy": "管理研究",
+    "manageStudyMessage": "删除此研究，或基于它创建一个新研究，继承其所有描述、设置、联系人、问卷等，但不继承其参与者或记录。在复制过程中，所有本地配置都将被此研究的配置覆盖。",
+    "deactivateAndContinue": "停止并继续",
+    "manage": "管理",
+    "by": "由 ",
+    "pause": "暂停",
+    "activate": "开始",
+    "reactivate": "重新开始",
+    "edit": "编辑",
+    "details": "详情",
+    "invite": "邀请",
+    "statsTab": "统计",
+    "dataTab": "数据",
+    "recordingsTab": "记录",
+    "noRecordingsYet": "暂无记录。开始研究并开始录制以在此处查看。",
+    "infoTab": "信息",
+    "description": "描述",
+    "pointOfContact": "联系人",
+    "investigator": "调查员",
+    "leave": "退出",
+    "leaveButton": "退出研究",
+    "leaveConfirmation": "您确定要退出此研究吗？",
+    "hintBar": {
+      "studyEnded": "研究已结束",
+      "studyEndedMessage1": "参与者无法再加入或做出贡献。此研究和上传的记录将在结束90天后被删除。",
+      "studyEndedMessage2": "联系调查员或退出研究。",
+      "studyEndedMessage3": "联系调查员以获取更多信息。",
+      "studyEndedMessage4": "无法加入。请联系研究调查员。",
+      "studyEndedMessage5": "参与者无法再做出贡献。您可以延长研究持续时间或删除研究。",
+      "viewingAsInvestigator": "作为调查员查看",
+      "viewingAsInvestigatorMessage": "您可以从“研究”屏幕作为参与者查看研究。",
+      "viewingAsParticipant": "作为参与者查看",
+      "viewingAsParticipantMessage": "您拥有此研究。从“研究”屏幕作为调查员查看它。"
+    },
+    "descriptionInfo": "调查员描述的研究目的是什么。",
+    "contactInfo": "调查员的联系信息。如果您想了解有关研究的更多信息、了解如何使用您的数据或请求删除您的数据，可以使用此信息联系调查员。",
+    "investigatorInfo": "正在进行研究的调查员。"
+  },
+  "exportScreen": {
+    "resample": "重采样",
+    "downsample": "下采样",
+    "upsample": "上采样",
+    "namingPatternReset": "命名模式已重置",
+    "namingPatternResetMessage": "由于您选择的文件格式不执行任何聚合，命名模式已重置为默认值。",
+    "advancedExportFormats": "高级导出格式",
+    "advancedExportFormatsMessage": "导出组合CSV、Excel、KML或SQLite仅适用于付费订阅者。",
+    "incompatibleNamingPattern": "不兼容的命名模式",
+    "incompatibleNamingPatternMessage": "由于您选择的文件格式不执行任何聚合，因此无法选择包含聚合器的命名模式。",
+    "customFileNames": "自定义文件名",
+    "customFileNamesMessage": "自定义文件名仅适用于付费订阅者。",
+    "help": "帮助",
+    "footerNote": "本地时间是在导出时确定的，而不是在记录时确定的。导出会被缓存。通过定期使用数据记录屏幕上的\"清除导出缓存\"按钮来减少存储使用，而不会有任何数据丢失的风险。",
+    "exportRecording": "导出数据记录",
+    "exportRecordings": "导出 %{count} 个数据记录",
+    "tokens": {
+      "name": "名称",
+      "local": "本地",
+      "utc": "UTC",
+      "device": "设备",
+      "platform": "平台",
+      "epoch": "纪元",
+      "aggregators": "聚合器"
+    },
+    "fileFormat": "文件格式",
+    "namingPattern": "命名模式"
+  },
+  "tagsScreen": {
+    "bulkModeInstruction": "为 %{count} 个数据记录添加标签。创建新标签或点击以在所有选定的数据记录中分配/取消分配标签。",
+    "singleModeInstruction": "为数据记录添加标签以帮助您更好地组织和过滤它们。创建新标签，点击以分配和取消分配标签。",
+    "enterNewTag": "输入新标签",
+    "addTag": "添加标签",
+    "tagTooLong": "标签太长",
+    "tagTooLongMessage": "标签必须少于20个字符。",
+    "invalidTag": "无效的标签",
+    "invalidTagMessage": "此标签保留供内部使用。请选择另一个标签。",
+    "deleteTag": "删除标签？",
+    "deleteTagMessage": "此标签未与任何其他数据记录关联。您想删除它吗？",
+    "keepTag": "保留标签",
+    "deleteTagButton": "删除标签",
+    "noTags": "无标签",
+    "noTagsSubtitle": "为数据记录添加标签以帮助您更好地组织和过滤它们。",
+    "bulkModeTip": "带有勾选标记的标签应用于所有选定的数据记录。带有虚线边框的标签部分应用。点击任何标签以在所有选定的数据记录中切换。",
+    "singleModeTip": "一旦标签与所有数据记录解除关联，它将被删除。"
+  },
+  "studiesScreen": {
+    "asParticipant": "参与者",
+    "asInvestigator": "研究员",
+    "by": "%{investigatorName}",
+    "createJoin": "创建/加入",
+    "joinStudy": "加入研究",
+    "joinStudySubtitle": "轻松安全地将您的数据记录贡献给其他研究人员。",
+    "createStudySubtitle": "无缝请求其他Sensor Logger用户的数据。",
+    "whatAreStudies": "什么是研究？",
+    "bullet1": "在小组中收集数据进行研究",
+    "bullet2": "从朋友那里收集数据记录以供爱好使用",
+    "bullet3": "在各个设备上一致地记录",
+    "foundStudies": "找到 %{count} 个研究。%{activeText}",
+    "activeText": " 一个研究已激活。",
+    "cloudStorageExplanation": "所有研究和故事的云存储。升级订阅以增加。",
+    "createStudy": "创建研究"
+  },
+  "sensors": {
+    "batteryWarning": "高采样频率可能会快速耗尽电池。",
+    "changeSamplingFrequency": "更改采样频率",
+    "logAdditionalData": "记录附加数据",
+    "gpsConfiguration": "GPS配置",
+    "cameraConfiguration": "相机配置",
+    "microphoneConfiguration": "麦克风配置",
+    "accelerometer": {
+      "subtitle": "线性加速度",
+      "description": "测量设备坐标系中的加速度。重力的影响已被移除。此后处理由操作系统执行，而非本应用程序。当可用时，将记录一个名为总加速度的附加文件，其中包含线性加速度和重力加速度矢量的总和。",
+      "units": "以m/s²报告。始终在设备坐标系(x, y, z)中。假设g为9.80665m/s²。"
+    },
+    "gravity": {
+      "subtitle": "重力向量",
+      "description": "测量由于重力引起的加速度。这是重力加速度矢量对总加速度矢量的贡献。",
+      "units": "以m/s²报告。始终在设备坐标系(x, y, z)中。假设g为9.80665m/s²。"
+    },
+    "gyroscope": {
+      "subtitle": "旋转速率",
+      "description": "测量设备坐标系中的设备旋转速率。",
+      "units": "角速度以弧度每秒报告，格式为(x, y, z)。"
+    },
+    "orientation": {
+      "subtitle": "设备方向",
+      "description": "测量设备相对于设备坐标系的俯仰、横滚和偏航。当可用时，四元数也会被记录。",
+      "units": "俯仰、横滚和偏航以弧度报告。四元数以(qx, qy, qz, qw)的形式报告。",
+      "warning": "当可用时，建议您使用四元数而不是俯仰、横滚和偏航。"
+    },
+    "magnetometer": {
+      "subtitle": "磁场",
+      "description": "测量设备坐标系中的局部磁场矢量。",
+      "units": "以微特斯拉报告。",
+      "warning": "读数可能受到任何强局部磁场的影响。"
+    },
+    "compass": {
+      "subtitle": "磁方位",
+      "description": "测量相对于设备的指南针航向，由局部磁场导出。不支持设备倾斜补偿，因此设备必须保持平放。",
+      "units": "以度数报告。",
+      "warning": "读数可能受到任何强局部磁场的影响。"
+    },
+    "barometer": {
+      "subtitle": "海拔和压力",
+      "description": "测量海拔以上的气压高度。",
+      "units": "压力以毫巴报告，相对高度以米为单位报告，自记录开始以来。"
+    },
+    "location": {
+      "subtitle": "GPS坐标",
+      "description": "测量GPS坐标和海拔。经度和纬度以度数报告。除非在导出数据中另有说明，否则海拔是指椭球高度(WGS84)。在某些情况下，还会报告平均海平面以上的海拔。还记录速度和方位。",
+      "units": "纬度以度数表示，正值表示赤道以北的位置(在-90到90度之间)，而经度也以度数表示，使用正值表示子午线以东的位置(在-180到180度之间)。海拔以米为单位，是WGS84椭球之上的高度。方位以0到360度表示，是相对于正北的方向，负值表示无效数据。方位精度也以度数表示，代表方位测量的精度，负值表示无效数据。水平和垂直精度以米为单位。速度和速度精度都以米每秒为单位。",
+      "warning": "GPS传感器的精度取决于信号强度。"
+    },
+    "camera": {
+      "subtitle": "图像或视频",
+      "description": "根据设置中的相机模式，以设定的间隔捕获图像或从设备相机连续捕获视频。如果模式设置为图像，捕获的图像将带有时间戳并与其他测量同步。如果模式设置为视频，将创建一个带音频的单个视频文件，但可能不会与其他测量时间同步。您可能必须执行手动同步，例如使用视频中的音轨与麦克风传感器对比。无论哪种情况，在设置中选择使用前置或后置摄像头。",
+      "units": "JPG格式(图像模式)或MP4格式(视频模式)。",
+      "warning": "要捕获图像或视频，摄像头取景器必须在屏幕上可见，并且手机屏幕必须处于开启状态。当捕获图像时，您的设备可能会播放快门声。将设备静音以防止这种情况，特别是当麦克风传感器启用时。"
+    },
+    "heartRate": {
+      "subtitle": "来自配对手表",
+      "description": "从配套手表应用程序测量BPM心率。记录开始时手表应用程序必须在前台才能开始心率测量。随后手表应用程序可以进入后台，测量将继续。",
+      "frequency": "不可配置。采样率可能不可预测。第一次测量到达之前可能有很长的延迟。",
+      "units": "每分钟心跳数(BPM)。",
+      "warning": "要使此传感器工作，您需要授予手表上的心率测量权限。",
+      "warningIos": " 这可以在手表上的设置 > 健康 > 应用 > Sensor Logger中完成。",
+      "warningEnd": " 此应用程序只会监控心率传感器，不会读取手机上的其他健康数据。它也不会写入任何健康数据。"
+    },
+    "wristMotion": {
+      "subtitle": "来自配对手表",
+      "description": "记录手腕上手表的运动相关读数。这包括旋转速率(x, y和z)、重力矢量(x, y和z)、加速度(x, y和z)和四元数姿态。",
+      "frequency": "不可配置，通常为100Hz",
+      "units": "与手机上相应传感器相同的单位。",
+      "warning": "如果手表应用程序在前台且手表屏幕开启，这些传感器将始终工作。如果您想要后台记录，还必须启用心率传感器并授予相关权限。这间接启用了手腕运动数据的后台记录。"
+    },
+    "watchLocation": {
+      "subtitle": "来自配对手表",
+      "description": "记录手腕上手表的位置读数。",
+      "frequency": "不可配置。",
+      "units": "与手机上相应传感器相同的单位。",
+      "warning": "如果手表应用程序在前台且手表屏幕开启，这些传感器将始终工作。如果您想要后台记录，还必须启用心率传感器并授予相关权限。这间接启用了位置数据的后台记录。"
+    },
+    "watchBarometer": {
+      "subtitle": "来自配对手表",
+      "description": "记录手腕上手表的气压计读数。",
+      "frequencyIos": "大约每2.5秒一次(0.4Hz)。不可配置。",
+      "frequencyAndroid": "取决于设备型号。不可配置。",
+      "units": "与手机上相应传感器相同的单位。",
+      "warning": "如果手表应用程序在前台且手表屏幕开启，这些传感器将始终工作。如果您想要后台记录，还必须启用心率传感器并授予相关权限。这间接启用了气压计数据的后台记录。"
+    },
+    "watchMagnetometer": {
+      "subtitle": "来自配对手表",
+      "description": "记录手腕上手表的磁力计读数。",
+      "frequencyIos": "不可配置，通常为100Hz。",
+      "frequencyAndroid": "取决于设备型号。不可配置。",
+      "units": "与手机上相应传感器相同的单位。",
+      "warning": "如果手表应用程序在前台且手表屏幕开启，这些传感器将始终工作。如果您想要后台记录，还必须启用心率传感器并授予相关权限。这间接启用了磁力计数据的后台记录。"
+    },
+    "watchCompass": {
+      "subtitle": "来自配对手表",
+      "description": "测量相对于手表的指南针航向。",
+      "frequencyIos": "不可配置。",
+      "frequencyAndroid": "取决于设备型号。不可配置。",
+      "units": "以度数报告。",
+      "warning": "读数可能受到任何强局部磁场的影响。如果手表应用程序在前台且手表屏幕开启，这些传感器将始终工作。如果您想要后台记录，还必须启用心率传感器并授予相关权限。"
+    },
+    "microphone": {
+      "subtitle": "音频和电平",
+      "description": "返回与其他测量时间戳同步的音频录音。还返回dBFS(相对于满量程的分贝)响度测量，其中0 dBFS的级别是最大可能的数字级别。有关更多信息，请参见wikipedia.org/wiki/DBFS。",
+      "frequency": "您可以使用开始记录按钮旁边的齿轮图标在有损和无损之间更改压缩。响度的采样频率无法调整。",
+      "units": "以dbFS表示响度。音频格式为.mp4，采样率根据配置而变化。",
+      "warning": "请注意，Sensor Logger始终使用手机上的麦克风，而不是任何连接的耳机。"
+    },
+    "light": {
+      "subtitle": "环境亮度",
+      "description": "使用环境光传感器测量相对环境亮度。",
+      "frequency": "不可配置。",
+      "units": "以勒克斯测量。"
+    },
+    "pedometer": {
+      "subtitle": "步数统计",
+      "description": "记录自记录会话开始以来所走的步数。这是由操作系统计算的，而非Sensor Logger。",
+      "frequency": "不可配置。",
+      "units": "以步数测量。",
+      "warning": "在计数步数之前可能会有几秒钟的延迟。因此，请确保您的记录时间足够长，以捕获您想要计数的所有步数。"
+    },
+    "headphone": {
+      "subtitle": "AirPods 移动",
+      "description": "记录来自AirPods无线蓝牙耳塞的运动读数。您可以将其用于头部跟踪等应用。这包括加速度(x, y和z)、重力矢量(x, y和z)、旋转速率(x, y和z)和姿态。由于限制，一次只有一个耳塞记录运动数据。活动耳塞由sensorLocation字段指示。",
+      "frequency": "不可配置且可变，最新型号最高25Hz，较旧型号15Hz。",
+      "units": "与手机上相应传感器相同的单位。",
+      "warning": "您必须佩戴配对的AirPods——您可以同时佩戴两个或只佩戴一个耳塞。如果您在AirPods设置中关闭'自动耳朵检测'，只要它们连接到您的手机，就可以在不在耳朵中时记录AirPods的运动。"
+    },
+    "battery": {
+      "subtitle": "电池电量",
+      "description": "测量设备的电池电量。还记录电池状态(充电中、已充满等)。负值表示电池状态未知。",
+      "frequency": "以1Hz采样，不可配置。",
+      "units": "以分数报告，例如0.5为50%。"
+    },
+    "batteryTemp": {
+      "subtitle": "电池温度",
+      "description": "测量设备的电池温度。",
+      "frequency": "以1Hz采样，不可配置。",
+      "units": "以摄氏度报告。"
+    },
+    "brightness": {
+      "subtitle": "屏幕亮度",
+      "description": "测量设备屏幕的亮度。这对于确定屏幕是开启还是关闭很有用。如果启用了自动亮度，在支持的设备上，这些值也可以作为环境亮度的代理。",
+      "frequency": "以1Hz采样，不可配置。",
+      "units": "以分数报告，例如0.5为50%。"
+    },
+    "network": {
+      "subtitle": "类型和质量",
+      "description": "报告有关网络连接类型及其质量的信息。这包括网络类型(例如WiFi、蜂窝)等。如果GPS传感器不可用，这也可用作设备位置的代理。",
+      "frequency": "以2Hz采样，不可配置。",
+      "units": "类型可以是none、unknown、cellular、wifi、Bluetooth、ethernet、wimax、vpn或other之一。强度是0到100之间的数字。IP地址是外部IP地址。可以是IPv4或IPv6。频率是网络频率。例如，2.4GHz将返回2457。蜂窝代数可以是2g、3g、4g、5g或null之一。"
+    },
+    "wifi": {
+      "subtitle": "附近网络",
+      "description": "报告有关附近WiFi网络的信息。这包括SSID和频率。",
+      "frequency": "每40秒扫描一次WiFi网络。",
+      "units": "SSID是WiFi网络的名称。BSSID是MAC地址。频率是网络频率。例如，2.4GHz将返回2457。功能是网络功能列表。Level是信号强度，以dBm为单位。"
+    },
+    "activity": {
+      "subtitle": "步行、跑步、驾驶",
+      "description": "跟踪自记录会话开始以来的运动活动，如步行、跑步、骑自行车或驾驶。这是由操作系统估算的，而不是Sensor Logger。",
+      "frequency": "事件驱动，这意味着只有在活动发生变化时才会记录新数据。不可配置。",
+      "units": "活动类型可以是步行、跑步、骑自行车、汽车、静止、倾斜或未知之一。置信度可以是低、中、高或未知之一。"
+    },
+    "bluetooth": {
+      "subtitle": "所有附近设备",
+      "description": "蓝牙是一种无线技术标准，用于在短距离内在固定和移动设备之间交换数据。",
+      "frequency": "取决于蓝牙设备，通常与设备广播频率相同。",
+      "units": "接收信号强度指示器（RSSI）以dBm为单位。负值越大表示信号越弱。制造商数据以原始格式记录以最大化兼容性。您需要自行解码。",
+      "warning": "蓝牙数据仅在应用打开且屏幕亮起时记录。某些信息仅可从与手机配对的蓝牙设备获取。名称中的所有逗号都替换为破折号；在CSV导出中，逗号分隔的列表用竖线分隔。",
+      "configuration": "蓝牙配置"
+    }
+  },
+  "stateAlerts": {
+    "error": "错误",
+    "sensorsUnavailable": "传感器不可用",
+    "sensorsUnavailableMessage": "以下传感器不可用，未被设置：%{sensors}。",
+    "incompleteRestoration": "恢复不完整",
+    "incompleteRestorationMessage": "某些设置未恢复，因为配置包含仅在Pro中可用的功能。请考虑升级到Pro以恢复完整配置。",
+    "feedback": "反馈",
+    "feedbackMessage": "我们注意到您已取消订阅Sensor Logger。我们很想听听您对如何改进Sensor Logger的反馈。您愿意提供反馈吗？",
+    "noThanks": "不用了，谢谢",
+    "provideFeedback": "提供反馈"
+  }
+}

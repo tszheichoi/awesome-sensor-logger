@@ -1,0 +1,993 @@
+{
+  "screenTitle": {
+    "logger": "ロガー",
+    "recordings": "記録",
+    "studies": "研究",
+    "stories": "ストーリー",
+    "about": "について",
+    "settings": "設定",
+    "viewSensor": "センサー表示",
+    "details": "詳細",
+    "privacy": "プライバシー",
+    "settingsPreview": "設定プレビュー",
+    "questionnaire": "アンケート",
+    "whatsNew": "新機能",
+    "plot": "グラフ",
+    "tags": "タグ",
+    "subscribe": "購読",
+    "appIcon": "アプリアイコン",
+    "export": "エクスポート",
+    "addStudy": "研究を追加",
+    "studyDetail": "研究の詳細",
+    "aggregationSettings": "集約設定",
+    "joinStudy": "研究に参加",
+    "allSettings": "すべての設定",
+    "mapSelector": "マップセレクター",
+    "console": "コンソール",
+    "cloud": "クラウド",
+    "cloudRecording": "クラウド記録",
+    "cloudRecordingUpload": "クラウドアップロード",
+    "storyDetails": "ストーリーの詳細",
+    "addStory": "ストーリーを追加",
+    "createStory": "ストーリーを作成",
+    "storyTemplate": "ストーリーテンプレート",
+    "storyTemplateDetails": "テンプレートの詳細",
+    "storyWizard": "ストーリーウィザード",
+    "infoEditor": "情報エディタ",
+    "update": "更新",
+    "createStudy": "研究を作成",
+    "rulesEditor": "ルールエディタ",
+    "rulesGallery": "ルールギャラリー",
+    "rulesHelp": "ルールヘルプ",
+    "rulesSettings": "ルール設定"
+  },
+  "quickActions": {
+    "toggleRecording": "記録切替",
+    "toggleRecordingSubtitle": "記録開始または終了",
+    "joinStudy": "研究に参加",
+    "joinStudySubtitle": "コードまたはQRコード",
+    "dontDeleteMe": "削除しないで！",
+    "problemsHelp": "問題がありますか？",
+    "hereToHelp": "サポートします"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "ok": "OK",
+    "delete": "削除",
+    "done": "完了",
+    "tags": "タグ",
+    "export": "エクスポート",
+    "select": "選択",
+    "add": "追加",
+    "later": "後で",
+    "continue": "続ける",
+    "openSettings": "設定を開く",
+    "upgrade": "アップグレード",
+    "error": "エラー",
+    "discard": "破棄"
+  },
+  "license": {
+    "activated": "ライセンス認証完了",
+    "activatedMessage": "ライセンスが認証されました"
+  },
+  "validation": {
+    "requiredField": "このフィールドは必須です。"
+  },
+  "api": {
+    "noInternet": "インターネットに接続されていません。",
+    "genericError": "エラーが発生しました。後でもう一度お試しください。",
+    "uploadError": "アップロード中にエラーが発生しました: %{error}"
+  },
+  "storyDetails": {
+    "deleteStory": "ストーリーを削除",
+    "deleteStoryMessage": "このストーリーを削除してもよろしいですか？",
+    "submitAsTemplate": "テンプレートとして送信",
+    "submitAsTemplateMessage": "他のユーザーがこのストーリーを使用できると思われる場合は、テンプレートとして送信できます。送信内容は審査されます。",
+    "submit": "送信"
+  },
+  "recordings": {
+    "noRecordings": "記録なし",
+    "createRecordings": "ロガーを使用してデータ記録を作成します。",
+    "noMatchingTags": "選択されたタグに一致するデータ記録はありません。",
+    "confirmDeletion": "削除の確認",
+    "deleteConfirmation": "%{count}件のデータ記録を削除してもよろしいですか？",
+    "selected": "選択済み",
+    "showingCount": "%{total}件中%{filtered}件のデータ記録を表示%{plural}",
+    "clearExportCache": "エクスポートキャッシュをクリア",
+    "nothingToClear": "クリアするものはありません",
+    "noCachedExports": "エクスポートされたデータ記録がないため、キャッシュされたエクスポートはありません。",
+    "cacheCleared": "キャッシュをクリア",
+    "cacheDeletedMessage": "%{count}個のキャッシュされたエクスポートファイルを削除し、%{size}MBの容量を解放しました。",
+    "untitledRecording": "無題のデータ記録",
+    "showAll": "すべて表示",
+    "sortOptions": {
+      "newest": "新しい順",
+      "oldest": "古い順",
+      "longestDuration": "長い順",
+      "shortestDuration": "短い順",
+      "nameAZ": "名前（A-Z）",
+      "nameZA": "名前（Z-A）"
+    }
+  },
+  "about": {
+    "sectionCustomise": "カスタマイズ",
+    "sectionUpgrades": "アップグレード",
+    "sectionResources": "リソース",
+    "sectionReferences": "リファレンス",
+    "sectionSupport": "サポート",
+    "sectionInfo": "情報",
+    "theme": "テーマ",
+    "colours": "カラー",
+    "subscribe": "購読",
+    "subscribeSubtext": "追加の有料機能",
+    "cloud": "Sensor Logger Cloud",
+    "cloudSubtext": "研究とストーリーのストレージ",
+    "appIcon": "アプリアイコン",
+    "appIconSubtext": "アイコンを変更",
+    "language": "言語",
+    "languageSubtext": "言語を変更",
+    "helpMe": "ヘルプ！",
+    "helpSubtext": "役立つドキュメント",
+    "feedback": "フィードバック",
+    "feedbackSubtext": "Sensor Loggerの改善にご協力ください",
+    "resources": "リソース",
+    "resourcesSubtext": "チュートリアルとサンプルコード",
+    "whatsNew": "新機能",
+    "whatsNewSubtext": "リリースノート",
+    "privacy": "プライバシー",
+    "privacySubtext": "要約：データは非公開",
+    "aboutItem": "について",
+    "aboutSubtext": "Sensor Loggerウェブサイト",
+    "unitReference": "単位リファレンス",
+    "unitSubtext": "単位のガイド",
+    "coordinateReference": "座標リファレンス",
+    "coordinateSubtext": "軸定義のガイド",
+    "samplingReference": "サンプリングリファレンス",
+    "samplingSubtext": "サンプリングレートのガイド",
+    "emailSupport": "メールサポート",
+    "emailSubtext": "ProおよびUltimateユーザー向け",
+    "appName": "Sensor Logger",
+    "versionBuild": "バージョン%{version} ビルド%{build}",
+    "update": "更新",
+    "moreInspiration": "その他のインスピレーション",
+    "reservedColours": "予約済みカラー",
+    "reservedColoursMessage": "このカラーは購読者専用です。Sensor Loggerを購読してこのカラーをアンロックしてください。"
+  },
+  "sensorSettings": {
+    "waitingForData": "データ待機中",
+    "waitingForDataSubtitle": "センサーからの値を待っています。",
+    "noPlottableData": "プロット可能なデータなし",
+    "noPlottableDataSubtitle": "このBluetoothデータにはプロット可能なフィールドが含まれていません。",
+    "selectData": "データを選択",
+    "samples": "サンプル",
+    "connectingDevice": "追加データのためにデバイスに接続中。",
+    "totalAccelerationWarning": "デバイスに重力なしの加速度を記録するセンサーがないため、Sensor Loggerは総加速度（重力を含む）を表示しています。",
+    "compassCalibrationWarning": "設定 > プライバシーとセキュリティ > 位置情報サービス > システムサービスで「コンパスの調整」と「モーションの調整と距離」の両方を有効にする必要があります。そうしないとデータが0として報告されます。",
+    "latestReadings": "最新の測定値",
+    "waitingForSensor": "センサーからのデータ受信を待っています...",
+    "liveReadings": "このセンサーからのライブ測定値が以下に表示されます。",
+    "decodedData": "デコードされたデータ",
+    "waitingForAdditional": "センサーからの追加データを待っています...",
+    "decodedInfo": "次の情報をデコードしました。タップしてコピーします。",
+    "sensorInformation": "センサー情報",
+    "sensorInfoDescription": "デバイスメーカーがこのセンサーに関する次の情報を提供しています。タップしてコピーします。",
+    "bluetoothResources": "Bluetoothリソース",
+    "analysisResources": "分析リソース",
+    "cameraPermission": "カメラを待っています。これが続く場合は、設定アプリでSensor Loggerのカメラ権限を確認してください。",
+    "instantaneous": "瞬時",
+    "rollingAverage": "移動平均",
+    "description": "説明",
+    "importantNotes": "重要事項",
+    "watchConnectionReliability": "ウォッチ接続の信頼性を向上させる方法は？",
+    "sampling": "サンプリング",
+    "settingShortcuts": "設定ショートカット",
+    "units": "単位",
+    "viewUnitReference": "単位リファレンスを表示",
+    "viewCoordinateReference": "座標リファレンスを表示",
+    "standardisationEnabled": "単位と座標の標準化がオンになっています。タップして詳細を確認してください。"
+  },
+  "plotsScreen": {
+    "annotationHint": "記録セッション中に注釈を追加するには、ロガー画面の鉛筆アイコンをタップしてください。長押しで持続時間を制御できます。",
+    "timeSeriesPartial": "時系列の一部のみを表示しています。より多くのポイントを表示するには、ここをタップして解像度を下げてください"
+  },
+  "logger": {
+    "startRecording": "記録開始",
+    "end": "終了",
+    "endRecording": "記録終了",
+    "endRecordingConfirm": "この記録セッションを終了してもよろしいですか？",
+    "continueRecording": "記録を続ける",
+    "endNow": "今すぐ終了",
+    "renameRecording": "データ記録名を変更",
+    "saveAndExport": "保存してエクスポート",
+    "addCustomAnnotation": "カスタム注釈を追加",
+    "addAnnotationMessage": "タイムスタンプ%{time}と押下時間%{duration}msに関連付けられたコメントを記録します。空のままにするとタイムスタンプのみをブックマークします。",
+    "problematicPermission": "権限の問題",
+    "locationPermissionMessage": "継続的なバックグラウンド測定には位置情報アクセスを「常に」に設定する必要があります。少なくともフォアグラウンド記録には「アプリ使用中のみ」に設定してください。",
+    "sensorPermissionMessage": "設定アプリでこのセンサーの権限を有効にしてください。",
+    "orientationOffset": "向きオフセット",
+    "orientationOffsetMessage": "校正またはマウント目的で角度値をゼロに設定します。「ゼロに設定」をタップした瞬間から有効になり、この記録セッションの終了まで持続します。他のセンサーには影響せず、以前の向き測定値も変更しません。",
+    "setZero": "ゼロに設定",
+    "cameraControls": "カメラコントロール",
+    "cameraControlsLarge": "プレビューの任意の場所をタップしてフォーカス、ピンチしてズームします。露出スライダーを使用して明るさを調整します。",
+    "cameraControlsSmall": "プレビューの任意の場所をタップしてフォーカス、ピンチしてズームします。カメラを展開して露出コントロールを表示します。",
+    "tapToExpand": "タップして展開・操作",
+    "keepAwakeAlert": "画面を維持",
+    "keepAwakeAlertMessage": "このセンサーは画面オフ時に正常に動作しない場合があります。録音中に画面をオンのままにしますか？この設定は後で変更できます。",
+    "serverError": "サーバーエラー",
+    "serverErrorMessage": "HTTPプッシュサーバーがエラーメッセージで応答しました: %{message}。",
+    "serverErrorCode": "HTTPプッシュサーバーがコード499で応答しました。これはサーバー側エラーを示します",
+    "maxRecordingsReached": "保存データ記録数の上限に達しました",
+    "maxRecordingsMessage": "Sensor Loggerは無料で最大10件のローカル保存データ記録まで使用できます。無料で続けるには、既存のデータ記録をエクスポートして削除してください。または、有料サブスクリプションへのアップグレードをご検討ください。これにより、無制限のデータ記録保存などの追加機能が利用できます。",
+    "noSensorsEnabled": "センサーが有効になっていません",
+    "noSensorsMessage": "このデータ記録用にトグルされたセンサーがありません。データをログに記録するセンサーをオンにしてください。",
+    "watchDisconnected": "ウォッチが切断されました",
+    "watchDisconnectedMessage": "コンパニオンウォッチアプリを開くまで、ウォッチの測定は記録されません。",
+    "batteryLevelLow": "バッテリー残量低下",
+    "batteryLevelMessage": "バッテリー残量は%{level}%です。Sensor Loggerは記録中に高電力を消費する可能性があります。",
+    "lowStorageSpace": "ストレージ容量不足",
+    "lowStorageMessage": "このデバイスのストレージ容量が限られているため、容量を解放することをお勧めします。",
+    "notConnectedInternet": "インターネットに接続されていません",
+    "notConnectedMessage": "このデータ記録はローカルにのみ保存されます。研究に貢献するには、後でデータ記録ページからアップロードしてください。",
+    "uploadRecording": "データ記録をアップロード",
+    "uploadToCloud": "研究調査員が後でダウンロードできるように、Sensor Loggerクラウドにデータ記録をアップロードします。",
+    "uploadToBucket": "調査員が設定したストレージバケットにデータ記録をアップロードします。",
+    "uploadNow": "今すぐアップロード",
+    "uploadInstructions": "アップロード手順",
+    "uploadInstructionsDefault": "研究調査員はアップロード手順を提供していません。詳細については調査員にお問い合わせください。",
+    "unknownDelivery": "不明な配信メカニズム",
+    "unknownDeliveryMessage": "研究調査員が不明な配信メカニズムを指定しています。詳細については調査員にお問い合わせください。",
+    "mqttError": "MQTTエラー",
+    "mqttErrorMessage": "MQTTクライアントのセットアップ中にエラーが発生しました: %{error}",
+    "installWatchApp": "ウォッチアプリをインストール",
+    "installWearOSApp": "WearOSアプリをインストール",
+    "watchConnected": "ウォッチ接続済み",
+    "clear": "クリア",
+    "scanning": "スキャン中",
+    "scan": "スキャン",
+    "hintBar": {
+      "studyActive": "研究アクティブ",
+      "studyActiveMessage": "「%{studyName}」に参加中。設定は規定されています。詳細についてはタップしてください。",
+      "exporting": "記録をエクスポート中...",
+      "uploading": "記録をアップロード中: %{progress}%",
+      "keepAppOpen": "アップロードが完了するまでアプリを開いたままにしてください。"
+    },
+    "sectionTitles": {
+      "inertialSensors": "慣性センサー",
+      "nonInertialSensors": "非慣性センサー",
+      "vision": "ビジョン",
+      "watch": "ウォッチ",
+      "otherSensors": "その他のセンサー",
+      "deviceProperties": "デバイスプロパティ",
+      "bluetoothBeacons": "Bluetoothデバイス"
+    },
+    "keepAwakeNo": "必要ありません",
+    "keepAwakeYes": "画面をオン＆暗くする",
+    "tapToScanDevices": "タップして個別デバイスをスキャン",
+    "allBluetoothSensors": "すべてのBluetoothセンサー",
+    "bluetoothUpgradeMessage": "アップグレードしてすべてのBluetoothセンサーを一度に記録するか、個別のセンサーを無料でスキャンして有効にしてください。"
+  },
+  "settings": {
+    "language": "言語",
+    "troubleshooting": "トラブルシューティングについては、tszheichoi.com/sensorloggerhelpをタップして訪問してください",
+    "resetToDefaults": "デフォルトにリセット",
+    "paid": "有料",
+    "ultimate": "Ultimate",
+    "sectionTitle": {
+      "recordingMechanism": "記録メカニズム",
+      "recordingWorkflow": "記録ワークフロー",
+      "timestamps": "タイムスタンプ",
+      "clock": "時計",
+      "microphone": "マイク",
+      "location": "位置情報",
+      "bluetooth": "Bluetooth",
+      "additionalData": "追加データ",
+      "camera": "カメラ",
+      "checkpoint": "チェックポイント",
+      "standardisation": "標準化",
+      "httpPush": "HTTPプッシュ",
+      "mqttPublishing": "MQTT公開",
+      "mqttSubscription": "MQTTサブスクリプション",
+      "samplingFrequencies": "サンプリング周波数",
+      "samplingReference": "サンプリングリファレンス",
+      "sensorSections": "センサーセクション",
+      "annotationPresets": "注釈プリセット",
+      "exportShareRestore": "エクスポート、共有、復元",
+      "deviceSettings": "デバイス設定",
+      "language": "言語"
+    },
+    "recordingMechanism": {
+      "confirmBeforeEnding": "終了前に確認",
+      "confirmBeforeEndingSubtitle": "「記録終了」ボタンをタップしたときにダイアログを表示して、誤入力を防ぎます。",
+      "smartName": "スマート名",
+      "smartNameSubtitle": "位置情報センサーが有効な場合、位置に基づいてデータ記録に自動的に名前を付けます。",
+      "keepAwake": "スリープ防止",
+      "keepAwakeSubtitle": "画面をオンに保ち、デバイスのロックを防ぎます。バックグラウンドで動作しない可能性があるカメラとBluetoothデータ記録に便利です。",
+      "keepAwakeOff": "オフ",
+      "keepAwakeOn": "オン",
+      "keepAwakeOnDim": "オン＆ディム",
+      "proximityLock": "近接ロック",
+      "proximityLockSubtitle": "記録中に近接センサーがトリガーされると、スリープ防止がオンの場合でも画面をオフにします。ポケットに入れているときの誤入力を避け、バッテリーを節約します。それ以外の場合は、画面がオンであるかのように動作します。",
+      "inlinePreview": "インラインプレビュー",
+      "inlinePreviewSubtitle": "記録中にライブセンサーデータを表示します。リソースが限られたデバイスではパフォーマンスに影響を与える可能性があります。",
+      "startRecordingOnBoot": "起動時に記録開始",
+      "startRecordingOnBootSubtitle": "デバイスの起動時に記録を開始します。長期的なデータ収集に便利です。",
+      "extraPermissionRequired": "追加の権限が必要",
+      "extraPermissionMessage": "起動時に記録を開始するには、「最前面に表示」権限を付与する必要があります。次の画面で付与してください。"
+    },
+    "workflow": {
+      "workflow": "ワークフロー",
+      "workflowSubtitle": "クラシックモードでは、記録が終了したときにバックグラウンドでデータが保存され、管理とエクスポートが行われます。統合モードでは、名前の変更とエクスポートを求められます。データは常に保存されます。ウォッチアプリで終了したデータ記録は常にクラシックワークフローに従います。",
+      "workflowClassic": "クラシック",
+      "workflowIntegrated": "統合",
+      "cacheNames": "名前をキャッシュ",
+      "cacheNamesSubtitle": "統合ワークフローでデータ記録に名前が付けられた場合、名前と位置をキャッシュして、約100m以内で行われた今後のデータ記録がデフォルトでそれを使用するようにします。",
+      "cannotChangeInStudy": "研究中はワークフロー設定を変更できません。"
+    },
+    "clock": {},
+    "checkpoint": {
+      "checkpoint": "チェックポイント",
+      "checkpointSubtitle": "24時間の連続記録ごとに、そのデータは中断なくシームレスに「記録」タブの新しいエントリとして自動的に保存されます。これにより、日次データ記録を整理することで長期的なデータ収集が容易になります。"
+    },
+    "additionalData": {
+      "uncalibratedValues": "未校正値",
+      "uncalibratedValuesSubtitle": "加速度計、ジャイロスコープ、磁力計から未処理の値を記録します。低レベルの後処理やカスタムセンサー融合を実行するのに便利です。校正されたデータは常に記録されます。",
+      "additionalLocationData": "追加の位置情報データ",
+      "additionalLocationDataSubtitle": "デフォルトでは、融合された位置情報のみが記録されます。GPS専用とネットワーク専用からの追加測定を記録します。",
+      "learnMoreLocation": "位置情報データの詳細",
+      "additionalOrientationData": "追加の向きデータ",
+      "additionalOrientationDataSubtitle": "このデバイスは%{gameRotation}もサポートしています。デフォルトの向きセンサーと一緒に追加の向きデータを記録します。",
+      "gameRotation": "「ゲーム回転」",
+      "learnMoreOrientation": "向きデータの詳細"
+    },
+    "camera": {
+      "cameraType": "カメラタイプ",
+      "cameraTypeSubtitle": "カメラセンサーが有効な場合に使用するカメラ。",
+      "cameraTypeFront": "フロント",
+      "cameraTypeRear": "リア",
+      "cameraFlash": "カメラフラッシュ",
+      "cameraFlashSubtitle": "フラッシュを使用するかどうか。",
+      "cameraFlashOn": "オン",
+      "cameraFlashOff": "オフ",
+      "cameraFlashAuto": "自動",
+      "imageQuality": "画質",
+      "imageQualitySubtitle": "高品質はより多くのストレージを使用します。",
+      "imageQualityLowest": "最低",
+      "imageQualityLow": "低",
+      "imageQualityMedium": "中",
+      "imageQualityHigh": "高",
+      "cameraMode": "カメラモード",
+      "cameraModeSubtitle": "定期的に画像をキャプチャするか、音声付きのビデオとして継続的にキャプチャするか。",
+      "cameraModeImages": "画像",
+      "cameraModeVideo": "ビデオ",
+      "captureDepth": "深度キャプチャ",
+      "captureDepthImage": "画像",
+      "captureDepthImageDepth": "画像＋深度",
+      "depthNotSupportedInVideo": "深度データはビデオモードではサポートされていません。"
+    },
+    "microphone": {
+      "microphoneQuality": "マイク品質",
+      "microphoneQualitySubtitle": "ロスレスは最高品質ですが、より大きなファイルを作成します。ラウドネスのみはオーディオなしでdBFSのオーディオラウドネスのみを記録します。",
+      "microphoneLossy": "ロッシー",
+      "microphoneLossless": "ロスレス",
+      "microphoneLoudnessOnly": "ラウドネスのみ",
+      "viewMicrophoneReference": "マイクリファレンスを表示"
+    },
+    "location": {
+      "coordinatesCloaking": "座標クローキング",
+      "coordinatesCloakingSubtitle": "プライバシーのために座標の精度を下げます。0.001°と0.1°に丸めると、それぞれ約100mと約10kmの精度になります。ドロップの場合、座標は記録されません。",
+      "coordinatesPrecise": "精密",
+      "coordinatesTo0001": "0.001°まで",
+      "coordinatesTo01": "0.1°まで",
+      "coordinatesDrop": "ドロップ",
+      "optimizeForNavigation": "ナビゲーション用に最適化",
+      "optimizeForNavigationSubtitle": "位置情報センサーをナビゲーションモードに設定し、追加のセンサーを使用して精度を向上させます。"
+    },
+    "bluetooth": {
+      "scanningDuration": "スキャン時間",
+      "scanningDurationSubtitle": "リストを更新するときに近くのBluetoothデバイスをスキャンする秒数。",
+      "rssiThreshold": "RSSIしきい値",
+      "rssiThresholdSubtitle": "デバイススキャン中の最小信号強度。0に近いRSSIほど強力です。-70dBmは良好な信号強度と見なされます。",
+      "rssiNoLimit": "制限なし",
+      "rssiAbove70": "> -70dBm",
+      "rssiAbove60": "> -60dBm",
+      "decodeValues": "値をデコード",
+      "decodeValuesSubtitle": "サポートされている場合、アドバタイズされたデータとストリーミングされたデータをデコードします。github.com/tszheichoi/sensor-bleでサポートされているデバイスを参照してください。"
+    },
+    "export": {
+      "copyExportCode": "エクスポートコードをコピー",
+      "showQrCode": "QRコードを表示",
+      "hideQrCode": "QRコードを非表示",
+      "restoreFromClipboard": "クリップボードから復元",
+      "cannotExportInStudy": "研究中は設定をエクスポートまたは復元できません。",
+      "explanatoryText": "設定と現在トグルされているセンサーのセットは、生成されたコードを使用してエクスポートできます。このコードを使用して、同じデバイスまたは別のデバイスでこれらの設定を復元できます。データを収集するときに同じ設定を持つように、コードを他の人と共有できます。コードを転送するか、スマートフォンでQRコードをスキャンするように依頼するだけです。これはデバイスに依存する性質のため、Bluetoothセンサーは除外されることに注意してください。",
+      "restoreFailedError": "クリップボードからの設定の復元に失敗しました。クリップボードが正しいか確認してください。"
+    },
+    "annotationPresets": {
+      "addAnnotationPreset": "注釈プリセットを追加",
+      "addAnnotationPresetMessage": "このテキストは、記録中に対応するボタンをタップすると注釈として追加されます。",
+      "emptyAnnotation": "空の注釈",
+      "emptyAnnotationMessage": "空でないテキストを入力してください。",
+      "duplicateAnnotation": "重複する注釈",
+      "duplicateAnnotationMessage": "この注釈プリセットは既に存在します。",
+      "presetTooLong": "プリセットが長すぎます",
+      "presetTooLongMessage": "注釈テキストは100文字以内にしてください。",
+      "addPreset": "プリセットを追加",
+      "subscribeToAddMorePresets": "さらにプリセットを追加するには購読してください",
+      "subscribeToAddMorePresetsMessage": "無料ユーザーは最大3つの注釈プリセットしか持てません。記録中はいつでも無制限の数のカスタム注釈を追加できます。最大100個のプリセットを追加するには、任意のティアへのアップグレードをご検討ください。",
+      "okay": "OK",
+      "upgradeButton": "アップグレード",
+      "maximumPresetsReached": "最大プリセット数に達しました",
+      "maximumPresetsReachedMessage": "最大100個の注釈プリセットしか持てません。さらに必要な場合は、お問い合わせください。",
+      "deleteAnnotationPreset": "注釈プリセットを削除",
+      "deleteAnnotationPresetMessage": "この注釈プリセットを削除してもよろしいですか？",
+      "infoText": "録音中にタイムスタンプ付きの注釈をすばやく追加できるよう、注釈プリセットを作成します。録音中はいつでもカスタム注釈を追加できます。録音中の重要なイベントやアクティビティをマークするのに便利で、後処理、フィルタリング、分析が容易になります。ドラッグしてプリセットの順序を変更できます。"
+    },
+    "samplingFrequencies": {
+      "infoText": "各センサーのサンプリング周波数はデバイスに依存します。真のサンプリングレートはこれらの値よりも遅い場合があります。実際のサンプリング周波数を決定するために出力を調べることをお勧めします。",
+      "inertialSensors": "加速度計、重力、ジャイロスコープ、コンパス、向き、磁力計",
+      "barometer": "気圧計",
+      "location": "位置情報",
+      "camera": "カメラ",
+      "bluetooth": "Bluetooth",
+      "cameraWarning": "頻繁な画像サンプリングはパフォーマンスの問題を引き起こす可能性があります。画質を「最低」に設定すると役立つ場合があります。または、サンプリングの制限を回避するビデオモードに変更してください。",
+      "bluetoothWarning": "多くのBluetoothデバイスがアクティブな場合、頻繁なBluetoothサンプリングはパフォーマンスの問題を引き起こす可能性があります。",
+      "ruleEngineCallout": "ルールエンジンを使用して、記録中にサンプリングを動的に変更します。",
+      "maxLabel": "デバイスの制限に従って、可能な限り頻繁にサンプルを取得します",
+      "upToHz": "最大%{frequency}Hz",
+      "upToSec": "最大%{seconds}秒ごと",
+      "upToMin": "最大%{minutes}分ごと",
+      "max": "最大",
+      "custom": "カスタム",
+      "customSamplingTitle": "カスタムサンプリング",
+      "frequencyPromptMessage": "Hz（毎秒のサンプル数）で希望のサンプリング周波数を入力してください。%{min}から%{max}Hzの間の値を入力してください。",
+      "invalidFrequencyTitle": "無効なサンプリング周波数",
+      "maxFrequencyExceeded": "最大サンプリング周波数は%{max}Hzです。より高いサンプリングが必要な場合は、可能な限り頻繁にサンプルを取得するために最大を選択してください。",
+      "minFrequencyNotMet": "最小サンプリング周波数は%{min}Hzです。",
+      "periodPromptMessage": "ミリ秒単位で希望のサンプリング期間を入力してください。%{min}から%{max}msの間の値を入力してください。",
+      "invalidPeriodTitle": "無効なサンプリング期間",
+      "invalidPeriodMessage": "サンプリング期間は%{min}から%{max}ミリ秒の間でなければなりません。",
+      "change": "変更",
+      "selectInputTypeTitle": "入力タイプを選択",
+      "selectInputTypeMessage": "サンプリング周波数（Hz）またはサンプリング期間（ms）のどちらを入力しますか？",
+      "frequency": "周波数",
+      "period": "期間"
+    },
+    "standardisation": {
+      "title": "単位とフレームを標準化",
+      "subtitle": "異なるプラットフォームは異なる単位と座標系で値を報告する可能性があり、クロスプラットフォーム分析が困難になります。オンにすると、プラットフォーム間で定義が調和します。",
+      "learnMore": "プラットフォーム間の単位と座標の違い、および影響を受けるセンサーについて詳しく学びます。"
+    },
+    "orderSensors": {
+      "infoText": "ドラッグしてセンサーが表示される順序を変更します。Bluetoothビーコンは常に下部に表示されます。"
+    },
+    "samplingReference": {
+      "contributeAnonymously": "匿名で貢献",
+      "contributeAnonymouslySubtitle": "デバイスモデルのサンプリングレートを時々匿名で貢献することで、他のユーザーが実際のサンプリングレートを理解するのに役立ちます。有効なセンサーの高レベルで集約された統計のみが共有されます。",
+      "viewSamplingReference": "サンプリングリファレンスを表示するには、%{url}をタップして訪問してください。"
+    }
+  },
+  "settingsSections": {
+    "language": {
+      "description": "言語設定。",
+      "contribute": "翻訳に誤りがある場合や新しい言語を提供したい場合は、お気軽にお問い合わせください。",
+      "reviewAndContribute": "翻訳を確認・貢献する"
+    },
+    "recordingWorkflow": {
+      "description": "記録セッション中、終了時、および終了後に何が起こるか。"
+    },
+    "ruleEngine": {
+      "title": "ルールエンジン",
+      "description": "測定値、時間、場所などに基づいてセンサーをトリガーする自動化ルール。"
+    },
+    "dataStreaming": {
+      "title": "データストリーミング",
+      "description": "HTTPとMQTTを使用してデータをプッシュします。"
+    },
+    "sensorConfiguration": {
+      "title": "センサー構成",
+      "description": "カメラ、マイク、GPS、Bluetooth、未校正データの設定。"
+    },
+    "standardisation": {
+      "description": "デバイス間で単位と座標を標準化します。"
+    },
+    "samplingFrequencies": {
+      "description": "測定がサンプリングされる頻度を制御します。"
+    },
+    "timestamps": {
+      "description": "時計と形式のオプションを設定します。"
+    },
+    "sensorSections": {
+      "description": "センサーセクションの順序を変更します。"
+    },
+    "annotations": {
+      "title": "注釈",
+      "description": "注釈のプリセット。"
+    },
+    "deviceSettings": {
+      "description": "デバイスの高度な設定。"
+    },
+    "exportShareRestore": {
+      "description": "QRコードを使用して設定を共有します。"
+    }
+  },
+  "exportFormats": {
+    "csvZip": {
+      "description": "すべてのデータをセンサーごとにCSVにエクスポートし、zipファイルにパッケージ化します。"
+    },
+    "json": {
+      "description": "オーディオと画像を除く、データを単一のjsonファイルにパッケージ化します。"
+    },
+    "combinedCsv": {
+      "description": "再サンプリング、結合、集約して単一のCSVにし、すべてのタイムスタンプを整列させます。"
+    },
+    "excelSheets": {
+      "description": ".xlsxにエクスポートします。センサーあたり最大10K行、ワークシートに整理されます。"
+    },
+    "kml": {
+      "description": "GPSデータをKMLファイルにエクスポートします。位置情報データのみが含まれます。"
+    },
+    "sqlite": {
+      "description": "SQLiteデータベースにエクスポートし、センサーごとにテーブルに整理します。メタデータとタグが含まれます。"
+    }
+  },
+  "detailsScreen": {
+    "untitled": "無題",
+    "untitledRecording": "無題のデータ記録",
+    "renameRecording": "データ記録名を変更",
+    "microphoneLoudness": "マイクのラウドネス",
+    "fileCount": "このデータ記録の%{count}個のファイルが見つかりました",
+    "alerts": {
+      "missingLocationData": {
+        "title": "位置情報データがありません",
+        "message": "1つ以上のデータ記録に位置情報データが含まれていないため、KMLにエクスポートできません。"
+      },
+      "feedback": {
+        "title": "フィードバック",
+        "message": "Sensor Loggerをご利用いただきありがとうございます！フィードバックをお聞かせください。",
+        "noThanks": "いいえ、結構です",
+        "provideFeedback": "フィードバックを提供"
+      },
+      "failedToExport": {
+        "title": "エクスポートに失敗しました",
+        "message": "エクスポート中にエラーが発生しました"
+      },
+      "confirmDeletion": {
+        "title": "削除の確認",
+        "message": "%{title}を削除してもよろしいですか？"
+      },
+      "alreadyUploaded": {
+        "title": "既にアップロード済み",
+        "message": "このデータ記録は既にアップロードされています。"
+      }
+    },
+    "hintBar": {
+      "partOfStudy": "研究の一部",
+      "uploadingRecording": "データ記録をアップロード中: %{progress}%",
+      "keepAppOpen": "アップロードが完了するまでアプリを開いたままにしてください。",
+      "uploadToCloud": "このデータ記録をSensor Loggerクラウドにアップロードしてください。タップして詳細を確認してください。",
+      "studyNoLongerExists": "このデータ記録は、既に存在しない研究用に作成されました。"
+    },
+    "buttons": {
+      "rename": "名前変更",
+      "upload": "アップロード",
+      "analysisResources": "分析リソース"
+    },
+    "actionSheet": {
+      "freeTutorials": "無料チュートリアルとサンプルコード",
+      "unitsDocumentation": "単位とドキュメント",
+      "buildDashboards": "ダッシュボードを構築"
+    }
+  },
+  "addStudy": {
+    "investigator": {
+      "title": "私は調査員です",
+      "subtitle": "他の人がデータを記録して共有できるように、新しい研究を作成したいと思います。",
+      "callToAction": "研究を作成"
+    },
+    "participant": {
+      "title": "私は参加者です",
+      "subtitle": "調査員とデータを記録して共有できるように、研究に参加したいと思います。",
+      "callToAction": "研究を見つける"
+    },
+    "studyActiveAlert": {
+      "title": "研究がアクティブです",
+      "message": "現在アクティブな研究があります。新しい研究を作成する前に、まずそれを非アクティブ化する必要があります。",
+      "deactivate": "停止して続行"
+    },
+    "tip": "研究調査員が提供するQRコードをスキャンして研究に参加します。"
+  },
+  "joinStudy": {
+    "instruction": "研究に参加するには、研究調査員に8桁のコードまたはQRコードを尋ねてください。",
+    "byCode": "コードで",
+    "byQrCode": "QRコードで",
+    "cameraPermissionsAlert": {
+      "title": "カメラ権限",
+      "message": "QRコードをスキャンするには、設定でカメラ権限を付与する必要があります。"
+    },
+    "enterCode": "コードを入力",
+    "scanAnotherQrCode": "別のQRコードをスキャン",
+    "invalidQrCode": "無効なQRコードが検出されました。",
+    "invalidCodeAlert": {
+      "title": "無効なコード",
+      "message": "研究調査員が提供する研究コードは6〜8文字である必要があります。"
+    },
+    "viewStudy": "研究を表示"
+  },
+  "studyDetail": {
+    "stats": {
+      "daysRemaining": "残り日数",
+      "days": "日",
+      "daysRemainingExplanation": "終了すると、参加者からデータを収集できなくなります。「詳細」タブで研究期間を延長できます。",
+      "participants": "参加者",
+      "participantsExplanation": "研究に参加した参加者の数。最大%{count}人の参加者を持つことができます。",
+      "recordings": "データ記録",
+      "recordingsExplanation": "参加者がクラウドに正常にアップロードしたデータ記録の総数。",
+      "byobRecordingsExplanation": "独自のデータバケットを構成したため、Sensor Loggerはアップロードされたデータ記録の数を追跡できません。アップロードされたデータ記録の数を確認するには、バケットを確認してください。",
+      "storage": "ストレージ",
+      "storageExplanation": "すべての研究にわたる合計%{totalStorage}GBのうち、この研究に%{studyStorage}GBを使用しました。最大は%{maxStorage}GBです。",
+      "loadingStats": "研究統計を読み込み中、インターネット接続が必要です。"
+    },
+    "alerts": {
+      "deleteStudyTitle": "研究を削除",
+      "deleteStudyMessage": "この研究を削除してもよろしいですか？この操作は元に戻すことができず、収集されたすべてのデータが削除されます。",
+      "studyActive": "研究がアクティブです",
+      "activeStudyDuplicateMessage": "現在アクティブな研究があります。研究を複製する前に、まずそれを非アクティブ化する必要があります。",
+      "studyTooOld": "研究が古すぎます",
+      "studyTooOldMessage": "この研究は90日以上非アクティブです。Sensor Loggerのデータプライバシーと保持ポリシーに従い、この研究に関連するデータはすでに削除されています。新しい研究を作成する必要があります。",
+      "subscriptionRequired": "購読が必要",
+      "reactivateSubscriptionMessage": "研究を再アクティブ化するには、いずれかの有料層を購読する必要があります。それ以外の場合は、「管理」でこの研究を複製できます。",
+      "joinedStudy": "研究に参加しました"
+    },
+    "copiedTitle": "%{title}をコピーしました",
+    "modifyDescription": "説明を変更",
+    "modifyContact": "研究調査員の連絡先を変更",
+    "modifyInvestigatorName": "調査員名を変更",
+    "enabledSensors": "有効なセンサー",
+    "enabledSensorsInfo": "この研究で有効になるセンサー。一部のセンサーは、デバイスで使用できない場合に無効になることがあります。",
+    "fileFormat": "ファイル形式",
+    "fileFormatInfo": "データは調査員に送信される前にこの形式で保存されます。",
+    "studySize": "研究サイズ",
+    "sharingMethod": "共有方法",
+    "sharingMethodInfo": "これは、データが調査員に送信される方法です。",
+    "uploadInstructions": "アップロード手順",
+    "privacyStatement": "プライバシーステートメント",
+    "modifyPrivacyStatement": "プライバシーステートメントを変更",
+    "privacyStatementInfo": "これは調査員によって提供されたプライバシーステートメントであり、データの使用方法と保護方法について概説しています。",
+    "questionnaire": "アンケート",
+    "questionnaireInfo": "調査員はアンケートを使用して追加情報を収集する場合があります。質問は研究への参加時および各記録の終了時に行われる場合があります。",
+    "numberOfRules": "ルール数",
+    "rulesInfo": "ルールは、特定の条件に基づいてデータを収集するために調査員によって設計された自動化です。",
+    "webhook": "Webhook",
+    "webhookInfo": "Webhookを使用すると、参加者がデータ記録をアップロードしたときに調査員がリアルタイム通知を受け取り、オプションでPDFまたはmarkdown形式で分析レポートを提供できます。",
+    "notificationsAndReminders": "通知とリマインダー",
+    "notificationsInfo": "調査員は通知を使用して、データの記録またはアップロードを通知する場合があります。調査員は、これらの通知が送信される頻度と時期を構成します。研究への参加に影響を与えることなく、いつでもこれらの通知をオプトアウトできます。",
+    "createdAt": "作成日",
+    "endingAt": "終了日",
+    "studyDuration": "研究期間",
+    "disclaimer": "この研究の内容は研究所有者によって提供されています。研究および収集されたデータはSensor Loggerによって承認されていません。貢献する前に研究の目的を理解してください。",
+    "noNotifications": "この研究には通知がありません。",
+    "uploadReminder": "データ記録をアップロードしていない場合は、一度通知されます。",
+    "noUploadReminder": "アップロードリマインダーは設定されていません。",
+    "recordingReminders": " 記録開始のリマインダーも受け取ります： ",
+    "notificationAt": " 通知時間 ",
+    "on": " 日時 ",
+    "notificationsToggleInfo": "この研究がアクティブな場合にのみリマインダーを受け取ります。通知をミュートしてオプトアウトしてください。",
+    "notificationsLabel": "通知 ",
+    "extendOneDay": "1日延長",
+    "extendFiveDays": "5日延長",
+    "extendOneWeek": "1週間延長",
+    "extendOneMonth": "1ヶ月延長",
+    "extendStudyDuration": "研究期間を延長",
+    "extendStudyMessage": "研究の期間を繰り返し延長できます。",
+    "sizeS": "Sへ（最大3人の参加者）",
+    "sizeM": "Mへ（最大10人の参加者）",
+    "sizeL": "Lへ（最大100人の参加者）",
+    "sizeXL": "XLへ（最大2000人の参加者）",
+    "changeStudySize": "研究サイズを変更",
+    "changeStudySizeMessage": "研究のサイズを変更して、参加できる人数を増減します。現在研究に参加している参加者の数よりもサイズを小さくすると、新しい参加者は参加できなくなります。",
+    "shareLink": "リンクを共有",
+    "shareQr": "QRコードを共有",
+    "shareCode": "コードを共有",
+    "shareLinkInstruction1": "参加者とリンク ",
+    "shareLinkInstruction2": " を共有します。アプリをまだインストールしていない場合は、インストールするように求められます。",
+    "downloadSensorLogger": "Sensor Loggerをダウンロード：www.tszheichoi.com/sensorlogger",
+    "scanQrInstruction": "カメラアプリを開き、下のQRコードをスキャンして指示に従ってください。",
+    "openStudiesTabInstruction": "「研究」タブでSensor Loggerを開き、「作成 / 参加」ボタンをタップします。次に「研究に参加」をタップします。",
+    "enterCodeInstruction": "下にコードを入力してください。",
+    "investigatorJoinTip": "調査員として、あなた自身も研究に参加して、自分のデータ記録を研究に貢献することができます。",
+    "leaveStudyTip": "いつでも研究を終了できます。",
+    "copied": "コピーしました！",
+    "ownerMessage": "あなたはこの研究の所有者です。",
+    "activateMessage": "この研究への貢献を開始します。",
+    "recordingMessage": "この研究がアクティブな間に行われた記録は、研究の構成に準拠します。",
+    "joinMessage": "参加してこの研究への貢献を開始します。",
+    "duplicateStudy": "研究を複製",
+    "manageStudy": "研究を管理",
+    "manageStudyMessage": "この研究を削除するか、これに基づいて新しい研究を作成し、説明、設定、連絡先、アンケートなどをすべて継承しますが、参加者や記録は継承しません。複製中、すべてのローカル構成はこの研究の構成によって上書きされます。",
+    "deactivateAndContinue": "停止して続行",
+    "manage": "管理",
+    "by": "作成者 ",
+    "pause": "一時停止",
+    "activate": "開始",
+    "reactivate": "再開",
+    "edit": "編集",
+    "details": "詳細",
+    "invite": "招待",
+    "statsTab": "統計",
+    "dataTab": "データ",
+    "recordingsTab": "記録",
+    "noRecordingsYet": "まだ記録がありません。研究を開始して記録を始めると、ここに表示されます。",
+    "infoTab": "情報",
+    "description": "説明",
+    "pointOfContact": "連絡先",
+    "investigator": "調査員",
+    "leave": "終了",
+    "leaveButton": "研究を終了",
+    "leaveConfirmation": "この研究を終了してもよろしいですか？",
+    "hintBar": {
+      "studyEnded": "研究終了",
+      "studyEndedMessage1": "参加者はもう参加したり貢献したりすることはできません。この研究とアップロードされた記録は、終了後90日で削除されます。",
+      "studyEndedMessage2": "調査員に連絡するか、研究を終了してください。",
+      "studyEndedMessage3": "詳細については調査員にお問い合わせください。",
+      "studyEndedMessage4": "参加できません。研究調査員に連絡してください。",
+      "studyEndedMessage5": "参加者はもう貢献できません。研究期間を延長するか、研究を削除することができます。",
+      "viewingAsInvestigator": "調査員として表示",
+      "viewingAsInvestigatorMessage": "「研究」画面から参加者として研究を表示できます。",
+      "viewingAsParticipant": "参加者として表示",
+      "viewingAsParticipantMessage": "あなたはこの研究を所有しています。「研究」画面から調査員として表示してください。"
+    },
+    "descriptionInfo": "調査員によって記述された研究の目的は何ですか。",
+    "contactInfo": "調査員の連絡先情報。研究について詳しく知りたい場合、データの使用方法を理解したい場合、またはデータの削除をリクエストしたい場合は、この情報を使用して調査員に連絡できます。",
+    "investigatorInfo": "研究を実施している調査員。"
+  },
+  "exportScreen": {
+    "resample": "再サンプリング",
+    "downsample": "ダウンサンプリング",
+    "upsample": "アップサンプリング",
+    "namingPatternReset": "名前付けパターンがリセットされました",
+    "namingPatternResetMessage": "集約を実行しないファイル形式を選択したため、名前付けパターンがデフォルトにリセットされました。",
+    "advancedExportFormats": "高度なエクスポート形式",
+    "advancedExportFormatsMessage": "結合CSV、Excel、KML、SQLiteのエクスポートは、有料購読者のみが利用できます。",
+    "incompatibleNamingPattern": "互換性のない名前付けパターン",
+    "incompatibleNamingPatternMessage": "集約を実行しないファイル形式を選択したため、集約を含む名前付けパターンを選択できません。",
+    "customFileNames": "カスタムファイル名",
+    "customFileNamesMessage": "カスタムファイル名は有料購読者のみが利用できます。",
+    "help": "ヘルプ",
+    "footerNote": "現地時刻は記録時ではなく、エクスポート時に決定されます。エクスポートはキャッシュされます。データ損失のリスクなしに、データ記録画面の「エクスポートキャッシュをクリア」ボタンを定期的に使用してストレージ使用量を削減します。",
+    "exportRecording": "データ記録をエクスポート",
+    "exportRecordings": "%{count}件のデータ記録をエクスポート",
+    "tokens": {
+      "name": "名前",
+      "local": "現地時刻",
+      "utc": "UTC",
+      "device": "デバイス",
+      "platform": "プラットフォーム",
+      "epoch": "エポック",
+      "aggregators": "集約"
+    },
+    "fileFormat": "ファイル形式",
+    "namingPattern": "命名パターン"
+  },
+  "tagsScreen": {
+    "bulkModeInstruction": "%{count}件のデータ記録にタグを追加しています。新しいタグを作成するか、タップしてすべての選択されたデータ記録にタグを割り当て/割り当て解除します。",
+    "singleModeInstruction": "データ記録にタグを追加して、より良く整理してフィルタリングします。新しいタグを作成し、タップして割り当ておよび割り当て解除します。",
+    "enterNewTag": "新しいタグを入力",
+    "addTag": "タグを追加",
+    "tagTooLong": "タグが長すぎます",
+    "tagTooLongMessage": "タグは20文字以内にする必要があります。",
+    "invalidTag": "無効なタグ",
+    "invalidTagMessage": "このタグは内部使用のために予約されています。別のタグを選択してください。",
+    "deleteTag": "タグを削除しますか？",
+    "deleteTagMessage": "このタグは他のデータ記録に関連付けられていません。削除しますか？",
+    "keepTag": "タグを保持",
+    "deleteTagButton": "タグを削除",
+    "noTags": "タグなし",
+    "noTagsSubtitle": "データ記録にタグを追加して、より良く整理してフィルタリングします。",
+    "bulkModeTip": "チェックマークの付いたタグは、選択されたすべてのデータ記録に適用されます。破線の境界線を持つタグは部分的に適用されます。任意のタグをタップして、選択されたすべてのデータ記録でトグルします。",
+    "singleModeTip": "タグがすべてのデータ記録から関連付けられなくなると、削除されます。"
+  },
+  "studiesScreen": {
+    "asParticipant": "参加者",
+    "asInvestigator": "調査員",
+    "by": "%{investigatorName}",
+    "createJoin": "作成/参加",
+    "joinStudy": "研究に参加",
+    "joinStudySubtitle": "他の研究者にデータ記録を簡単かつ安全に貢献します。",
+    "createStudySubtitle": "他のSensor Loggerユーザーからシームレスにデータをリクエストします。",
+    "whatAreStudies": "研究とは？",
+    "bullet1": "グループで研究用のデータを収集",
+    "bullet2": "趣味のために友人からデータ記録を集める",
+    "bullet3": "デバイス間で一貫して記録",
+    "foundStudies": "%{count}件の研究が見つかりました。%{activeText}",
+    "activeText": "1件の研究がアクティブです。",
+    "cloudStorageExplanation": "すべての研究とストーリーにわたるクラウドストレージ。サブスクリプションをアップグレードして増やします。",
+    "createStudy": "研究を作成"
+  },
+  "sensors": {
+    "batteryWarning": "高いサンプリング周波数はバッテリーをすぐに消耗する可能性があります。",
+    "changeSamplingFrequency": "サンプリング周波数を変更",
+    "logAdditionalData": "追加データをログに記録",
+    "gpsConfiguration": "GPS構成",
+    "cameraConfiguration": "カメラ構成",
+    "microphoneConfiguration": "マイク構成",
+    "accelerometer": {
+      "subtitle": "線形加速度",
+      "description": "デバイスの座標系での加速度を測定します。重力の影響は除去されています。この後処理はこのアプリではなく、オペレーティングシステムによって実行されます。利用可能な場合、線形加速度と重力加速度ベクトルの合計を含む「総加速度」という名前の追加ファイルが記録されます。",
+      "units": "m/s²で報告されます。常にデバイスの座標系（x、y、z）です。gを9.80665m/s²と仮定します。"
+    },
+    "gravity": {
+      "subtitle": "重力ベクトル",
+      "description": "重力による加速度を測定します。これは、総加速度ベクトルに対する重力加速度ベクトルの寄与です。",
+      "units": "m/s²で報告されます。常にデバイスの座標系（x、y、z）です。gを9.80665m/s²と仮定します。"
+    },
+    "gyroscope": {
+      "subtitle": "回転速度",
+      "description": "デバイスの座標系でのデバイス回転速度を測定します。",
+      "units": "角速度は（x、y、z）でラジアン/秒で報告されます。"
+    },
+    "orientation": {
+      "subtitle": "デバイスの向き",
+      "description": "デバイスの座標系に対するデバイスのピッチ、ロール、ヨーを測定します。利用可能な場合、四元数も記録されます。",
+      "units": "ピッチ、ロール、ヨーはラジアンで報告されます。四元数は（qx、qy、qz、qw）の形式で報告されます。",
+      "warning": "利用可能な場合、ピッチ、ロール、ヨーの代わりに四元数を使用することをお勧めします。"
+    },
+    "magnetometer": {
+      "subtitle": "磁場",
+      "description": "デバイスの座標系での局所磁場のベクトルを測定します。",
+      "units": "マイクロテスラで報告されます。",
+      "warning": "測定値は強い局所磁場の影響を受ける可能性があります。"
+    },
+    "compass": {
+      "subtitle": "磁気方位",
+      "description": "局所磁場から導出されたデバイスに対するコンパス方位を測定します。デバイスの傾き補正をサポートしていないため、デバイスは平らに保持する必要があります。",
+      "units": "度で報告されます。",
+      "warning": "測定値は強い局所磁場の影響を受ける可能性があります。"
+    },
+    "barometer": {
+      "subtitle": "高度と圧力",
+      "description": "海抜の気圧高度を測定します。",
+      "units": "圧力はmbarで報告され、相対高度は記録開始からのメートルで報告されます。"
+    },
+    "location": {
+      "subtitle": "GPS座標",
+      "description": "GPS座標と高度を測定します。経度と緯度は度で報告されます。エクスポートされたデータに特に記載がない限り、高度は楕円体高度（WGS84）を指します。場合によっては、平均海面上の高度も報告されます。速度と方位も記録します。",
+      "units": "緯度は度で、正の値は赤道の北を示します（-90から90度の間）。経度も度で、正の値は子午線の東を示します（-180から180度の間）。高度はメートルで、WGS84楕円体上の高さです。方位は0から360度で、真北を基準とした方向で、負の値は無効なデータを示します。方位精度も度で、方位測定の精度を表し、負の値は無効なデータを示します。水平精度と垂直精度はメートルです。速度と速度精度はどちらもメートル/秒です。",
+      "warning": "GPSセンサーの精度は信号強度に依存します。"
+    },
+    "camera": {
+      "subtitle": "画像またはビデオ",
+      "description": "設定のカメラモードに応じて、デバイスカメラから設定された間隔で画像をキャプチャするか、ビデオとして継続的にキャプチャします。モードが画像に設定されている場合、キャプチャされた画像はタイムスタンプが付けられ、他の測定と同期されます。モードがビデオに設定されている場合、音声付きの単一のビデオファイルが作成されますが、他の測定に対して時間同期されていない場合があります。手動同期を実行する必要がある場合があります（例：ビデオの音声トラックをマイクセンサーに対して）。どちらの場合も、設定でフロントカメラまたはリアカメラを使用することを選択します。",
+      "units": "JPG形式（画像モード）またはMP4形式（ビデオモード）。",
+      "warning": "画像またはビデオをキャプチャするには、カメラビューファインダーが画面に表示され、電話の画面がオンになっている必要があります。画像がキャプチャされると、デバイスはシャッター音を再生する場合があります。特にマイクセンサーが有効な場合は、これを防ぐためにデバイスをミュートしてください。"
+    },
+    "heartRate": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "コンパニオンウォッチアプリからBPMで心拍数を測定します。心拍数測定を開始するには、記録が開始されたときにウォッチアプリがフォアグラウンドにある必要があります。ウォッチアプリはその後バックグラウンドに移動でき、測定は続行されます。",
+      "frequency": "構成できません。サンプリングレートは予測できません。最初の測定が到着するまでに長い遅延がある場合があります。",
+      "units": "毎分拍数（BPM）。",
+      "warning": "このセンサーが機能するには、ウォッチで心拍数測定の権限を付与する必要があります。",
+      "warningIos": "これはウォッチの設定 > ヘルス > アプリ > Sensor Loggerで行うことができます。",
+      "warningEnd": "このアプリは心拍数センサーのみを監視し、電話の他のヘルスデータを読み取りません。また、ヘルスデータを書き込むこともありません。"
+    },
+    "wristMotion": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "手首のウォッチからモーション関連の測定値を記録します。これには、回転速度（x、y、z）、重力ベクトル（x、y、z）、加速度（x、y、z）、四元数での姿勢が含まれます。",
+      "frequency": "構成できません。通常100Hz",
+      "units": "電話の対応するセンサーと同じ単位。",
+      "warning": "ウォッチアプリがフォアグラウンドでウォッチ画面がオンの場合、これらのセンサーは常に機能します。バックグラウンド記録が必要な場合は、心拍数センサーも有効にし、関連する権限を付与する必要があります。これにより、手首モーションデータのバックグラウンド記録が間接的に有効になります。"
+    },
+    "watchLocation": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "手首のウォッチから位置情報の測定値を記録します。",
+      "frequency": "構成できません。",
+      "units": "電話の対応するセンサーと同じ単位。",
+      "warning": "ウォッチアプリがフォアグラウンドでウォッチ画面がオンの場合、これらのセンサーは常に機能します。バックグラウンド記録が必要な場合は、心拍数センサーも有効にし、関連する権限を付与する必要があります。これにより、位置情報データのバックグラウンド記録が間接的に有効になります。"
+    },
+    "watchBarometer": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "手首のウォッチから気圧計の測定値を記録します。",
+      "frequencyIos": "約2.5秒ごと（0.4Hz）。構成できません。",
+      "frequencyAndroid": "デバイスモデルに依存します。構成できません。",
+      "units": "電話の対応するセンサーと同じ単位。",
+      "warning": "ウォッチアプリがフォアグラウンドでウォッチ画面がオンの場合、これらのセンサーは常に機能します。バックグラウンド記録が必要な場合は、心拍数センサーも有効にし、関連する権限を付与する必要があります。これにより、気圧計データのバックグラウンド記録が間接的に有効になります。"
+    },
+    "watchMagnetometer": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "手首のウォッチから磁力計の測定値を記録します。",
+      "frequencyIos": "構成できません。通常100Hz。",
+      "frequencyAndroid": "デバイスモデルに依存します。構成できません。",
+      "units": "電話の対応するセンサーと同じ単位。",
+      "warning": "ウォッチアプリがフォアグラウンドでウォッチ画面がオンの場合、これらのセンサーは常に機能します。バックグラウンド記録が必要な場合は、心拍数センサーも有効にし、関連する権限を付与する必要があります。これにより、磁力計データのバックグラウンド記録が間接的に有効になります。"
+    },
+    "watchCompass": {
+      "subtitle": "ペアリングされたウォッチから",
+      "description": "ウォッチに対するコンパス方位を測定します。",
+      "frequencyIos": "構成できません。",
+      "frequencyAndroid": "デバイスモデルに依存します。構成できません。",
+      "units": "度で報告されます。",
+      "warning": "測定値は強い局所磁場の影響を受ける可能性があります。ウォッチアプリがフォアグラウンドでウォッチ画面がオンの場合、これらのセンサーは常に機能します。バックグラウンド記録が必要な場合は、心拍数センサーも有効にし、関連する権限を付与する必要があります。"
+    },
+    "microphone": {
+      "subtitle": "オーディオとレベル",
+      "description": "他の測定に対してタイムスタンプ同期されたオーディオ録音を返します。また、dBFS（フルスケールに対するデシベル）でラウドネス測定を返します。0dBFSのレベルは最大可能なデジタルレベルです。詳細についてはwikipedia.org/wiki/DBFSを参照してください。",
+      "frequency": "スタート記録ボタンの横にあるギアアイコンを使用して、ロッシーとロスレスの間で圧縮を変更できます。ラウドネスのサンプリング周波数は調整できません。",
+      "units": "dBFSでのラウドネス。オーディオは.mp4で、サンプリングレートは構成によって異なります。",
+      "warning": "Sensor Loggerは常に電話のマイクを使用し、接続されたヘッドセットのマイクは使用しないことに注意してください。"
+    },
+    "light": {
+      "subtitle": "周囲の明るさ",
+      "description": "周囲光センサーを使用して相対的な周囲の明るさを測定します。",
+      "frequency": "構成できません。",
+      "units": "ルクスで測定されます。"
+    },
+    "pedometer": {
+      "subtitle": "歩数",
+      "description": "記録セッションの開始から歩いた歩数を記録します。これはSensor Loggerではなく、オペレーティングシステムによって計算されます。",
+      "frequency": "構成できません。",
+      "units": "歩数で測定されます。",
+      "warning": "歩がカウントされるまでに数秒の遅延がある場合があります。そのため、カウントしたいすべての歩をキャプチャするのに十分な長さの記録を行ってください。"
+    },
+    "headphone": {
+      "subtitle": "AirPodsモーション",
+      "description": "AirPodsワイヤレスBluetoothイヤフォンからモーション測定値を記録します。これをヘッドトラッキングなどのアプリケーションに使用できます。これには、加速度（x、y、z）、重力ベクトル（x、y、z）、回転速度（x、y、z）、姿勢が含まれます。制限により、一度に1つのイヤフォンのみがモーションデータを記録します。アクティブなイヤフォンはsensorLocationフィールドで示されます。",
+      "frequency": "構成できず、変動します。最新モデルで最大25Hz、古いモデルで15Hz。",
+      "units": "電話の対応するセンサーと同じ単位。",
+      "warning": "ペアリングされたAirPodsを装着する必要があります。両方または片方のイヤフォンのみを装着できます。AirPods設定で「自動耳検出」をオフにすると、電話に接続されている限り、耳に装着していないときでもAirPodsのモーションを記録できます。"
+    },
+    "battery": {
+      "subtitle": "バッテリーレベル",
+      "description": "デバイスのバッテリーレベルを測定します。また、バッテリーの状態（充電中、満充電など）も記録します。負の値はバッテリーの状態が不明であることを意味します。",
+      "frequency": "1Hzでサンプリング、構成できません。",
+      "units": "分数で報告されます。例：0.5は50%です。"
+    },
+    "batteryTemp": {
+      "subtitle": "バッテリー温度",
+      "description": "デバイスのバッテリー温度を測定します。",
+      "frequency": "1Hzでサンプリング、構成できません。",
+      "units": "摂氏で報告されます。"
+    },
+    "brightness": {
+      "subtitle": "画面の明るさ",
+      "description": "デバイスの画面の明るさを測定します。これは画面がオンかオフかを判断するのに便利です。自動輝度が有効な場合、サポートされているデバイスでは、これらの値は周囲の明るさの代用としても機能します。",
+      "frequency": "1Hzでサンプリング、構成できません。",
+      "units": "分数で報告されます。例：0.5は50%です。"
+    },
+    "network": {
+      "subtitle": "タイプと品質",
+      "description": "ネットワーク接続のタイプとその品質に関する情報を報告します。これには、ネットワークのタイプ（例：WiFi、セルラー）などが含まれます。これは、特にGPSセンサーが利用できない場合、デバイスの位置の代用としても使用できます。",
+      "frequency": "2Hzでサンプリング、構成できません。",
+      "units": "タイプはnone、unknown、cellular、wifi、Bluetooth、ethernet、wimax、vpn、otherのいずれかです。強度は0から100の間の数値です。IPアドレスは外部IPアドレスです。IPv4またはIPv6の場合があります。周波数はネットワーク周波数です。例えば、2.4GHzは2457を返します。セルラー世代は2g、3g、4g、5g、nullのいずれかです。"
+    },
+    "wifi": {
+      "subtitle": "近くのネットワーク",
+      "description": "近くのWiFiネットワークに関する情報を報告します。これには、SSIDと周波数が含まれます。",
+      "frequency": "40秒ごとにWiFiネットワークをスキャンします。",
+      "units": "SSIDはWiFiネットワークの名前です。BSSIDはMACアドレスです。周波数はネットワーク周波数です。例えば、2.4GHzは2457を返します。機能はネットワークの機能のリストです。レベルはdBmでの信号強度です。"
+    },
+    "activity": {
+      "subtitle": "歩く、走る、運転する",
+      "description": "記録セッションの開始以降の、歩行、走行、サイクリング、運転などの動作活動を追跡します。これはSensor Loggerではなく、オペレーティングシステムによって推定されます。",
+      "frequency": "イベント駆動型であり、活動に変化があった場合にのみ新しいデータが記録されます。構成できません。",
+      "units": "活動タイプは、歩行、走行、サイクリング、自動車、静止、傾斜、不明のいずれかです。信頼度は、低、中、高、不明のいずれかです。"
+    },
+    "bluetooth": {
+      "subtitle": "近くのすべてのデバイス",
+      "description": "Bluetoothは、短距離で固定デバイスとモバイルデバイス間でデータを交換するための無線技術規格です。",
+      "frequency": "Bluetoothデバイスに依存し、通常はデバイスがアドバタイズする頻度で更新されます。",
+      "units": "受信信号強度インジケーター（RSSI）はdBmで測定されます。負の値が大きいほど信号が弱いことを示します。メーカーデータは互換性を最大化するために生データとして記録されます。ご自身でデコードする必要があります。",
+      "warning": "Bluetoothデータはアプリが開いていて画面がオンのときにのみ記録されます。一部の情報は、スマートフォンとペアリングされたBluetoothデバイスからのみ利用可能です。名前内のすべてのカンマはダッシュに置き換えられます。CSVエクスポートでは、カンマ区切りのリストはパイプで区切られます。",
+      "configuration": "Bluetooth設定"
+    }
+  },
+  "stateAlerts": {
+    "error": "エラー",
+    "sensorsUnavailable": "センサーが利用できません",
+    "sensorsUnavailableMessage": "次のセンサーは利用できないため、設定されませんでした: %{sensors}。",
+    "incompleteRestoration": "不完全な復元",
+    "incompleteRestorationMessage": "構成にProでのみ利用可能な機能が含まれているため、一部の設定は復元されませんでした。完全な構成を復元するには、Proへのアップグレードをご検討ください。",
+    "feedback": "フィードバック",
+    "feedbackMessage": "Sensor Loggerのサブスクリプションを解除したことに気付きました。Sensor Loggerを改善する方法についてフィードバックをお聞かせください。フィードバックを提供しますか？",
+    "noThanks": "いいえ、結構です",
+    "provideFeedback": "フィードバックを提供"
+  }
+}
