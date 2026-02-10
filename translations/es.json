@@ -59,7 +59,7 @@
     "export": "Exportar",
     "select": "Seleccionar",
     "add": "Agregar",
-    "later": "Más Tarde",
+    "later": "Más tarde",
     "continue": "Continuar",
     "openSettings": "Abrir Ajustes",
     "upgrade": "Actualizar",
@@ -78,12 +78,166 @@
     "genericError": "Ocurrió un error. Por favor, inténtalo de nuevo más tarde.",
     "uploadError": "Hubo un error durante la carga: %{error}"
   },
+  "stories": {
+    "storiesTab": "Historias",
+    "recordingsTab": "Grabaciones",
+    "create": "Crear",
+    "upload": "Subir",
+    "connectToInternet": "Conectar a Internet",
+    "noConnectionSubtitle": "No se pueden cargar historias y grabaciones sin conexión.",
+    "whatAreStories": "¿Qué son las Historias?",
+    "whatBullet1": "Visualiza grabaciones como gráficos",
+    "whatBullet2": "Comparte fácilmente desde la web",
+    "whatBullet3": "Procesa datos con mínima programación",
+    "tellStoriesWithData": "Cuenta Historias con Datos",
+    "tellStoriesSubtitle": "Crea historias basadas en datos con tus grabaciones y compártelas en la web.",
+    "foundStories": "Se encontraron %{count} %{noun} que posees. Crea más desde cero, duplica una existente o comienza con una plantilla.",
+    "storyNounSingular": "Historia",
+    "storyNounPlural": "Historias",
+    "learnTo": "Aprende a:",
+    "uploadRecordings": "Subir Grabaciones",
+    "uploadRecordingsSubtitle": "Sube grabaciones a Sensor Logger Cloud para usarlas en Historias.",
+    "uploaded": "Subida %{date}",
+    "recorded": "Grabada %{date}"
+  },
+  "addStory": {
+    "templateTitle": "Empezar desde una plantilla",
+    "templateSubtitle": "Comienza con una plantilla prediseñada y personalízala para contar la historia que quieres con tus datos.",
+    "templateAction": "Ver galería",
+    "scratchTitle": "Empezar desde cero",
+    "scratchSubtitle": "Sé lo que hago y estoy familiarizado con los conceptos básicos de SQLite.",
+    "scratchAction": "Crear",
+    "duplicateTitle": "Duplicar una historia existente",
+    "duplicateSubtitle": "Quiero construir sobre una historia existente y hacerla mía.",
+    "duplicateAction": "Hacer una copia",
+    "footnote": "Cualquier persona con el enlace puede ver y copiar tu historia. No incluyas información sensible."
+  },
+  "storyTemplate": {
+    "instruction": "Empieza con una plantilla y crea tu propia historia de datos.",
+    "footnote": "También puedes crear historias basadas en historias de otros.",
+    "previewWithRealData": "Vista previa con datos reales",
+    "whatIsItAbout": "¿De qué trata?",
+    "whatSensors": "¿Qué sensores se usan?",
+    "whatWillILearn": "¿Qué aprenderé?",
+    "category": "Categoría",
+    "previewFootnote": "También puedes previsualizar esta plantilla con tus propias grabaciones. Solo visita el enlace y cambia los datos en las Fuentes.",
+    "useTemplate": "Usar plantilla",
+    "copiedToClipboard": "Copiado al portapapeles",
+    "visitLink": "Visita %{link} en cualquier navegador web, preferiblemente en una pantalla más grande o computadora."
+  },
+  "storyWizard": {
+    "steps": "Pasos",
+    "creatingStory": "Creando Historia...",
+    "uploading": "Subiendo %{progress}%",
+    "uploadAndContinue": "Subir grabación y continuar",
+    "openAndDone": "Abrir historia y listo",
+    "whatIsStory": "¿Qué es una Historia?",
+    "whatIsStoryDescription": "Historia es una herramienta de panel de control. Está diseñada para permitirte crear visualizaciones personalizadas usando grabaciones hechas con Sensor Logger.",
+    "howDoesItWork": "¿Cómo funciona?",
+    "howDoesItWorkDescription": "Sube esta grabación a Sensor Logger Cloud. Una vez subida, tendrás un enlace para ver y construir la historia en la web. Solo tú tendrás acceso a cualquier grabación subida e historia creada, a menos que compartas el enlace con otros.",
+    "viewExamples": "Ver ejemplos",
+    "viewExamplesDescription": "Toca para ver una galería de historias de ejemplo como inspiración.",
+    "freeFootnote": "Historia es gratis. Cada usuario obtiene 100 MB de almacenamiento gratuito en Sensor Logger Cloud. Si deseas subir más, considera actualizar a uno de los planes de pago.",
+    "whatsNext": "¿Qué sigue?",
+    "whatsNextDescription": "Se ha creado una nueva historia con esta grabación adjunta. Visita este enlace en cualquier navegador para continuar. Allí puedes editar y construir tu historia. ",
+    "viewStory": "Ver historia",
+    "storiesTabFootnote": "Siempre puedes encontrar este enlace, y todas las demás historias que posees, en la pestaña Historias de la app."
+  },
+  "createStory": {
+    "intro": "Crea cuadernos estilo panel de control usando tus grabaciones de Sensor Logger para contar historias basadas en datos, alojadas en la web para compartir fácilmente.",
+    "sectionWhatIsStory": "¿Qué es una Historia?",
+    "sectionDuplicate": "Duplicar una Historia",
+    "sectionFromTemplate": "Desde Plantilla",
+    "sectionOverview": "Descripción General",
+    "sectionGoodToKnow": "Bueno Saberlo",
+    "selectedTemplate": "Plantilla Seleccionada",
+    "duplicateDescription": "Haz una copia de una historia existente para usarla como plantilla para una nueva. Puedes encontrar el código de 10 dígitos en la esquina inferior derecha de la página de la Historia en la web.",
+    "enterCode": "Ingresar Código",
+    "checkCode": "Verificar Código",
+    "invalidCode": "Código Inválido",
+    "invalidCodeMessage": "El código debe tener 10 caracteres.",
+    "duplicatingStory": "Duplicando Historia",
+    "copySuffix": " (Copia)",
+    "titleLabel": "Título",
+    "titlePlaceholder": "Mi Historia",
+    "titleDescription": "Dale un título a tu historia. Puedes cambiarlo más tarde.",
+    "descriptionLabel": "Descripción",
+    "descriptionPlaceholder": "La descripción de mi historia",
+    "descriptionDescription": "Describe de qué trata tu historia. Puedes cambiarlo más tarde.",
+    "emojiLabel": "Emoji",
+    "emojiDescription": "Elige un emoji para representar tu historia. Puedes cambiarlo más tarde.",
+    "changeEmoji": "Cambiar Emoji",
+    "createdFromTemplate": " Creada desde plantilla.",
+    "discardTitle": "¿Descartar Historia?",
+    "discardMessage": "No has terminado de crear tu historia. ¿Estás seguro de que quieres descartarla?",
+    "titleRequired": "El título es obligatorio",
+    "titleRequiredMessage": "Por favor, ingresa un título para tu historia.",
+    "descriptionRequired": "La descripción es obligatoria",
+    "descriptionRequiredMessage": "Por favor, ingresa una descripción para tu historia.",
+    "createButton": "Crear Historia",
+    "tipManaged": "Las historias se crean y gestionan en la app de Sensor Logger, pero se visualizan y editan en la web.",
+    "tipDesktop": "Aunque las historias son compatibles con dispositivos móviles, están diseñadas para interactuar con ellas en una computadora.",
+    "tipLink": "Cualquier persona con el enlace de la historia puede verla, así que ten cuidado con los datos sensibles.",
+    "tipLock": "Para evitar ediciones no deseadas, puedes bloquear tu historia en la app de Sensor Logger.",
+    "tipTemplate": "Considera crear una historia basada en una plantilla para comenzar."
+  },
+  "cloudUpload": {
+    "instruction": "Toca para subir una grabación a la nube. Una vez subida, se puede usar en Historias y compartir con otros.",
+    "whatIsBackedUp": "¿Qué se respalda?",
+    "backedUpYesSensor": "✓ Lecturas de sensores y metadatos",
+    "backedUpYesTags": "✓ Tags y respuestas de cuestionarios de estudio",
+    "backedUpNoMedia": "✘ Audio, imágenes y videos",
+    "noRecordings": "No hay grabaciones para subir. Las grabaciones aparecerán aquí una vez que hayas creado algunas.",
+    "keepOpen": "Mantén Sensor Logger abierto mientras se sube para asegurar que el proceso se complete.",
+    "tooManyConcurrent": "Demasiadas subidas simultáneas",
+    "tooManyConcurrentMessage": "Por favor espera a que las subidas actuales se completen.",
+    "uploadError": "No se pudo subir esta grabación.",
+    "note": "Nota: %{warning}"
+  },
+  "appIconScreen": {
+    "intro": "Estos iconos están diseñados con datos de aceleración medidos en montañas rusas usando esta app. Elige tu favorito mientras exploras las emociones de Europa a través de sensores.",
+    "useThisIcon": "Usar este icono",
+    "customIcons": "Iconos personalizados",
+    "customIconsMessage": "Suscríbete a cualquier plan de pago para desbloquear iconos personalizados."
+  },
   "storyDetails": {
-    "deleteStory": "Eliminar Story",
-    "deleteStoryMessage": "¿Estás seguro de que quieres eliminar este Story?",
+    "deleteStory": "Eliminar historia",
+    "deleteStoryMessage": "¿Estás seguro de que quieres eliminar esta historia?",
     "submitAsTemplate": "Enviar como plantilla",
-    "submitAsTemplateMessage": "Si crees que otros usuarios podrían beneficiarse de este Story, puedes enviarlo como plantilla para que otros lo vean, usen y desarrollen. Tu envío será revisado.",
-    "submit": "Enviar"
+    "submitAsTemplateMessage": "Si crees que otros usuarios podrían beneficiarse de esta historia, puedes enviarla como plantilla para que otros la vean, usen y desarrollen. Tu envío será revisado.",
+    "submit": "Enviar",
+    "tabAccess": "Acceso",
+    "tabMetadata": "Metadatos",
+    "storyNotFound": "Historia no encontrada",
+    "untitledStory": "Historia sin título",
+    "storyAccessId": "ID de acceso de la historia",
+    "delete": "Eliminar",
+    "refresh": "Actualizar",
+    "duplicate": "Duplicar",
+    "lock": "Bloquear",
+    "unlock": "Desbloquear",
+    "metaTitle": "Título",
+    "metaTitleInfo": "El título de la historia.",
+    "metaDescription": "Descripción",
+    "metaDescriptionInfo": "Una breve descripción de la historia.",
+    "metaLockedState": "Estado de bloqueo",
+    "metaLocked": "Bloqueada, lo que significa que no se puede editar en el navegador.",
+    "metaUnlocked": "Desbloqueada, lo que significa que cualquier persona con el enlace puede editarla en el navegador.",
+    "metaLockedInfo": "Bloquear una historia impide que se edite en el navegador. Aún puede ser vista por cualquier persona con el enlace.",
+    "metaCreatedOn": "Creada el",
+    "metaCreatedOnInfo": "La fecha y hora en que se creó la historia.",
+    "metaUpdatedOn": "Actualizada el",
+    "metaUpdatedOnInfo": "La última vez que se actualizó la historia.",
+    "metaPublishedVersion": "Versión publicada",
+    "metaPublishedVersionInfo": "La versión actualmente publicada de la historia. Puedes avanzar y retroceder a diferentes versiones en el menú de Versiones.",
+    "metaFootnote": "Edita estos detalles visitando la historia a través del enlace en cualquier navegador web.",
+    "submitAsTemplateButton": "Enviar como plantilla",
+    "viewWithLink": "Ver con enlace",
+    "openLinkInstruction": "Abre el enlace %{link} en cualquier navegador web.",
+    "viewWithQR": "Ver con código QR",
+    "scanQRInstruction": "Escanea o guarda y comparte el código QR para ver la historia en cualquier dispositivo.",
+    "regenerateWarning": "Cualquier persona con el enlace puede ver, compartir y hacer copias de tu historia. Para invalidar códigos y enlaces anteriores, genera un nuevo enlace.",
+    "generateNewLink": "Generar nuevo enlace"
   },
   "recordings": {
     "noRecordings": "Sin Grabaciones",
@@ -118,13 +272,13 @@
     "sectionInfo": "Info",
     "theme": "Tema",
     "colours": "Colores",
-    "subscribe": "Suscribirse",
-    "subscribeSubtext": "Funciones de pago",
+    "subscribe": "Suscripción",
+    "subscribeSubtext": "Funciones premium",
     "cloud": "Sensor Logger Cloud",
     "cloudSubtext": "Almacenamiento para Estudios",
-    "appIcon": "Icono de la App",
+    "appIcon": "Icono de la app",
     "appIconSubtext": "Cambiar el Icono",
-    "helpMe": "¡Ayuda!",
+    "helpMe": "Ayuda",
     "helpSubtext": "Documentación útil",
     "feedback": "Comentarios",
     "feedbackSubtext": "Ayuda a mejorar Sensor Logger",
@@ -148,6 +302,7 @@
     "versionBuild": "Versión %{version} Build %{build}",
     "update": "Actualizar",
     "moreInspiration": "Más Inspiración",
+    "physicist": "Físico",
     "reservedColours": "Colores Reservados",
     "reservedColoursMessage": "Este color está reservado para suscriptores. Suscríbete para desbloquearlo.",
     "language": "Idioma",
@@ -195,6 +350,10 @@
     "endNow": "Finalizar Ahora",
     "renameRecording": "Renombrar Grabación",
     "saveAndExport": "Guardar y Exportar",
+    "annotations": "Anotaciones",
+    "annotationPanelHint": "Toca un ajuste predefinido para registrar una anotación con marca de tiempo, o ingresa una personalizada.",
+    "annotationPanelCustomiseHint": "Personaliza los ajustes predefinidos en la configuración.",
+    "custom": "Introducir",
     "addCustomAnnotation": "Agregar Anotación",
     "addAnnotationMessage": "Registra un comentario en la marca de tiempo %{time} con duración de pulsación de %{duration}ms. Deja vacío para solo marcar la hora.",
     "problematicPermission": "Permiso Problemático",
@@ -305,6 +464,11 @@
       "proximityLockSubtitle": "Apaga la pantalla durante grabación cuando se activa el sensor de proximidad. Evita entradas accidentales.",
       "inlinePreview": "Vista en Vivo",
       "inlinePreviewSubtitle": "Muestra datos en tiempo real. Puede afectar rendimiento en dispositivos limitados.",
+      "inlinePreviewHistory": "Historial de Vista Previa",
+      "inlinePreviewHistorySubtitle": "Controla cuántos datos se muestran en la vista previa en línea. Un historial más largo puede reducir el rendimiento.",
+      "inlinePreviewHistory50": "Corto",
+      "inlinePreviewHistory100": "Medio",
+      "inlinePreviewHistory200": "Largo",
       "startRecordingOnBoot": "Iniciar al Arrancar",
       "startRecordingOnBootSubtitle": "Inicia grabación al arrancar el dispositivo. Útil para recopilación prolongada.",
       "extraPermissionRequired": "Permiso Extra Requerido",
@@ -358,14 +522,13 @@
       "captureDepth": "Captura de Profundidad",
       "captureDepthImage": "Imagen",
       "captureDepthImageDepth": "Imagen + Profundidad",
-      "depthNotSupportedInVideo": "Profundidad no disponible en modo video."
+      "depthNotSupportedInVideo": "Profundidad no disponible en modo video.",
+      "cameraLensOrder": "Preferencia de lente",
+      "cameraLensOrderSubtitle": "Arrastra para reordenar. Se usará la primera lente disponible en el dispositivo. También puedes pellizcar para hacer zoom digital en el visor durante la grabación."
     },
     "microphone": {
       "microphoneQuality": "Calidad del Micrófono",
       "microphoneQualitySubtitle": "Lossless tiene mejor calidad pero crea archivos grandes. Loudness solo registra volumen en dBFS.",
-      "microphoneLossy": "Con pérdida",
-      "microphoneLossless": "Sin pérdida",
-      "microphoneLoudnessOnly": "Solo Volumen",
       "viewMicrophoneReference": "Ver Referencia de Micrófono"
     },
     "location": {
@@ -465,7 +628,7 @@
   "settingsSections": {
     "language": {
       "description": "Elige tu idioma preferido para la aplicación.",
-      "contribute": "Si hay errores de traducción o si desea contribuir con nuevos idiomas, no dude en comunicarse.",
+      "contribute": "Si hay errores de traducción o si deseas contribuir con nuevos idiomas, no dudes en comunicarte.",
       "reviewAndContribute": "Revisar y Contribuir Traducciones"
     },
     "recordingWorkflow": {
@@ -530,7 +693,6 @@
     "untitled": "Sin título",
     "untitledRecording": "Grabación sin título",
     "renameRecording": "Renombrar grabación",
-    "microphoneLoudness": "Volumen del micrófono",
     "fileCount": "Se encontraron %{count} archivos para esta grabación",
     "alerts": {
       "missingLocationData": {
@@ -571,7 +733,7 @@
     "actionSheet": {
       "freeTutorials": "Tutoriales gratuitos y código de ejemplo",
       "unitsDocumentation": "Unidades y documentación",
-      "buildDashboards": "Crear paneles"
+      "buildDashboards": "Crear historia"
     }
   },
   "addStudy": {
@@ -852,48 +1014,48 @@
     },
     "camera": {
       "subtitle": "Imágenes o video",
-      "description": "Captura imágenes a intervalos establecidos o continuamente como un video desde la cámara del dispositivo, dependiendo del modo de cámara en la configuración. Si el modo está configurado en Imágenes, las imágenes capturadas tienen marca de tiempo y están sincronizadas con otras mediciones. Si el modo está configurado en Video, se crea un solo archivo de video con audio, pero puede no estar sincronizado con otras mediciones. Es posible que tenga que realizar una sincronización manual, por ejemplo, utilizando la pista de audio del video contra el sensor de micrófono. En cualquier caso, elija usar la cámara frontal o trasera en la configuración.",
+      "description": "Captura imágenes a intervalos establecidos o continuamente como un video desde la cámara del dispositivo, dependiendo del modo de cámara en la configuración. Si el modo está configurado en Imágenes, las imágenes capturadas tienen marca de tiempo y están sincronizadas con otras mediciones. Si el modo está configurado en Video, se crea un solo archivo de video. Por defecto no tiene pista de audio, pero si el sensor de Micrófono también está habilitado, se incluirá audio. Consulta la documentación sobre cómo alinear las marcas de tiempo del video con otros datos de sensores. En cualquier caso, puedes elegir la cámara frontal o trasera y establecer una preferencia de lente (Gran angular, Ultra gran angular, Teleobjetivo) si tu dispositivo soporta múltiples lentes.",
       "units": "en formato JPG (modo imagen) o formato MP4 (modo video).",
-      "warning": "Para capturar imágenes o videos, el visor de la cámara debe estar visible en la pantalla y la pantalla del teléfono debe estar encendida. Cuando se capturan imágenes, su dispositivo puede reproducir un sonido de obturador. Silencie su dispositivo para evitar esto, especialmente si el sensor de micrófono está habilitado."
+      "warning": "Para capturar imágenes o videos, el visor de la cámara debe estar visible en la pantalla y la pantalla del teléfono debe estar encendida. Cuando se capturan imágenes, tu dispositivo puede reproducir un sonido de obturador. Silencia tu dispositivo para evitar esto, especialmente si el sensor de micrófono está habilitado."
     },
     "heartRate": {
       "subtitle": "Desde reloj emparejado",
       "description": "Mide la frecuencia cardíaca en BPM desde la aplicación complementaria del reloj. La aplicación del reloj debe estar en primer plano cuando comienza la grabación para que comience la medición de la frecuencia cardíaca. La aplicación del reloj puede pasar a segundo plano posteriormente y la medición continuará.",
       "frequency": "No configurable. La tasa de muestreo puede ser impredecible. Puede haber un largo retraso antes de que llegue la primera medición.",
       "units": "Latidos por minuto (BPM).",
-      "warning": "Para que este sensor funcione, deberá otorgar el permiso para mediciones de frecuencia cardíaca en el reloj.",
+      "warning": "Para que este sensor funcione, deberás otorgar el permiso para mediciones de frecuencia cardíaca en el reloj.",
       "warningIos": " Esto se puede hacer en el reloj en Configuración > Salud > Aplicaciones > Sensor Logger.",
-      "warningEnd": " Esta aplicación solo monitoreará el sensor de frecuencia cardíaca y no lee otros datos de salud en su teléfono. Tampoco escribirá ningún dato de salud."
+      "warningEnd": " Esta aplicación solo monitoreará el sensor de frecuencia cardíaca y no lee otros datos de salud en tu teléfono. Tampoco escribirá ningún dato de salud."
     },
     "wristMotion": {
       "subtitle": "Desde reloj emparejado",
-      "description": "Registra lecturas relacionadas con el movimiento de su reloj en su muñeca. Esto incluye la tasa de rotación (en x, y y z), el vector de gravedad (en x, y y z), la aceleración (en x, y y z) y la actitud en cuaternión.",
+      "description": "Registra lecturas relacionadas con el movimiento de tu reloj en tu muñeca. Esto incluye la tasa de rotación (en x, y y z), el vector de gravedad (en x, y y z), la aceleración (en x, y y z) y la actitud en cuaternión.",
       "frequency": "No configurable, típicamente a 100Hz",
       "units": "Mismas unidades que los sensores correspondientes en el teléfono.",
-      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si desea grabación en segundo plano, también debe habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos de movimiento de muñeca."
+      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si deseas grabación en segundo plano, también debes habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos de movimiento de muñeca."
     },
     "watchLocation": {
       "subtitle": "Desde reloj emparejado",
-      "description": "Registra lecturas de ubicación de su reloj en su muñeca.",
+      "description": "Registra lecturas de ubicación de tu reloj en tu muñeca.",
       "frequency": "No configurable.",
       "units": "Mismas unidades que los sensores correspondientes en el teléfono.",
-      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si desea grabación en segundo plano, también debe habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos de ubicación."
+      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si deseas grabación en segundo plano, también debes habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos de ubicación."
     },
     "watchBarometer": {
       "subtitle": "Desde reloj emparejado",
-      "description": "Registra lecturas del barómetro de su reloj en su muñeca.",
+      "description": "Registra lecturas del barómetro de tu reloj en tu muñeca.",
       "frequencyIos": "Aproximadamente una vez cada 2.5 segundos (0.4Hz). No configurable.",
       "frequencyAndroid": "Depende del modelo del dispositivo. No configurable.",
       "units": "Mismas unidades que los sensores correspondientes en el teléfono.",
-      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si desea grabación en segundo plano, también debe habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos del barómetro."
+      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si deseas grabación en segundo plano, también debes habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos del barómetro."
     },
     "watchMagnetometer": {
       "subtitle": "Desde reloj emparejado",
-      "description": "Registra lecturas del magnetómetro de su reloj en su muñeca.",
+      "description": "Registra lecturas del magnetómetro de tu reloj en tu muñeca.",
       "frequencyIos": "No configurable, típicamente 100Hz.",
       "frequencyAndroid": "Depende del modelo del dispositivo. No configurable.",
       "units": "Mismas unidades que los sensores correspondientes en el teléfono.",
-      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si desea grabación en segundo plano, también debe habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos del magnetómetro."
+      "warning": "Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si deseas grabación en segundo plano, también debes habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes. Esto habilita indirectamente la grabación en segundo plano de datos del magnetómetro."
     },
     "watchCompass": {
       "subtitle": "Desde reloj emparejado",
@@ -901,14 +1063,14 @@
       "frequencyIos": "No configurable.",
       "frequencyAndroid": "Depende del modelo del dispositivo. No configurable.",
       "units": "Se reporta en grados.",
-      "warning": "Las lecturas pueden verse influenciadas por cualquier campo magnético local fuerte. Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si desea grabación en segundo plano, también debe habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes."
+      "warning": "Las lecturas pueden verse influenciadas por cualquier campo magnético local fuerte. Estos sensores siempre funcionarán si la aplicación del reloj está en primer plano con la pantalla del reloj encendida. Si deseas grabación en segundo plano, también debes habilitar el sensor de frecuencia cardíaca y otorgar los permisos relevantes."
     },
     "microphone": {
       "subtitle": "Audio y nivel",
       "description": "Devuelve una grabación de audio que está sincronizada con marca de tiempo con otras mediciones. También devuelve la medida de volumen en dBFS (Decibelios relativos a escala completa), donde el nivel de 0 dBFS es el nivel digital máximo posible. Consulte wikipedia.org/wiki/DBFS para obtener más información.",
-      "frequency": "Puede cambiar la compresión entre con pérdida y sin pérdida utilizando el ícono de engranaje junto al botón Iniciar grabación. La frecuencia de muestreo para el volumen no se puede ajustar.",
+      "frequency": "Puedes cambiar la compresión entre con pérdida y sin pérdida utilizando el ícono de engranaje junto al botón Iniciar grabación. La frecuencia de muestreo para el volumen no se puede ajustar.",
       "units": "Volumen en dbFS. El audio está en .mp4, la tasa de muestreo varía según la configuración.",
-      "warning": "Tenga en cuenta que Sensor Logger siempre usa el micrófono de su teléfono, no de ningún auricular conectado."
+      "warning": "Ten en cuenta que Sensor Logger siempre usa el micrófono de tu teléfono, no de ningún auricular conectado."
     },
     "light": {
       "subtitle": "Brillo ambiental",
@@ -921,14 +1083,14 @@
       "description": "Registra el número de pasos dados desde el inicio de la sesión de grabación. Esto es calculado por el sistema operativo, no por Sensor Logger.",
       "frequency": "No configurable.",
       "units": "Medido en pasos.",
-      "warning": "Puede haber un retraso de varios segundos antes de que se cuente un paso. Como tal, asegúrese de que su grabación sea lo suficientemente larga para capturar todos los pasos que desea contar."
+      "warning": "Puede haber un retraso de varios segundos antes de que se cuente un paso. Por lo tanto, asegúrate de que tu grabación sea lo suficientemente larga para capturar todos los pasos que deseas contar."
     },
     "headphone": {
       "subtitle": "Movimiento de AirPods",
-      "description": "Registra lecturas de movimiento de sus auriculares Bluetooth inalámbricos AirPods. Puede usar esto para aplicaciones como seguimiento de cabeza. Esto incluye la aceleración (en x, y y z), el vector de gravedad (en x, y y z), la tasa de rotación (en x, y y z) y la actitud. Debido a limitaciones, solo un auricular registra datos de movimiento a la vez. El auricular activo está indicado por el campo sensorLocation.",
+      "description": "Registra lecturas de movimiento de tus auriculares Bluetooth inalámbricos AirPods. Puedes usar esto para aplicaciones como seguimiento de cabeza. Esto incluye la aceleración (en x, y y z), el vector de gravedad (en x, y y z), la tasa de rotación (en x, y y z) y la actitud. Debido a limitaciones, solo un auricular registra datos de movimiento a la vez. El auricular activo está indicado por el campo sensorLocation.",
       "frequency": "No configurable y variable, hasta 25Hz en los modelos más recientes y 15Hz en modelos más antiguos.",
       "units": "Mismas unidades que los sensores correspondientes en el teléfono.",
-      "warning": "Debe estar usando sus AirPods emparejados; puede usar ambos o solo uno de los auriculares. Si desactiva 'Detección automática de oído' en la configuración de AirPods, es posible registrar el movimiento de los AirPods cuando no están en sus oídos siempre que estén conectados a su teléfono."
+      "warning": "Debes estar usando tus AirPods emparejados; puedes usar ambos o solo uno de los auriculares. Si desactivas 'Detección automática de oído' en la configuración de AirPods, es posible registrar el movimiento de los AirPods cuando no están en tus oídos siempre que estén conectados a tu teléfono."
     },
     "battery": {
       "subtitle": "Nivel de batería",
@@ -949,7 +1111,7 @@
       "units": "Se reporta en fracción, por ejemplo, 0.5 es 50%."
     },
     "network": {
-      "subtitle": "Tipo y calidad",
+      "subtitle": "Tipo y calidad de red",
       "description": "Reporta información sobre el tipo de conexión de red y su calidad. Esto incluye el tipo de red (por ejemplo, WiFi, celular) y más. Esto también podría usarse como un proxy para la ubicación del dispositivo, especialmente si el sensor GPS no está disponible.",
       "frequency": "Muestras a 2Hz, no configurable.",
       "units": "El tipo puede ser uno de ninguno, desconocido, celular, wifi, Bluetooth, ethernet, wimax, vpn u otro. La fuerza es un número entre 0 y 100. La dirección IP es la dirección IP externa. Puede ser IPv4 o IPv6. La frecuencia es la frecuencia de red. Por ejemplo, 2.4GHz devolverá 2457. La generación celular puede ser una de 2g, 3g, 4g, 5g o nula."
@@ -972,7 +1134,14 @@
       "frequency": "Depende del dispositivo Bluetooth, generalmente tan frecuente como el dispositivo se anuncia.",
       "units": "El Indicador de Intensidad de Señal Recibida (RSSI) se mide en dBm. Un valor negativo mayor indica una señal más débil. Los datos del fabricante se registran en bruto para maximizar la compatibilidad. Debes decodificarlos tú mismo.",
       "warning": "Los datos de Bluetooth solo se graban cuando la aplicación está abierta y la pantalla encendida. Alguna información solo está disponible de dispositivos Bluetooth emparejados con tu teléfono. Todas las comas en los nombres se reemplazan con guiones; en las exportaciones CSV, las listas separadas por comas se delimitan con barras verticales.",
-      "configuration": "Configuración de Bluetooth"
+      "configuration": "Configuración de Bluetooth",
+      "deviceDescription": "%{name} es un dispositivo Bluetooth cercano. Este dispositivo %{connectableStatus}. El ID completo del dispositivo es %{id}.",
+      "thisDevice": "Este",
+      "connectable": "es conectable",
+      "notConnectable": "no es conectable",
+      "deviceWarning": "Los datos de Bluetooth solo se graban cuando la aplicación está abierta y la pantalla encendida. Es posible que debas emparejar este dispositivo en la configuración de tu teléfono para ver más información, como su nombre. Todas las comas en los nombres se reemplazan con guiones; en las exportaciones CSV, las listas separadas por comas se delimitan con barras verticales.",
+      "missingPermissions": "Permisos faltantes",
+      "bluetoothPermissionMessage": "Necesitas otorgar permisos de Bluetooth en la configuración para usar esta función."
     }
   },
   "stateAlerts": {
@@ -980,7 +1149,7 @@
     "sensorsUnavailable": "Sensores no disponibles",
     "sensorsUnavailableMessage": "Los siguientes sensores no están disponibles y no se configuraron: %{sensors}.",
     "incompleteRestoration": "Restauración incompleta",
-    "incompleteRestorationMessage": "Algunos ajustes no se restauraron porque la configuración contiene características que solo están disponibles en la versión pro. Por favor considere actualizar a la versión pro para restaurar la configuración completa.",
+    "incompleteRestorationMessage": "Algunos ajustes no se restauraron porque la configuración contiene características que solo están disponibles en la versión pro. Considera actualizar a la versión pro para restaurar la configuración completa.",
     "feedback": "Comentarios",
     "feedbackMessage": "Hemos notado que te has dado de baja de Sensor Logger. Nos encantaría escuchar tus comentarios sobre cómo podemos mejorar Sensor Logger. ¿Te gustaría proporcionar comentarios?",
     "noThanks": "No gracias",
@@ -988,6 +1157,49 @@
   },
   "plotsScreen": {
     "annotationHint": "Para agregar anotaciones durante una sesión de grabación, toca el icono de lápiz en la pantalla del Logger. Mantén presionado para controlar la duración.",
-    "timeSeriesPartial": "Solo se muestran partes de la serie temporal. Para mostrar más puntos, toca aquí para disminuir la resolución"
+    "timeSeriesPartial": "Solo se muestran partes de la serie temporal. Para mostrar más puntos, toca aquí para disminuir la resolución",
+    "exportPlot": "Exportar gráfico",
+    "buildDashboard": "Crear historia",
+    "stopPlaying": "Detener reproducción",
+    "startPlaying": "Iniciar reproducción",
+    "noImages": "Sin imágenes",
+    "noImagesSubtitle": "No se grabaron imágenes durante esta sesión. Para capturar una imagen, el visor de la cámara debe ser visible en la pantalla y la pantalla del teléfono debe estar encendida.",
+    "tapToExpand": "Toca las imágenes para ampliar",
+    "showingFiles": "Mostrando %{count} archivos",
+    "imageN": "Imagen %{n}",
+    "noData": "Sin datos",
+    "noMqttData": "No se grabaron mensajes MQTT durante esta sesión, esto podría deberse a que no se enviaron mensajes o a un fallo en la conexión con el broker.",
+    "noSensorData": "Este sensor no reportó datos. Esto podría deberse a la falta de permisos del sensor o a una frecuencia de muestreo baja.",
+    "noSensorDataExtended": "Este sensor no reportó datos. Esto podría deberse a la falta de permisos, una frecuencia de muestreo baja o un sensor no compatible en este dispositivo.",
+    "noAnnotation": "Sin anotaciones",
+    "nothingTriggered": "Sin reglas activadas o registro desactivado",
+    "nothingTriggeredSubtitle": "No se activaron reglas durante esta sesión de grabación. Las reglas se evalúan en cada nuevo punto de datos, y al menos una vez por minuto. También es posible que hayas desactivado el registro de reglas -- Consulta la configuración avanzada en el Motor de Reglas.",
+    "showingUpTo100": "Mostrando hasta 100 elementos, exporta para ver todos.",
+    "copied": "Copiado",
+    "noPlottableData": "Sin datos graficables",
+    "noPlottableDataSubtitle": "Estos datos Bluetooth no contienen campos graficables.",
+    "selectData": "Seleccionar datos",
+    "displayInDegrees": "Mostrar en grados",
+    "proportionalScale": "Escala proporcional",
+    "location": "Ubicación",
+    "noLocation": "No se grabaron datos de ubicación durante esta sesión.",
+    "loadingMap": "Cargando mapa, se requiere conexión a internet.",
+    "reverseGeocoding": "Geocodificación inversa",
+    "reverseGeocodingNotReady": "Aún no está listo, se requiere conexión a internet.",
+    "reverseGeocodingFootnote": "La geocodificación inversa se basa en las primeras coordenadas de la grabación.",
+    "noComment": "Sin comentarios",
+    "maxRate": "Tasa máxima",
+    "rulesHint": "Cada vez que se activa una regla, se registra aquí. Las reglas se evalúan en cada nuevo punto de datos, y al menos una vez por minuto.",
+    "bluetoothSensorsFootnote": "%{count} sensores Bluetooth. Si un sensor activado no aparece aquí, es posible que no haya emitido durante la sesión de grabación.",
+    "mapStandard": "Estándar",
+    "mapHybrid": "Híbrido",
+    "mapSatellite": "Satélite",
+    "mapTerrain": "Terreno",
+    "mapMuted": "Suave",
+    "speed": "Veloc.",
+    "altitude": "Altitud",
+    "map": "Mapa",
+    "coords": "Coord.",
+    "address": "Dirección"
   }
 }
