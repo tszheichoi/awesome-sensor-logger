@@ -676,7 +676,8 @@ Some recently published papers citing / using Sensor Logger:
 - Vallivaara, I., Dong, Y., & Arslan, T. (2024). Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM. arXiv preprint arXiv:2409.01242.
 - Ray, L. S. S., Geißler, D., Liu, M., Zhou, B., Suh, S., & Lukowicz, P. (2024). ALS-HAR: Harnessing Wearable Ambient Light Sensors to Enhance IMU-based HAR. arXiv preprint arXiv:2408.09527.
 - Yonetani, R., Baba, J., & Furukawa, Y. (2024, October). RetailOpt: Opt-In, Easy-to-Deploy Trajectory Estimation from Smartphone Motion Data and Retail Facility Information. In Proceedings of the 2024 ACM International Symposium on Wearable Computers (pp. 125-132).
-- Lozano, Wilson and Neal, Tempestt, "Efficient Smartphone Sensor Analysis for Behavioral Profiling in Transportation Research: A Case Study of Driver and Passenger Classification" (2024). Research Reports. 51. https://digitalcommons.usf.edu/cutr_nicr/51 
+- Lozano, Wilson and Neal, Tempestt, "Efficient Smartphone Sensor Analysis for Behavioral Profiling in Transportation Research: A Case Study of Driver and Passenger Classification" (2024). Research Reports. 51. https://digitalcommons.usf.edu/cutr_nicr/51
+- Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
