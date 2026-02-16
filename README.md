@@ -678,6 +678,7 @@ Some recently published papers citing / using Sensor Logger:
 - Yonetani, R., Baba, J., & Furukawa, Y. (2024, October). RetailOpt: Opt-In, Easy-to-Deploy Trajectory Estimation from Smartphone Motion Data and Retail Facility Information. In Proceedings of the 2024 ACM International Symposium on Wearable Computers (pp. 125-132).
 - Lozano, Wilson and Neal, Tempestt, "Efficient Smartphone Sensor Analysis for Behavioral Profiling in Transportation Research: A Case Study of Driver and Passenger Classification" (2024). Research Reports. 51. https://digitalcommons.usf.edu/cutr_nicr/51
 - Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
+- Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
