@@ -59,6 +59,7 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 - Camera Depth (Front & Back, Foreground, iOS Only)
 - Camera Video (Front & Back, Foreground)
 - Pedometer
+- Activity
 - Heart Rate (Apple Watch or Android WearOS)
 - Wrist Motion (Apple Watch or Android WearOS)
 - Watch Location (Apple Watch or Android WearOS)
@@ -439,13 +440,11 @@ python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url 
 ## Recording Bluetooth LE sensors
 Version 1.17 adds the capability to record values reported from a wide range of Bluetooth LE sensors which report values via periodic advertisements.
 
-Sensor Logger lets you scan for, and choose to record such BLE sensors, and will record their advertisements in the log. Sensor Logger supports this method of reporting values, but is unaware of how any particular sensor encodes its values. Therefore, Sensor Logger records the advertisement (and in particular the manufacturer data field) and leaves the interpretation of these records to a later postprocessing step.
+Sensor Logger lets you scan for, and choose to record BLE sensors, and will record their advertisements in the log. Sensor Logger supports this method of reporting values, but is generally unaware of how any particular sensor encodes its values out of the box. Therefore, Sensor Logger records the advertisement (and in particular the manufacturer data field) and leaves the interpretation of these records to a later postprocessing step. This means that any - existing or yet-to-be-designed - BLE sensor using this reporting method is supported by Sensor Logger in principle.
 
-This means that any - existing or yet-to-be-designed - BLE sensor using this reporting method is _supported_ by Sensorlogger - because it implements just the recording, but not the sensor-specific interpretation step.
+For select sensors, such as https://bthome.io/, Sensor Logger does support additional proper decoding, see https://github.com/tszheichoi/sensor-ble for more information. If you wish help contribute more decoders, do reach out / see README in that repo. 
 
-A list of sensors that should work out of the box with Sensorlogger can be found here: https://decoder.theengs.io/devices/devices.html - however, any device using this method can be recorded.
-
-Also, custom-built sensors can be recorded - an example project which has been verified to work with Sensor Logger can be found here: https://github.com/mhaberler/flowsensor
+You should also check out this custom-built sensor -- an example project which has been verified to work with Sensor Logger: https://github.com/mhaberler/flowsensor. 
 
 ### Postprocessing Bluetooth LE sensor recordings
 To interpret BLE sensor recordings, the exported log must be post-processed. An experimental service has been put together here: https://sensorlogger.mah.priv.at/sensorlogger - the source code can be found [here](https://github.com/mhaberler/sensorlogger-utils). Feel free to fork and roll your own.
