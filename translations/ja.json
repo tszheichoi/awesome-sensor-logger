@@ -39,7 +39,8 @@
     "rulesEditor": "ルールエディタ",
     "rulesGallery": "ルールギャラリー",
     "rulesHelp": "ルールヘルプ",
-    "rulesSettings": "ルール設定"
+    "rulesSettings": "ルール設定",
+    "sensorFusion": "センサーフュージョン"
   },
   "quickActions": {
     "toggleRecording": "記録切替",
@@ -61,6 +62,7 @@
     "add": "追加",
     "later": "後で",
     "continue": "続ける",
+    "continueToApp": "アプリへ進む",
     "openSettings": "設定を開く",
     "upgrade": "アップグレード",
     "error": "エラー",
@@ -300,7 +302,6 @@
     "samplingSubtext": "サンプリングレートのガイド",
     "emailSupport": "メールサポート",
     "emailSubtext": "ProおよびUltimateユーザー向け",
-    "appName": "Sensor Logger",
     "versionBuild": "バージョン%{version} ビルド%{build}",
     "update": "更新",
     "moreInspiration": "その他のインスピレーション",
@@ -345,6 +346,7 @@
     "annotationHint": "記録セッション中に注釈を追加するには、ロガー画面の鉛筆アイコンをタップしてください。長押しで持続時間を制御できます。",
     "timeSeriesPartial": "時系列の一部のみを表示しています。より多くのポイントを表示するには、ここをタップして解像度を下げてください",
     "exportPlot": "グラフをエクスポート",
+    "secondsElapsed": "経過秒数",
     "buildDashboard": "ストーリーを作成",
     "stopPlaying": "再生停止",
     "startPlaying": "再生開始",
@@ -392,6 +394,19 @@
     "startRecording": "記録開始",
     "end": "終了",
     "endRecording": "記録終了",
+    "paused": "一時停止中",
+    "seconds": "秒",
+    "note": "注意：",
+    "httpPush": "HTTP プッシュ",
+    "skipWriting": "書き込みスキップ",
+    "mqtt": "MQTT",
+    "mqttPush": "MQTT プッシュ",
+    "mqttSubscribe": "MQTT サブスクライブ",
+    "coordinatesCloaked": "座標を隠蔽",
+    "checkpointEnabled": "チェックポイント有効",
+    "ntpEnabled": "NTP 有効",
+    "oneRuleEnabled": "1件のルール有効",
+    "nRulesEnabled": "%{count}件のルール有効",
     "endRecordingConfirm": "この記録セッションを終了してもよろしいですか？",
     "continueRecording": "記録を続ける",
     "endNow": "今すぐ終了",
@@ -472,8 +487,11 @@
     "language": "言語",
     "troubleshooting": "トラブルシューティングについては、tszheichoi.com/sensorloggerhelpをタップして訪問してください",
     "resetToDefaults": "デフォルトにリセット",
+    "sendPhotos": "画像を送信",
+    "sendPhotosSubtitle": "カメラ有効時にペイロードに画像を含めます。画像はJPEGバイトのbase64文字列としてエンコードされます。動画モードには対応していません。",
+    "skipWritingTitle": "ローカル保存をスキップ",
+    "skipWritingSubtitle": "容量を節約するためデバイスにデータを保存せず、サーバーにのみストリーミングします。転送に失敗した場合、データは失われます。",
     "paid": "有料",
-    "ultimate": "Ultimate",
     "sectionTitle": {
       "recordingMechanism": "記録メカニズム",
       "recordingWorkflow": "記録ワークフロー",
@@ -486,6 +504,8 @@
       "camera": "カメラ",
       "checkpoint": "チェックポイント",
       "standardisation": "標準化",
+      "standardisationFusion": "標準化とフュージョン",
+      "sensorFusion": "センサーフュージョン",
       "httpPush": "HTTPプッシュ",
       "mqttPublishing": "MQTT公開",
       "mqttSubscription": "MQTTサブスクリプション",
@@ -530,7 +550,19 @@
       "cacheNamesSubtitle": "統合ワークフローでデータ記録に名前が付けられた場合、名前と位置をキャッシュして、約100m以内で行われた今後のデータ記録がデフォルトでそれを使用するようにします。",
       "cannotChangeInStudy": "研究中はワークフロー設定を変更できません。"
     },
-    "clock": {},
+    "timestamps": {
+      "humanReadable": "人間が読める形式",
+      "humanReadableSubtitle": "エポックナノ秒と経過秒数は常に記録されます。さらに、人間が読める形式でタイムスタンプを記録します。",
+      "humanReadableSubscription": "人間が読めるタイムスタンプを有効にするには、有料サブスクリプションが必要です。または、エポックタイムスタンプを自分で後処理で解析することもできます。",
+      "timestampFormat": "タイムスタンプ形式",
+      "timestampFormatSubtitle": "タイムスタンプ列をローカル時間とUTCのどちらにするか。"
+    },
+    "clock": {
+      "infoText": "測定のタイムスタンプの生成方法を選択します。",
+      "deviceClockSubtitle": "タイムスタンプにデバイスクロックを使用します。時間の経過とともにずれたり、デバイス間で異なる場合があります。",
+      "networkTimeProtocolSubtitle": "タイムスタンプを Network Time Protocol (NTP) サーバーに同期します。デバイス間で測定を揃えるのに便利です。",
+      "ntpSubscription": "NTP時間同期を有効にするには、有料サブスクリプションが必要です。"
+    },
     "checkpoint": {
       "checkpoint": "チェックポイント",
       "checkpointSubtitle": "24時間の連続記録ごとに、そのデータは中断なくシームレスに「記録」タブの新しいエントリとして自動的に保存されます。これにより、日次データ記録を整理することで長期的なデータ収集が容易になります。"
@@ -542,8 +574,7 @@
       "additionalLocationDataSubtitle": "デフォルトでは、融合された位置情報のみが記録されます。GPS専用とネットワーク専用からの追加測定を記録します。",
       "learnMoreLocation": "位置情報データの詳細",
       "additionalOrientationData": "追加の向きデータ",
-      "additionalOrientationDataSubtitle": "このデバイスは%{gameRotation}もサポートしています。デフォルトの向きセンサーと一緒に追加の向きデータを記録します。",
-      "gameRotation": "「ゲーム回転」",
+      "additionalOrientationDataSubtitle": "有効にすると、次の方向センサーが記録されます：",
       "learnMoreOrientation": "向きデータの詳細"
     },
     "camera": {
@@ -630,11 +661,6 @@
     },
     "samplingFrequencies": {
       "infoText": "各センサーのサンプリング周波数はデバイスに依存します。真のサンプリングレートはこれらの値よりも遅い場合があります。実際のサンプリング周波数を決定するために出力を調べることをお勧めします。",
-      "inertialSensors": "加速度計、重力、ジャイロスコープ、コンパス、向き、磁力計",
-      "barometer": "気圧計",
-      "location": "位置情報",
-      "camera": "カメラ",
-      "bluetooth": "Bluetooth",
       "cameraWarning": "頻繁な画像サンプリングはパフォーマンスの問題を引き起こす可能性があります。画質を「最低」に設定すると役立つ場合があります。または、サンプリングの制限を回避するビデオモードに変更してください。",
       "bluetoothWarning": "多くのBluetoothデバイスがアクティブな場合、頻繁なBluetoothサンプリングはパフォーマンスの問題を引き起こす可能性があります。",
       "ruleEngineCallout": "ルールエンジンを使用して、記録中にサンプリングを動的に変更します。",
@@ -661,7 +687,12 @@
     "standardisation": {
       "title": "単位とフレームを標準化",
       "subtitle": "異なるプラットフォームは異なる単位と座標系で値を報告する可能性があり、クロスプラットフォーム分析が困難になります。オンにすると、プラットフォーム間で定義が調和します。",
-      "learnMore": "プラットフォーム間の単位と座標の違い、および影響を受けるセンサーについて詳しく学びます。"
+      "learnMore": "何に影響しますか？"
+    },
+    "sensorFusion": {
+      "description": "プラットフォームによって重力、ユーザー加速度、方位の推定に異なる仮定やアルゴリズムが使用されます。カスタムフィルターを選択すると、オープンソースの透明なアルゴリズムを使用してプラットフォーム間でセンサー処理が標準化されます。カスタムフィルターを使用するには、以下のすべてが必要です：",
+      "viewComparison": "ライブ比較を表示",
+      "waitingForData": "センサーデータを待機中..."
     },
     "orderSensors": {
       "infoText": "ドラッグしてセンサーが表示される順序を変更します。Bluetoothビーコンは常に下部に表示されます。"
@@ -694,7 +725,13 @@
       "description": "カメラ、マイク、GPS、Bluetooth、未校正データの設定。"
     },
     "standardisation": {
-      "description": "デバイス間で単位と座標を標準化します。"
+      "description": "単位と座標を標準化し、カスタムセンサーフュージョンアルゴリズムを設定します。"
+    },
+    "standardisationFusion": {
+      "description": "単位と座標を標準化し、カスタムセンサーフュージョンアルゴリズムを設定します。"
+    },
+    "sensorFusion": {
+      "description": "重力、方位、ユーザー加速度のためのカスタムセンサーフュージョンアルゴリズム。"
     },
     "samplingFrequencies": {
       "description": "測定がサンプリングされる頻度を制御します。"
@@ -836,6 +873,9 @@
       "deleteStudyTitle": "研究を削除",
       "deleteStudyMessage": "この研究を削除してもよろしいですか？この操作は元に戻すことができず、収集されたすべてのデータが削除されます。",
       "studyActive": "研究がアクティブです",
+      "activeStudyEditMessage": "現在アクティブな研究があります。研究を編集する前に、まず非アクティブにする必要があります。",
+      "studyEnded": "研究終了",
+      "studyEndedEditMessage": "この研究は終了しており、編集できません。変更を加えるには再有効化できます。",
       "activeStudyDuplicateMessage": "現在アクティブな研究があります。研究を複製する前に、まずそれを非アクティブ化する必要があります。",
       "studyTooOld": "研究が古すぎます",
       "studyTooOldMessage": "この研究は90日以上非アクティブです。Sensor Loggerのデータプライバシーと保持ポリシーに従い、この研究に関連するデータはすでに削除されています。新しい研究を作成する必要があります。",
@@ -862,7 +902,6 @@
     "questionnaireInfo": "調査員はアンケートを使用して追加情報を収集する場合があります。質問は研究への参加時および各記録の終了時に行われる場合があります。",
     "numberOfRules": "ルール数",
     "rulesInfo": "ルールは、特定の条件に基づいてデータを収集するために調査員によって設計された自動化です。",
-    "webhook": "Webhook",
     "webhookInfo": "Webhookを使用すると、参加者がデータ記録をアップロードしたときに調査員がリアルタイム通知を受け取り、オプションでPDFまたはmarkdown形式で分析レポートを提供できます。",
     "notificationsAndReminders": "通知とリマインダー",
     "notificationsInfo": "調査員は通知を使用して、データの記録またはアップロードを通知する場合があります。調査員は、これらの通知が送信される頻度と時期を構成します。研究への参加に影響を与えることなく、いつでもこれらの通知をオプトアウトできます。",
@@ -878,6 +917,11 @@
     "on": " 日時 ",
     "notificationsToggleInfo": "この研究がアクティブな場合にのみリマインダーを受け取ります。通知をミュートしてオプトアウトしてください。",
     "notificationsLabel": "通知 ",
+    "notificationsPromptTitle": "通知",
+    "notificationsPromptMessage": "この研究から通知を送信します。この研究の通知を有効にしますか？",
+    "notificationsPromptMessageExtra": " はいを選択すると、Sensor Loggerの通知を有効にするよう求められます。",
+    "yes": "はい",
+    "no": "いいえ",
     "extendOneDay": "1日延長",
     "extendFiveDays": "5日延長",
     "extendOneWeek": "1週間延長",
@@ -906,6 +950,7 @@
     "activateMessage": "この研究への貢献を開始します。",
     "recordingMessage": "この研究がアクティブな間に行われた記録は、研究の構成に準拠します。",
     "joinMessage": "参加してこの研究への貢献を開始します。",
+    "editStudy": "研究を編集",
     "duplicateStudy": "研究を複製",
     "manageStudy": "研究を管理",
     "manageStudyMessage": "この研究を削除するか、これに基づいて新しい研究を作成し、説明、設定、連絡先、アンケートなどをすべて継承しますが、参加者や記録は継承しません。複製中、すべてのローカル構成はこの研究の構成によって上書きされます。",

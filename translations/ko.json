@@ -39,7 +39,8 @@
     "rulesEditor": "규칙 편집기",
     "rulesGallery": "규칙 갤러리",
     "rulesHelp": "규칙 도움말",
-    "rulesSettings": "규칙 설정"
+    "rulesSettings": "규칙 설정",
+    "sensorFusion": "센서 퓨전"
   },
   "quickActions": {
     "toggleRecording": "녹화 전환",
@@ -61,6 +62,7 @@
     "add": "추가",
     "later": "나중에",
     "continue": "계속",
+    "continueToApp": "앱으로 계속",
     "openSettings": "설정 열기",
     "upgrade": "업그레이드",
     "error": "오류",
@@ -300,7 +302,6 @@
     "samplingSubtext": "샘플링 속도 안내",
     "emailSupport": "이메일 지원",
     "emailSubtext": "Pro 및 Ultimate 사용자용",
-    "appName": "Sensor Logger",
     "versionBuild": "버전 %{version} 빌드 %{build}",
     "update": "업데이트",
     "moreInspiration": "더 많은 영감",
@@ -345,6 +346,7 @@
     "annotationHint": "녹화 세션 중에 주석을 추가하려면 로거 화면에서 연필 아이콘을 탭하세요. 길게 누르면 지속 시간을 조절할 수 있습니다.",
     "timeSeriesPartial": "시계열의 일부만 표시됩니다. 더 많은 포인트를 표시하려면 여기를 탭하여 해상도를 낮추세요",
     "exportPlot": "그래프 내보내기",
+    "secondsElapsed": "경과 시간(초)",
     "buildDashboard": "스토리 만들기",
     "stopPlaying": "재생 중지",
     "startPlaying": "재생 시작",
@@ -392,6 +394,19 @@
     "startRecording": "녹화 시작",
     "end": "종료",
     "endRecording": "녹화 종료",
+    "paused": "일시정지",
+    "seconds": "초",
+    "note": "참고:",
+    "httpPush": "HTTP 푸시",
+    "skipWriting": "쓰기 건너뛰기",
+    "mqtt": "MQTT",
+    "mqttPush": "MQTT 푸시",
+    "mqttSubscribe": "MQTT 구독",
+    "coordinatesCloaked": "좌표 숨김",
+    "checkpointEnabled": "체크포인트 활성화",
+    "ntpEnabled": "NTP 활성화",
+    "oneRuleEnabled": "1개 규칙 활성화",
+    "nRulesEnabled": "%{count}개 규칙 활성화",
     "endRecordingConfirm": "이 녹화 세션을 종료하시겠습니까?",
     "continueRecording": "녹화 계속",
     "endNow": "지금 종료",
@@ -472,8 +487,11 @@
     "language": "언어",
     "troubleshooting": "문제 해결을 위해 tszheichoi.com/sensorloggerhelp를 방문하세요",
     "resetToDefaults": "기본값으로 재설정",
+    "sendPhotos": "이미지 전송",
+    "sendPhotosSubtitle": "카메라 활성화 시 페이로드에 이미지를 포함합니다. 이미지는 JPEG 바이트의 base64 문자열로 인코딩됩니다. 동영상 모드는 지원되지 않습니다.",
+    "skipWritingTitle": "로컬 저장 건너뛰기",
+    "skipWritingSubtitle": "공간을 절약하기 위해 기기에 데이터를 저장하지 않고 서버로만 스트리밍합니다. 전송에 실패하면 데이터가 손실됩니다.",
     "paid": "유료",
-    "ultimate": "Ultimate",
     "sectionTitle": {
       "recordingMechanism": "녹화 메커니즘",
       "recordingWorkflow": "녹화 워크플로",
@@ -486,6 +504,8 @@
       "camera": "카메라",
       "checkpoint": "체크포인트",
       "standardisation": "표준화",
+      "standardisationFusion": "표준화 및 퓨전",
+      "sensorFusion": "센서 퓨전",
       "httpPush": "HTTP Push",
       "mqttPublishing": "MQTT 게시",
       "mqttSubscription": "MQTT 구독",
@@ -530,7 +550,19 @@
       "cacheNamesSubtitle": "통합 워크플로에서 녹화에 이름이 지정되면 이름과 위치를 캐시하여 향후 ~100m 이내에서 수행된 녹화가 기본적으로 사용하도록 합니다.",
       "cannotChangeInStudy": "연구 중에는 워크플로 설정을 변경할 수 없습니다."
     },
-    "clock": {},
+    "timestamps": {
+      "humanReadable": "읽기 쉬운 형식",
+      "humanReadableSubtitle": "에포크 나노초와 경과 초는 항상 기록됩니다. 추가로 읽기 쉬운 형식으로 타임스탬프를 기록합니다.",
+      "humanReadableSubscription": "읽기 쉬운 타임스탬프를 활성화하려면 유료 구독이 필요합니다. 또는 에포크 타임스탬프를 직접 후처리에서 파싱할 수 있습니다.",
+      "timestampFormat": "타임스탬프 형식",
+      "timestampFormatSubtitle": "타임스탬프 열이 현지 시간 또는 UTC여야 하는지 여부."
+    },
+    "clock": {
+      "infoText": "측정에 대한 타임스탬프 생성 방법을 선택하세요.",
+      "deviceClockSubtitle": "타임스탬프에 기기 시계를 사용합니다. 시간이 지남에 따라 오차가 생기거나 기기마다 다를 수 있습니다.",
+      "networkTimeProtocolSubtitle": "Network Time Protocol (NTP) 서버와 타임스탬프를 동기화합니다. 기기 간 측정을 정렬하는 데 유용합니다.",
+      "ntpSubscription": "NTP 시간 동기화를 활성화하려면 유료 구독이 필요합니다."
+    },
     "checkpoint": {
       "checkpoint": "체크포인트",
       "checkpointSubtitle": "24시간의 연속 녹화마다 해당 데이터는 중단 없이 '녹화' 탭에 새 항목으로 자동 저장됩니다. 이를 통해 일일 녹화를 구성하여 장기 데이터 수집을 돕습니다."
@@ -542,8 +574,7 @@
       "additionalLocationDataSubtitle": "기본적으로 융합된 위치만 기록됩니다. GPS 전용 및 네트워크 전용의 추가 측정을 기록합니다.",
       "learnMoreLocation": "위치 데이터에 대해 자세히 알아보기",
       "additionalOrientationData": "추가 방향 데이터",
-      "additionalOrientationDataSubtitle": "이 장치는%{gameRotation}도 지원합니다. 기본 방향 센서와 함께 추가 방향 데이터를 기록합니다.",
-      "gameRotation": " '게임 회전'",
+      "additionalOrientationDataSubtitle": "활성화하면 다음 방향 센서가 기록됩니다:",
       "learnMoreOrientation": "방향 데이터에 대해 자세히 알아보기"
     },
     "camera": {
@@ -630,11 +661,6 @@
     },
     "samplingFrequencies": {
       "infoText": "각 센서의 샘플링 주파수는 장치에 따라 다릅니다. 실제 샘플링 속도는 이러한 값보다 느릴 수 있습니다. 실제 샘플링 주파수를 확인하기 위해 출력을 검토하는 것이 좋습니다.",
-      "inertialSensors": "가속도계, 중력, 자이로스코프, 나침반, 방향 및 자력계",
-      "barometer": "기압계",
-      "location": "위치",
-      "camera": "카메라",
-      "bluetooth": "블루투스",
       "cameraWarning": "빈번한 이미지 샘플링은 성능 문제를 일으킬 수 있습니다. 이미지 품질을 '최저'로 설정하면 도움이 될 수 있습니다. 또는 샘플링 제한을 우회하는 비디오 모드로 변경하세요.",
       "bluetoothWarning": "많은 블루투스 장치가 활성화되어 있을 때 빈번한 블루투스 샘플링은 성능 문제를 일으킬 수 있습니다.",
       "ruleEngineCallout": "규칙 엔진을 사용하여 녹화 중 샘플링을 동적으로 변경합니다.",
@@ -661,7 +687,12 @@
     "standardisation": {
       "title": "단위 및 프레임 표준화",
       "subtitle": "다른 플랫폼은 다른 단위 및 좌표계로 값을 보고할 수 있어 크로스 플랫폼 분석이 어려울 수 있습니다. 켜서 플랫폼 간 정의를 조화시킵니다.",
-      "learnMore": "플랫폼 간 단위 및 좌표의 차이점 및 영향을 받는 센서에 대해 자세히 알아보세요."
+      "learnMore": "무엇에 영향을 미치나요?"
+    },
+    "sensorFusion": {
+      "description": "플랫폼마다 중력, 사용자 가속도 및 방향을 추정하는 데 서로 다른 가정과 알고리즘을 사용합니다. 오픈 소스의 투명한 알고리즘을 사용하여 플랫폼 간 센서 처리를 표준화하려면 사용자 정의 필터를 선택하세요. 사용자 정의 필터를 사용하려면 다음 모든 조건이 필요합니다:",
+      "viewComparison": "실시간 비교 보기",
+      "waitingForData": "센서 데이터 대기 중..."
     },
     "orderSensors": {
       "infoText": "드래그하여 센서가 표시되는 순서를 변경합니다. 블루투스 비콘은 항상 하단에 표시됩니다."
@@ -694,7 +725,13 @@
       "description": "카메라, 마이크, GPS, 블루투스 및 보정되지 않은 데이터에 대한 설정."
     },
     "standardisation": {
-      "description": "장치 간 단위 및 좌표를 표준화합니다."
+      "description": "단위와 좌표를 표준화하고 사용자 정의 센서 퓨전 알고리즘을 구성합니다."
+    },
+    "standardisationFusion": {
+      "description": "단위와 좌표를 표준화하고 사용자 정의 센서 퓨전 알고리즘을 구성합니다."
+    },
+    "sensorFusion": {
+      "description": "중력, 방향 및 사용자 가속도를 위한 사용자 정의 센서 퓨전 알고리즘."
     },
     "samplingFrequencies": {
       "description": "측정이 샘플링되는 빈도를 제어합니다."
@@ -836,6 +873,9 @@
       "deleteStudyTitle": "연구 삭제",
       "deleteStudyMessage": "이 연구를 삭제하시겠습니까? 이 작업은 취소할 수 없으며 수집된 모든 데이터가 삭제됩니다.",
       "studyActive": "연구 활성",
+      "activeStudyEditMessage": "현재 활성 연구가 있습니다. 연구를 편집하기 전에 먼저 비활성화해야 합니다.",
+      "studyEnded": "연구 종료됨",
+      "studyEndedEditMessage": "이 연구는 종료되어 더 이상 편집할 수 없습니다. 변경하려면 재활성화할 수 있습니다.",
       "activeStudyDuplicateMessage": "현재 활성 연구가 있습니다. 연구를 복제하기 전에 먼저 비활성화해야 합니다.",
       "studyTooOld": "연구가 너무 오래됨",
       "studyTooOldMessage": "이 연구는 90일 이상 비활성 상태입니다. Sensor Logger의 데이터 개인정보 보호 및 보존 정책에 따라 이 연구와 관련된 데이터는 이미 삭제되었습니다. 새 연구를 만들어야 합니다.",
@@ -862,7 +902,6 @@
     "questionnaireInfo": "조사자는 설문조사를 사용하여 추가 정보를 수집할 수 있습니다. 질문은 연구 참여 시 및 각 녹화 종료 시 요청될 수 있습니다.",
     "numberOfRules": "규칙 수",
     "rulesInfo": "규칙은 특정 조건에 따라 데이터를 수집하기 위해 조사자가 설계한 자동화입니다.",
-    "webhook": "웹훅",
     "webhookInfo": "웹훅을 사용하면 참여자가 녹화를 업로드할 때 조사자가 실시간 알림을 받고 선택적으로 PDF 또는 markdown 형식의 분석 보고서를 제공할 수 있습니다.",
     "notificationsAndReminders": "알림 및 미리 알림",
     "notificationsInfo": "조사자는 알림을 사용하여 데이터 녹화 또는 업로드를 상기시킬 수 있습니다. 조사자는 이러한 알림이 전송되는 빈도와 시기를 구성합니다. 연구 참여에 영향을 주지 않고 언제든지 이러한 알림을 거부할 수 있습니다.",
@@ -878,6 +917,11 @@
     "on": " 요일 ",
     "notificationsToggleInfo": "이 연구가 활성 상태일 때만 알림을 받습니다. 알림을 음소거하여 거부하세요.",
     "notificationsLabel": "알림 ",
+    "notificationsPromptTitle": "알림",
+    "notificationsPromptMessage": "이 연구에서 알림을 보내려고 합니다. 이 연구의 알림을 활성화하시겠습니까?",
+    "notificationsPromptMessageExtra": " 예를 선택하면 Sensor Logger의 알림을 활성화하라는 메시지가 표시됩니다.",
+    "yes": "예",
+    "no": "아니요",
     "extendOneDay": "1일 연장",
     "extendFiveDays": "5일 연장",
     "extendOneWeek": "1주 연장",
@@ -906,6 +950,7 @@
     "activateMessage": "이 연구에 기여를 시작하세요.",
     "recordingMessage": "이 연구가 활성 상태일 때 이루어진 녹화는 연구의 구성을 따릅니다.",
     "joinMessage": "참여하여 이 연구에 기여를 시작하세요.",
+    "editStudy": "연구 편집",
     "duplicateStudy": "연구 복제",
     "manageStudy": "연구 관리",
     "manageStudyMessage": "이 연구를 삭제하거나 이를 기반으로 새 연구를 만드세요. 모든 설명, 설정, 연락처, 설문조사 등을 상속하지만 참여자나 녹화는 상속하지 않습니다. 복제 중 모든 로컬 구성은 이 연구의 구성으로 덮어쓰여집니다.",

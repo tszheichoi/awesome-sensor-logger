@@ -39,7 +39,8 @@
     "rulesEditor": "规则编辑器",
     "rulesGallery": "规则库",
     "rulesHelp": "规则帮助",
-    "rulesSettings": "规则设置"
+    "rulesSettings": "规则设置",
+    "sensorFusion": "传感器融合"
   },
   "quickActions": {
     "toggleRecording": "切换记录",
@@ -61,6 +62,7 @@
     "add": "添加",
     "later": "稍后",
     "continue": "继续",
+    "continueToApp": "继续前往 App",
     "openSettings": "打开设置",
     "upgrade": "升级",
     "error": "错误",
@@ -300,7 +302,6 @@
     "samplingSubtext": "采样率指南",
     "emailSupport": "电子邮件支持",
     "emailSubtext": "适用于 Pro 和 Ultimate 用户",
-    "appName": "Sensor Logger",
     "versionBuild": "版本 %{version} 构建 %{build}",
     "update": "更新",
     "moreInspiration": "更多灵感",
@@ -345,6 +346,7 @@
     "annotationHint": "要在记录过程中添加注释，请点击日志屏幕上的铅笔图标。按住可控制持续时间。",
     "timeSeriesPartial": "仅显示部分时间序列。要显示更多数据点，请点击此处降低分辨率",
     "exportPlot": "导出图表",
+    "secondsElapsed": "经过秒数",
     "buildDashboard": "构建故事",
     "stopPlaying": "停止播放",
     "startPlaying": "开始播放",
@@ -392,6 +394,19 @@
     "startRecording": "开始记录",
     "end": "结束",
     "endRecording": "结束记录",
+    "paused": "已暂停",
+    "seconds": "秒",
+    "note": "注意：",
+    "httpPush": "HTTP 推送",
+    "skipWriting": "跳过写入",
+    "mqtt": "MQTT",
+    "mqttPush": "MQTT 推送",
+    "mqttSubscribe": "MQTT 订阅",
+    "coordinatesCloaked": "坐标已隐藏",
+    "checkpointEnabled": "检查点已启用",
+    "ntpEnabled": "NTP 已启用",
+    "oneRuleEnabled": "1 条规则已启用",
+    "nRulesEnabled": "%{count} 条规则已启用",
     "endRecordingConfirm": "确定要结束此记录吗？",
     "continueRecording": "继续记录",
     "endNow": "立即结束",
@@ -472,8 +487,11 @@
     "language": "语言",
     "troubleshooting": "如需故障排除，点击访问 tszheichoi.com/sensorloggerhelp",
     "resetToDefaults": "重置为预设值",
+    "sendPhotos": "发送图像",
+    "sendPhotosSubtitle": "启用相机时将图像包含在数据中。图像以 JPEG 字节的 base64 字符串编码。不支持录像模式。",
+    "skipWritingTitle": "不保存到本地",
+    "skipWritingSubtitle": "不将数据保存到设备以节省空间，仅串流至服务器。若传输失败，数据将会丢失。",
     "paid": "付费",
-    "ultimate": "Ultimate",
     "sectionTitle": {
       "recordingMechanism": "记录机制",
       "recordingWorkflow": "记录工作流",
@@ -486,6 +504,8 @@
       "camera": "相机",
       "checkpoint": "检查点",
       "standardisation": "标准化",
+      "standardisationFusion": "标准化与融合",
+      "sensorFusion": "传感器融合",
       "httpPush": "HTTP推送",
       "mqttPublishing": "MQTT发布",
       "mqttSubscription": "MQTT订阅",
@@ -530,7 +550,19 @@
       "cacheNamesSubtitle": "在集成工作流中命名数据记录时，缓存名称和位置，以便在约100米内的未来数据记录预设使用它。",
       "cannotChangeInStudy": "在研究中时无法更改工作流设置。"
     },
-    "clock": {},
+    "timestamps": {
+      "humanReadable": "易读格式",
+      "humanReadableSubtitle": "纪元时间（纳秒）和经过秒数始终会被记录。额外以易读格式记录时间戳。",
+      "humanReadableSubscription": "您需要付费订阅才能启用易读时间戳。或者，您可以自行在后处理中解析纪元时间戳。",
+      "timestampFormat": "时间戳格式",
+      "timestampFormatSubtitle": "时间戳列应使用本地时间还是 UTC。"
+    },
+    "clock": {
+      "infoText": "选择如何为测量生成时间戳。",
+      "deviceClockSubtitle": "使用设备时钟生成时间戳。可能随时间漂移或因设备而异。",
+      "networkTimeProtocolSubtitle": "将时间戳同步到 Network Time Protocol (NTP) 服务器。适用于跨设备对齐测量。",
+      "ntpSubscription": "您需要付费订阅才能启用 NTP 时间同步。"
+    },
     "checkpoint": {
       "checkpoint": "检查点",
       "checkpointSubtitle": "每24小时连续记录后，数据将自动保存为\"数据记录\"标签中的新条目，无中断。有助于通过组织每日数据记录进行长期数据收集。"
@@ -542,8 +574,7 @@
       "additionalLocationDataSubtitle": "预设情况下，仅记录融合位置。记录来自仅GPS和仅网络的额外测量。",
       "learnMoreLocation": "了解更多位置数据",
       "additionalOrientationData": "额外方向数据",
-      "additionalOrientationDataSubtitle": "此设备还支持%{gameRotation}。记录额外的方向数据以及预设方向传感器。",
-      "gameRotation": "\"游戏旋转\"",
+      "additionalOrientationDataSubtitle": "启用后，将记录以下方向传感器：",
       "learnMoreOrientation": "了解更多方向数据"
     },
     "camera": {
@@ -630,11 +661,6 @@
     },
     "samplingFrequencies": {
       "infoText": "每个传感器的采样频率取决于设备。实际采样率可能比这些值慢。建议检查输出以确定实际采样频率。",
-      "inertialSensors": "加速度计、重力、陀螺仪、指南针、方向和磁力计",
-      "barometer": "气压计",
-      "location": "位置",
-      "camera": "相机",
-      "bluetooth": "蓝牙",
       "cameraWarning": "频繁的图像采样可能会导致性能问题。将图像质量设置为\"最低\"可能会有所帮助。或者，更改为视频模式，可以绕过采样限制。",
       "bluetoothWarning": "当许多蓝牙设备处于活动状态时，频繁的蓝牙采样可能会导致性能问题。",
       "ruleEngineCallout": "使用规则引擎在记录过程中动态更改采样。",
@@ -661,7 +687,12 @@
     "standardisation": {
       "title": "标准化单位和坐标系",
       "subtitle": "不同平台可能以不同的单位和坐标系报告值，这使得跨平台分析变得困难。启用以协调各平台的定义。",
-      "learnMore": "了解更多关于各平台单位和坐标差异以及受影响的传感器。"
+      "learnMore": "这会影响什么？"
+    },
+    "sensorFusion": {
+      "description": "不同平台使用不同的假设和算法来估算重力、用户加速度和方向。选择自定义滤波器，使传感器处理在各平台间使用开源、非黑箱算法进行标准化。使用自定义滤波器需要满足以下所有条件：",
+      "viewComparison": "查看实时对比",
+      "waitingForData": "等待传感器数据..."
     },
     "orderSensors": {
       "infoText": "拖动以更改传感器的显示顺序。蓝牙信标始终显示在底部。"
@@ -694,7 +725,13 @@
       "description": "相机、麦克风、GPS、蓝牙和未校准数据的设置。"
     },
     "standardisation": {
-      "description": "在设备之间标准化单位和坐标。"
+      "description": "标准化单位和坐标，并配置自定义传感器融合算法。"
+    },
+    "standardisationFusion": {
+      "description": "标准化单位和坐标，并配置自定义传感器融合算法。"
+    },
+    "sensorFusion": {
+      "description": "用于重力、方向和用户加速度的自定义传感器融合算法。"
     },
     "samplingFrequencies": {
       "description": "控制测量的采样频率。"
@@ -836,6 +873,9 @@
       "deleteStudyTitle": "删除研究",
       "deleteStudyMessage": "您确定要删除此研究吗？此操作无法撤消，收集的所有数据都将被删除。",
       "studyActive": "研究已激活",
+      "activeStudyEditMessage": "您当前有一个活跃的研究。您必须先停用它，然后才能编辑研究。",
+      "studyEnded": "研究已结束",
+      "studyEndedEditMessage": "此研究已结束，无法再进行编辑。您可以重新激活它以进行更改。",
       "activeStudyDuplicateMessage": "您当前有一项活动研究。您必须先停用它才能复制研究。",
       "studyTooOld": "研究太旧",
       "studyTooOldMessage": "此研究已超过90天不活动。根据Sensor Logger的数据隐私和保留政策，与此研究相关的数据已被清除。您需要创建一个新研究。",
@@ -862,7 +902,6 @@
     "questionnaireInfo": "调查员可以使用问卷收集其他信息。可以在加入研究时和每次记录结束时提问。",
     "numberOfRules": "规则数量",
     "rulesInfo": "规则是调查员设计的自动化，用于根据特定条件收集数据。",
-    "webhook": "Web钩子",
     "webhookInfo": "Web钩子允许调查员在参与者上传记录时接收实时通知，并可选择提供PDF或markdown格式的分析报告。",
     "notificationsAndReminders": "通知和提醒",
     "notificationsInfo": "调查员可以使用通知来提醒您记录或上传数据。调查员配置发送这些通知的频率和时间。您可以随时选择退出这些通知，而不会影响您参与研究。",
@@ -878,6 +917,11 @@
     "on": " 在 ",
     "notificationsToggleInfo": "您仅在此研究处于活动状态时才会收到提醒。通过静音通知来选择退出。",
     "notificationsLabel": "通知 ",
+    "notificationsPromptTitle": "通知",
+    "notificationsPromptMessage": "此研究希望向您发送通知。您要为此研究启用通知吗？",
+    "notificationsPromptMessageExtra": " 如果选择是，系统将要求您为Sensor Logger启用通知。",
+    "yes": "是",
+    "no": "否",
     "extendOneDay": "延长1天",
     "extendFiveDays": "延长5天",
     "extendOneWeek": "延长1周",
@@ -906,6 +950,7 @@
     "activateMessage": "开始为此研究提供数据。",
     "recordingMessage": "在此研究处于活动状态时进行的记录将符合研究的配置。",
     "joinMessage": "加入以开始为此研究提供数据。",
+    "editStudy": "编辑研究",
     "duplicateStudy": "复制研究",
     "manageStudy": "管理研究",
     "manageStudyMessage": "删除此研究，或基于它创建一个新研究，继承其所有描述、设置、联系人、问卷等，但不继承其参与者或记录。在复制过程中，所有本地配置都将被此研究的配置覆盖。",

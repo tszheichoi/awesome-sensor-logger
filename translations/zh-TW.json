@@ -39,7 +39,8 @@
     "rulesEditor": "編輯規則",
     "rulesGallery": "規則庫",
     "rulesHelp": "有關規則的幫助",
-    "rulesSettings": "設定規則"
+    "rulesSettings": "設定規則",
+    "sensorFusion": "感測器融合"
   },
   "quickActions": {
     "toggleRecording": "切換記錄",
@@ -61,6 +62,7 @@
     "add": "新增",
     "later": "稍後",
     "continue": "繼續",
+    "continueToApp": "繼續前往 App",
     "openSettings": "打開設定",
     "upgrade": "升級",
     "error": "錯誤",
@@ -247,7 +249,7 @@
     "deleteConfirmation": "確定要刪除 %{count} 個數據記錄嗎？",
     "selected": "已選擇",
     "showingCount": "顯示 %{filtered}/%{total} 個數據記錄",
-    "clearExportCache": "清除已匯出檔案",
+    "clearExportCache": "清除已匯出檔案的暫存",
     "nothingToClear": "目前沒有可清除的內容",
     "noCachedExports": "目前沒有暫存的匯出檔案",
     "cacheCleared": "暫存已清除",
@@ -300,7 +302,6 @@
     "samplingSubtext": "採樣率指南",
     "emailSupport": "電子郵件支持",
     "emailSubtext": "適用於 Pro 和 Ultimate 用戶",
-    "appName": "Sensor Logger",
     "versionBuild": "版本 %{version} 構建 %{build}",
     "update": "更新",
     "moreInspiration": "更多靈感",
@@ -342,9 +343,10 @@
     "standardisationEnabled": "單位和座標標準化已啟用。點擊瞭解。"
   },
   "plotsScreen": {
-    "annotationHint": "要在記錄過程中新增註釋，請點擊日誌螢幕上的鉛筆圖標。按住可控制持續時間。",
+    "annotationHint": "要在記錄過程中新增標註，請點擊日誌螢幕上的鉛筆圖標。按住可控制持續時間。",
     "timeSeriesPartial": "僅顯示部分時間序列。要顯示更多數據點，請點擊此處降低解析度",
     "exportPlot": "匯出圖表",
+    "secondsElapsed": "經過秒數",
     "buildDashboard": "建立故事",
     "stopPlaying": "停止播放",
     "startPlaying": "開始播放",
@@ -357,7 +359,7 @@
     "noMqttData": "此次記錄期間未收到 MQTT 訊息，可能是因為未發送訊息或無法連接到代理伺服器。",
     "noSensorData": "此感測器未回報任何數據。可能是因為缺少感測器權限或取樣頻率過低。",
     "noSensorDataExtended": "此感測器未回報任何數據。可能是因為缺少權限、取樣頻率過低或此裝置不支援該感測器。",
-    "noAnnotation": "沒有註釋",
+    "noAnnotation": "沒有標註",
     "nothingTriggered": "未觸發規則或已停用記錄",
     "nothingTriggeredSubtitle": "此次記錄期間未觸發任何規則。規則在每個新數據點上評估，且至少每分鐘評估一次。您可能也已停用規則記錄——請查看規則引擎的進階設定。",
     "showingUpTo100": "最多顯示 100 個項目，請匯出查看全部。",
@@ -392,20 +394,33 @@
     "startRecording": "開始記錄",
     "end": "結束",
     "endRecording": "結束記錄",
+    "paused": "已暫停",
+    "seconds": "秒",
+    "note": "注意：",
+    "httpPush": "HTTP 推送",
+    "skipWriting": "跳過寫入",
+    "mqtt": "MQTT",
+    "mqttPush": "MQTT 推送",
+    "mqttSubscribe": "MQTT 訂閱",
+    "coordinatesCloaked": "座標已隱藏",
+    "checkpointEnabled": "檢查點已啟用",
+    "ntpEnabled": "NTP 已啟用",
+    "oneRuleEnabled": "1 條規則已啟用",
+    "nRulesEnabled": "%{count} 條規則已啟用",
     "endRecordingConfirm": "確定要結束此記錄嗎？",
     "continueRecording": "繼續記錄",
     "endNow": "立即結束",
     "renameRecording": "重新命名數據記錄",
     "saveAndExport": "保存並匯出",
-    "annotations": "註釋",
-    "annotationPanelHint": "點擊預設以記錄帶有時間戳的註釋，或輸入自定義註釋。",
+    "annotations": "標註",
+    "annotationPanelHint": "點擊預設以記錄帶有時間戳的標註，或輸入自定義標註。",
     "annotationPanelCustomiseHint": "在設定中自定義預設。",
     "custom": "輸入",
-    "addCustomAnnotation": "新增自定註釋",
-    "addAnnotationMessage": "在時間戳 %{time} 處記錄註釋，按壓時長 %{duration}毫秒。留空僅標記時間戳。",
+    "addCustomAnnotation": "新增自定標註",
+    "addAnnotationMessage": "在時間戳 %{time} 處記錄標註，按壓時長 %{duration}毫秒。留空僅標記時間戳。",
     "problematicPermission": "權限問題",
     "locationPermissionMessage": "訪問位置應設定為\"始終\"以進行持續後台測量，或至少\"使用期間\"以進行前台記錄。",
-    "sensorPermissionMessage": "請在設定應用中啟用此感測器的權限。",
+    "sensorPermissionMessage": "請在設定中啟用此感測器的權限。",
     "orientationOffset": "方向偏移",
     "orientationOffsetMessage": "將角度值設定為零以進行校準或安裝。點擊設定零時生效，持續到本次記錄結束。不影響其他感測器或之前的方向讀數。",
     "setZero": "設定零點",
@@ -472,8 +487,11 @@
     "language": "語言",
     "troubleshooting": "如需排除故障，點擊訪問 tszheichoi.com/sensorloggerhelp",
     "resetToDefaults": "重置為預設值",
+    "sendPhotos": "傳送影像",
+    "sendPhotosSubtitle": "啟用相機時將影像包含在資料中。影像以 JPEG 位元組的 base64 字串編碼。不支援錄影模式。",
+    "skipWritingTitle": "不儲存至本機",
+    "skipWritingSubtitle": "不將資料儲存至裝置以節省空間，僅串流至伺服器。若傳輸失敗，資料將會遺失。",
     "paid": "付費",
-    "ultimate": "Ultimate",
     "sectionTitle": {
       "recordingMechanism": "記錄機制",
       "recordingWorkflow": "記錄工作流",
@@ -486,13 +504,15 @@
       "camera": "相機",
       "checkpoint": "檢查點",
       "standardisation": "標準化",
+      "standardisationFusion": "標準化與融合",
+      "sensorFusion": "感測器融合",
       "httpPush": "HTTP推送",
       "mqttPublishing": "MQTT發佈",
       "mqttSubscription": "MQTT訂閱",
       "samplingFrequencies": "採樣頻率",
       "samplingReference": "採樣參考",
       "sensorSections": "感測器部分",
-      "annotationPresets": "預設註釋",
+      "annotationPresets": "預設標註",
       "exportShareRestore": "匯出、分享和恢復",
       "deviceSettings": "設備設定",
       "language": "語言"
@@ -530,7 +550,19 @@
       "cacheNamesSubtitle": "在集成工作流中命名數據記錄時，暫存名稱和位置，以便在約100米內的未來數據記錄預設使用它。",
       "cannotChangeInStudy": "在研究中時無法更改工作流設定。"
     },
-    "clock": {},
+    "timestamps": {
+      "humanReadable": "易讀格式",
+      "humanReadableSubtitle": "紀元時間（奈秒）和經過秒數始終會被記錄。額外以易讀格式記錄時間戳。",
+      "humanReadableSubscription": "您需要付費訂閱才能啟用易讀時間戳。或者，您可以自行在後處理中解析紀元時間戳。",
+      "timestampFormat": "時間戳格式",
+      "timestampFormatSubtitle": "時間戳欄位應使用本地時間還是 UTC。"
+    },
+    "clock": {
+      "infoText": "選擇如何為測量生成時間戳。",
+      "deviceClockSubtitle": "使用裝置時鐘生成時間戳。可能隨時間偏移或因裝置而異。",
+      "networkTimeProtocolSubtitle": "將時間戳同步到 Network Time Protocol (NTP) 伺服器。適用於跨裝置對齊測量。",
+      "ntpSubscription": "您需要付費訂閱才能啟用 NTP 時間同步。"
+    },
     "checkpoint": {
       "checkpoint": "檢查點",
       "checkpointSubtitle": "每24小時連續記錄後，數據將自動保存為\"數據記錄\"標籤中的新條目，無中斷。有助於通過組織每日數據記錄進行長期數據收集。"
@@ -542,8 +574,7 @@
       "additionalLocationDataSubtitle": "預設情況下，僅記錄融合位置。記錄來自僅GPS和僅網絡的額外測量。",
       "learnMoreLocation": "瞭解更多位置數據",
       "additionalOrientationData": "額外方向數據",
-      "additionalOrientationDataSubtitle": "此設備還支持%{gameRotation}。記錄額外的方向數據以及預設方向感測器。",
-      "gameRotation": "\"遊戲旋轉\"",
+      "additionalOrientationDataSubtitle": "啟用後，將記錄以下方向感測器：",
       "learnMoreOrientation": "瞭解更多方向數據"
     },
     "camera": {
@@ -563,10 +594,10 @@
       "imageQualityMedium": "中等",
       "imageQualityHigh": "高",
       "cameraMode": "相機模式",
-      "cameraModeSubtitle": "是定期捕獲圖像，還是連續捕獲帶音頻的視頻。",
+      "cameraModeSubtitle": "是定期擷取圖像，還是連續擷取帶音頻的視頻。",
       "cameraModeImages": "圖像",
       "cameraModeVideo": "視頻",
-      "captureDepth": "捕獲深度",
+      "captureDepth": "擷取深度",
       "captureDepthImage": "圖像",
       "captureDepthImageDepth": "圖像+深度",
       "depthNotSupportedInVideo": "視頻模式不支持深度數據。",
@@ -575,23 +606,23 @@
     },
     "microphone": {
       "microphoneQuality": "麥克風質量",
-      "microphoneQualitySubtitle": "無損質量最高，但創建較大文件。僅響度僅記錄dBFS中的音頻響度，不記錄音頻。",
+      "microphoneQualitySubtitle": "無損質量最高，但建立較大文件。僅響度僅記錄dBFS中的音頻響度，不記錄音頻。",
       "viewMicrophoneReference": "查看麥克風參考"
     },
     "location": {
-      "coordinatesCloaking": "座標隱藏",
-      "coordinatesCloakingSubtitle": "為保護隱私降低座標精度。四捨五入到0.001°和0.1°分別產生約100米和約10公里精度。如果刪除，則不記錄座標。",
+      "coordinatesCloaking": "隱藏座標",
+      "coordinatesCloakingSubtitle": "為保護隱私降低座標精準度。四捨五入到0.001°和0.1°分別產生約100米和約10公里精準度。如果刪除，則不記錄座標。",
       "coordinatesPrecise": "精確",
       "coordinatesTo0001": "到0.001°",
       "coordinatesTo01": "到0.1°",
       "coordinatesDrop": "刪除",
       "optimizeForNavigation": "優化導航",
-      "optimizeForNavigationSubtitle": "將位置感測器設定為導航模式，使用額外感測器提高精度。"
+      "optimizeForNavigationSubtitle": "將位置感測器設定為導航模式，使用額外感測器提高精準度。"
     },
     "bluetooth": {
       "scanningDuration": "掃描持續時間",
       "scanningDurationSubtitle": "刷新列表時掃描附近藍牙設備的秒數。",
-      "rssiThreshold": "RSSI閾值",
+      "rssiThreshold": "RSSI臨界值",
       "rssiThresholdSubtitle": "設備掃描期間的最小信號強度。RSSI越接近0越強。-70 dBm被認為是良好的信號強度。",
       "rssiNoLimit": "無限制",
       "rssiAbove70": "> -70dBm",
@@ -609,32 +640,27 @@
       "restoreFailedError": "無法從剪貼板恢復設定，請檢查剪貼板是否正確。"
     },
     "annotationPresets": {
-      "addAnnotationPreset": "新增註釋預設",
-      "addAnnotationPresetMessage": "記錄期間點擊相應按鈕時，將新增此文本作為註釋。",
-      "emptyAnnotation": "空註釋",
+      "addAnnotationPreset": "新增標註預設",
+      "addAnnotationPresetMessage": "記錄期間點擊相應按鈕時，將新增此文本作為標註。",
+      "emptyAnnotation": "空標註",
       "emptyAnnotationMessage": "請輸入非空文本。",
-      "duplicateAnnotation": "重複註釋",
-      "duplicateAnnotationMessage": "此註釋預設已存在。",
+      "duplicateAnnotation": "重複標註",
+      "duplicateAnnotationMessage": "此標註預設已存在。",
       "presetTooLong": "預設太長",
-      "presetTooLongMessage": "請將註釋文本保持在100個字符以下。",
+      "presetTooLongMessage": "請將標註文本保持在100個字符以下。",
       "addPreset": "新增預設",
       "subscribeToAddMorePresets": "訂閱以新增更多預設",
-      "subscribeToAddMorePresetsMessage": "免費用戶最多隻能有3個註釋預設。您始終可以在記錄期間新增無限數量的自定註釋。考慮升級到任何級別以新增最多100個預設。",
+      "subscribeToAddMorePresetsMessage": "免費用戶最多隻能有3個標註預設。您始終可以在記錄期間新增無限數量的自定標註。考慮升級到任何級別以新增最多100個預設。",
       "okay": "確定",
       "upgradeButton": "升級",
       "maximumPresetsReached": "已達到最大預設數",
-      "maximumPresetsReachedMessage": "您最多隻能有100個註釋預設。如果需要更多，請聯繫我們。",
-      "deleteAnnotationPreset": "刪除註釋預設",
-      "deleteAnnotationPresetMessage": "確定要刪除此註釋預設嗎？",
-      "infoText": "建立註釋預設，以便在記錄過程中快速新增帶時間戳的註釋。您始終可以在記錄過程中新增自訂註釋。這對於標記記錄過程中的重要事件或活動非常有用，便於後期處理、篩選和分析。拖動可重新排序預設。"
+      "maximumPresetsReachedMessage": "您最多隻能有100個標註預設。如果需要更多，請聯繫我們。",
+      "deleteAnnotationPreset": "刪除標註預設",
+      "deleteAnnotationPresetMessage": "確定要刪除此標註預設嗎？",
+      "infoText": "建立標註預設，以便在記錄過程中快速新增帶時間戳的標註。您始終可以在記錄過程中新增自訂標註。這對於標記記錄過程中的重要事件或活動非常有用，便於後期處理、篩選和分析。拖動可重新排序預設。"
     },
     "samplingFrequencies": {
       "infoText": "每個感測器的採樣頻率取決於設備。實際採樣率可能比這些值慢。建議檢查輸出以確定實際採樣頻率。",
-      "inertialSensors": "加速度計、重力、陀螺儀、指南針、方向和磁力計",
-      "barometer": "氣壓計",
-      "location": "位置",
-      "camera": "相機",
-      "bluetooth": "藍牙",
       "cameraWarning": "頻繁的圖像採樣可能會導致性能問題。將圖像質量設定為\"最低\"可能會有所幫助。或者，更改為視頻模式，可以繞過採樣限制。",
       "bluetoothWarning": "當許多藍牙設備處於活動狀態時，頻繁的藍牙採樣可能會導致性能問題。",
       "ruleEngineCallout": "使用規則引擎在記錄過程中動態更改採樣。",
@@ -647,7 +673,7 @@
       "customSamplingTitle": "自定採樣",
       "frequencyPromptMessage": "輸入所需的採樣頻率（Hz，每秒樣本數）。輸入 %{min} 到 %{max}Hz 之間的值。",
       "invalidFrequencyTitle": "無效採樣頻率",
-      "maxFrequencyExceeded": "最大采樣頻率為 %{max} Hz。如果需要更高的採樣，請選擇最大值以儘可能頻繁地採樣。",
+      "maxFrequencyExceeded": "最大採樣頻率為 %{max} Hz。如果需要更高的採樣，請選擇最大值以儘可能頻繁地採樣。",
       "minFrequencyNotMet": "最小採樣頻率為 %{min} Hz。",
       "periodPromptMessage": "輸入所需的採樣週期（毫秒）。輸入 %{min} 到 %{max}ms 之間的值。",
       "invalidPeriodTitle": "無效採樣週期",
@@ -661,22 +687,27 @@
     "standardisation": {
       "title": "標準化單位和座標系",
       "subtitle": "不同平台可能以不同的單位和座標系報告值，這使得跨平台分析變得困難。啟用以協調各平台的定義。",
-      "learnMore": "瞭解更多關於各平台單位和座標差異以及受影響的感測器。"
+      "learnMore": "這會影響什麼？"
+    },
+    "sensorFusion": {
+      "description": "不同平台使用不同的假設和演算法來估算重力、使用者加速度和方向。選擇自訂濾波器，使感測器處理在各平台間使用開源、非黑箱演算法進行標準化。使用自訂濾波器需要滿足以下所有條件：",
+      "viewComparison": "檢視即時比較",
+      "waitingForData": "等待感測器資料..."
     },
     "orderSensors": {
       "infoText": "拖動以更改感測器的顯示順序。藍牙信標始終顯示在底部。"
     },
     "samplingReference": {
-      "contributeAnonymously": "匿名貢獻",
-      "contributeAnonymouslySubtitle": "通過偶爾匿名貢獻您設備型號的採樣率，幫助其他用戶瞭解實際採樣率。僅共享已啟用感測器的高級聚合統計資訊。",
+      "contributeAnonymously": "匿名提供",
+      "contributeAnonymouslySubtitle": "通過偶爾匿名提供您設備型號的採樣率，幫助其他用戶瞭解實際採樣率。僅共享已啟用感測器的高級聚合統計資訊。",
       "viewSamplingReference": "要查看採樣參考，請點擊訪問 %{url}。"
     }
   },
   "settingsSections": {
     "language": {
       "description": "首選語言。",
-      "contribute": "如果有翻譯錯誤或您想貢獻新語言，請隨時聯繫我們。",
-      "reviewAndContribute": "查看並貢獻翻譯"
+      "contribute": "如果有翻譯錯誤或您想提供新語言，請隨時聯繫我們。",
+      "reviewAndContribute": "查看並提供翻譯"
     },
     "recordingWorkflow": {
       "description": "記錄會話期間、結束時和之後發生的事情。"
@@ -694,7 +725,13 @@
       "description": "相機、麥克風、GPS、藍牙和未校準數據的設定。"
     },
     "standardisation": {
-      "description": "在設備之間標準化單位和座標。"
+      "description": "標準化單位和座標，並設定自訂感測器融合演算法。"
+    },
+    "standardisationFusion": {
+      "description": "標準化單位和座標，並設定自訂感測器融合演算法。"
+    },
+    "sensorFusion": {
+      "description": "用於重力、方向和使用者加速度的自訂感測器融合演算法。"
     },
     "samplingFrequencies": {
       "description": "控制測量的採樣頻率。"
@@ -706,8 +743,8 @@
       "description": "更改感測器部分的順序。"
     },
     "annotations": {
-      "title": "註釋",
-      "description": "註釋的預設。"
+      "title": "標註",
+      "description": "標註的預設。"
     },
     "deviceSettings": {
       "description": "設備的高級設定。"
@@ -786,8 +823,8 @@
   "addStudy": {
     "investigator": {
       "title": "我是研究員",
-      "subtitle": "我想創建一項新研究，以便其他人可以記錄並與我分享他們的數據。",
-      "callToAction": "創建研究"
+      "subtitle": "我想建立一項新研究，以便其他人可以記錄並與我分享他們的數據。",
+      "callToAction": "建立研究"
     },
     "participant": {
       "title": "我是參與者",
@@ -796,7 +833,7 @@
     },
     "studyActiveAlert": {
       "title": "研究已啟動",
-      "message": "您當前有一項活動研究。您必須先停用它才能創建新研究。",
+      "message": "您當前有一項活動研究。您必須先停用它才能建立新研究。",
       "deactivate": "停止並繼續"
     },
     "tip": "通過掃描研究調查員提供的二維碼加入研究。"
@@ -836,9 +873,12 @@
       "deleteStudyTitle": "刪除研究",
       "deleteStudyMessage": "您確定要刪除此研究嗎？此操作無法撤消，收集的所有數據都將被刪除。",
       "studyActive": "研究已啟動",
+      "activeStudyEditMessage": "您目前有一個活躍的研究。您必須先停用它，然後才能編輯研究。",
+      "studyEnded": "研究已結束",
+      "studyEndedEditMessage": "此研究已結束，無法再進行編輯。您可以重新啟用它以進行更改。",
       "activeStudyDuplicateMessage": "您當前有一項活動研究。您必須先停用它才能複製研究。",
       "studyTooOld": "研究太舊",
-      "studyTooOldMessage": "此研究已超過90天不活動。根據Sensor Logger的數據隱私和保留政策，與此研究相關的數據已被清除。您需要創建一個新研究。",
+      "studyTooOldMessage": "此研究已超過90天不活動。根據Sensor Logger的數據隱私和保留政策，與此研究相關的數據已被清除。您需要建立一個新研究。",
       "subscriptionRequired": "需要訂閱",
       "reactivateSubscriptionMessage": "您需要訂閱任何付費層級才能重新啟動研究。否則，您可以在“管理”下複製此研究。",
       "joinedStudy": "已加入研究"
@@ -862,11 +902,10 @@
     "questionnaireInfo": "調查員可以使用問卷收集其他資訊。可以在加入研究時和每次記錄結束時提問。",
     "numberOfRules": "規則數量",
     "rulesInfo": "規則是調查員設計的自動化，用於根據特定條件收集數據。",
-    "webhook": "Web鉤子",
     "webhookInfo": "Web鉤子允許調查員在參與者上傳記錄時接收實時通知，並可選擇提供PDF或markdown格式的分析報告。",
     "notificationsAndReminders": "通知和提醒",
     "notificationsInfo": "調查員可以使用通知來提醒您記錄或上傳數據。調查員配置發送這些通知的頻率和時間。您可以隨時選擇退出這些通知，而不會影響您參與研究。",
-    "createdAt": "創建於",
+    "createdAt": "建立於",
     "endingAt": "結束於",
     "studyDuration": "研究持續時間",
     "disclaimer": "本研究的內容由研究所有者提供。該研究和收集的數據未經Sensor Logger認可。在提供數據之前，請瞭解研究的目的。",
@@ -878,6 +917,11 @@
     "on": " 在 ",
     "notificationsToggleInfo": "您僅在此研究處於活動狀態時才會收到提醒。通過靜音通知來選擇退出。",
     "notificationsLabel": "通知 ",
+    "notificationsPromptTitle": "通知",
+    "notificationsPromptMessage": "此研究希望向您發送通知。您要為此研究啟用通知嗎？",
+    "notificationsPromptMessageExtra": " 如果選擇是，系統將要求您為Sensor Logger啟用通知。",
+    "yes": "是",
+    "no": "否",
     "extendOneDay": "延長1天",
     "extendFiveDays": "延長5天",
     "extendOneWeek": "延長1周",
@@ -897,18 +941,19 @@
     "shareLinkInstruction2": " 。如果他們尚未安裝該應用程序，系統將要求他們安裝。",
     "downloadSensorLogger": "下載Sensor Logger：www.tszheichoi.com/sensorlogger",
     "scanQrInstruction": "打開相機應用，掃描下面的二維碼並按照說明操作。",
-    "openStudiesTabInstruction": "打開Sensor Logger到“研究”選項卡，然後點擊“創建/加入”按鈕。然後點擊“加入研究”。",
+    "openStudiesTabInstruction": "打開Sensor Logger到“研究”選項卡，然後點擊“建立/加入”按鈕。然後點擊“加入研究”。",
     "enterCodeInstruction": "在下方輸入代碼。",
-    "investigatorJoinTip": "作為調查員，您也可以自己加入研究，為研究貢獻自己的記錄。",
+    "investigatorJoinTip": "作為調查員，您也可以自己加入研究，為研究提供自己的記錄。",
     "leaveStudyTip": "您可以隨時退出研究。",
     "copied": "已複製！",
     "ownerMessage": "您是此研究的建立者。",
     "activateMessage": "開始為此研究提供數據。",
     "recordingMessage": "在此研究處於活動狀態時進行的記錄將符合研究的配置。",
     "joinMessage": "加入以開始為此研究提供數據。",
+    "editStudy": "編輯研究",
     "duplicateStudy": "複製研究",
     "manageStudy": "管理研究",
-    "manageStudyMessage": "刪除此研究，或基於它創建一個新研究，繼承其所有描述、設定、聯繫人、問卷等，但不繼承其參與者或記錄。在複製過程中，所有本地配置都將被此研究的配置覆蓋。",
+    "manageStudyMessage": "刪除此研究，或基於它建立一個新研究，繼承其所有描述、設定、聯繫人、問卷等，但不繼承其參與者或記錄。在複製過程中，所有本地配置都將被此研究的配置覆蓋。",
     "deactivateAndContinue": "停止並繼續",
     "manage": "管理",
     "by": "由 ",
@@ -946,8 +991,8 @@
     "investigatorInfo": "正在進行研究的調查員。"
   },
   "exportScreen": {
-    "resample": "重採樣",
-    "downsample": "下采樣",
+    "resample": "重新採樣",
+    "downsample": "下採樣",
     "upsample": "上採樣",
     "namingPatternReset": "命名模式已重置",
     "namingPatternResetMessage": "由於您選擇的文件格式不執行任何聚合，命名模式已重置為預設值。",
@@ -974,8 +1019,8 @@
     "namingPattern": "命名模式"
   },
   "tagsScreen": {
-    "bulkModeInstruction": "為 %{count} 個數據記錄新增標籤。創建新標籤或點擊以在所有選定的數據記錄中分配/取消分配標籤。",
-    "singleModeInstruction": "為數據記錄新增標籤以幫助您更好地組織和過濾它們。創建新標籤，點擊以分配和取消分配標籤。",
+    "bulkModeInstruction": "為 %{count} 個數據記錄新增標籤。建立新標籤或點擊以在所有選定的數據記錄中分配/取消分配標籤。",
+    "singleModeInstruction": "為數據記錄新增標籤以幫助您更好地組織和過濾它們。建立新標籤，點擊以分配和取消分配標籤。",
     "enterNewTag": "輸入新標籤",
     "addTag": "新增標籤",
     "tagTooLong": "標籤太長",
@@ -995,9 +1040,9 @@
     "asParticipant": "參與者",
     "asInvestigator": "研究員",
     "by": "%{investigatorName}",
-    "createJoin": "創建/加入",
+    "createJoin": "建立/加入",
     "joinStudy": "加入研究",
-    "joinStudySubtitle": "輕鬆安全地將您的數據記錄貢獻給其他研究人員。",
+    "joinStudySubtitle": "輕鬆安全地將您的數據記錄提供給其他研究人員。",
     "createStudySubtitle": "無縫請求其他Sensor Logger用戶的數據。",
     "whatAreStudies": "什麼是研究？",
     "bullet1": "在小組中收集數據進行研究",
@@ -1056,14 +1101,14 @@
     "location": {
       "subtitle": "GPS座標",
       "description": "測量GPS座標和海拔。經度和緯度以度數報告。除非在匯出數據中另有說明，否則海拔是指橢球高度(WGS84)。在某些情況下，還會報告平均海平面以上的海拔。還記錄速度和方位。",
-      "units": "緯度以度數表示，正值表示赤道以北的位置(在-90到90度之間)，而經度也以度數表示，使用正值表示子午線以東的位置(在-180到180度之間)。海拔以米為單位，是WGS84橢球之上的高度。方位以0到360度表示，是相對於正北的方向，負值表示無效數據。方位精度也以度數表示，代表方位測量的精度，負值表示無效數據。水平和垂直精度以米為單位。速度和速度精度都以米每秒為單位。",
-      "warning": "GPS感測器的精度取決於信號強度。"
+      "units": "緯度以度數表示，正值表示赤道以北的位置(在-90到90度之間)，而經度也以度數表示，使用正值表示子午線以東的位置(在-180到180度之間)。海拔以米為單位，是WGS84橢球之上的高度。方位以0到360度表示，是相對於正北的方向，負值表示無效數據。方位精準度也以度數表示，代表方位測量的精準度，負值表示無效數據。水平和垂直精準度以米為單位。速度和速度精準度都以米每秒為單位。",
+      "warning": "GPS感測器的精準度取決於信號強度。"
     },
     "camera": {
       "subtitle": "圖像或視頻",
-      "description": "根據設定中的相機模式，以設定的間隔捕獲圖像或從設備相機連續捕獲視頻。如果模式設定為圖像，捕獲的圖像將帶有時間戳並與其他測量同步。如果模式設定為視頻，將創建一個單獨的視頻文件。預設不包含音訊，但如果同時啟用麥克風感測器，則會記錄音訊。請參閱文檔了解如何將視頻時間戳與其他感測器數據對齊。無論哪種情況，您可以選擇前置或後置攝像頭，如果您的設備支持多個鏡頭，還可以設定鏡頭偏好（廣角、超廣角、長焦）。",
+      "description": "根據設定中的相機模式，以設定的間隔擷取圖像或從設備相機連續擷取視頻。如果模式設定為圖像，擷取的圖像將帶有時間戳並與其他測量同步。如果模式設定為視頻，將建立一個單獨的視頻文件。預設不包含音訊，但如果同時啟用麥克風感測器，則會記錄音訊。請參閱文檔了解如何將視頻時間戳與其他感測器數據對齊。無論哪種情況，您可以選擇前置或後置攝像頭，如果您的設備支持多個鏡頭，還可以設定鏡頭偏好（廣角、超廣角、長焦）。",
       "units": "JPG格式(圖像模式)或MP4格式(視頻模式)。",
-      "warning": "要捕獲圖像或視頻，攝像頭取景器必須在屏幕上可見，並且手機屏幕必須處於開啟狀態。當捕獲圖像時，您的設備可能會播放快門聲。將設備靜音以防止這種情況，特別是當麥克風感測器啟用時。"
+      "warning": "要擷取圖像或視頻，攝像頭取景器必須在屏幕上可見，並且手機屏幕必須處於開啟狀態。當擷取圖像時，您的設備可能會播放快門聲。將設備靜音以防止這種情況，特別是當麥克風感測器啟用時。"
     },
     "heartRate": {
       "subtitle": "來自配對手錶",
@@ -1130,7 +1175,7 @@
       "description": "記錄自記錄會話開始以來所走的步數。這是由操作系統計算的，而非Sensor Logger。",
       "frequency": "不可配置。",
       "units": "以步數測量。",
-      "warning": "在計數步數之前可能會有幾秒鐘的延遲。因此，請確保您的記錄時間足夠長，以捕獲您想要計數的所有步數。"
+      "warning": "在計數步數之前可能會有幾秒鐘的延遲。因此，請確保您的記錄時間足夠長，以擷取您想要計數的所有步數。"
     },
     "headphone": {
       "subtitle": "AirPods 移動",

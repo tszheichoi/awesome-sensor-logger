@@ -39,7 +39,8 @@
     "rulesEditor": "Editor de regras",
     "rulesGallery": "Galeria de regras",
     "rulesHelp": "Ajuda de regras",
-    "rulesSettings": "Configurações de regras"
+    "rulesSettings": "Configurações de regras",
+    "sensorFusion": "Fusão de Sensores"
   },
   "quickActions": {
     "toggleRecording": "Alternar Gravação",
@@ -61,6 +62,7 @@
     "add": "Adicionar",
     "later": "Depois",
     "continue": "Continuar",
+    "continueToApp": "Continuar para o app",
     "openSettings": "Abrir Configurações",
     "upgrade": "Atualizar",
     "error": "Erro",
@@ -298,7 +300,6 @@
     "samplingSubtext": "Guia de taxas de amostragem",
     "emailSupport": "Suporte por Email",
     "emailSubtext": "Para usuários Pro e Ultimate",
-    "appName": "Sensor Logger",
     "versionBuild": "Versão %{version} Build %{build}",
     "update": "Atualizar",
     "moreInspiration": "Mais Inspiração",
@@ -344,7 +345,20 @@
   "logger": {
     "startRecording": "Iniciar Gravação",
     "end": "Encerrar",
-    "endRecording": "Encerrar Gravação",
+    "endRecording": "Fim gravação",
+    "paused": "Pausado",
+    "seconds": "segundos",
+    "note": "Nota:",
+    "httpPush": "HTTP Push",
+    "skipWriting": "Ignorar gravação",
+    "mqtt": "MQTT",
+    "mqttPush": "MQTT Push",
+    "mqttSubscribe": "MQTT Subscribe",
+    "coordinatesCloaked": "Coordenadas ocultas",
+    "checkpointEnabled": "Checkpoint ativado",
+    "ntpEnabled": "NTP ativado",
+    "oneRuleEnabled": "1 regra ativada",
+    "nRulesEnabled": "%{count} regras ativadas",
     "endRecordingConfirm": "Tem certeza de que deseja encerrar esta sessão de gravação?",
     "continueRecording": "Continuar Gravação",
     "endNow": "Encerrar Agora",
@@ -390,8 +404,8 @@
     "unknownDeliveryMessage": "O investigador do estudo especificou um mecanismo de entrega desconhecido. Você pode entrar em contato com o investigador do estudo para mais informações.",
     "mqttError": "Erro MQTT",
     "mqttErrorMessage": "Ocorreu um erro ao configurar o cliente MQTT: %{error}",
-    "installWatchApp": "Instalar App do Relógio",
-    "installWearOSApp": "Instalar App WearOS",
+    "installWatchApp": "Instalar Relógio",
+    "installWearOSApp": "Instalar WearOS",
     "watchConnected": "Relógio Conectado",
     "clear": "Limpar",
     "scanning": "Escaneando",
@@ -412,7 +426,7 @@
       "deviceProperties": "Propriedades do Dispositivo",
       "bluetoothBeacons": "Beacons Bluetooth"
     },
-    "tapToExpand": "Toque para expandir e controlar",
+    "tapToExpand": "Toque para expandir",
     "keepAwakeAlert": "Manter ativo",
     "keepAwakeAlertMessage": "Este sensor pode não funcionar de forma confiável quando a tela está desligada. Gostaria de manter a tela ligada durante a gravação? Você pode alterar isso mais tarde nas Configurações.",
     "keepAwakeNo": "Não, obrigado",
@@ -425,8 +439,11 @@
     "language": "Idioma",
     "troubleshooting": "Para solução de problemas, toque para visitar tszheichoi.com/sensorloggerhelp",
     "resetToDefaults": "Redefinir para Padrões",
+    "sendPhotos": "Enviar imagens",
+    "sendPhotosSubtitle": "Incluir imagens nos dados quando a câmera estiver ativada. Imagens codificadas em string base64 dos bytes JPEG. O modo de vídeo não é suportado.",
+    "skipWritingTitle": "Não salvar localmente",
+    "skipWritingSubtitle": "Não salvar dados no dispositivo para economizar espaço e apenas transmitir ao servidor. Os dados serão perdidos se a transferência falhar.",
     "paid": "Pago",
-    "ultimate": "Ultimate",
     "sectionTitle": {
       "recordingMechanism": "Mecanismo de Gravação",
       "recordingWorkflow": "Fluxo de Trabalho de Gravação",
@@ -439,6 +456,8 @@
       "camera": "Câmera",
       "checkpoint": "Ponto de Verificação",
       "standardisation": "Padronização",
+      "standardisationFusion": "Padronização e Fusão",
+      "sensorFusion": "Fusão de Sensores",
       "httpPush": "HTTP Push",
       "mqttPublishing": "Publicação MQTT",
       "mqttSubscription": "Assinatura MQTT",
@@ -483,7 +502,19 @@
       "cacheNamesSubtitle": "Quando uma gravação é nomeada no fluxo de trabalho Integrado, armazena o nome e localização em cache para que futuras gravações feitas dentro de ~100m usem-no como padrão.",
       "cannotChangeInStudy": "Você não pode alterar as configurações de fluxo de trabalho enquanto estiver em um estudo."
     },
-    "clock": {},
+    "timestamps": {
+      "humanReadable": "Legível",
+      "humanReadableSubtitle": "Nanossegundos de época e segundos decorridos são sempre registrados. Registrar adicionalmente carimbos de data/hora em formato legível.",
+      "humanReadableSubscription": "Você precisa de uma assinatura paga para habilitar carimbos de data/hora legíveis. Alternativamente, você pode analisar os carimbos de data/hora de época no pós-processamento por conta própria.",
+      "timestampFormat": "Formato do carimbo de data/hora",
+      "timestampFormatSubtitle": "Se a coluna de carimbo de data/hora deve estar em hora local ou UTC."
+    },
+    "clock": {
+      "infoText": "Escolha como os carimbos de data/hora são gerados para as medições.",
+      "deviceClockSubtitle": "Usar o relógio do dispositivo para carimbos de data/hora. Pode apresentar desvios ao longo do tempo ou variar entre dispositivos.",
+      "networkTimeProtocolSubtitle": "Sincronizar carimbos de data/hora com um servidor Network Time Protocol (NTP). Útil para alinhar medições entre dispositivos.",
+      "ntpSubscription": "Você precisa de uma assinatura paga para habilitar a sincronização de tempo NTP."
+    },
     "checkpoint": {
       "checkpoint": "Ponto de Verificação",
       "checkpointSubtitle": "Após cada 24 horas de gravação contínua, esses dados serão salvos automaticamente como uma nova entrada na aba \"Gravações\" sem problemas e sem interrupção. Isso ajuda a coleta de dados de longo prazo organizando gravações diárias."
@@ -495,8 +526,7 @@
       "additionalLocationDataSubtitle": "Por padrão, apenas a localização fundida é registrada. Registra medições adicionais apenas do GPS e apenas da rede.",
       "learnMoreLocation": "Saiba Mais Sobre Dados de Localização",
       "additionalOrientationData": "Dados de Orientação Adicionais",
-      "additionalOrientationDataSubtitle": "Este dispositivo também suporta%{gameRotation}. Registra dados de orientação adicionais junto com o sensor de orientação padrão.",
-      "gameRotation": " 'Rotação de Jogo'",
+      "additionalOrientationDataSubtitle": "Quando ativado, os seguintes sensores de orientação são registrados:",
       "learnMoreOrientation": "Saiba Mais Sobre Dados de Orientação"
     },
     "camera": {
@@ -583,11 +613,6 @@
     },
     "samplingFrequencies": {
       "infoText": "A frequência de amostragem para cada sensor é dependente do dispositivo. A taxa de amostragem real pode ser mais lenta do que esses valores. É recomendado que você examine a saída para determinar a frequência de amostragem real.",
-      "inertialSensors": "Acelerômetro, Gravidade, Giroscópio, Bússola, Orientação e Magnetômetro",
-      "barometer": "Barômetro",
-      "location": "Localização",
-      "camera": "Câmera",
-      "bluetooth": "Bluetooth",
       "cameraWarning": "Amostragem frequente de imagens pode causar problemas de desempenho. Definir a Qualidade da Imagem para 'Mais Baixa' pode ajudar. Alternativamente, mude para o modo Vídeo, que contorna a limitação de amostragem.",
       "bluetoothWarning": "Amostragem frequente de Bluetooth pode causar problemas de desempenho quando muitos dispositivos Bluetooth estão ativos.",
       "ruleEngineCallout": "Use o motor de regras para mudar dinamicamente a amostragem durante uma gravação.",
@@ -614,7 +639,12 @@
     "standardisation": {
       "title": "Padronizar Unidades e Quadros",
       "subtitle": "Diferentes plataformas podem reportar valores em diferentes unidades e sistemas de coordenadas, dificultando a análise multiplataforma. Ative para harmonizar as definições entre plataformas.",
-      "learnMore": "Saiba mais sobre diferenças em unidades e coordenadas entre plataformas e quais sensores são afetados."
+      "learnMore": "O que isso afeta?"
+    },
+    "sensorFusion": {
+      "description": "Diferentes plataformas estimam gravidade, aceleração do usuário e orientação usando diferentes suposições e algoritmos. Escolha um filtro personalizado para que o processamento de sensores seja padronizado entre plataformas usando um algoritmo de código aberto e transparente. O uso de filtros personalizados requer todas as seguintes condições:",
+      "viewComparison": "Ver comparação ao vivo",
+      "waitingForData": "Aguardando dados do sensor..."
     },
     "orderSensors": {
       "infoText": "Arraste para alterar a ordem em que os sensores são exibidos. Beacons Bluetooth sempre aparecem na parte inferior."
@@ -647,7 +677,13 @@
       "description": "Configurações para câmeras, microfones, GPS, bluetooth e dados não calibrados."
     },
     "standardisation": {
-      "description": "Padronize unidades e coordenadas entre dispositivos."
+      "description": "Padronizar unidades e coordenadas, e configurar algoritmos de fusão de sensores personalizados."
+    },
+    "standardisationFusion": {
+      "description": "Padronizar unidades e coordenadas, e configurar algoritmos de fusão de sensores personalizados."
+    },
+    "sensorFusion": {
+      "description": "Algoritmos de fusão de sensores personalizados para gravidade, orientação e aceleração do usuário."
     },
     "samplingFrequencies": {
       "description": "Controle com que frequência as medições são amostradas."
@@ -789,6 +825,9 @@
       "deleteStudyTitle": "Excluir Estudo",
       "deleteStudyMessage": "Tem certeza de que deseja excluir este estudo? Esta ação não pode ser desfeita e todos os dados coletados serão excluídos.",
       "studyActive": "Estudo Ativo",
+      "activeStudyEditMessage": "Você atualmente tem um estudo ativo. Você deve primeiro desativá-lo antes de editar um estudo.",
+      "studyEnded": "Estudo Encerrado",
+      "studyEndedEditMessage": "Este estudo foi encerrado e não pode mais ser editado. Você pode reativá-lo para fazer alterações.",
       "activeStudyDuplicateMessage": "Você tem atualmente um estudo ativo. Você deve primeiro desativá-lo antes de duplicar um estudo.",
       "studyTooOld": "Estudo Muito Antigo",
       "studyTooOldMessage": "Este Estudo está inativo há mais de 90 dias. De acordo com a política de privacidade e retenção de dados do Sensor Logger, os dados associados a este Estudo já foram eliminados. Você precisará criar um novo Estudo.",
@@ -815,7 +854,6 @@
     "questionnaireInfo": "O investigador pode usar um questionário para coletar informações adicionais. Perguntas podem ser feitas ao entrar no estudo e ao final de cada gravação.",
     "numberOfRules": "Número de Regras",
     "rulesInfo": "Regras são automações projetadas pelo investigador para coletar dados com base em certas condições.",
-    "webhook": "Webhook",
     "webhookInfo": "Webhooks permitem que o investigador receba notificações em tempo real quando um participante envia uma gravação e, opcionalmente, forneça um relatório de análise em formato PDF ou markdown.",
     "notificationsAndReminders": "Notificações e Lembretes",
     "notificationsInfo": "O investigador pode usar notificações para lembrá-lo de gravar ou enviar dados. O investigador configura com que frequência e quando essas notificações são enviadas. Você pode optar por não receber essas notificações a qualquer momento, sem afetar sua participação no estudo.",
@@ -831,6 +869,11 @@
     "on": " em ",
     "notificationsToggleInfo": "Você só receberá lembretes quando este Estudo estiver ativo. Opte por não receber silenciando as notificações.",
     "notificationsLabel": "Notificações ",
+    "notificationsPromptTitle": "Notificações",
+    "notificationsPromptMessage": "Este estudo gostaria de enviar notificações. Deseja ativá-las para este estudo?",
+    "notificationsPromptMessageExtra": " Se escolher sim, será solicitado a ativar as notificações para o Sensor Logger.",
+    "yes": "Sim",
+    "no": "Não",
     "extendOneDay": "Estender por 1 Dia",
     "extendFiveDays": "Estender por 5 Dias",
     "extendOneWeek": "Estender por 1 Semana",
@@ -859,6 +902,7 @@
     "activateMessage": "Ativar para começar a contribuir para este estudo.",
     "recordingMessage": "Gravações feitas enquanto este estudo estiver ativo estarão em conformidade com a configuração do estudo.",
     "joinMessage": "Participar para começar a contribuir para este estudo.",
+    "editStudy": "Editar Estudo",
     "duplicateStudy": "Duplicar Estudo",
     "manageStudy": "Gerenciar Estudo",
     "manageStudyMessage": "Exclua este Estudo ou crie um novo com base nele, herdando todas as suas descrições, configurações, contatos, questionário e mais, mas não seus participantes ou gravações. Durante a duplicação, todas as configurações locais serão substituídas pelas deste Estudo.",
@@ -1159,6 +1203,7 @@
     "annotationHint": "Para adicionar anotações durante uma sessão de gravação, toque no ícone de lápis na tela do Logger. Pressione e segure para controlar a duração.",
     "timeSeriesPartial": "Mostrando apenas partes da série temporal. Para mostrar mais pontos, toque aqui para diminuir a resolução",
     "exportPlot": "Exportar gráfico",
+    "secondsElapsed": "Segundos decorridos",
     "buildDashboard": "Criar história",
     "stopPlaying": "Parar reprodução",
     "startPlaying": "Iniciar reprodução",
