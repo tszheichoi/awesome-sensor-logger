@@ -11,6 +11,8 @@ Sensor Logger is a cross-platform app available on both iOS (iPhone, Apple Watch
   * [Other Differences](#other-differences)
   * [Notice Anything Else](#notice-anything-else)
 
+> 💡: **New in Version 1.55**: Introducing **Sensor Zoo**, which provides transparent, cross-platform sensor fusion algorithms: orientation filters (Complementary, Madgwick, Mahony, EKF), step counters, and a tilt-compensated compass. Every algorithm is fully inspectable, benchmarked against public datasets, and produces consistent results across iOS and Android. No proprietary APIs. No surprises. See https://github.com/tszheichoi/sensor-zoo. 
+
 > 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will mostly eliminate the differences listed below. This is _turned off_ by default to maintain backwards compatibility. But if you are building a new analysis pipeline, it is suggested that you toggle this on, especially if you are using the Studies feature with participants across platforms. Toggling this setting makes iOS (iPhone, Apple Watch & AirPods) values conform to Android conventions. Adjusting this setting on Android has no effect. For the plots and demonstrations below, data was taken from the three pictured phones.
 
 ![IMG_0012](https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/4d590cdc-0167-4135-978d-a466afc9b30f)
@@ -63,7 +65,7 @@ It is strongly recommended that you toggle **Standardise Units & Frames** on -- 
 There are other considerations between iOS and Android, depending on your application and analysis:
 - Sampling frequency;
 - Sensor accuracy and precision;
-- Platform-level data processing and fusion pipelines for calibrated or derived values, such as orientation.
+- Platform-level data processing and fusion pipelines for calibrated or derived values, such as orientation. Note: As of 1.55, you can now enable Sensor Zoo to eliminate differences in algroithm pipeline by selecting one of the open source algroithms. See https://github.com/tszheichoi/sensor-zoo. 
 
 Toggling **Standardise Units & Frames**  will not account for these potential differences. 
 
