@@ -5,8 +5,6 @@ As a Study investigator, you can retrieve, delete, and manage all contributed re
 - For `studyId`, go to the Studies screen and select the As Investigator tab. Tap the Study and tap on the Study ID under the title to copy the identifier.
 - For `secretCode`, go to the Studies screen and select the As Investigator tab. Tap the Study and select the Data tab. Tap Generate New Code to generate a new secret code. When using the API, do not include spaces in the secret code. 
 
-> ⚠️ **Important Notice**: The Study API is currently in beta and may undergo changes. While using the API, you might encounter bugs or issues. We recommend testing thoroughly and reporting any problems you find. Please be mindful of the rate limits that apply to all API endpoints.
-
 The example code below is written in Python, but feel free to adapt it to any language or tool of choice.
 
 ### Get Study Information
