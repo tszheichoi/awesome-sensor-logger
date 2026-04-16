@@ -1,15 +1,167 @@
 # Data Pushing
 Sensor Logger supports HTTP Push and MQTT Publishing during a recording session. This can be enabled by tapping the gear icon on the Logger page. All supported sensors during a recording will be streamed in JSON, once every configurable batch period, to the specified web server / broker via the specified protocol.
 
-Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports simultaneous HTTP pushing and MQTT publishing. 
+Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports _simultaneous_ HTTP pushing and MQTT publishing. 
 
 If you want to push to other protocols currently not supported by Sensor Logger, many managed MQTT brokers support out-of-the-box data forwarding to pretty much anything. For example, [EMQ X Cloud Data Integration](https://www.emqx.io/docs/en/latest/data-integration/data-bridges.html) supports message forwarding to Kafka, and GCP PubSub Sources.
 
 ## HTTP Push
-For HTTP Push, you have to set up a web server to receive the messages. For more information and sample code on how to set one up, see https://github.com/tszheichoi/awesome-sensor-logger?tab=readme-ov-file#live-data-streaming.
+
+<img width="667" alt="Screenshot 2023-10-25 at 15 09 43" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/19e800bb-3efd-40ae-b25b-22c92da1e071">
+
+HTTP Push sends a POST request to the supplied URL with content-type "application/json". The request body is of the following format:
+```
+{
+    messageId: 0,
+    sessionId: "identifier",
+    deviceId: "identifier",
+    userId: "identifier",
+    payload: [
+        {
+            "name": "accelerometer",
+            "time": 1698501144401773000,
+            <other fields depending on sensor>
+        },
+        {
+            "name": "location",
+            "time": 1698501145514000000,
+            <other fields depending on sensor>
+        },
+    ],
+}
+```
+- `messageId` is incremented for each message sent. The `messageId` is useful because the messages can be received out-of-order, which may need to be handled depending on your use case.
+- `sessionId` is the same for all messages in a single recording.
+- `deviceId` is the same for all messages from a single device.
+- `userId` only exists if there is an active Study. This matches the `userId` that the investigator can use to reference against recordings and questionnaires. This is new in version 1.57. 
+
+The time is always in UTC epoch nanoseconds.
+
+Note: due to legacy reasons, on Android only, some sensors report accuracy alongside `name` and `time`. This is left in-place for backwards compatibility. Interpreting this field:
+- 0 means unreliable
+- 1 means low accuracy
+- 2 means medium accuracy
+- 3 means maximum accuracy
+
+### Setting Up Server
+There are many ways to setup a server that can accept messages pushed from Sensor Logger -- from off-the-shelf solutions to running the server yourself. Here are some pointers to get you started. It is recommended (but not required) for servers to respond with HTTP code 200. If the server responds with HTTP code 499 and the body contains text, then this message will be shown to the user (once per recording).
+
+#### RequestBin
+To simply consume and explore the data, you may want to use something like https://requestbin.com/. To plot the data in real-time, you may need something more custom. See https://github.com/mhaberler/sensorlogger-telegraf for a solution using telegraf. 
+
+#### Timeplus
+Also checkout Timeplus, a real-time streaming analytics platform: https://www.youtube.com/watch?v=iWA8FHjyatE. They also offer a dockerised solution. See https://github.com/timeplus-io/proton/tree/develop/examples/awesome-sensor-logger
+
+![image](https://user-images.githubusercontent.com/30114997/224557365-dfe593f5-e84f-4fcf-9900-9bcfd31c5e44.png)
+
+#### Javascript Webserver
+Thanks to [Harshad Joshi](github.com/user/hj91), you can find a javascript implementation using nodejs for a webserver that is designed for Sensor Logger: https://github.com/hj91/json-server
+
+#### Python Webserver
+If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and updates the plot with any accumulated measurements so far. You will have to customise this script yourself if you want to plot measurements from other sensors. 
+
+```
+import dash
+from dash.dependencies import Output, Input
+from dash import dcc, html, dcc
+from datetime import datetime
+import json
+import plotly.graph_objs as go
+from collections import deque
+from flask import Flask, request
+
+server = Flask(__name__)
+app = dash.Dash(__name__, server=server)
+
+MAX_DATA_POINTS = 1000
+UPDATE_FREQ_MS = 100
+
+time = deque(maxlen=MAX_DATA_POINTS)
+accel_x = deque(maxlen=MAX_DATA_POINTS)
+accel_y = deque(maxlen=MAX_DATA_POINTS)
+accel_z = deque(maxlen=MAX_DATA_POINTS)
+
+app.layout = html.Div(
+	[
+		dcc.Markdown(
+			children="""
+			# Live Sensor Readings
+			Streamed from Sensor Logger: tszheichoi.com/sensorlogger
+		"""
+		),
+		dcc.Graph(id="live_graph"),
+		dcc.Interval(id="counter", interval=UPDATE_FREQ_MS),
+	]
+)
+
+
+@app.callback(Output("live_graph", "figure"), Input("counter", "n_intervals"))
+def update_graph(_counter):
+	data = [
+		go.Scatter(x=list(time), y=list(d), name=name)
+		for d, name in zip([accel_x, accel_y, accel_z], ["X", "Y", "Z"])
+	]
+
+	graph = {
+		"data": data,
+		"layout": go.Layout(
+			{
+				"xaxis": {"type": "date"},
+				"yaxis": {"title": "Acceleration ms<sup>-2</sup>"},
+			}
+		),
+	}
+	if (
+		len(time) > 0
+	):  #  cannot adjust plot ranges until there is at least one data point
+		graph["layout"]["xaxis"]["range"] = [min(time), max(time)]
+		graph["layout"]["yaxis"]["range"] = [
+			min(accel_x + accel_y + accel_z),
+			max(accel_x + accel_y + accel_z),
+		]
+
+	return graph
+
+
+@server.route("/data", methods=["POST"])
+def data():  # listens to the data streamed from the sensor logger
+	if str(request.method) == "POST":
+		print(f'received data: {request.data}')
+		data = json.loads(request.data)
+		for d in data['payload']:
+			if (
+				d.get("name", None) == "accelerometer"
+			):  #  modify to access different sensors
+				ts = datetime.fromtimestamp(d["time"] / 1000000000)
+				if len(time) == 0 or ts > time[-1]:
+					time.append(ts)
+					# modify the following based on which sensor is accessed, log the raw json for guidance
+					accel_x.append(d["values"]["x"])
+					accel_y.append(d["values"]["y"])
+					accel_z.append(d["values"]["z"])
+	return "success"
+
+
+if __name__ == "__main__":
+	app.run(port=8000, host="0.0.0.0")
+```
+
+Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the localhost of the device you are running the websever on, you can, for example, do something like this in Python. 
+
+```
+import socket
+hostname = socket.gethostname()
+print(socket.gethostbyname(hostname))
+```
+
+For example, if it returns `192.168.1.168`, then you want to enter `http://192.168.1.168:8000/data` in Sensor Logger. Use the "Tap to Test Pushing" button to test whether Sensor Logger can properly reach the endpoint. If you get a 200 response, then you are good to go! Start a recording as usual, and you should begin to see data being streamed in:
+
+<img width="1440" alt="Screenshot 2022-07-10 at 10 23 03" src="https://user-images.githubusercontent.com/30114997/178138947-8522be59-4c0b-4966-84ad-49416fda5fc0.png">
 
 ## MQTT Publishing
 MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol that is widely used for IoT (Internet of Things) applications. It is more lightweight than HTTP, but requires a more involved setup. 
+
+A simple web based demo app is available at https://github.com/tszheichoi/sensor-logger-streaming-demo-app. It connects to an MQTT broker, consumes streaming data, and visualizes it in an interactive plot. The demo also illustrates how to handle data from multiple devices simultaneously.
 
 ### Setting Up a Managed Broker
 You can either run your own broker (e.g. Mosquitto, EMQX, HiveMQ, RabbitMQ, and VerneMQ), or use a managed and hosted one.
@@ -129,6 +281,7 @@ type Message = {
   messageId: number;
   sessionId: string;
   deviceId: string;
+  userId: string;
   payload: SensorReading[];
 };
 
