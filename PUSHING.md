@@ -158,6 +158,8 @@ For example, if it returns `192.168.1.168`, then you want to enter `http://192.1
 
 <img width="1440" alt="Screenshot 2022-07-10 at 10 23 03" src="https://user-images.githubusercontent.com/30114997/178138947-8522be59-4c0b-4966-84ad-49416fda5fc0.png">
 
+If "Tap to Test Pushing" fails, this usually indicates a networking issue between your phone and your computer. Check that both devices are on the same network (i.e. the same WiFi). Some WiFi networks, particularly corporate or university ones, may block cross-device connections. If you've entered the URL into your phone (e.g. http://192.168.x.xxx:8000/data) and it isn't working, it is most likely being blocked by the router. Note that if you're using the Python script as is, the URL must end with /data and must not include "localhost". If you're being blocked by the router, you can try using a tool like ngrok by installing it from here and running "ngrok http 8000", then entering the resulting URL (which usually ends in ngrok-free.app) into the Sensor Logger app as the HTTP push URL (e.g. https://xxx.ngrok-free.app/data).
+
 ## MQTT Publishing
 MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol that is widely used for IoT (Internet of Things) applications. It is more lightweight than HTTP, but requires a more involved setup. 
 
