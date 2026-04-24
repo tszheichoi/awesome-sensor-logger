@@ -14,7 +14,7 @@ Bring Your Own Bucket (BYOB) allows you to directly control where your Study dat
 ### Requirements for Investigator
 - On the latest version of Sensor Logger (1.46 or later).
 - An active Ultimate tier subscription.
-- An existing S3-compatible bucket (e.g., Amazon S3, Backblaze B2, Cloudflare R2), which supports presigned urls.
+- An existing S3-compatible bucket (e.g., Amazon S3, Backblaze B2, Cloudflare R2), which supports presigned URLs.
 - A set of credentials with write-only permissions for the bucket (to ensure participants can only upload data).
 
 ### Requirements for Participants
@@ -35,7 +35,7 @@ Bring Your Own Bucket (BYOB) allows you to directly control where your Study dat
 - Restrict the bucket credentials you provide when creating the study to write-only for maximum security.
 - Don't forget that you pay for all storage costs associated with your bucket to your cloud provider.
 - Any storage used in your own bucket does not count towards your Sensor Logger Cloud storage.
-- Participants can only upload to your bucket for the duration of the study, if you wish to prevent uploads earlier you may delete the study which will immediately prevent further uploads.
+- Participants can only upload to your bucket for the duration of the study. If you wish to prevent uploads earlier, you may delete the study, which will immediately prevent further uploads.
 
 ### Technical Details
 When using BYOB, you provide credentials to access your S3-compatible bucket. These credentials are stored securely by Sensor Logger Cloud and are not distributed to participants. When participants upload a recording, they request a signed upload URL from Sensor Logger Cloud which is generated on the server using your credentials. The signed upload URL is then provided to the participant and the data is uploaded directly from their device to your bucket. We strongly recommend that you only provide write-access credentials to your S3-compatible bucket, if your cloud provider supports this option.

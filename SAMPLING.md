@@ -1,6 +1,6 @@
 # Sampling Reference
 
-Sampling frequency and consistency of sensors vary from device to device, and from platform to platform. Even identical devices may log at variable rates, influenced by factors such as the device’s condition, running apps, and specific settings like low power mode. This reference is based on  sampling frequencies as reported by real Sensor Logger across a diverse user base to offer a better understanding of sampling rates for common phone models in real-world conditions.
+Sampling frequency and consistency of sensors vary from device to device, and from platform to platform. Even identical devices may log at variable rates, influenced by factors such as the device’s condition, running apps, and specific settings like low power mode. This reference is based on sampling frequencies as reported by real Sensor Logger users across a diverse user base to offer a better understanding of sampling rates for common phone models in real-world conditions.
 
 This information is especially useful for research groups or organizations looking to purchase devices for running Sensor Logger. With data on how different models perform in actual use, you can make more informed purchasing decisions to ensure you choose devices with the best sensor performance for your specific needs.
 

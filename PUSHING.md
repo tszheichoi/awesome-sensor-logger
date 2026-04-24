@@ -55,7 +55,7 @@ Also checkout Timeplus, a real-time streaming analytics platform: https://www.yo
 ![image](https://user-images.githubusercontent.com/30114997/224557365-dfe593f5-e84f-4fcf-9900-9bcfd31c5e44.png)
 
 #### Javascript Webserver
-Thanks to [Harshad Joshi](github.com/user/hj91), you can find a javascript implementation using nodejs for a webserver that is designed for Sensor Logger: https://github.com/hj91/json-server
+Thanks to [Harshad Joshi](https://github.com/hj91), you can find a javascript implementation using nodejs for a webserver that is designed for Sensor Logger: https://github.com/hj91/json-server
 
 #### Python Webserver
 If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and updates the plot with any accumulated measurements so far. You will have to customise this script yourself if you want to plot measurements from other sensors. 
@@ -63,7 +63,7 @@ If you prefer sticking with Python, here is an implementation using Plotly Dash 
 ```
 import dash
 from dash.dependencies import Output, Input
-from dash import dcc, html, dcc
+from dash import dcc, html
 from datetime import datetime
 import json
 import plotly.graph_objs as go
@@ -146,7 +146,7 @@ if __name__ == "__main__":
 	app.run(port=8000, host="0.0.0.0")
 ```
 
-Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the localhost of the device you are running the websever on, you can, for example, do something like this in Python. 
+Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the localhost of the device you are running the webserver on, you can, for example, do something like this in Python. 
 
 ```
 import socket
@@ -188,7 +188,7 @@ To test the connection, navigate to the Web Client at the top on HiveMQ. Connect
 It is also via this web client that you can see incoming messages during a recording session when MQTT Publishing is enabled.
 
 #### EMQX Cloud Example
-EMQX Cloud works very similarly to HiveHQ Cloud, and also provides a generous free tier for you to try things out. 
+EMQX Cloud works very similarly to HiveMQ Cloud, and also provides a generous free tier for you to try things out. 
 
 1. Sign up for a new account at https://www.emqx.com/en/cloud.
 2. Choose and deploy the Serverless plan.
@@ -198,7 +198,7 @@ EMQX Cloud works very similarly to HiveHQ Cloud, and also provides a generous fr
 Copy the Broker URL, Username and Password as shown below. Make sure Use TLS is toggled on. You can change the topic name as you wish. The default is `sensor-logger`. 
 <img width="866" alt="Screenshot 2024-03-28 at 16 47 24" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/a88ac1da-0fa5-4a0e-ab27-bdbcea0c7328">
 
-To test the connection, navigate to the Online Test section in the sidebar and enter the Topic the same as that as configured in Sensor Logger. Then click Subscribe. On Sensor Logger, tap "Tap to Test Publish". If successful, it should say "Message Sent". On the web client, you should see an incoming test message.  
+To test the connection, navigate to the Online Test section in the sidebar and enter the Topic the same as that configured in Sensor Logger. Then click Subscribe. On Sensor Logger, tap "Tap to Test Publish". If successful, it should say "Message Sent". On the web client, you should see an incoming test message.  
 
 ### Setting Up a Local Broker
 You can also run EMQX locally if you do not want to use one of the managed cloud services. In this case, unless you expose your IP address, Sensor Logger should be on the same local network as your machine. 
@@ -208,7 +208,7 @@ You can also run EMQX locally if you do not want to use one of the managed cloud
 2. Get the docker image for EMQX following [these instructions](https://www.emqx.io/downloads). Specifically, run `docker pull emqx/emqx:5.6.0`.
 3. Start the container `docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8084:8084 -p 8883:8883 -p 18083:18083 emqx/emqx:5.6.0`.
 4. Navigate to `http://localhost:18083/` on a browser. The default username and password are `admin` and `public`, which you can change.
-5. Select Authentication from the sidebar and then click `+ Create`. Follow the workflow to create to create a Password-Based authentication. For most options, such as the backend and encryption mechanism, the defaults are fine.
+5. Select Authentication from the sidebar and then click `+ Create`. Follow the workflow to create a Password-Based authentication. For most options, such as the backend and encryption mechanism, the defaults are fine.
 6. Select Websocket Client in the sidebar. There, you should find the host and port number you should enter into Sensor Logger.
 7. On that same page, you can connect and subscribe to the `sensor-logger` topic for testing. 
 
@@ -276,7 +276,7 @@ See the HTTP Push documentation for an example of how to plot the sensor data li
 
 ## Typescript Payload Schema
 
-Regardless of whether you are using MQTT and HTTP Push, you can use the following Typescript definitions.  
+Regardless of whether you are using MQTT or HTTP Push, you can use the following Typescript definitions.  
 
 ```js
 type Message = {

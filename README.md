@@ -93,18 +93,18 @@ Python is recommended for analysing the outputs from Sensor Logger. For interact
 - Dash / Flask for data streaming
 
 ### Understanding Timestamps
-All exported data have synchronised time stamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below. 
+All exported data have synchronised timestamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below. 
 
 - The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. By definition, these are UTC times -- whereas the filenames are in local times.
   - You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps.
-  - If you use Python, some libraries may expect miliseconds instead of nanoseconds. Divide by 1000000 accoridngly.
+  - If you use Python, some libraries may expect milliseconds instead of nanoseconds. Divide by 1000000 accordingly.
   - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 * 60 * 60 * 24, and then format the column or cell as time.
 - The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching.
 - Optionally, you can _enable human readable timestamps_ to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
 
 Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
 
-Optionally, Network Time Protocol (NTP) synchronization can be enabled to align sensor timestamps across multiple devices to a common time reference. When enabled, the system queries an NTP server (default: time.google.com) using 8 UDP requests and calculates the median clock offset to minimize network jitter. Synchronization occurs on app launch and automatically refreshes every 3 hours. The calculated offset is stored with nanosecond precision and applied to all sensor timestamps during recording. Expected precision is ten's of miliseconds on typical networks. 
+Optionally, Network Time Protocol (NTP) synchronization can be enabled to align sensor timestamps across multiple devices to a common time reference. When enabled, the system queries an NTP server (default: time.google.com) using 8 UDP requests and calculates the median clock offset to minimize network jitter. Synchronization occurs on app launch and automatically refreshes every 3 hours. The calculated offset is stored with nanosecond precision and applied to all sensor timestamps during recording. Expected precision is tens of milliseconds on typical networks. 
 
 ### Understanding Units
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
@@ -267,7 +267,7 @@ To understand the implications and robustness of resampling and dealing with mis
 - Sensor Data Augmentation by Resampling for Contrastive Learning for Human Activity Recognition: https://arxiv.org/pdf/2109.02054.pdf
 
 ### Mapping GPS Tracks
-Use tools like Folium, which is built on top of leaflet.js to overlap GPS tracks on a map
+Use tools like Folium, which is built on top of leaflet.js to overlay GPS tracks on a map
 - https://towardsdatascience.com/build-interactive-gps-activity-maps-from-gpx-files-using-folium-cf9eebba1fe7
 - https://towardsdatascience.com/simple-gps-data-visualization-using-python-and-open-street-maps-50f992e9b676
 
@@ -284,10 +284,10 @@ folium.PolyLine(coords, color="blue", weight=5.0).add_to(my_map)
 
 <img width="972" alt="thorpe_park_track" src="https://user-images.githubusercontent.com/30114997/173207512-cffd38f0-400f-44ef-b3b3-2e7963a51a88.png">
 
-Alternatively, convert your exported data to GPS using https://github.com/mhaberler/sensorlogger-util, and then upload to Google Maps for visualisation, following, for example, https://www.alphr.com/gpx-google-maps/. 
+Alternatively, convert your exported data to GPX using https://github.com/mhaberler/sensorlogger-util, and then upload to Google Maps for visualisation, following, for example, https://www.alphr.com/gpx-google-maps/. 
 
 ### Aligning and Interpolating Measurements Across Sensors
-Often, one has to align measurements across sensors -- for instance, gyroscope and accelerometer so that you can apply rotation matrixes to the acceleration vectors. 
+Often, one has to align measurements across sensors -- for instance, gyroscope and accelerometer so that you can apply rotation matrices to the acceleration vectors. 
 
 - Option 0: Use Sensor Logger's built-in "Combined CSV" export option. Note that this feature requires one of the paid subscription tiers. You can easily configure how you want to resample, upsample and downsample your measurements. The output of this is a single `.csv` file, saving you the hassle of dealing with alignment issues. If you prefer doing it yourself, see options 1 and 2 below.
 
@@ -350,7 +350,7 @@ period = np.nanmedian(ts.diff().dt.total_seconds())
 sp = np.fft.fft(df['x'])
 freq = np.fft.fftfreq(len(df.index), period)
 
-mask = (freq >= 0) &(freq < 1)
+mask = (freq >= 0) & (freq < 1)
 
 fig = go.Figure()
 fig.add_trace(go.Scatter(x = freq[mask], y = [np.linalg.norm(s) for s in sp[mask]]))
@@ -411,7 +411,7 @@ def remove_duplicated_rows(df: pd.DataFrame):
     ]  # be careful that diff() gives nan for first row
     if len(_df.index) != len(df.index):
         print(
-            f"duplicated rows detected in the input file ({len(df.index) - len(_df.index)}"
+            f"duplicated rows detected in the input file ({len(df.index) - len(_df.index)})"
         )
     return _df
 ``` 
@@ -437,7 +437,7 @@ Version 1.17 adds the capability to record values reported from a wide range of 
 
 Sensor Logger lets you scan for, and choose to record BLE sensors, and will record their advertisements in the log. Sensor Logger supports this method of reporting values, but is generally unaware of how any particular sensor encodes its values out of the box. Therefore, Sensor Logger records the advertisement (and in particular the manufacturer data field) and leaves the interpretation of these records to a later postprocessing step. This means that any - existing or yet-to-be-designed - BLE sensor using this reporting method is supported by Sensor Logger in principle.
 
-For select sensors, such as https://bthome.io/, Sensor Logger does support additional proper decoding, see https://github.com/tszheichoi/sensor-ble for more information. If you wish help contribute more decoders, do reach out / see README in that repo. 
+For select sensors, such as https://bthome.io/, Sensor Logger does support additional proper decoding, see https://github.com/tszheichoi/sensor-ble for more information. If you wish to help contribute more decoders, do reach out / see README in that repo. 
 
 You should also check out this custom-built sensor -- an example project which has been verified to work with Sensor Logger: https://github.com/mhaberler/flowsensor. 
 
@@ -502,7 +502,7 @@ Documentation, schema and sample code for HTTP and MQTT streaming have been move
 Instructions on various ways to setup a webserver can be found on https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md. 
 
 ## Further Use Cases and Applications
-Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being use for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
+Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being used for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
 
 ### Published Research
 Some recently published papers citing / using Sensor Logger:
@@ -535,7 +535,7 @@ If you have published work using Sensor Logger, feel free to reach out or make a
 
 ### Other Uses
 - Hot air balloon tracking
-- Train osccilation
+- Train oscillation
 	- https://github.com/zmsubin/accelerometers_pub/blob/main/writeup/StudySummary.md
 - Flight data logging
 - Wearable technology research

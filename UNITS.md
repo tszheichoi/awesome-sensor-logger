@@ -67,7 +67,7 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 - `altitudeAboveMeanSeaLevel`, in meters above mean sea level (iOS Only).
 - `bearing`, in degrees from 0 to 360 relative to due north. Negative values indicate it is invalid.
 - `bearingAccuracy`, in degrees. Negative values indicate it is invalid.
-- `horizontalAcccuracy`, in meters as the radius of uncertainty. It is approximately the unit standard deviation around the `altitude`. Negative values indicate it is invalid.
+- `horizontalAccuracy`, in meters as the radius of uncertainty. It is approximately the unit standard deviation around the reported position. Negative values indicate it is invalid.
 - `verticalAccuracy`, in meters. It is approximately the unit standard deviation around the `altitude`. Negative values indicate it is invalid.
 - `speed`, in meters per second. Negative values indicate it is invalid. Note this is derived from the location, so may be unreliable if the speed changes between location updates.
 - `speedAccuracy`, in meters per second. Negative values indicate it is invalid.
@@ -97,9 +97,9 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 - `type` can be one of none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn or other.
 - `isConnected` is a boolean or null.
-- `isInternetReachable` is boolean or null.
-- `isWifiEnabled` is boolean (Android only).
-- `isConnectionExpensive` is boolean.
+- `isInternetReachable` is a boolean or null.
+- `isWifiEnabled` is a boolean (Android only).
+- `isConnectionExpensive` is a boolean.
 - `ssid` is a string.
 - `bssid` is a string.
 - `strength` is a number between 0 and 100.
@@ -115,13 +115,13 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 ## Annotation
 
 - `millisecond_press_duration` is how long the pencil icon was tapped, in milliseconds.
-- `text` is the text string entred by the user.
+- `text` is the text string entered by the user.
 
 ## Battery
 
 - `batteryLevel` is between 0 and 1, representing the fractional charge level.
 - `batteryState` is an enum that can be one of unplugged, charging or full.
-- `lowerPowerMode` is a boolean.
+- `lowPowerMode` is a boolean.
 
 ## Headphone
 
@@ -154,7 +154,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 ## WiFi
 
-- `ssid` is the name of the WiFI network.
+- `ssid` is the name of the WiFi network.
 - `bssid` is the MAC address.
 - `frequency` is the network frequency.
 - `level` is the signal strength in dBm.

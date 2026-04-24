@@ -12,12 +12,12 @@ Collect additional information from the participants to support your study. For 
 
 ## When Are Questions Presented?
 
-**Join Study** questions are presented when a user joins a study initially. This is useful for collecting information about the participant — e.g. name, study-specific identifier, contact details etc. Note that once the participant has joined a study, the answers to these questions will not longer be editable. If the same participant leaves and rejoins the study, the latter answers will override the former ones. 
+**Join Study** questions are presented when a user joins a study initially. This is useful for collecting information about the participant — e.g. name, study-specific identifier, contact details etc. Note that once the participant has joined a study, the answers to these questions will no longer be editable. If the same participant leaves and rejoins the study, the latter answers will override the former ones. 
 
 **Recording End** questions are presented every time a recording ends whilst the study is active. This is useful for collecting information that will change across multiple recordings by the same participant — e.g. for a study tracking car journeys, you may want to collect license plate number or the colour of the car; for a medical study, you may want to ask the participant to note down their mood or activity level. These questions can be edited after the fact in the Recordings screen under Study Metadata, up until the recording is uploaded to Sensor Logger Cloud if you opt to use it for your study.
 
 ## Question Types
-A type, which can be one of the followings.
+A type, which can be one of the following.
 - Text, where the participants can enter free-form text.
 - Number, where the participants can enter numbers in a keypad.
 - Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
@@ -79,7 +79,7 @@ If you wish to unpack the `Questionnaire` column into a column for each question
 import pandas as pd
 import json
 
-df = pd.read_csv('my_recording_questionniares.csv')
+df = pd.read_csv('my_recording_questionnaires.csv')
 df['Questionnaire'] = df['Questionnaire'].apply(json.loads)
 
 for index, row in df.iterrows():
@@ -114,7 +114,7 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
    {
       "asked":"Recording End",
       "title":"Row Number",
-      "description":"Approximately, which row were you seating on?",
+      "description":"Approximately, which row were you sitting on?",
       "type":"Number",
       "optional":true,
       "selections":[
@@ -127,11 +127,9 @@ If your export format is Zipped CSV, you will get the full questionnaire inside 
 Unlike the online version, this is more complete -- including the description, type and whether the question was optional. 
 
 ## Processing Signatures Yourself
-All signatures are stored as vector strokes, and the recommended way to view and retrieve them is via the online portal, where it is. However, if you want to draw it locally yourself, you will have to use a plotting library. To do so, ensure you have either Zipped CSV or SQLite as the export options. This way, all signatures are packaged as part of the recording.
+All signatures are stored as vector strokes, and the recommended way to view and retrieve them is via the online portal. However, if you want to draw it locally yourself, you will have to use a plotting library. To do so, ensure you have either Zipped CSV or SQLite as the export options. This way, all signatures are packaged as part of the recording.
 
 The structure of the value field for a question of signature type is a list of lists representing each distinct stroke. For each stroke, it is an array of two values representing the `x` and `y` coordinates. Divide the integers by 1000 to get the relative coordinates. Note that, following convention, the origin (`(0, 0)`, after dividing by 1000) is at the upper left-hand corner, so the y-axis may be reversed. 
-
-As an example, this Python script reads in 
 
 You can adapt the following script for your needs -- it iterates over the rows and plots out each signature, assuming the signature field is named `signature_field` 
 
@@ -159,7 +157,7 @@ fig.show()
 ## Number of Questions
 
 The number of questions you can create for the questionnaire varies based on your subscription tier.
-- 1 questionnaire in the Free tier
+- 1 question in the Free tier
 - 3 questions allowed in the Plus and Pro tiers
 - Up to 100 questions allowed in the Ultimate tier
 - Need more? *Contact me*.

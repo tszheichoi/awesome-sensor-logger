@@ -10,7 +10,7 @@ When the Microphone sensor is toggled, Sensor Logger writes two files:
 
 ## Audio Quality Configuration
 
-You can adjust the audio quality level in Sensor Logger. In the latest version, the settings “Lossy”and “Lossless” carry the following configurations. 
+You can adjust the audio quality level in Sensor Logger. In the latest version, the settings "Lossy" and "Lossless" carry the following configurations. 
 
 |  | Lossy on iOS | Lossy on Android | Lossless on iOS | Lossless on Android |
 | --- | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ You can adjust the audio quality level in Sensor Logger. In the latest version, 
 
 _* Not actually lossless due to API limitations_
 
-The above configurations are applicable from version 1.31 and onwards. Prior to version 1.31, the following applies. In particular, note that the lossless option made not difference on Android. 
+The above configurations are applicable from version 1.31 and onwards. Prior to version 1.31, the following applies. In particular, note that the lossless option made no difference on Android. 
 
 |  | Lossy on iOS | Lossy on Android | Lossless on iOS | Lossless on Android |
 | --- | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ The above configurations are applicable from version 1.31 and onwards. Prior to 
 
 ### Loudness
 
-The loudness file reacts and responds to the rule engine states as expected, just like any other sensors to write to CSV files.
+The loudness file reacts and responds to the rule engine states as expected, just like any other sensors that write to CSV files.
 
 ### Audio File
 

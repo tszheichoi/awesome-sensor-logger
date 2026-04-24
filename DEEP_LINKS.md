@@ -24,7 +24,7 @@ You can chain config + start to programmatically change settings and begin recor
 1. Open `sensorlogger://config/{code}` to apply settings
 2. Open `sensorlogger://start` to begin recording
 
-By default, Sensor Logger will ask you to confirm before importing the new configuration, as the existing configuration (including settings, selected sensors, rules, streaming configuration and more) will all be overriden. If this is in the way of your automation, you can add `skipConfirmation` to bypass this safeguard: `sensorlogger://config/{code}?skipConfirmation=true`. 
+By default, Sensor Logger will ask you to confirm before importing the new configuration, as the existing configuration (including settings, selected sensors, rules, streaming configuration and more) will all be overridden. If this is in the way of your automation, you can add `skipConfirmation` to bypass this safeguard: `sensorlogger://config/{code}?skipConfirmation=true`. 
 
 ## Studies
 

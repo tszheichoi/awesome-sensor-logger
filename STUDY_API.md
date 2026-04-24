@@ -43,7 +43,7 @@ Example JSON response is as follows:
 }
 ```
 
-For more information about the `questionAnswers`schema, see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/QUESTIONNAIRE.md. 
+For more information about the `questionAnswers` schema, see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/QUESTIONNAIRE.md. 
 
 ### Download a Specific Recording
 

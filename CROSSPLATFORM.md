@@ -9,7 +9,7 @@ Sensor Logger is a cross-platform app available on both iOS (iPhone, Apple Watch
     + [Rotation Rate](#rotation-rate)
   * [Unit Differences](#unit-differences)
   * [Other Differences](#other-differences)
-  * [Notice Anything Else](#notice-anything-else)
+  * [Notice Anything Else?](#notice-anything-else)
 
 > 💡: **New in Version 1.55**: Introducing **Sensor Zoo**, which provides transparent, cross-platform sensor fusion algorithms: orientation filters (Complementary, Madgwick, Mahony, EKF), step counters, and a tilt-compensated compass. Every algorithm is fully inspectable, benchmarked against public datasets, and produces consistent results across iOS and Android. No proprietary APIs. No surprises. See https://github.com/tszheichoi/sensor-zoo. 
 
@@ -29,7 +29,7 @@ By default, iOS (iPhone, Apple Watch & AirPods) and Android differ by a negative
 <img width="1388" alt="gravity" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/8b532a91-b79d-4d5a-80ad-9ea96b9204c9">
 
 ### Orientation
-On iOS , `yaw` is zero when the `x` points to true north, whereas on Android, it is the magnetic north. Understand the [differences between the two](https://www.rmg.co.uk/stories/topics/true-north-magnetic-north-whats-difference), and consider whether this matters to your analysis.
+On iOS, `yaw` is zero when the `x` points to true north, whereas on Android, it is the magnetic north. Understand the [differences between the two](https://www.rmg.co.uk/stories/topics/true-north-magnetic-north-whats-difference), and consider whether this matters to your analysis.
 On iOS, `yaw` increases when you turn counterclockwise around the `z` axis. On Android, `yaw` increases when you turn clockwise around the `z` axis. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md#differences-between-ios-and-android-1) for a diagram.
 On iOS, pitch decreases as you rotate around the `x` axis clockwise. On Android, pitch decreases as you rotate around the `x` axis counterclockwise. 
 
@@ -65,9 +65,9 @@ It is strongly recommended that you toggle **Standardise Units & Frames** on -- 
 There are other considerations between iOS and Android, depending on your application and analysis:
 - Sampling frequency;
 - Sensor accuracy and precision;
-- Platform-level data processing and fusion pipelines for calibrated or derived values, such as orientation. Note: As of 1.55, you can now enable Sensor Zoo to eliminate differences in algroithm pipeline by selecting one of the open source algroithms. See https://github.com/tszheichoi/sensor-zoo. 
+- Platform-level data processing and fusion pipelines for calibrated or derived values, such as orientation. Note: As of 1.55, you can now enable Sensor Zoo to eliminate differences in algorithm pipeline by selecting one of the open source algorithms. See https://github.com/tszheichoi/sensor-zoo. 
 
 Toggling **Standardise Units & Frames**  will not account for these potential differences. 
 
-## Notice Anything Else
+## Notice Anything Else?
 If you notice any other differences between operating systems when using Sensor Logger, please reach out or raise an issue in this repository. 

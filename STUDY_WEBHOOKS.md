@@ -1,5 +1,5 @@
 # Study Webhooks
-When participants contribute recordings to a Study, it is often useful to provide timely analysis results and feedback based on the collected data. You may also want to trigger advanced automation based on participant's recordings. Both of these can be done via Studies Webhooks. 
+When participants contribute recordings to a Study, it is often useful to provide timely analysis results and feedback based on the collected data. You may also want to trigger advanced automation based on participants' recordings. Both of these can be done via Studies Webhooks. 
 
 With Webhooks, you can get notified whenever a participant uploads a recording, and you can optionally send an analysis report back to the participant, which can be viewed in-app alongside the recording. There are three modes:
 
@@ -62,4 +62,4 @@ Create a new Study in Sensor Logger. In the Webhooks section, you can select whe
 
 <img width="662" height="477" alt="Screenshot 2025-11-18 at 14 40 56" src="https://github.com/user-attachments/assets/0dc24436-a11a-4d7b-a7da-081d45288a8a" />
 
-Tap C to make sure Sensor Logger can reach the endpoint. Sensor Logger will attept to call your endpoint with dummy information that can be used to download a testing zipped recording. If you see a tick, that means it was sucessful. After you create your Study, both you as the investigator and all your Study participants can see that Webhooks are enabled, as shown in D.
+Tap C to make sure Sensor Logger can reach the endpoint. Sensor Logger will attempt to call your endpoint with dummy information that can be used to download a testing zipped recording. If you see a tick, that means it was successful. After you create your Study, both you as the investigator and all your Study participants can see that Webhooks are enabled, as shown in D.
