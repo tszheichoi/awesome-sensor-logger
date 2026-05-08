@@ -16,19 +16,17 @@ All three navigate to the Logger screen.
 
 | URL | Description |
 |-----|-------------|
-| `sensorlogger://annotate?text=pothole` | Record an annotation with free text "pothole". |
-| `sensorlogger://annotate?preset=1` | Record an annotation using the preset at index 1 (0-based). |
-| `sensorlogger://annotate` | Record an annotation using the first preset (index 0). |
+| `sensorlogger://annotate/pothole` | Record an annotation with text "pothole". |
 
-A recording must already be in progress. If not, an alert is shown. If both `text` and `preset` are provided, `text` takes priority. Navigates to the Logger screen on success. From Version 1.59.
+A recording must already be in progress. If not, an alert is shown. If no text is provided, an alert is shown. Navigates to the Logger screen on success. From Version 1.59.
 
 **Notes:**
 - Commas in annotation text are automatically stripped to ensure CSV export compatibility.
-- Spaces and special characters in `text` must be URL-encoded — for example, `speed bump` should be `sensorlogger://annotate?text=speed%20bump`. When in doubt, stick to simple alphanumeric text (e.g. `pothole`, `station_1`) to avoid encoding issues.
+- Spaces and special characters in the path must be URL-encoded — for example, `speed bump` should be `sensorlogger://annotate/speed%20bump`. When in doubt, stick to simple alphanumeric text (e.g. `pothole`, `station_1`) to avoid encoding issues.
 
 Because annotations don't require looking at the phone screen, they pair well with hands-free triggers. See the [Automation](#automation) section below for how to set up Siri, Action Button, Back Tap, NFC tags, widgets, Tasker and more. For example:
-- Stick NFC tags along a route, each written with a different `annotate?text=...` URL — tap as you pass each one
-- Assign `sensorlogger://annotate?text=pothole` to Siri and say "Hey Siri, pothole" while driving
+- Stick NFC tags along a route, each written with a different `annotate/...` URL — tap as you pass each one
+- Assign `sensorlogger://annotate/pothole` to Siri and say "Hey Siri, pothole" while driving
 - Add a Shortcuts widget with buttons for "Bus", "Train", "Walk" — each opening a different annotation URL
 
 ## Configuration
@@ -39,11 +37,11 @@ Because annotations don't require looking at the phone screen, they pair well wi
 
 From Version 1.58 and onwards, to get the config code: Settings > Export, Share & Restore > **Copy Deep Link**. This copies a ready-to-use `sensorlogger://config/...` URL.
 
+Sensor Logger will ask you to confirm before importing, as the existing configuration (including settings, selected sensors, rules, streaming configuration and more) will all be overridden.
+
 You can chain config + start to programmatically change settings and begin recording:
 1. Open `sensorlogger://config/{code}` to apply settings
 2. Open `sensorlogger://start` to begin recording
-
-By default, Sensor Logger will ask you to confirm before importing the new configuration, as the existing configuration (including settings, selected sensors, rules, streaming configuration and more) will all be overridden. If this is in the way of your automation, you can add `skipConfirmation` to bypass this safeguard: `sensorlogger://config/{code}?skipConfirmation=true`.
 
 ## Studies
 
@@ -80,7 +78,7 @@ Once created, a Shortcut can be triggered from many places:
 | Focus mode | Automations > When Focus turns on > "Open URL". Start recording when Driving Focus activates. |
 
 You can chain multiple URLs in a single Shortcut to configure and start in one tap:
-1. Open URLs: `sensorlogger://config/{code}?skipConfirmation=true`
+1. Open URLs: `sensorlogger://config/{code}`
 2. Wait 1 second
 3. Open URLs: `sensorlogger://start`
 
@@ -104,6 +102,6 @@ The same `sensorlogger://` links work on Android via any automation app or syste
 Combine deep links for more powerful automations:
 
 - **Drive logging**: CarPlay/Bluetooth connect → `config` (enable GPS + accelerometer) → `start` → on disconnect → `stop`
-- **Lab experiment**: NFC tag at each station → `annotate?text=station_1`, `annotate?text=station_2`, etc.
-- **Transportation study**: Shortcuts widget with buttons for "Bus", "Train", "Walk", "Car" — each opens `annotate?text=bus`, etc.
+- **Lab experiment**: NFC tag at each station → `annotate/station_1`, `annotate/station_2`, etc.
+- **Transportation study**: Shortcuts widget with buttons for "Bus", "Train", "Walk", "Car" — each opens `annotate/bus`, etc.
 - **Daily routine**: Time-of-day automation at 8am → `start`, at 6pm → `stop`
