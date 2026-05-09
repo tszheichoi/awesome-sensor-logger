@@ -6,8 +6,8 @@ Sensor Logger supports deep links via the `sensorlogger://` URL scheme. These wo
 
 | URL | Description |
 |-----|-------------|
-| `sensorlogger://start` | Start recording. No-op if already recording (From Version 1.58). |
-| `sensorlogger://stop` | Stop recording. No-op if not recording (From Version 1.58). |
+| `sensorlogger://start` | Start recording. No-op if already recording. |
+| `sensorlogger://stop` | Stop recording. No-op if not recording. |
 | `sensorlogger://boot` | Toggle recording (start if stopped, stop if started). |
 
 All three navigate to the Logger screen.
