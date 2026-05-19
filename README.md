@@ -2,10 +2,12 @@
 This repository contains a collection of tools, resources and sample code to use alongside the Sensor Logger app.
 
 - [The Sensor Logger App](#the-sensor-logger-app)
+- [Performing Cross-Platform Analysis?](#performing-cross-platform-analysis)
 - [Getting Started with Data Analysis](#getting-started-with-data-analysis)
   * [Recommended Tools](#recommended-tools)
   * [Understanding Timestamps](#understanding-timestamps)
   * [Understanding Units](#understanding-units)
+  * [Understanding Coordinate Systems](#understanding-coordinate-systems)
   * [File Handling](#file-handling)
     + [Zip and CSV](#zip-and-csv)
     + [JSON](#json)
@@ -30,8 +32,13 @@ This repository contains a collection of tools, resources and sample code to use
     + [Example Logging a Ruuvi Tag with Sensor Logger](#example-logging-a-ruuvi-tag-with-sensor-logger)
     + [Example After Post-processing Ruuvi Tag Reported Values](#example-after-post-processing-ruuvi-tag-reported-values)
 - [Live Data Streaming](#live-data-streaming)
+  * [Setting Up Server](#setting-up-server)
 - [Further Use Cases and Applications](#further-use-cases-and-applications)
+  * [Published Research](#published-research)
+  * [Software Directory](#software-directory)
+  * [Other Uses](#other-uses)
 - [Contribute](#contribute)
+- [How to Cite](#how-to-cite)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -75,7 +82,7 @@ Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger.
 |:-:|:-:|
 | [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="50">](https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) | [<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50">](https://apps.apple.com/app/id1531582925) |
 
-## Performing Cross-Platform Analysis?
+## Performing Cross-Platform Analysis
 If you are performing cross-platform analysis using Sensor Logger, please beware of some minor unit differences and some important coordinate system differences between iOS and Android. Depending on your analysis, you may have to multiply values by a negative sign. See the [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md). 
 
 > 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate a lot of convention differences between iOS and Android. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information. 
@@ -561,3 +568,22 @@ If you have published work using Sensor Logger, feel free to reach out or make a
 
 ## Contribute
 Please submit a PR if you have scripts or links that may be useful for other users. I will also feature any project that uses Sensor Logger, integrated as part of a larger workflow. 
+
+## How to Cite
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20277979.svg)](https://doi.org/10.5281/zenodo.20277979)
+
+If you use Sensor Logger in academic work, please cite it using the DOI above. For reproducibility, please also note the **app version** (shown in the About screen) and **platform** (iOS or Android) in your methods section.
+
+```bibtex
+@software{choi_sensorlogger,
+  author    = {Choi, Kelvin Tsz Hei},
+  title     = {Sensor Logger},
+  year      = {{YEAR}},
+  version   = {{VERSION}},
+  note      = {{iOS or Android}},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20277979},
+  url       = {https://www.tszheichoi.com/sensorlogger}
+}
+```
