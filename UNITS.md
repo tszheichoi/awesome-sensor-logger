@@ -122,6 +122,13 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `batteryLevel` is between 0 and 1, representing the fractional charge level.
 - `batteryState` is an enum that can be one of unplugged, charging or full.
 - `lowPowerMode` is a boolean.
+- `voltage` is the battery terminal voltage, in volts (V). (Android Only, _New in version 1.62_)
+- `chargingCurrent` is the instantaneous battery current, in milliamps (mA). The sign is reported by the device and is manufacturer-dependent; on most devices a positive value means current flowing into the battery (charging) and a negative value means discharging. (Android Only, _New in version 1.62_)
+- `health` is an enum that can be one of good, overheat, dead, over_voltage, unspecified_failure or cold. (Android Only, _New in version 1.62_)
+
+## Battery Temp
+
+- `temperature` is the battery temperature, in degrees celsius (°C). (Android Only)
 
 ## Headphone
 
