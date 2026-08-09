@@ -43,7 +43,7 @@ If **Standardise Units & Frames** is toggled on, Sensor Logger will conform to t
 
 > 💡: **In Version 1.51**: Prior to this version, toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ only affected the euler angles. Since this version, the quaternions are also consistently flipped on iOS.
 
-> 💡: **In Version 1.63**: Orientation standardisation now covers the Apple Watch and AirPods consistently. Previously, watch orientation values were never standardised in any recording mode, and AirPods euler angles were standardised but quaternions were not. Euler angles are also now included when wrist motion is streamed to the phone, matching the other watch recording modes.
+> 💡: **In Version 1.63**: Orientation standardisation now covers the Apple Watch and AirPods consistently. Euler angles are also now included when wrist motion is streamed to the phone, matching the other watch recording modes.
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ The unit for acceleration from the Apple Watch and AirPods is in standard gravit
 
 It is strongly recommended that you toggle **Standardise Units & Frames** on -- by default, it is off for backwards compatibility reasons. 
 
-> 💡: **In Version 1.63**: Unit standardisation now applies consistently across all watch recording modes. Previously, only values streamed live to the phone were converted; files recorded on the watch (transferred after a phone-initiated recording, or from Watch Only recordings) kept their raw units even with standardisation on.
+> 💡: **In Version 1.63**: Unit standardisation now applies consistently across all watch recording modes.
 
 Acceleration units, with **Standardise Units & Frames** on:
 
