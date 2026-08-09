@@ -155,6 +155,11 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 > 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences.
 
+## WatchBarometer
+
+- `relativeAltitude` is in meters since the start of the recording, the same as the phone.
+- `pressure` is in kilopascals (kPa) when "Standardise Units & Frames" is off (default), unlike the phone which uses mBar. The unit is mBar when "Standardise Units & Frames" is on. (New since version 1.63. Previously, this was kPa regardless of the setting.)
+
 ## Light
 
 - `lux` is in lux.
