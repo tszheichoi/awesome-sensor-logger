@@ -11,7 +11,7 @@ Sensor Logger is a cross-platform app available on both iOS (iPhone, Apple Watch
   * [Other Differences](#other-differences)
   * [Notice Anything Else?](#notice-anything-else)
 
-> 💡: **New in Version 1.63**: Standardisation is now applied properly and consistently for the Apple Watch and AirPods, covering both units and coordinate frame conventions, including recordings started from the watch itself. The watch inherits the standardisation state from the phone and displays it directly on the watch app. Watch barometer readings are now standardised to match the phone's units, and euler angles are included when wrist motion is streamed to the phone. The tables in the sections below detail exactly what changed.
+> 💡: **New in Version 1.63**: Standardisation is now applied properly and consistently for the Apple Watch and AirPods, covering both units and coordinate frame conventions, including recordings started from the watch itself. The watch inherits the standardisation state from the phone and displays it directly on the watch app.
 
 > The watch tables below distinguish three recording modes. *Stream*: rows sent live to the phone during a phone-initiated recording, written by the phone. *Transfer*: files recorded on the watch during a phone-initiated recording and transferred afterwards. *Watch Only*: recordings started from the watch itself. For *Transfer* and *Watch Only*, "Standardisation On" means the phone's setting as last synced to the watch. A watch that has never connected since the setting was enabled keeps recording unstandardised values, matching pre-1.63 behaviour.
 
@@ -74,9 +74,10 @@ Note that the calibrated version (default) of acceleration is unaffected, and is
 <img width="1385" alt="uncalibrated_acceleration" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/99988cd0-91aa-42d3-97f3-877e873a5777">
 
 ### For Watches & Headphones
-The unit for acceleration from the Apple Watch and AirPods is in standard gravity (g). And the gravity vector from the Apple Watch is in standard gravity (g). However, when **Standardise Units & Frames** is toggled on, all units will be consistently in SI. Namely:
+The unit for acceleration from the Apple Watch and AirPods is in standard gravity (g). And the gravity vector from the Apple Watch is in standard gravity (g). However, when **Standardise Units & Frames** is toggled on, all units will be consistent with the phone. Namely:
 - Acceleration and gravity vector values from Apple Watch will be in meters per second squared (ms-2).
 - Acceleration and gravity vector values from AirPods will be in meters per second squared (ms-2).
+- Pressure values from the Apple Watch barometer will be in millibars (mbar), matching the phone.
 
 It is strongly recommended that you toggle **Standardise Units & Frames** on -- by default, it is off for backwards compatibility reasons. 
 
@@ -86,8 +87,6 @@ Acceleration units, with **Standardise Units & Frames** on:
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
-| Phone (Accelerometer) | ms-2 | ms-2 |
-| Phone (Uncalibrated Accelerometer) | ms-2 | ms-2 |
 | Watch (Accelerometer, Stream) | ms-2 | ms-2 |
 | Watch (Accelerometer, Transfer) | g | ms-2 |
 | Watch (Accelerometer, Watch Only) | g | ms-2 |
@@ -101,19 +100,15 @@ Gravity vector units, with **Standardise Units & Frames** on:
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
-| Phone (Gravity) | ms-2 | ms-2 |
 | Watch (Gravity, Stream) | ms-2 | ms-2 |
 | Watch (Gravity, Transfer) | g | ms-2 |
 | Watch (Gravity, Watch Only) | g | ms-2 |
 | Headphone (Gravity) | ms-2 | ms-2 |
 
-### Barometer
-The phone reports pressure in millibars (mbar, equivalently hPa) on both iOS and Android. The Apple Watch, however, historically reported pressure in kilopascals (kPa) in all recording modes. Since Version 1.63, toggling **Standardise Units & Frames** on converts watch pressure to mbar to match the phone.
+Pressure from the watch barometer is also affected. The phone reports pressure in millibars (mbar, equivalently hPa) on both iOS and Android, whereas the Apple Watch historically reported pressure in kilopascals (kPa) in all recording modes. Since Version 1.63, toggling **Standardise Units & Frames** on converts watch pressure to mbar to match the phone.
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
-| iOS Phone (Barometer) | mbar / hPa | mbar / hPa |
-| Android Phone (Barometer) | mbar / hPa | mbar / hPa |
 | Watch (Barometer, All Modes) | kPa | mbar / hPa |
 
 Note that with standardisation *off*, watch barometer files remain in kPa even after 1.63, to avoid silently changing raw recordings. The watch's `Metadata.csv` records the `standardisation` flag, and it is reliable across all app versions: recordings from before 1.63 always carry `false` (and are indeed in kPa), so downstream tooling can use that flag alone to tell which unit a given `WatchBarometer.csv` is in.
