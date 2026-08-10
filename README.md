@@ -534,6 +534,7 @@ Some recently published papers citing / using Sensor Logger:
 - Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
 - Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
+- U.S. Food & Drug Administration, Center for Devices and Radiological Health (2023). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250 — 374 trials of time-synchronised smartphone IMU, reference IMU and pressure-walkway data at 100 Hz, recorded with Sensor Logger.
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
