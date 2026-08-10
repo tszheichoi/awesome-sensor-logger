@@ -66,6 +66,9 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 - Wrist Motion (Apple Watch or Android WearOS)
 - Watch Location (Apple Watch or Android WearOS)
 - Watch Barometer (Apple Watch or Android WearOS)
+- Watch Magnetometer (Apple Watch or Android WearOS)
+- Watch Compass (Apple Watch or Android WearOS)
+- Watch Microphone (Apple Watch or Android WearOS)
 - Light Sensor (Android Only)
 - Annotations (Timestamp and Text)
 - Device Battery Level and State
@@ -199,11 +202,18 @@ finally:
 ```
 
 ### Accessing Recording Metadata
-The `metadata.csv` file contains information about the device that performed the logging.
+The `Metadata.csv` file contains information about the device that performed the logging.
 - version: The schema version of the exported data. This is different to the version of the app. When this version increments, you may have to update your data analysis script as things such as the column names, file names, or data structure may have changed. 
 - device name: The name of the device used for recording.
 - recording time: The start time of the recording in UTC.
 - platform: Either iOS or Android.
+- platform version: The version of the operating system on the recording device.
+- appVersion: The version of Sensor Logger used for the recording.
+- recording timezone: The local timezone of the device at the start of the recording. Useful because `recording time` is in UTC whilst the filenames are in local time.
+- recording epoch time: The start time of the recording as a UNIX epoch timestamp in milliseconds.
+- standardisation: Either `true` or `false`, recording whether **Standardise Units & Frames** was enabled. See the [Cross-Platform Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) — this flag is the reliable way for downstream tooling to tell which unit and frame conventions a recording follows.
+
+Note that older recordings will not carry all of these columns, as fields have been added over time. Read the file by header name rather than by column position.
 
 ### When to Use Uncalibrated Data
 Sensor Logger gives you the option to log raw, uncalibrated data from the accelerometer, gyroscope and magnetometer. Calibrated data is always logged. The raw stream is useful for performing lower-level post-processing or custom sensor fusion. If in doubt, *always* use the calibrated version unless you have a good reason not to. 
@@ -535,6 +545,9 @@ Some recently published papers citing / using Sensor Logger:
 - Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
 - U.S. Food & Drug Administration, Center for Devices and Radiological Health (2023). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250 — 374 trials of time-synchronised smartphone IMU, reference IMU and pressure-walkway data at 100 Hz, recorded with Sensor Logger.
+- Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop on Cooperative and Adaptive Localisation (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
+- Vallivaara, I., Dong, Y., Duan, B., & Arslan, T. (2026). Saying Goodbyes to Rotating Your Phone: Magnetometer Calibration during SLAM — Extended Version. IEEE Journal of Indoor and Seamless Positioning and Navigation, 4, 41–52.
+- Khandakar, A., Michelson, D. G., et al. (2025). RoadSens-4M: A Multimodal Smartphone & Camera Dataset for Holistic Roadway Analysis. arXiv preprint arXiv:2510.25211.
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 

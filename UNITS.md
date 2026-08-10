@@ -85,7 +85,7 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 ## Barometer
 
 - `relativeAltitude` is in meters since the start of the recording.
-- `pressure` is in mBar.
+- `pressure` is in millibars (mbar, equivalently hPa).
 
 ## Microphone
 
@@ -120,7 +120,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 ## Battery
 
 - `batteryLevel` is between 0 and 1, representing the fractional charge level.
-- `batteryState` is an enum that can be one of unplugged, charging or full.
+- `batteryState` is an enum that can be one of unknown, unplugged, charging or full.
 - `lowPowerMode` is a boolean.
 - `voltage` is the battery terminal voltage, in volts (V). (Android Only, _New in version 1.62_)
 - `chargingCurrent` is the instantaneous battery current, in milliamps (mA). The sign is reported by the device and is manufacturer-dependent; on most devices a positive value means current flowing into the battery (charging) and a negative value means discharging. (Android Only, _New in version 1.62_)
@@ -147,7 +147,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 ## WristMotion
 
-- `rotationX`, `rotationY` and `rotationZ`, in radians per second (rad/s).
+- `rotationRateX`, `rotationRateY` and `rotationRateZ`, in radians per second (rad/s).
 - `gravityX`, `gravityY` and `gravityZ`, in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on.
 - `accelerationX`, `accelerationY` and `accelerationZ` in [standard gravity](https://en.wikipedia.org/wiki/Standard_gravity) (g), when "Standardise Units & Frames" is off (default). The unit is ms<sup>-2</sup> when "Standardise Units & Frames" is on.
 - `quaternionW`, `quaternionX`, `quaternionY` and `quaternionZ`, dimensionless.
@@ -158,7 +158,33 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 ## WatchBarometer
 
 - `relativeAltitude` is in meters since the start of the recording, the same as the phone.
-- `pressure` is in kilopascals (kPa) when "Standardise Units & Frames" is off (default), unlike the phone which uses mBar. The unit is mBar when "Standardise Units & Frames" is on.
+- `pressure` is in kilopascals (kPa) when "Standardise Units & Frames" is off (default), unlike the phone which uses mbar. The unit is mbar when "Standardise Units & Frames" is on.
+
+## WatchLocation
+
+The same measurements as the phone's [Location](#location) sensor, in the same units, but three of the fields are named differently:
+
+| On the watch | On the phone |
+| --- | --- |
+| `ellipsoidalAltitude` | `altitude` |
+| `altitude` | `altitudeAboveMeanSeaLevel` |
+| `course` and `courseAccuracy` | `bearing` and `bearingAccuracy` |
+
+Note in particular that `altitude` is the height above mean sea level on the watch, but the height above the WGS84 ellipsoid on the phone. The two differ by the geoid separation, so do not combine them on that column name alone.
+
+`latitude`, `longitude`, `speed`, `speedAccuracy`, `horizontalAccuracy` and `verticalAccuracy` are named and defined the same as on the phone.
+
+## WatchMagnetometer
+
+- `x`, `y` and `z`, in micro teslas — the same units as the phone's Magnetometer.
+
+## WatchCompass
+
+- `magneticBearing` is in degrees, the same as the phone's Compass.
+
+## WatchMicrophone
+
+- `dBFS` is [decibels relative to full scale](https://en.wikipedia.org/wiki/DBFS) and is dimensionless, the same as the phone's Microphone.
 
 ## Light
 
@@ -170,7 +196,48 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `bssid` is the MAC address.
 - `frequency` is the network frequency.
 - `level` is the signal strength in dBm.
+- `capabilities` is a string listing the advertised capabilities of the network (e.g. supported authentication and encryption schemes).
 
 ## Compass
 
 - `magneticBearing` is in degrees.
+
+## Bluetooth
+
+Each row is one received advertisement. Sensor Logger records advertisements raw and does not interpret them, so decoding the payload is left to you. See the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
+
+- `id` is the device identifier (a MAC address on Android, a system-assigned UUID on iOS).
+- `rssi` is the Received Signal Strength Indicator, in dBm. A larger negative value means a weaker signal. Can be null.
+- `txPowerLevel` is the advertised transmit power, in dBm, where the device reports one.
+- `manufacturerData` is the raw manufacturer data field, hex encoded.
+
+If you record all nearby devices, the sensor is named `bluetooth`. If you select individual devices, each gets its own file named `bluetooth-<id>`.
+
+## BluetoothMetadata
+
+Written once per discovered device, alongside the advertisements above.
+
+- `id` is the device identifier, matching the `id` in the Bluetooth records.
+- `name` is the device name.
+- `localName` is the local name from the advertisement, where present.
+- `isConnectable` indicates whether the device accepts connections.
+- `serviceUUIDs` is the list of advertised service UUIDs.
+- `manufacturer` and `model` are the manufacturer and model strings, where the device reports them.
+
+## Camera
+
+The camera is the one sensor whose recorded form and streamed form differ, so treat them separately.
+
+**In a recording**, the camera does not write a CSV. Frames are written into a `Camera/` directory inside the recording, and the filename carries the timestamp:
+
+- In Images and Snapshot modes, one `<timestamp>.jpg` per frame.
+- In Video mode, a single `<timestamp>.mp4` per recording segment.
+
+Note that these filename timestamps are UNIX epoch **milliseconds**, not the nanoseconds used by the `time` column elsewhere. They are NTP-corrected if NTP synchronisation is enabled.
+
+**When streaming** over HTTP Push or MQTT, there is no filesystem to write to, so each frame is sent inline as a reading named `camera`, with:
+
+- `image`, the frame itself, base64 encoded.
+- `imageFormat`, the encoding of that frame, `jpg`.
+
+On iOS, depth maps are embedded within the captured images rather than stored separately. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/DEPTH.md for how to extract them.

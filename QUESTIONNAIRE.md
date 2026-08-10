@@ -21,8 +21,9 @@ A type, which can be one of the following.
 - Text, where the participants can enter free-form text.
 - Number, where the participants can enter numbers in a keypad.
 - Email, where the participants can enter text using an email keyboard. Note that this does not validate or guarantee valid email.
-- Select, where you provide a list of options where the participants may choose from. There must at least be 2, and up to 10, options per question.
-- Sign, where the participants can scribble their signature. *New in version 1.32*
+- Select, where you provide a list of options from which the participants choose one. There must be at least 2, and up to 20, options per question.
+- MultiSelect, the same as Select but the participants may choose more than one option. The same 2 to 20 option limits apply.
+- Signature, where the participants can scribble their signature.
 
 Note: Version 1.31.3 introduced mandatory question fields and multiple-choice selection questions. If you are creating Studies with these features, please make sure your participants are on the latest versions of Sensor Logger, otherwise, they may be able to skip questions and won't see multiple-choice questions entirely, respectively.  
 
