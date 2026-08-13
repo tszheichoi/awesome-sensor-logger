@@ -64,7 +64,7 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 ## Location
 
 - `altitude`, in meters as a height above the WGS84 ellipsoid.
-- `altitudeAboveMeanSeaLevel`, in meters above mean sea level (iOS Only).
+- `altitudeAboveMeanSeaLevel`, in meters above mean sea level. On Android this requires API 34+ (Android 14), and is absent on older devices.
 - `bearing`, in degrees from 0 to 360 relative to due north. Negative values indicate it is invalid.
 - `bearingAccuracy`, in degrees. Negative values indicate it is invalid.
 - `horizontalAccuracy`, in meters as the radius of uncertainty. It is approximately the unit standard deviation around the reported position. Negative values indicate it is invalid.
@@ -124,7 +124,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `lowPowerMode` is a boolean.
 - `voltage` is the battery terminal voltage, in volts (V). (Android Only, _New in version 1.62_)
 - `chargingCurrent` is the instantaneous battery current, in milliamps (mA). The sign is reported by the device and is manufacturer-dependent; on most devices a positive value means current flowing into the battery (charging) and a negative value means discharging. (Android Only, _New in version 1.62_)
-- `health` is an enum that can be one of good, overheat, dead, over*voltage, unspecified_failure or cold. (Android Only, \_New in version 1.62*)
+- `health` is an enum that can be one of good, overheat, dead, `over_voltage`, `unspecified_failure` or cold. (Android Only, _New in version 1.62_)
 
 ## Battery Temp
 
@@ -206,9 +206,9 @@ Note in particular that `altitude` is the height above mean sea level on the wat
 
 Each row is the most recent advertisement received from a device, written at most once per interval. The interval is per-device and equals the Bluetooth sampling interval, with a 100 ms floor; advertisements arriving inside that window are discarded rather than recorded. Sensor Logger records advertisements raw, and may additionally interpret them where an existing decoder is available -- see the [sensor-ble](https://github.com/tszheichoi/sensor-ble) library for the supported devices. For decoding raw payloads yourself, see the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
 
-The columns are `time`, `seconds_elapsed`, then `id`, `rssi`, `manufacturerData`, `advertisement` and `serviceData`, plus `txPowerLevel` where the device advertises one. Column order varies by platform and is not guaranteed, so read by header name. Each file's header is frozen from its first row, so a column is present only if the first device recorded had it.
+`id` and `rssi` are always present. `manufacturerData`, `advertisement`, `serviceData` and `txPowerLevel` may not be, depending on the recording. Each file's header is frozen from its first row, so read by header name rather than by position.
 
-The sensor name is not a column -- it is the filename. The JSON export adds a `sensor` field derived from that filename; the HTTP Push and MQTT payloads instead use `name`, nest the fields under `values`, and have no `seconds_elapsed`.
+The sensor name is not a column; it is the filename. The JSON export adds a `sensor` field derived from that filename; the HTTP Push and MQTT payloads instead use `name`, nest the fields under `values`, and have no `seconds_elapsed`.
 
 - `id` is the device identifier (a MAC address on Android, a system-assigned UUID on iOS).
 - `rssi` is the Received Signal Strength Indicator, in dBm. A larger negative value means a weaker signal. Can be null.
