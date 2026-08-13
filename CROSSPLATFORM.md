@@ -43,13 +43,12 @@ If **Standardise Units & Frames** is toggled on, Sensor Logger will conform to t
 
 > 💡: **In Version 1.51**: Prior to this version, toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ only affected the euler angles. Since this version, the quaternions are also consistently flipped on iOS.
 
-> 💡: **In Version 1.63**: Orientation standardisation now covers the Apple Watch and AirPods consistently. Euler angles are also now included when wrist motion is streamed to the phone, matching the other watch recording modes.
+> 💡: **In Version 1.63**: Orientation standardisation now covers the Apple Watch and AirPods consistently.
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
 | Phone (Euler) | Standardised | Standardised |
 | Phone (Quaternion) | Standardised | Standardised |
-| Watch (Euler, Stream) | Column does not exist | Now exists and standardised |
 | Watch (Quaternion, Stream) | Not standardised | Standardised |
 | Watch (Euler, Transfer) | Not standardised | Standardised |
 | Watch (Quaternion, Transfer) | Not standardised | Standardised |
@@ -87,23 +86,23 @@ Acceleration units, with **Standardise Units & Frames** on:
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
-| Watch (Accelerometer, Stream) | ms-2 | ms-2 |
-| Watch (Accelerometer, Transfer) | g | ms-2 |
-| Watch (Accelerometer, Watch Only) | g | ms-2 |
+| Watch (Accelerometer, Stream) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+| Watch (Accelerometer, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Accelerometer, Watch Only) | g | ms<sup>-2</sup> |
 | Watch (Uncalibrated Accelerometer, Stream) | Unavailable | Unavailable |
-| Watch (Uncalibrated Accelerometer, Transfer) | g | ms-2 |
-| Watch (Uncalibrated Accelerometer, Watch Only) | g | ms-2 |
-| Headphone (Accelerometer) | ms-2 | ms-2 |
+| Watch (Uncalibrated Accelerometer, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Uncalibrated Accelerometer, Watch Only) | g | ms<sup>-2</sup> |
+| Headphone (Accelerometer) | ms<sup>-2</sup> | ms<sup>-2</sup> |
 | Headphone (Uncalibrated Accelerometer) | Unavailable | Unavailable |
 
 Gravity vector units, with **Standardise Units & Frames** on:
 
 | With Standardisation On | Before 1.63 | After 1.63 |
 | --- | --- | --- |
-| Watch (Gravity, Stream) | ms-2 | ms-2 |
-| Watch (Gravity, Transfer) | g | ms-2 |
-| Watch (Gravity, Watch Only) | g | ms-2 |
-| Headphone (Gravity) | ms-2 | ms-2 |
+| Watch (Gravity, Stream) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+| Watch (Gravity, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Gravity, Watch Only) | g | ms<sup>-2</sup> |
+| Headphone (Gravity) | ms<sup>-2</sup> | ms<sup>-2</sup> |
 
 Pressure from the watch barometer is also affected. The phone reports pressure in millibars (mbar, equivalently hPa) on both iOS and Android, whereas the Apple Watch historically reported pressure in kilopascals (kPa) in all recording modes. Since Version 1.63, toggling **Standardise Units & Frames** on converts watch pressure to mbar to match the phone.
 
@@ -111,7 +110,7 @@ Pressure from the watch barometer is also affected. The phone reports pressure i
 | --- | --- | --- |
 | Watch (Barometer, All Modes) | kPa | mbar / hPa |
 
-Note that with standardisation *off*, watch barometer files remain in kPa even after 1.63, to avoid silently changing raw recordings. The watch's `Metadata.csv` records the `standardisation` flag, and it is reliable across all app versions: recordings from before 1.63 always carry `false` (and are indeed in kPa), so downstream tooling can use that flag alone to tell which unit a given `WatchBarometer.csv` is in.
+Note that with standardisation *off*, watch barometer files remain in kPa even after 1.63, to avoid silently changing raw recordings. For *Transfer* and *Watch Only* recordings, the watch's `Metadata.csv` records the `standardisation` flag, and it is reliable across all app versions: recordings from before 1.63 always carry `false` (and are indeed in kPa), so downstream tooling can use that flag alone to tell which unit a given `WatchBarometer.csv` is in. For *Stream* rows, which are written into the phone's recording, the phone's `Metadata.csv` flag only became indicative of the watch pressure unit in 1.63 -- a pre-1.63 phone recording with standardisation on still contains watch pressure in kPa.
 
 ## Other Differences
 There are other considerations between iOS and Android, depending on your application and analysis:

@@ -204,7 +204,7 @@ Note in particular that `altitude` is the height above mean sea level on the wat
 
 ## Bluetooth
 
-Each row is one received advertisement. Sensor Logger records advertisements raw and does not interpret them, so decoding the payload is left to you. See the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
+Each row is one received advertisement. Sensor Logger records advertisements raw, and may additionally interpret them where an existing decoder is available -- see the [sensor-ble](https://github.com/tszheichoi/sensor-ble) library for the supported devices. For decoding raw payloads yourself, see the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
 
 - `id` is the device identifier (a MAC address on Android, a system-assigned UUID on iOS).
 - `rssi` is the Received Signal Strength Indicator, in dBm. A larger negative value means a weaker signal. Can be null.

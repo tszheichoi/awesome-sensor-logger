@@ -209,7 +209,7 @@ The `Metadata.csv` file contains information about the device that performed the
 - platform: Either iOS or Android.
 - platform version: The version of the operating system on the recording device.
 - appVersion: The version of Sensor Logger used for the recording.
-- recording timezone: The local timezone of the device at the start of the recording. Useful because `recording time` is in UTC whilst the filenames are in local time.
+- recording timezone: The local timezone of the device at the start of the recording. Useful for converting the UTC `recording time` into the device's local time, or if you export with a local-time filename pattern.
 - recording epoch time: The start time of the recording as a UNIX epoch timestamp in milliseconds.
 - standardisation: Either `true` or `false`, recording whether **Standardise Units & Frames** was enabled. See the [Cross-Platform Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) — this flag is the reliable way for downstream tooling to tell which unit and frame conventions a recording follows.
 
