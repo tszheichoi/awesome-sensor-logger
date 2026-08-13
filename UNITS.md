@@ -204,16 +204,18 @@ Note in particular that `altitude` is the height above mean sea level on the wat
 
 ## Bluetooth
 
-Each row is one received advertisement. Sensor Logger records advertisements raw, and may additionally interpret them where an existing decoder is available -- see the [sensor-ble](https://github.com/tszheichoi/sensor-ble) library for the supported devices. For decoding raw payloads yourself, see the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
+Each row is the most recent advertisement received from a device, written at most once per interval. The interval is per-device and equals the Bluetooth sampling interval, with a 100 ms floor; advertisements arriving inside that window are discarded rather than recorded. Sensor Logger records advertisements raw, and may additionally interpret them where an existing decoder is available -- see the [sensor-ble](https://github.com/tszheichoi/sensor-ble) library for the supported devices. For decoding raw payloads yourself, see the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
 
-time, seconds_elapsed, sensor, id, rssi, manufacturerData, advertisement, serviceData.
+The columns are `time`, `seconds_elapsed`, then `id`, `rssi`, `manufacturerData`, `advertisement` and `serviceData`, plus `txPowerLevel` where the device advertises one. Column order varies by platform and is not guaranteed, so read by header name. Each file's header is frozen from its first row, so a column is present only if the first device recorded had it.
+
+The sensor name is not a column -- it is the filename. The JSON export adds a `sensor` field derived from that filename; the HTTP Push and MQTT payloads instead use `name`, nest the fields under `values`, and have no `seconds_elapsed`.
 
 - `id` is the device identifier (a MAC address on Android, a system-assigned UUID on iOS).
 - `rssi` is the Received Signal Strength Indicator, in dBm. A larger negative value means a weaker signal. Can be null.
 - `txPowerLevel` is the advertised transmit power, in dBm, where the device reports one.
 - `manufacturerData` is the raw manufacturer data field, hex encoded.
-- `advertisement` is the hex of the full advertising payload
-- `serviceData`, <uuid>:<hex> entries pipe-joined.
+- `advertisement` is the hex of the full advertising payload.
+- `serviceData` is the advertised service data, as `<uuid>:<hex>` entries joined with `|`.
 
 ## BluetoothMetadata
 

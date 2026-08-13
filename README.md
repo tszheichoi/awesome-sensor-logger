@@ -220,7 +220,7 @@ The `Metadata.csv` file contains information about the device that performed the
 - version: The schema version of the exported data. This is different to the version of the app. When this version increments, you may have to update your data analysis script as things such as the column names, file names, or data structure may have changed.
 - device name: The name of the device used for recording.
 - recording time: The start time of the recording in UTC.
-- platform: Either iOS or Android.
+- platform: Either `ios` or `android`. Note that these are written in lowercase.
 - platform version: The version of the operating system on the recording device.
 - appVersion: The version of Sensor Logger used for the recording.
 - recording timezone: The local timezone of the device at the start of the recording. Useful for converting the UTC `recording time` into the device's local time, or if you export with a local-time filename pattern.
@@ -602,7 +602,7 @@ Some recently published papers citing / using Sensor Logger:
 - Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
 - U.S. Food & Drug Administration, Center for Devices and Radiological Health (2024). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250.
-- Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop for Computing and Advacned Localisation (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
+- Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop for Computing & Advanced Localization (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
 - Vallivaara, I., Dong, Y., Duan, B., & Arslan, T. (2026). Saying Goodbyes to Rotating Your Phone: Magnetometer Calibration during SLAM — Extended Version. IEEE Journal of Indoor and Seamless Positioning and Navigation, 4, 41–52.
 - Khandakar, A., Michelson, D. G., et al. (2025). RoadSens-4M: A Multimodal Smartphone & Camera Dataset for Holistic Roadway Analysis. arXiv preprint arXiv:2510.25211.
 
