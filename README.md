@@ -1,42 +1,43 @@
 # Awesome Sensor Logger
+
 This repository contains a collection of tools, resources and sample code to use alongside the Sensor Logger app.
 
 - [The Sensor Logger App](#the-sensor-logger-app)
 - [Performing Cross-Platform Analysis?](#performing-cross-platform-analysis)
 - [Getting Started with Data Analysis](#getting-started-with-data-analysis)
-  * [Recommended Tools](#recommended-tools)
-  * [Understanding Timestamps](#understanding-timestamps)
-  * [Understanding Units](#understanding-units)
-  * [Understanding Coordinate Systems](#understanding-coordinate-systems)
-  * [File Handling](#file-handling)
-    + [Zip and CSV](#zip-and-csv)
-    + [JSON](#json)
-    + [SQLite](#sqlite)
-  * [Accessing Recording Metadata](#accessing-recording-metadata)
-  * [When to Use Uncalibrated Data](#when-to-use-uncalibrated-data)
-  * [Plotting Data](#plotting-data)
-  * [Diagnosing Sampling Rates](#diagnosing-sampling-rates)
-  * [Mapping GPS Tracks](#mapping-gps-tracks)
-  * [Aligning and Interpolating Measurements Across Sensors](#aligning-and-interpolating-measurements-across-sensors)
-  * [Smoothing and Denoising](#smoothing-and-denoising)
-  * [Fourier Transforms](#fourier-transforms)
-  * [Track Simplification](#track-simplification)
-  * [Peak Detection](#peak-detection)
-  * [Activity Detection and Semantic Segmentation](#activity-detection-and-semantic-segmentation)
-  * [Time Series Classification](#time-series-classification)
-  * [Removing Duplicated Entries](#removing-duplicated-entries)
-  * [Audio Analysis](#audio-analysis)
-  * [Converting to GPX or InfluxDB](#converting-to-gpx-or-influxdb)
+  - [Recommended Tools](#recommended-tools)
+  - [Understanding Timestamps](#understanding-timestamps)
+  - [Understanding Units](#understanding-units)
+  - [Understanding Coordinate Systems](#understanding-coordinate-systems)
+  - [File Handling](#file-handling)
+    - [Zip and CSV](#zip-and-csv)
+    - [JSON](#json)
+    - [SQLite](#sqlite)
+  - [Accessing Recording Metadata](#accessing-recording-metadata)
+  - [When to Use Uncalibrated Data](#when-to-use-uncalibrated-data)
+  - [Plotting Data](#plotting-data)
+  - [Diagnosing Sampling Rates](#diagnosing-sampling-rates)
+  - [Mapping GPS Tracks](#mapping-gps-tracks)
+  - [Aligning and Interpolating Measurements Across Sensors](#aligning-and-interpolating-measurements-across-sensors)
+  - [Smoothing and Denoising](#smoothing-and-denoising)
+  - [Fourier Transforms](#fourier-transforms)
+  - [Track Simplification](#track-simplification)
+  - [Peak Detection](#peak-detection)
+  - [Activity Detection and Semantic Segmentation](#activity-detection-and-semantic-segmentation)
+  - [Time Series Classification](#time-series-classification)
+  - [Removing Duplicated Entries](#removing-duplicated-entries)
+  - [Audio Analysis](#audio-analysis)
+  - [Converting to GPX or InfluxDB](#converting-to-gpx-or-influxdb)
 - [Recording Bluetooth LE sensors](#recording-bluetooth-le-sensors)
-  * [Postprocessing Bluetooth LE sensor recordings](#postprocessing-bluetooth-le-sensor-recordings)
-    + [Example Logging a Ruuvi Tag with Sensor Logger](#example-logging-a-ruuvi-tag-with-sensor-logger)
-    + [Example After Post-processing Ruuvi Tag Reported Values](#example-after-post-processing-ruuvi-tag-reported-values)
+  - [Postprocessing Bluetooth LE sensor recordings](#postprocessing-bluetooth-le-sensor-recordings)
+    - [Example Logging a Ruuvi Tag with Sensor Logger](#example-logging-a-ruuvi-tag-with-sensor-logger)
+    - [Example After Post-processing Ruuvi Tag Reported Values](#example-after-post-processing-ruuvi-tag-reported-values)
 - [Live Data Streaming](#live-data-streaming)
-  * [Setting Up Server](#setting-up-server)
+  - [Setting Up Server](#setting-up-server)
 - [Further Use Cases and Applications](#further-use-cases-and-applications)
-  * [Published Research](#published-research)
-  * [Software Directory](#software-directory)
-  * [Other Uses](#other-uses)
+  - [Published Research](#published-research)
+  - [Software Directory](#software-directory)
+  - [Other Uses](#other-uses)
 - [Contribute](#contribute)
 - [How to Cite](#how-to-cite)
 
@@ -45,6 +46,7 @@ This repository contains a collection of tools, resources and sample code to use
 <img width="970" alt="hero" src="https://user-images.githubusercontent.com/30114997/173469460-f20062ab-7b47-47bf-9f93-a266fa457ae9.png">
 
 ## The Sensor Logger App
+
 Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readings from common motion-related sensors on smartphones. Once completed, recordings can be exported as a zipped CSV file, JSON, SQLite, KML or be viewed within the app via interactive plots. There is also a free companion watch app (WatchOS and WearOS) that allows you to log heart rate & wrist motion, and control recording sessions remotely from your wrist. Supported sensors and measurements include:
 
 - Device Acceleration (Accelerometer; Raw & Calibrated), G-Force
@@ -62,13 +64,13 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 - Camera Video (Front & Back, Foreground)
 - Pedometer
 - Activity
-- Heart Rate (Apple Watch or Android WearOS)
-- Wrist Motion (Apple Watch or Android WearOS)
-- Watch Location (Apple Watch or Android WearOS)
-- Watch Barometer (Apple Watch or Android WearOS)
-- Watch Magnetometer (Apple Watch or Android WearOS)
-- Watch Compass (Apple Watch or Android WearOS)
-- Watch Microphone (Apple Watch or Android WearOS)
+- Heart Rate
+- Wrist Motion
+- Watch Location
+- Watch Barometer
+- Watch Magnetometer
+- Watch Compass
+- Watch Microphone
 - Light Sensor (Android Only)
 - Annotations (Timestamp and Text)
 - Device Battery Level and State
@@ -79,21 +81,24 @@ Sensor Logger is a free, easy-to-use, cross-platform data logger that logs readi
 - Headphone Motion (Requires AirPods)
 - Network
 
-Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger. 
+Learn more and download Sensor Logger at www.tszheichoi.com/sensorlogger.
 
-| Android | iOS |
-|:-:|:-:|
+|                                                                                                                              Android                                                                                                                              |                                                                                 iOS                                                                                 |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="50">](https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) | [<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50">](https://apps.apple.com/app/id1531582925) |
 
 ## Performing Cross-Platform Analysis
-If you are performing cross-platform analysis using Sensor Logger, please beware of some minor unit differences and some important coordinate system differences between iOS and Android. Depending on your analysis, you may have to multiply values by a negative sign. See the [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md). 
 
-> 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate a lot of convention differences between iOS and Android. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information. 
+If you are performing cross-platform analysis using Sensor Logger, please beware of some minor unit differences and some important coordinate system differences between iOS and Android. Depending on your analysis, you may have to multiply values by a negative sign. See the [Units Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) and the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md).
+
+> 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate a lot of convention differences between iOS and Android. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information.
 
 ## Getting Started with Data Analysis
+
 Measurements made using the Sensor Logger can be exported in `.zip`, `.csv`, `.json`, `.kml` or `.sqlite` formats. For data analysis, the zip export is recommended as it is free and contains all the raw data. See www.tszheichoi.com/sensorloggerhelp for more about how exporting works.
 
 ### Recommended Tools
+
 Python is recommended for analysing the outputs from Sensor Logger. For interactive data exploration and visualisation, use Jupyter Notebooks, which you can run for free easily with tools like Google Colab or Deep Notes. Your typical data science Python packages apply:
 
 - Pandas for CSV parsing and manipulation
@@ -103,24 +108,26 @@ Python is recommended for analysing the outputs from Sensor Logger. For interact
 - Dash / Flask for data streaming
 
 ### Understanding Timestamps
-All exported data have synchronised timestamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below. 
+
+All exported data have synchronised timestamps, meaning they can be cross-referenced. However, they **do not necessarily align** due to varied sampling rates. This is by design, so you can have the most precise timing for each sensor. If you require cross-sensor resampling, see the "Aligning and Interpolating Measurements Across Sensors" section below.
 
 - The `time` column is the UNIX epoch timestamp of the measurement as reported by the sensors in nanoseconds. By definition, these are UTC times -- whereas the filenames are in local times.
   - You can use tools like https://www.epochconverter.com/ to convert them to readable timestamps.
   - If you use Python, some libraries may expect milliseconds instead of nanoseconds. Divide by 1000000 accordingly.
-  - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 * 60 * 60 * 24, and then format the column or cell as time.
-- The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made *before* the start of the recording, but are reported by your phone *after* the tap due to buffering or caching.
-- Optionally, you can _enable human readable timestamps_ to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom. 
+  - If you use Excel, you may want to convert it to fraction of day so that Excel can recognise it properly as datetime. To do so, divide by 1,000,000,000 _ 60 _ 60 \* 24, and then format the column or cell as time.
+- The `seconds_elapsed` column is the number of seconds since you tapped the Start Recording button. Note that some entries could be negative, meaning the measurements were made _before_ the start of the recording, but are reported by your phone _after_ the tap due to buffering or caching.
+- Optionally, you can _enable human readable timestamps_ to be logged alongside all your data. To toggle this, go to settings by tapping on the gear icon on the Logger Screen. Then navigate to Recording & Workflow and scroll to the bottom.
 
-Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour. 
+Please note that the accuracy of timestamps relies on accurate system timestamps. Please make sure your phone’s time is accurate to ensure physically correct timestamps. If your phone changes time zone mid-recording, it may also lead to unpredictable behaviour.
 
-Optionally, Network Time Protocol (NTP) synchronization can be enabled to align sensor timestamps across multiple devices to a common time reference. When enabled, the system queries an NTP server (default: time.google.com) using 8 UDP requests and calculates the median clock offset to minimize network jitter. Synchronization occurs on app launch and automatically refreshes every 3 hours. The calculated offset is stored with nanosecond precision and applied to all sensor timestamps during recording. Expected precision is tens of milliseconds on typical networks. 
+Optionally, Network Time Protocol (NTP) synchronization can be enabled to align sensor timestamps across multiple devices to a common time reference. When enabled, the system queries an NTP server (default: time.google.com) using 8 UDP requests and calculates the median clock offset to minimize network jitter. Synchronization occurs on app launch and automatically refreshes every 3 hours. The calculated offset is stored with nanosecond precision and applied to all sensor timestamps during recording. Expected precision is tens of milliseconds on typical networks.
 
 ### Understanding Units
+
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/UNITS.md) for the full documentation of units.
 
 > :warning: **If you are analysing uncalibrated acceleration data across platforms**, there are important differences in unit definitions that you should be aware of.
-> 
+
 ### Understanding Coordinate Systems
 
 See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.md) for the full documentation of coordinate systems.
@@ -130,15 +137,18 @@ See [https://github.com/tszheichoi/awesome-sensor-logger/blob/main/COORDINATES.m
 ### File Handling
 
 #### Zip and CSV
+
 - Normally, just use https://docs.python.org/3/library/zipfile.html, but for batch unzipping in Python, read https://superfastpython.com/multithreaded-unzip-files/
 - Reading `.csv`: Use `pandas`, see below.
-- Reading audio file: Depends on whether you have compression enabled in the Sensor Logger's settings. 
-    - Do read https://hackernoon.com/audio-handling-basics-how-to-process-audio-files-using-python-cli-jo283u3y
-    - Use https://librosa.org/doc/latest/index.html
+- Reading audio file: Depends on whether you have compression enabled in the Sensor Logger's settings.
+  - Do read https://hackernoon.com/audio-handling-basics-how-to-process-audio-files-using-python-cli-jo283u3y
+  - Use https://librosa.org/doc/latest/index.html
 
 #### JSON
+
 The JSON export format is a single file, where the contents are an array of objects. Each object represents a single record (row).
 All records for a given sensor are grouped together and are then sorted by time.
+
 ```
 [
   {
@@ -175,7 +185,9 @@ All records for a given sensor are grouped together and are then sorted by time.
 ```
 
 #### SQLite
+
 For reading data exported using the SQLite option in Python, you may try:
+
 ```
 import sqlite3
 
@@ -202,8 +214,10 @@ finally:
 ```
 
 ### Accessing Recording Metadata
+
 The `Metadata.csv` file contains information about the device that performed the logging.
-- version: The schema version of the exported data. This is different to the version of the app. When this version increments, you may have to update your data analysis script as things such as the column names, file names, or data structure may have changed. 
+
+- version: The schema version of the exported data. This is different to the version of the app. When this version increments, you may have to update your data analysis script as things such as the column names, file names, or data structure may have changed.
 - device name: The name of the device used for recording.
 - recording time: The start time of the recording in UTC.
 - platform: Either iOS or Android.
@@ -216,10 +230,13 @@ The `Metadata.csv` file contains information about the device that performed the
 Note that older recordings will not carry all of these columns, as fields have been added over time. Read the file by header name rather than by column position.
 
 ### When to Use Uncalibrated Data
-Sensor Logger gives you the option to log raw, uncalibrated data from the accelerometer, gyroscope and magnetometer. Calibrated data is always logged. The raw stream is useful for performing lower-level post-processing or custom sensor fusion. If in doubt, *always* use the calibrated version unless you have a good reason not to. 
+
+Sensor Logger gives you the option to log raw, uncalibrated data from the accelerometer, gyroscope and magnetometer. Calibrated data is always logged. The raw stream is useful for performing lower-level post-processing or custom sensor fusion. If in doubt, _always_ use the calibrated version unless you have a good reason not to.
 
 ### Plotting Data
-Use `pandas` to import `.csv` and convert timestamps. Use Plotly to visualise data interactively. Here, we show the acceleration experienced by a user during a roller coaster ride. 
+
+Use `pandas` to import `.csv` and convert timestamps. Use Plotly to visualise data interactively. Here, we show the acceleration experienced by a user during a roller coaster ride.
+
 ```
 import pandas as pd
 import plotly.graph_objects as go
@@ -234,9 +251,10 @@ for axis in ['x', 'y', 'z']:
 
 fig.show()
 ```
+
 <img width="937" alt="simple_accel" src="https://user-images.githubusercontent.com/30114997/173203712-3079afc2-a210-482a-9073-e4b2e31281b8.png">
 
-Some sensors may also report uncertainties, which is important for analysis and multi-sensor fusion. For example, the speed from GPS has associated errors. 
+Some sensors may also report uncertainties, which is important for analysis and multi-sensor fusion. For example, the speed from GPS has associated errors.
 
 ```
 import pandas as pd
@@ -252,10 +270,13 @@ fig.add_trace(go.Scatter(x=df.index, y=df['speed'], mode='markers',
 
 fig.show()
 ```
+
 <img width="879" alt="error_gps" src="https://user-images.githubusercontent.com/30114997/173204026-a55c2f9e-1f52-44d5-ba4e-6f3a69eeee72.png">
 
 ### Diagnosing Sampling Rates
+
 Real-world measurements are never evenly sampled. It is important to double-check before any analysis. For example, this particular GPS location data recorded on an iPhone has `avg_sampling_rate` of 0.93Hz, but the measurement gap ranges between 0.99 to 12 seconds.
+
 ```
 import pandas as pd
 import numpy as np
@@ -267,7 +288,9 @@ shortest_gap = np.min(consecutive_deltas)
 maximum_gap = np.max(consecutive_deltas)
 total_num_of_samples = len(df.index)
 ```
+
 To resample your data, for example, to minute periods:
+
 ```
 import pandas as pd
 
@@ -275,6 +298,7 @@ df = pd.read_csv('Location.csv')
 df.index = pd.to_datetime(df['time'], unit = 'ns')
 df.resample('1T').median()
 ```
+
 Also read https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/
 
 To understand the implications and robustness of resampling and dealing with missing data in motion-related time series, consult the following:
@@ -284,7 +308,9 @@ To understand the implications and robustness of resampling and dealing with mis
 - Sensor Data Augmentation by Resampling for Contrastive Learning for Human Activity Recognition: https://arxiv.org/pdf/2109.02054.pdf
 
 ### Mapping GPS Tracks
+
 Use tools like Folium, which is built on top of leaflet.js to overlay GPS tracks on a map
+
 - https://towardsdatascience.com/build-interactive-gps-activity-maps-from-gpx-files-using-folium-cf9eebba1fe7
 - https://towardsdatascience.com/simple-gps-data-visualization-using-python-and-open-street-maps-50f992e9b676
 
@@ -301,16 +327,18 @@ folium.PolyLine(coords, color="blue", weight=5.0).add_to(my_map)
 
 <img width="972" alt="thorpe_park_track" src="https://user-images.githubusercontent.com/30114997/173207512-cffd38f0-400f-44ef-b3b3-2e7963a51a88.png">
 
-Alternatively, convert your exported data to GPX using https://github.com/mhaberler/sensorlogger-util, and then upload to Google Maps for visualisation, following, for example, https://www.alphr.com/gpx-google-maps/. 
+Alternatively, convert your exported data to GPX using https://github.com/mhaberler/sensorlogger-util, and then upload to Google Maps for visualisation, following, for example, https://www.alphr.com/gpx-google-maps/.
 
 ### Aligning and Interpolating Measurements Across Sensors
-Often, one has to align measurements across sensors -- for instance, gyroscope and accelerometer so that you can apply rotation matrices to the acceleration vectors. 
+
+Often, one has to align measurements across sensors -- for instance, gyroscope and accelerometer so that you can apply rotation matrices to the acceleration vectors.
 
 - Option 0: Use Sensor Logger's built-in "Combined CSV" export option. Note that this feature requires one of the paid subscription tiers. You can easily configure how you want to resample, upsample and downsample your measurements. The output of this is a single `.csv` file, saving you the hassle of dealing with alignment issues. If you prefer doing it yourself, see options 1 and 2 below.
 
 <img width="659" alt="Screenshot 2023-10-25 at 15 07 19" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/f31366ae-ba81-4ff5-9984-156f8ccf5732">
 
 - Option 1: Perform an outer join and then interpolate missing values for both sensors. By default, `pandas` interpolates linearly, but see the documentation for more advanced options.
+
 ```
 import pandas as pd
 import numpy as np
@@ -323,21 +351,27 @@ for df in [df_gyro, df_acce]:
 
 df = df_gyro.join(df_acce, lsuffix = '_gyro', rsuffix = '_acce', how = 'outer').interpolate()
 ```
-- Option 2: Interpolate one sensor onto the timestamps of another -- probably better if the two sensors have wildly different sampling rates. For example: 
+
+- Option 2: Interpolate one sensor onto the timestamps of another -- probably better if the two sensors have wildly different sampling rates. For example:
+
 ```
 np.interp(df_acce.index, df_gyro.index, df_gyro['x'])
 ```
+
 Using option 1 above, the altitude readings from both the GPS and barometer are resampled and aligned. As you can see, the GPS is not great at characterising rapid altitude changes, and exhibits biases during transient periods.
 
 <img width="929" alt="resampled_altitudes" src="https://user-images.githubusercontent.com/30114997/173237727-d48fa023-4d47-48db-91b0-48e15fb060e1.png">
 
 For more complex alignment needs -- such as aligning with measurements from sources other than Sensor Logger, you may need techniques such as cross-correlation or dynamic time warping:
+
 - https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd
 - https://dtaidistance.readthedocs.io/en/latest/usage/dtw.html
 - https://dynamictimewarping.github.io/
 
 ### Smoothing and Denoising
+
 Different applications require different smoothing and denoising strategies. This scipy cookbook has some handy code you can borrow:
+
 - https://scipy-cookbook.readthedocs.io/items/SignalSmooth.html
 - https://scipy-cookbook.readthedocs.io/items/SavitzkyGolay.html
 - Also try `scipy.ndimage.median_filter`
@@ -354,7 +388,8 @@ print(smoothed_gyro)
 ```
 
 ### Fourier Transforms
-Use Fourier transforms to understand any periodicity in your logged values. For example, you can detect walking by simply thresholding the gravity vector measurements in frequency space. Here is a simple example of Fourier transforming the gravity measurements taken on [Zodiac, a spinning ride at Thorpe Park](https://en.wikipedia.org/wiki/Zodiac_(ride)). As you can see, there is a peak around 0.25 Hz (i.e. the ride goes around one revolution every 4 seconds). 
+
+Use Fourier transforms to understand any periodicity in your logged values. For example, you can detect walking by simply thresholding the gravity vector measurements in frequency space. Here is a simple example of Fourier transforming the gravity measurements taken on [Zodiac, a spinning ride at Thorpe Park](<https://en.wikipedia.org/wiki/Zodiac_(ride)>). As you can see, there is a peak around 0.25 Hz (i.e. the ride goes around one revolution every 4 seconds).
 
 ```
 import pandas as pd
@@ -377,9 +412,11 @@ fig.show()
 <img width="935" alt="zodiac" src="https://user-images.githubusercontent.com/30114997/173238828-438cf3db-e767-4dd3-a0af-7295393aae4e.png">
 
 ### Track Simplification
+
 You can use algorithms like Douglas-Peucker to simplify recorded GPS tracks to save storage space for long recordings. A Sensor Logger specific implementation can be found here: https://github.com/mhaberler/sensorlogger-util/blob/master/simplify.py
 
 ### Peak Detection
+
 Scipy's `find_peaks` is the easiest place to get started. For example:
 
 ```
@@ -403,13 +440,14 @@ print("Indices of peaks:", peaks)
 
 <img width="1065" alt="Screenshot 2023-10-25 at 15 17 17" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/2b1d3dd0-2a3a-433c-823d-e284fd0d3074">
 
-
 Also see:
+
 - https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html
 - https://en.wikipedia.org/wiki/Topographic_prominence
 - https://stackoverflow.com/questions/1713335/peak-finding-algorithm-for-python-scipy
 
 ### Activity Detection and Semantic Segmentation
+
 - A Comprehensive Study of Activity Recognition Using Accelerometers: https://www.researchgate.net/publication/325470495_A_Comprehensive_Study_of_Activity_Recognition_Using_Accelerometers
 - Useful tool for time series data mining tasks: https://stumpy.readthedocs.io/en/latest/
 - Kang et al. 2017 A Novel Walking Detection and Step Counting Algorithm Using Unconstrained Smartphones
@@ -417,10 +455,13 @@ Also see:
 <img width="1069" alt="Screenshot 2023-10-25 at 15 18 06" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/bc373657-e407-4051-b276-7900f4ce763f">
 
 ### Time Series Classification
+
 - https://towardsdatascience.com/a-brief-introduction-to-time-series-classification-algorithms-7b4284d31b97
 
 ### Removing Duplicated Entries
+
 Sometimes, erroneous sensors may report the same value twice with identical timestamps, likely due to caching. Try something like this to remove them:
+
 ```
 def remove_duplicated_rows(df: pd.DataFrame):
     _df = df[
@@ -431,38 +472,47 @@ def remove_duplicated_rows(df: pd.DataFrame):
             f"duplicated rows detected in the input file ({len(df.index) - len(_df.index)})"
         )
     return _df
-``` 
+```
+
 ### Audio Analysis
+
 `ffmpeg-python` (https://github.com/kkroening/ffmpeg-python) has some valuable examples of interesting audio analysis:
+
 - Splitting silence: https://github.com/kkroening/ffmpeg-python/blob/master/examples/split_silence.py
 - Audio transcription with Google Cloud: https://github.com/kkroening/ffmpeg-python/blob/master/examples/transcribe.py
 
 `pyAudioAnalysis` is also worth checking out for audio feature extraction, classification and segmentation: https://github.com/tyiannak/pyAudioAnalysis
 
 ### Converting to GPX or InfluxDB
+
 Michael Haberler has helpfully put together a command-line tool `sensorlogger-utils` to take the JSON exported from Sensor Logger and convert it to GPX or InfluxDB formats: https://github.com/mhaberler/sensorlogger-util
 
 ```
 python sensorlogger -g <json file>
 ```
+
 ```
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
 
 ## Recording Bluetooth LE sensors
+
 Version 1.17 adds the capability to record values reported from a wide range of Bluetooth LE sensors which report values via periodic advertisements.
 
 Sensor Logger lets you scan for, and choose to record BLE sensors, and will record their advertisements in the log. Sensor Logger supports this method of reporting values, but is generally unaware of how any particular sensor encodes its values out of the box. Therefore, Sensor Logger records the advertisement (and in particular the manufacturer data field) and leaves the interpretation of these records to a later postprocessing step. This means that any - existing or yet-to-be-designed - BLE sensor using this reporting method is supported by Sensor Logger in principle.
 
-For select sensors, such as https://bthome.io/, Sensor Logger does support additional proper decoding, see https://github.com/tszheichoi/sensor-ble for more information. If you wish to help contribute more decoders, do reach out / see README in that repo. 
+For select sensors, such as https://bthome.io/, Sensor Logger does support additional proper decoding, see https://github.com/tszheichoi/sensor-ble for more information. If you wish to help contribute more decoders, do reach out / see README in that repo.
 
-You should also check out this custom-built sensor -- an example project which has been verified to work with Sensor Logger: https://github.com/mhaberler/flowsensor. 
+You should also check out this custom-built sensor -- an example project which has been verified to work with Sensor Logger: https://github.com/mhaberler/flowsensor.
 
 ### Postprocessing Bluetooth LE sensor recordings
+
 To interpret BLE sensor recordings, the exported log must be post-processed. An experimental service has been put together here: https://sensorlogger.mah.priv.at/sensorlogger - the source code can be found [here](https://github.com/mhaberler/sensorlogger-utils). Feel free to fork and roll your own.
 
 #### Example Logging a Ruuvi Tag with Sensor Logger
+
 This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
+
 ```
 {
     "sensor": "bluetooth-DB08D33338EF",
@@ -474,11 +524,13 @@ This is how Sensorlogger records a [Ruuvi Tag](https://ruuvi.com/):
     "manufacturerData": "99040512735828ffff0070fc18012890962ec379db08d33338ef"
 }
 ```
-The values are contained in the `manufacturerData` field, but make no sense as they stand. A quick and dirty way of parsing this is with an online decoder. For example, use https://parser.theengs.io/. Select TPMS and copy and replace the entire manufacturerData. Then click decode. If this is from a recognised sensor, such as this Ruuvi Tag example, then you will see the decoded information. 
+
+The values are contained in the `manufacturerData` field, but make no sense as they stand. A quick and dirty way of parsing this is with an online decoder. For example, use https://parser.theengs.io/. Select TPMS and copy and replace the entire manufacturerData. Then click decode. If this is from a recognised sensor, such as this Ruuvi Tag example, then you will see the decoded information.
 
 <img width="1379" alt="parser" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/9aae62e8-1e6a-4a85-b140-b238b21f4002">
 
 #### Example After Post-processing Ruuvi Tag Reported Values
+
 Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into the values which actually make sense:
 
 ```
@@ -512,16 +564,21 @@ Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into th
     }
   }
 ```
+
 ## Live Data Streaming
-Documentation, schema and sample code for HTTP and MQTT streaming have been moved to https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md. 
+
+Documentation, schema and sample code for HTTP and MQTT streaming have been moved to https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md.
 
 ### Setting Up Server
-Instructions on various ways to setup a webserver can be found on https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md. 
+
+Instructions on various ways to setup a webserver can be found on https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md.
 
 ## Further Use Cases and Applications
+
 Based on [user-submitted feedback](https://www.tszheichoi.com/sensor-logger-feedback), Sensor Logger is being used for a lot of applications -- for researchers and hobbyists alike. Here are a few to get you started. Let me know, and I will feature your use case here as well!
 
 ### Published Research
+
 Some recently published papers citing / using Sensor Logger:
 
 - Bingnan Duan, Yinhuan Dong, Ilari Vallivaara and Tughrul Arslan, "Anchored by Sound: Indoor Trajectory Mapping with Activity-Driven Audio Anchors", 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere Finland
@@ -530,12 +587,12 @@ Some recently published papers citing / using Sensor Logger:
 - Rodi Laanen, Maedeh Nasri, Richard van Dĳk, Mitra Baratchi, Alexander Koutamanis, & Carolien Rieffe. (2023). Automated classification of pre-defined movement patterns: A comparison between GNSS and UWB technology.
 - Shin, J. I. and Kim, J. O.: Possibility of Crowdsourcing-based Method for Surveying the Flatness of Pedestrian Spaces, Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci., XLVIII-4/W10-2024, 163–168, https://doi.org/10.5194/isprs-archives-XLVIII-4-W10-2024-163-2024, 2024.
 - N. Loecher, S. King, J. Cabo, T. Neal and K. Kosyluk, "Assessing the Efficacy of a Self-Stigma Reduction Mental Health Program with Mobile Biometrics: Work-in-Progress," 2023 IEEE 17th International Conference on Automatic Face and Gesture Recognition (FG), Waikoloa Beach, HI, USA, 2023, pp. 1-6, doi: 10.1109/FG57933.2023.10042655.
-- Etienne, A. J., Field, W. E., Ehlers, S. G., Tormoehlen, R., & Haslett, N. J. (2024). Testing the feasibility of selected, commercially available wearable devices in detecting agricultural-related incidents. Journal of Agricultural Safety and Health, 30(4), 181–204. https://doi.org/10.13031/jash.15985 
+- Etienne, A. J., Field, W. E., Ehlers, S. G., Tormoehlen, R., & Haslett, N. J. (2024). Testing the feasibility of selected, commercially available wearable devices in detecting agricultural-related incidents. Journal of Agricultural Safety and Health, 30(4), 181–204. https://doi.org/10.13031/jash.15985
 - Degambur, L.-N. (2024). Replay attack prevention in decentralised contact tracing: A blockchain-based approach. OALib, 11(02), 1–17. https://doi.org/10.4236/oalib.1111179
 - Xiping Sun, Jing Chen, Cong Wu, Kun He, Haozhe Xu, Yebo Feng, Ruiying Du, & Xianhao Chen. (2024). MagLive: Near-Field Magnetic Sensing-Based Voice Liveness Detection on Smartphones.
 - Gadelho, J., & Guedes Soares, C. (2024). Experimental Motion Measurements of a Floating Dual Chamber OWC Using the Smartphone Sensors as a Low Budget Solution. In Innovations in Renewable Energies Offshore Proceedings of the 6th International Conference on Renewable Energies Offshore.
 - Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU Time-series data. Journal of Machine Intelligence and Data Science, 5. https://doi.org/10.11159/jmids.2024.007
-- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Advanced Exercise Classification with a hybrid CNN-GRU model: Utilising IMU data from cell phones. International Conference of Control, Dynamic Systems, and Robotics. https://doi.org/10.11159/cdsr24.115 
+- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Advanced Exercise Classification with a hybrid CNN-GRU model: Utilising IMU data from cell phones. International Conference of Control, Dynamic Systems, and Robotics. https://doi.org/10.11159/cdsr24.115
 - Lee, M. J., Lin, J., & Hsu, L. T. (2024). Exploring the Feasibility of Automated Data Standardization using Large Language Models for Seamless Positioning. arXiv preprint arXiv:2408.12080.
 - Vallivaara, I., Dong, Y., & Arslan, T. (2024). Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM. arXiv preprint arXiv:2409.01242.
 - Ray, L. S. S., Geißler, D., Liu, M., Zhou, B., Suh, S., & Lukowicz, P. (2024). ALS-HAR: Harnessing Wearable Ambient Light Sensors to Enhance IMU-based HAR. arXiv preprint arXiv:2408.09527.
@@ -544,44 +601,47 @@ Some recently published papers citing / using Sensor Logger:
 - Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
 - Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
-- U.S. Food & Drug Administration, Center for Devices and Radiological Health (2023). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250 — 374 trials of time-synchronised smartphone IMU, reference IMU and pressure-walkway data at 100 Hz, recorded with Sensor Logger.
-- Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop on Cooperative and Adaptive Localisation (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
+- U.S. Food & Drug Administration, Center for Devices and Radiological Health (2024). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250.
+- Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop for Computing and Advacned Localisation (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
 - Vallivaara, I., Dong, Y., Duan, B., & Arslan, T. (2026). Saying Goodbyes to Rotating Your Phone: Magnetometer Calibration during SLAM — Extended Version. IEEE Journal of Indoor and Seamless Positioning and Navigation, 4, 41–52.
 - Khandakar, A., Michelson, D. G., et al. (2025). RoadSens-4M: A Multimodal Smartphone & Camera Dataset for Holistic Roadway Analysis. arXiv preprint arXiv:2510.25211.
 
 If you have published work using Sensor Logger, feel free to reach out or make a pull request.
 
 ### Software Directory
+
 - https://software.umich.edu/titles/sensor-logger-app
 
 ### Other Uses
+
 - Hot air balloon tracking
 - Train oscillation
-	- https://github.com/zmsubin/accelerometers_pub/blob/main/writeup/StudySummary.md
+  - https://github.com/zmsubin/accelerometers_pub/blob/main/writeup/StudySummary.md
 - Flight data logging
 - Wearable technology research
 - Pedestrian dead reckoning
-    - https://github.com/IdoMatan/PDR
+  - https://github.com/IdoMatan/PDR
 - Roller coaster tracking
-    - https://www.tszheichoi.com/coaster
+  - https://www.tszheichoi.com/coaster
 - Sports research
-    - https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1993640?journalCode=rjsp20
+  - https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1993640?journalCode=rjsp20
 - Vehicle tracking
-    - https://www.ndss-symposium.org/wp-content/uploads/vehiclesec2024-52-paper.pdf
+  - https://www.ndss-symposium.org/wp-content/uploads/vehiclesec2024-52-paper.pdf
 - Figure skating analysis
 - Whale watching
 - Video stabilisation
-    - https://docs.gyroflow.xyz/
+  - https://docs.gyroflow.xyz/
 - Inertial navigation
 - Sensor fusion / Kalman filtering / Data assimilation
-    - https://scipy-cookbook.readthedocs.io/items/KalmanFiltering.html
-    - https://www.youtube.com/watch?v=TmBEryh2OXY
+  - https://scipy-cookbook.readthedocs.io/items/KalmanFiltering.html
+  - https://www.youtube.com/watch?v=TmBEryh2OXY
 - GPS data logging for photo / video geolocation.
 - Analyzing acceleration and vibration from personal transportation
-    - https://github.com/zmsubin/accelerometers_pub
+  - https://github.com/zmsubin/accelerometers_pub
 
 ## Contribute
-Please submit a PR if you have scripts or links that may be useful for other users. I will also feature any project that uses Sensor Logger, integrated as part of a larger workflow. 
+
+Please submit a PR if you have scripts or links that may be useful for other users. I will also feature any project that uses Sensor Logger, integrated as part of a larger workflow.
 
 ## How to Cite
 

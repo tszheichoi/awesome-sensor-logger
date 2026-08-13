@@ -124,7 +124,7 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `lowPowerMode` is a boolean.
 - `voltage` is the battery terminal voltage, in volts (V). (Android Only, _New in version 1.62_)
 - `chargingCurrent` is the instantaneous battery current, in milliamps (mA). The sign is reported by the device and is manufacturer-dependent; on most devices a positive value means current flowing into the battery (charging) and a negative value means discharging. (Android Only, _New in version 1.62_)
-- `health` is an enum that can be one of good, overheat, dead, over_voltage, unspecified_failure or cold. (Android Only, _New in version 1.62_)
+- `health` is an enum that can be one of good, overheat, dead, over*voltage, unspecified_failure or cold. (Android Only, \_New in version 1.62*)
 
 ## Battery Temp
 
@@ -164,10 +164,10 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 The same measurements as the phone's [Location](#location) sensor, in the same units, but three of the fields are named differently:
 
-| On the watch | On the phone |
-| --- | --- |
-| `ellipsoidalAltitude` | `altitude` |
-| `altitude` | `altitudeAboveMeanSeaLevel` |
+| On the watch                  | On the phone                    |
+| ----------------------------- | ------------------------------- |
+| `ellipsoidalAltitude`         | `altitude`                      |
+| `altitude`                    | `altitudeAboveMeanSeaLevel`     |
 | `course` and `courseAccuracy` | `bearing` and `bearingAccuracy` |
 
 Note in particular that `altitude` is the height above mean sea level on the watch, but the height above the WGS84 ellipsoid on the phone. The two differ by the geoid separation, so do not combine them on that column name alone.
@@ -206,16 +206,18 @@ Note in particular that `altitude` is the height above mean sea level on the wat
 
 Each row is one received advertisement. Sensor Logger records advertisements raw, and may additionally interpret them where an existing decoder is available -- see the [sensor-ble](https://github.com/tszheichoi/sensor-ble) library for the supported devices. For decoding raw payloads yourself, see the [Recording Bluetooth LE sensors](https://github.com/tszheichoi/awesome-sensor-logger#recording-bluetooth-le-sensors) section of the README for worked examples.
 
+time, seconds_elapsed, sensor, id, rssi, manufacturerData, advertisement, serviceData.
+
 - `id` is the device identifier (a MAC address on Android, a system-assigned UUID on iOS).
 - `rssi` is the Received Signal Strength Indicator, in dBm. A larger negative value means a weaker signal. Can be null.
 - `txPowerLevel` is the advertised transmit power, in dBm, where the device reports one.
 - `manufacturerData` is the raw manufacturer data field, hex encoded.
-
-If you record all nearby devices, the sensor is named `bluetooth`. If you select individual devices, each gets its own file named `bluetooth-<id>`.
+- `advertisement` is the hex of the full advertising payload
+- `serviceData`, <uuid>:<hex> entries pipe-joined.
 
 ## BluetoothMetadata
 
-Written once per discovered device, alongside the advertisements above.
+Written once (or twice) per discovered device, alongside the advertisements above.
 
 - `id` is the device identifier, matching the `id` in the Bluetooth records.
 - `name` is the device name.
@@ -231,7 +233,7 @@ The camera is the one sensor whose recorded form and streamed form differ, so tr
 **In a recording**, the camera does not write a CSV. Frames are written into a `Camera/` directory inside the recording, and the filename carries the timestamp:
 
 - In Images and Snapshot modes, one `<timestamp>.jpg` per frame.
-- In Video mode, a single `<timestamp>.mp4` per recording segment.
+- In Video mode, a single `<timestamp>.mp4` per recording session.
 
 Note that these filename timestamps are UNIX epoch **milliseconds**, not the nanoseconds used by the `time` column elsewhere. They are NTP-corrected if NTP synchronisation is enabled.
 
