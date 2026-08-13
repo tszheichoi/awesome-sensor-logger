@@ -110,8 +110,6 @@ Pressure from the watch barometer is also affected. The phone reports pressure i
 | --- | --- | --- |
 | Watch (Barometer, All Modes) | kPa | mbar / hPa |
 
-Note that with standardisation *off*, watch barometer files remain in kPa even after 1.63, to avoid silently changing raw recordings. For *Transfer* and *Watch Only* recordings, the watch's `Metadata.csv` records the `standardisation` flag, and it is reliable across all app versions: recordings from before 1.63 always carry `false` (and are indeed in kPa), so downstream tooling can use that flag alone to tell which unit a given `WatchBarometer.csv` is in. For *Stream* rows, which are written into the phone's recording, the phone's `Metadata.csv` flag only became indicative of the watch pressure unit in 1.63 -- a pre-1.63 phone recording with standardisation on still contains watch pressure in kPa.
-
 ## Other Differences
 There are other considerations between iOS and Android, depending on your application and analysis:
 - Sampling frequency;
