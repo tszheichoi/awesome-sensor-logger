@@ -11,6 +11,10 @@ Sensor Logger is a cross-platform app available on both iOS (iPhone, Apple Watch
   * [Other Differences](#other-differences)
   * [Notice Anything Else?](#notice-anything-else)
 
+> 💡: **New in Version 1.63**: Standardisation is now applied properly and consistently for the Apple Watch and AirPods, covering both units and coordinate frame conventions, including recordings started from the watch itself. The watch inherits the standardisation state from the phone and displays it directly on the watch app.
+
+> The watch tables below distinguish three recording modes. *Stream*: rows sent live to the phone during a phone-initiated recording, written by the phone. *Transfer*: files recorded on the watch during a phone-initiated recording and transferred afterwards. *Watch Only*: recordings started from the watch itself. A watch that has never connected since the setting was enabled keeps recording unstandardised values, matching pre-1.63 behaviour.
+
 > 💡: **New in Version 1.55**: Introducing **Sensor Zoo**, which provides transparent, cross-platform sensor fusion algorithms: orientation filters (Complementary, Madgwick, Mahony, EKF), step counters, and a tilt-compensated compass. Every algorithm is fully inspectable, benchmarked against public datasets, and produces consistent results across iOS and Android. No proprietary APIs. No surprises. See https://github.com/tszheichoi/sensor-zoo. 
 
 > 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will mostly eliminate the differences listed below. This is _turned off_ by default to maintain backwards compatibility. But if you are building a new analysis pipeline, it is suggested that you toggle this on, especially if you are using the Studies feature with participants across platforms. Toggling this setting makes iOS (iPhone, Apple Watch & AirPods) values conform to Android conventions. Adjusting this setting on Android has no effect. For the plots and demonstrations below, data was taken from the three pictured phones.
@@ -39,6 +43,20 @@ If **Standardise Units & Frames** is toggled on, Sensor Logger will conform to t
 
 > 💡: **In Version 1.51**: Prior to this version, toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ only affected the euler angles. Since this version, the quaternions are also consistently flipped on iOS.
 
+> 💡: **In Version 1.63**: Orientation standardisation now covers the Apple Watch and AirPods consistently.
+
+| With Standardisation On | Before 1.63 | After 1.63 |
+| --- | --- | --- |
+| Phone (Euler) | Standardised | Standardised |
+| Phone (Quaternion) | Standardised | Standardised |
+| Watch (Quaternion, Stream) | Not standardised | Standardised |
+| Watch (Euler, Transfer) | Not standardised | Standardised |
+| Watch (Quaternion, Transfer) | Not standardised | Standardised |
+| Watch (Euler, Watch Only) | Not standardised | Standardised |
+| Watch (Quaternion, Watch Only) | Not standardised | Standardised |
+| Headphone (Euler) | Standardised | Standardised |
+| Headphone (Quaternion) | Not standardised | Standardised |
+
 ### Rotation Rate
 iOS and Android report with the same sign convention for the rotation rate from the Gyroscope sensor. Toggling **Standardise Units & Frames** has no effect here. 
 
@@ -55,11 +73,42 @@ Note that the calibrated version (default) of acceleration is unaffected, and is
 <img width="1385" alt="uncalibrated_acceleration" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/99988cd0-91aa-42d3-97f3-877e873a5777">
 
 ### For Watches & Headphones
-The unit for acceleration from the Apple Watch and AirPods is in standard gravity (g). And the gravity vector from the Apple Watch is in standard gravity (g). However, when **Standardise Units & Frames** is toggled on, all units will be consistently in SI. Namely:
+The unit for acceleration from the Apple Watch and AirPods is in standard gravity (g). And the gravity vector from the Apple Watch is in standard gravity (g). However, when **Standardise Units & Frames** is toggled on, all units will be consistent with the phone. Namely:
 - Acceleration and gravity vector values from Apple Watch will be in meters per second squared (ms-2).
 - Acceleration and gravity vector values from AirPods will be in meters per second squared (ms-2).
+- Pressure values from the Apple Watch barometer will be in millibars (mbar), matching the phone.
 
 It is strongly recommended that you toggle **Standardise Units & Frames** on -- by default, it is off for backwards compatibility reasons. 
+
+> 💡: **In Version 1.63**: Unit standardisation now applies consistently across all watch recording modes.
+
+Acceleration units, with **Standardise Units & Frames** on:
+
+| With Standardisation On | Before 1.63 | After 1.63 |
+| --- | --- | --- |
+| Watch (Accelerometer, Stream) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+| Watch (Accelerometer, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Accelerometer, Watch Only) | g | ms<sup>-2</sup> |
+| Watch (Uncalibrated Accelerometer, Stream) | Unavailable | Unavailable |
+| Watch (Uncalibrated Accelerometer, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Uncalibrated Accelerometer, Watch Only) | g | ms<sup>-2</sup> |
+| Headphone (Accelerometer) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+| Headphone (Uncalibrated Accelerometer) | Unavailable | Unavailable |
+
+Gravity vector units, with **Standardise Units & Frames** on:
+
+| With Standardisation On | Before 1.63 | After 1.63 |
+| --- | --- | --- |
+| Watch (Gravity, Stream) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+| Watch (Gravity, Transfer) | g | ms<sup>-2</sup> |
+| Watch (Gravity, Watch Only) | g | ms<sup>-2</sup> |
+| Headphone (Gravity) | ms<sup>-2</sup> | ms<sup>-2</sup> |
+
+Pressure from the watch barometer is also affected. The phone reports pressure in millibars (mbar, equivalently hPa) on both iOS and Android, whereas the Apple Watch historically reported pressure in kilopascals (kPa) in all recording modes. Since Version 1.63, toggling **Standardise Units & Frames** on converts watch pressure to mbar to match the phone.
+
+| With Standardisation On | Before 1.63 | After 1.63 |
+| --- | --- | --- |
+| Watch (Barometer, All Modes) | kPa | mbar / hPa |
 
 ## Other Differences
 There are other considerations between iOS and Android, depending on your application and analysis:
