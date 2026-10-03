@@ -50,6 +50,16 @@ You can chain config + start to programmatically change settings and begin recor
 | `sensorlogger://study/{studyId}` | Navigate to a specific study. |
 | `sensorlogger://joinstudy` | Open the Join Study screen. |
 
+## Custom BLE Decoders
+
+| URL | Description |
+|-----|-------------|
+| `sensorlogger://decoder/{url}` | Open the Add Custom Decoder prompt with `{url}` pre-filled. |
+
+This is new in From Version 1.68. `{url}` is the raw URL of a [custom decoder file](https://github.com/tszheichoi/sensor-ble/blob/main/README.md#loading-a-custom-decoder-into-sensor-logger). For security reasons, nothing is added until you explicitly tap **OK**. Not available whilst in a Study.
+
+URL-encode the address with `encodeURIComponent(url)` in JavaScript or `urllib.parse.quote(url, safe="")` in Python, for example:
+
 ## Automation
 
 Any app or system feature that can open a URL can trigger Sensor Logger deep links. Below are platform-specific ways to integrate.
