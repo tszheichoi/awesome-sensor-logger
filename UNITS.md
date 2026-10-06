@@ -190,6 +190,10 @@ Note in particular that `altitude` is the height above mean sea level on the wat
 
 - `lux` is in lux.
 
+## Hinge
+
+- `angle` is the angle between the two halves of the device, in degrees. 0 means folded shut, and 180 when fully open and flat. Some devices may report values beyond 180.
+
 ## WiFi
 
 - `ssid` is the name of the WiFi network.
