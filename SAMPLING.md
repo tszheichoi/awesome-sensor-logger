@@ -1536,12 +1536,22 @@ _Last Updated in April 2026._
 | SM-A115M               | 7.45                            | 0.00017                      |
 | RMX3392                | 5.01                            | 0.00108                      |
 
+## Apple Watch High-Rate Wrist Motion
+
+On Apple Watch Series 8 and later and Ultra, turning on **High-Rate Wrist Motion** records `WristMotion.csv` and `WatchAccelerometerUncalibrated.csv` at higher rates. These come from the [batched sensor API](https://developer.apple.com/documentation/coremotion/cmbatchedsensormanager). Apple does not fully document the expected behaviour, but these are the expected outputs based on experimentation on Series 10, 11 and 12 watches:
+
+- `rotationRate`: 200 Hz, with a new value on every row.
+- `gravity`, `quaternion`, `pitch`, `roll` and `yaw`: 200 Hz.
+- `acceleration`: effectively 100 Hz, even though rows are written at 200 Hz. It would seem like each pair of consecutive entries shares one accelerometer reading, but the gravity that is being subtracted does seem to change every row to get the user acceleration. As such, every pair is very similar, but not exactly identical.
+- `WatchAccelerometerUncalibrated.csv`: 800 Hz.
+- `WatchMagnetometer.csv` and `WatchCompass.csv` are not affected by this setting. 
+  
 # Note on Privacy
 
 At Sensor Logger, user privacy is our top priority. No sensor data ever leaves the device—only high-level diagnostic metrics, such as sampling rates and sensor characteristics are occasionally reported. Personal or identifiable information is never collected.
 
-All data processing happens locally, with only anonymized, aggregated statistics sent to Sensor Logger servers. Specifically, only the mean, minimum, maximum, and standard deviation of sampling rates for enabled sensors are reported. This will happen in the background once or twice during the first few recordings you make.
+All data processing happens locally, with only anonymized, aggregated statistics sent to Sensor Logger servers. Specifically, only the mean, minimum, maximum, and standard deviation of sampling rates for enabled sensors are reported. This will happen in the background once or twice during the first few recordings you make. 
 
-To further protect privacy, only widely used device models will report these metrics, preventing any link to individual users.
+To further protect privacy, only widely used device models will report these metrics, preventing any link to individual users or pre-release phone models.
 
-Users can opt out of contributing to this Sampling Reference at any time through the settings. Additionally, study investigators can disable data collection for all participants as part of the Study configuration.
+**Users can opt out of contributing to this Sampling Reference at any time through the settings.** Additionally, Study investigators can disable data collection for all participants as part of the Study configuration.
