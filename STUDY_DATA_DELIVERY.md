@@ -8,6 +8,12 @@ Studies allow you, as the investigator, to collect data from other Sensor Logger
 
 Sensor Logger Cloud and Manual are available to all users, including in the free tier. Different tiers have different Sensor Logger Cloud storage limits, which you can see in the app. You can always upgrade as your Study and storage needs grow. Bring Your Own Bucket is only available if the investigator is subscribed to the Ultimate tier. In all cases, all Study participants can stay in the free tier. 
 
+## Stream in Studies
+A Study can turn on [Sensor Logger Stream](PUSHING.md#sensor-logger-stream), so each participant's recording is streamed live to Sensor Logger Cloud as it is recorded. As the investigator, you can watch participants' Streams in Mission Control and download them while they record, and so can anyone given a Stream's link.
+
+- Streams count towards the investigator's cloud storage, not the participant's.
+- If the Study's storage fills up, streaming stops but the participant's recording continues on their device. The investigator can free up space. Participants can still deliver their recording the usual way.
+
 ## Bring Your Own Bucket
 Bring Your Own Bucket (BYOB) allows you to directly control where your Study data is stored by connecting your own cloud storage. Instead of uploading participant data to Sensor Logger Cloud, data is sent directly from the participant’s device into your S3-compatible storage bucket. This ensures that no recording data ever passes through or is retained on Sensor Logger servers.
 

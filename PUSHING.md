@@ -1,4 +1,41 @@
 # Data Pushing
+
+Sensor Logger can send data off your device while you record. You can use more than one at the same time.
+
+| | Stream | HTTP Push | MQTT |
+| --- | --- | --- | --- |
+| Server needed | No, managed by Sensor Logger Cloud | Yes, bring your own | Yes, bring your own broker |
+| Live view | Mission Control in any browser | Build your own | Build your own |
+| Data after recording | Hourly zip files and API access | Whatever your server stores | Whatever your consumers store |
+| Images | Optional | Optional | Optional |
+| Receive data on the phone | No | No | Yes, subscribe to topics and trigger Rules |
+| Connection drops | A few minutes buffered and sent later | Not buffered | Queued while disconnected |
+
+The local recording is always complete regardless of the method.
+
+## Sensor Logger Stream
+
+Stream sends each recording to Sensor Logger Cloud as it is recorded, with no server or broker to set up. Turn it on under Data Streaming in Settings.
+
+- **Mission Control**: watch the recording live in any browser while it is active.
+- **Private link**: each recording gets its own link to its Stream. It is private, but anyone with the link can view it and access its data, during and after the recording. Reset the link to revoke access.
+- **Hourly files**: download the data as hourly zip files, during and after the recording, or access everything with the API.
+
+### What is kept, and for how long
+
+| | Duration | Detail | Kept For | Storage |
+| --- | --- | --- | --- | --- |
+| This Device | Whole Recording | Every Sample | Always | Device |
+| Live | Last Minute | Every Sample | 1 Day After End | Unlimited |
+| Live | Full Session | 1 per Second | 1 Day After End | Unlimited |
+| Hourly Files | Whole Recording | Every Sample | Until Deleted | Counts Against Quota |
+
+### Storage and connection
+
+- If your cloud storage fills up, streaming stops but your recording continues.
+- If the connection drops, a few minutes of data is buffered on the device and sent when it returns. Longer outages may leave gaps in the Stream. If the buffer fills up, the oldest data is dropped from the Stream, not from the recording.
+
+## HTTP Push and MQTT
 Sensor Logger supports HTTP Push and MQTT Publishing during a recording session. This can be enabled by tapping the gear icon on the Logger page. All supported sensors during a recording will be streamed in JSON, once every configurable batch period, to the specified web server / broker via the specified protocol.
 
 Both HTTP Push and MQTT have the same schema, configurable batching period and supported sensors. The only difference is the protocol. HTTP has a simpler setup and is more widely supported. On the other hand, MQTT is more lightweight and popular for IoT applications. Sensor Logger also supports _simultaneous_ HTTP pushing and MQTT publishing. 
@@ -273,6 +310,41 @@ client.connect(BROKER_URL, BROKER_PORT, 60)
 client.loop_forever()
 ```
 See the HTTP Push documentation for an example of how to plot the sensor data live using Plotly Dash. 
+
+### Rules Driven by MQTT
+
+When MQTT subscribing is set up, messages received on the phone can drive Rules. An MQTT condition compares the received message (decoded as UTF-8 text) with a value, using the same operators as other conditions.
+
+Each MQTT condition has a window:
+
+- **Within 30 s of receipt** (default): the condition stays true for 30 seconds after a matching message arrives.
+- **On receipt**: the condition is only true at the moment a message arrives, so the Rule fires once per message.
+
+#### Templating
+
+Notification titles, bodies and icons, tags and annotations in a Rule can be filled in from the MQTT message that triggered it:
+
+| Placeholder | Filled in with |
+| --- | --- |
+| `${message}` | The whole message |
+| `${message.title}` | A field of a JSON message. Dot paths reach nested fields, for example `${message.alert.level}` |
+| `${topic}` | The topic the message arrived on |
+
+For example, a notification with title `${message.title}` and body `${message.body}` shows whatever the publisher sends:
+
+```
+mosquitto_pub -t sensorlogger/alerts -m '{"title": "Door opened", "body": "Back door, 14:02", "icon": "🚪"}'
+```
+
+- If a JSON message has a non-empty `icon` field, it is used as the notification icon. Otherwise the Rule's own icon is used.
+- A placeholder that cannot be filled in (for example a missing field) is left as typed, so the problem is visible where the text is used.
+- Filled-in text is joined into a single line. Notification titles keep their first 200 characters, and bodies and annotations their first 500.
+- A tag or annotation that comes out empty is not added. A filled-in tag gets the same checks as one added on the Tags screen, so reserved or over-long tags are skipped.
+- Text without a placeholder is used exactly as typed.
+
+#### Rate Limit
+
+By default, notifications from a Rule are limited to one every 60 seconds (5 seconds for On Change Rules), and sounds to one every 3 seconds. Setting Rate Limit to **Unrestricted** (Advanced) removes these limits, so every trigger notifies and plays its sound.
 
 ## Typescript Payload Schema
 
