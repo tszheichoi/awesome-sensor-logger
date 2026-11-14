@@ -21,7 +21,7 @@ Stream sends each recording to Sensor Logger Cloud as it is recorded, with no se
 - **Private link**: each recording gets its own link to its Stream. It is private, but anyone with the link can view it and access its data, during and after the recording. Reset the link to revoke access.
 - **Hourly files**: download the data as hourly zip files, during and after the recording, or access everything with the API.
 
-### What is kept, and for how long
+### What Is Kept, and for How Long
 
 | | Duration | Detail | Kept For | Storage |
 | --- | --- | --- | --- | --- |
@@ -30,7 +30,7 @@ Stream sends each recording to Sensor Logger Cloud as it is recorded, with no se
 | Live | Full Session | 1 per Second | 1 Day After End | Unlimited |
 | Hourly Files | Whole Recording | Every Sample | Until Deleted | Counts Against Quota |
 
-### Storage and connection
+### Storage and Connection
 
 - If your cloud storage fills up, streaming stops but your recording continues.
 - If the connection drops, a few minutes of data is buffered on the device and sent when it returns. Longer outages may leave gaps in the Stream. If the buffer fills up, the oldest data is dropped from the Stream, not from the recording.
