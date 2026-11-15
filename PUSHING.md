@@ -2,14 +2,16 @@
 
 Sensor Logger can send data off your device while you record. You can use more than one at the same time.
 
-| | Stream | HTTP Push | MQTT |
-| --- | --- | --- | --- |
-| Server needed | No, managed by Sensor Logger Cloud | Yes, bring your own | Yes, bring your own broker |
-| Live view | Mission Control in any browser | Build your own | Build your own |
-| Data after recording | Hourly zip files and API access | Whatever your server stores | Whatever your consumers store |
-| Images | Optional | Optional | Optional |
-| Receive data on the phone | No | No | Yes, subscribe to topics and trigger Rules |
-| Connection drops | A few minutes buffered and sent later | Not buffered | Queued while disconnected |
+| | Stream | HTTP Push | MQTT | Meshtastic |
+| --- | --- | --- | --- | --- |
+| Server needed | No, managed by Sensor Logger Cloud | Yes, bring your own | Yes, bring your own broker | No, but you need a Meshtastic radio and a node to receive |
+| Works without internet | No | On a local network | On a local network | Yes, over a LoRa mesh |
+| Data sent | Every sample | Every sample | Every sample | Short summaries, position, annotations and Rule Engine notifications |
+| Live view | Mission Control in any browser | Build your own | Build your own | Messages and map in the Meshtastic apps |
+| Data after recording | Hourly zip files and API access | Whatever your server stores | Whatever your consumers store | Whatever the receiving node keeps |
+| Images | Optional | Optional | Optional | No |
+| Receive data on the phone | No | No | Yes, subscribe to topics and trigger Rules | No |
+| Connection drops | A few minutes buffered and sent later | Not buffered | Queued while disconnected | Not buffered |
 
 The local recording is always complete regardless of the method.
 
@@ -560,3 +562,89 @@ type AnnotationReading = {
   };
 };
 ```
+
+## Meshtastic Push
+
+From version 1.70, Sensor Logger can send data over a [Meshtastic](https://meshtastic.org) LoRa mesh while it records, with no internet, phone signal or server. The phone talks to a Meshtastic radio over Bluetooth, and the radio passes short messages across the mesh to a node you choose.
+
+LoRa is slow and shared, so this is not a stream of raw samples. Sensor Logger sends:
+
+| What | When | Meshtastic type |
+|---|---|---|
+| Sensor summary | Every Sensor Summary Interval | Text message |
+| Position | With each summary, if there is a location fix | Position packet |
+| Annotation | As soon as you add one by hand | Text message |
+| Rule Engine notification | When a rule sends a notification | Text message |
+
+The full recording is still saved on the phone as usual.
+
+### What You Need
+
+- A Meshtastic radio with Bluetooth, already working in the Meshtastic app.
+- A second node to receive the messages.
+- A Sensor Logger subscription.
+
+Any radio that runs Meshtastic works. Popular choices are the [Heltec LoRa 32](https://meshtastic.org/docs/hardware/devices/heltec-automation/lora32/), [LILYGO T-Beam](https://meshtastic.org/docs/hardware/devices/lilygo/tbeam/), [LILYGO T-Echo](https://meshtastic.org/docs/hardware/devices/lilygo/techo/), [RAK WisBlock](https://meshtastic.org/docs/hardware/devices/rak-wireless/wisblock/) and [SenseCAP T1000-E](https://meshtastic.org/docs/hardware/devices/seeed-studio/sensecap/card-tracker/). See the [Meshtastic hardware list](https://meshtastic.org/docs/hardware/devices/) and [getting started guide](https://meshtastic.org/docs/getting-started/), and buy the frequency band for your region.
+
+### Setup
+
+Open **Settings > Data Streaming > Meshtastic**.
+
+1. Turn on **Enable Meshtastic Push**.
+2. Tap **Scan for Radios**, then tap your radio to connect.
+3. Pick a **Recipient**. Use **Refresh Nodes** if it is missing.
+4. Tap **Test Message** and check that it arrives.
+5. Choose a **Sensor Summary Interval** (Off, 1m, 5m, 15m or 30m), and whether to **Send Annotations** and **Send Notifications**.
+
+Then start a recording. The Logger screen shows `Meshtastic Push (Last Sent 12:34)` as messages go out.
+
+### Message Format
+
+Everything is sent as a direct message to the recipient, never broadcast to a channel. Text messages are at most 200 bytes.
+
+**Sensor summary**
+
+```
+[12:34:56] 📍51.5007,-0.1246 75m 1.3m/s | hr:74 | acc:0.12(pk 2.4) | gyr:0.5 | baro:1013hPa | mic:-30dB | lux:120 | steps:1234 | bat:85% | hdg:274° | ori:r12,p-5,y115 | mag:47µT | grav:0.1,9.8,-0.3 | 842pts/9sens
+```
+
+| Field | Sensor | Value |
+|---|---|---|
+| `📍lat,lon alt spd` | Location | Latest fix: latitude, longitude, altitude (m), speed (m/s) |
+| `hr:` | Heart Rate | Latest, bpm |
+| `acc:mean(pk max)` | Accelerometer, or Total Acceleration if it is off | Mean and peak magnitude over the interval |
+| `gyr:` | Gyroscope | Peak rotation rate over the interval, rad/s |
+| `baro:` | Barometer | Latest pressure, hPa |
+| `mic:` | Microphone | Loudest level over the interval, dBFS |
+| `lux:` | Light | Latest, lux |
+| `steps:` | Pedometer | Latest step count |
+| `bat:` | Battery | Latest phone battery level, % |
+| `hdg:` | Compass | Latest magnetic bearing, degrees |
+| `ori:r,p,y` | Orientation | Latest roll, pitch, yaw, degrees |
+| `mag:` | Magnetometer | Latest field strength, µT |
+| `grav:x,y,z` | Gravity | Latest gravity vector |
+| `Npts/Msens` | All | Samples in the interval, and how many sensors sent them |
+
+A field appears only if its sensor is enabled and reported during the interval. If the message would be too long, fields are dropped from the end.
+
+**Annotation and Rule Engine notification**
+
+```
+[12:35:10 📍51.5007,-0.1246] Reached the summit
+[12:36:02 📍51.5007,-0.1246] 🔔 Fall detected: Check on them
+```
+
+- Only annotations you add by hand are sent. Annotations added by the Rule Engine are not, as a rule can add one on every sample. Use a notification action for rule alerts instead.
+- Notifications follow the Rule Engine's rate limit. Do not combine an Every Time rule with the Unrestricted rate limit, as it will flood the mesh.
+
+**Position**
+
+A standard `POSITION_APP` packet with latitude, longitude, altitude, time, speed and heading, so your node shows on the map in the recipient's Meshtastic app. Coordinate cloaking is applied first, and with **Drop** no location is sent at all.
+
+### Good to Know
+
+- **Delivery is not guaranteed.** "Last Sent" means the message reached your radio, not the recipient. Messages are not queued or retried, so one that comes due while the radio is off or out of range is lost.
+- **Privacy.** Text messages can only be read by the recipient once the two radios have exchanged keys. Positions are encrypted with the channel key only, so on the default public channel anyone in range can read them.
+- **Meshtastic app.** It can stay connected to the same radio on the same phone. If Sensor Logger cannot connect, disconnect the radio in the Meshtastic app first.
+- **Exported configuration.** The Meshtastic settings are included, except the paired radio, which stays on the phone.
+- **Incoming messages** are not supported yet. If receiving messages from the mesh as annotations would be useful to you, please [reach out](https://www.tszheichoi.com/sensor-logger-feedback).

@@ -569,6 +569,8 @@ Decoding with https://sensorlogger.mah.priv.at/sensorlogger expands this into th
 
 Documentation, schema and sample code for HTTP and MQTT streaming have been moved to https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md.
 
+> 💡: **New in Version 1.70**: Sensor Logger can send sensor summaries, your position, annotations and Rule Engine notifications over a [Meshtastic](https://meshtastic.org) LoRa mesh, with no internet or server. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md#meshtastic-push) for setup, hardware and the message format.
+
 ### Setting Up Server
 
 Instructions on various ways to setup a webserver can be found on https://github.com/tszheichoi/awesome-sensor-logger/blob/main/PUSHING.md.
