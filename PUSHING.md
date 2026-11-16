@@ -97,98 +97,102 @@ Thanks to [Harshad Joshi](https://github.com/hj91), you can find a javascript im
 #### Python Webserver
 If you prefer sticking with Python, here is an implementation using Plotly Dash to get you started. Dash is powered by Flask under the hood, and provides an easy way to set up a web server for real-time, interactive data visualisation. This code listens on the `/data` endpoint, filters only the values from the accelerometer and plots it. The `update_graph()` callback is triggered every `UPDATE_FREQ_MS`, and updates the plot with any accumulated measurements so far. You will have to customise this script yourself if you want to plot measurements from other sensors. 
 
-```
-import dash
-from dash.dependencies import Output, Input
-from dash import dcc, html
-from datetime import datetime
-import json
-import plotly.graph_objs as go
+```python
 from collections import deque
+from datetime import datetime
+import threading
+from dash import Dash, Input, Output, dcc, html
 from flask import Flask, request
+import plotly.graph_objs as go
 
 server = Flask(__name__)
-app = dash.Dash(__name__, server=server)
+app = Dash(__name__, server=server)
 
 MAX_DATA_POINTS = 1000
 UPDATE_FREQ_MS = 100
 
+lock = threading.Lock()
 time = deque(maxlen=MAX_DATA_POINTS)
 accel_x = deque(maxlen=MAX_DATA_POINTS)
 accel_y = deque(maxlen=MAX_DATA_POINTS)
 accel_z = deque(maxlen=MAX_DATA_POINTS)
 
 app.layout = html.Div(
-	[
-		dcc.Markdown(
-			children="""
-			# Live Sensor Readings
-			Streamed from Sensor Logger: tszheichoi.com/sensorlogger
-		"""
-		),
-		dcc.Graph(id="live_graph"),
-		dcc.Interval(id="counter", interval=UPDATE_FREQ_MS),
-	]
+    [
+        dcc.Markdown(
+            children="""
+            # Live Sensor Readings
+            Streamed from Sensor Logger: tszheichoi.com/sensorlogger
+        """
+        ),
+        dcc.Graph(id="live_graph"),
+        dcc.Interval(id="counter", interval=UPDATE_FREQ_MS),
+    ]
 )
 
 
 @app.callback(Output("live_graph", "figure"), Input("counter", "n_intervals"))
 def update_graph(_counter):
-	data = [
-		go.Scatter(x=list(time), y=list(d), name=name)
-		for d, name in zip([accel_x, accel_y, accel_z], ["X", "Y", "Z"])
-	]
+    with lock:
+        t = list(time)
+        xs = list(accel_x)
+        ys = list(accel_y)
+        zs = list(accel_z)
 
-	graph = {
-		"data": data,
-		"layout": go.Layout(
-			{
-				"xaxis": {"type": "date"},
-				"yaxis": {"title": "Acceleration ms<sup>-2</sup>"},
-			}
-		),
-	}
-	if (
-		len(time) > 0
-	):  #  cannot adjust plot ranges until there is at least one data point
-		graph["layout"]["xaxis"]["range"] = [min(time), max(time)]
-		graph["layout"]["yaxis"]["range"] = [
-			min(accel_x + accel_y + accel_z),
-			max(accel_x + accel_y + accel_z),
-		]
+    data = [
+        go.Scatter(x=t, y=d, name=name)
+        for d, name in zip([xs, ys, zs], ["X", "Y", "Z"])
+    ]
 
-	return graph
+    graph = {
+        "data": data,
+        "layout": go.Layout(
+            {
+                "xaxis": {"type": "date"},
+                "yaxis": {"title": "Acceleration ms<sup>-2</sup>"},
+            }
+        ),
+    }
+    if t:  # cannot adjust plot ranges until there is at least one data point
+        graph["layout"]["xaxis"]["range"] = [t[0], t[-1]]
+        graph["layout"]["yaxis"]["range"] = [
+            min(min(xs), min(ys), min(zs)),
+            max(max(xs), max(ys), max(zs)),
+        ]
+
+    return graph
 
 
 @server.route("/data", methods=["POST"])
 def data():  # listens to the data streamed from the sensor logger
-	if str(request.method) == "POST":
-		print(f'received data: {request.data}')
-		data = json.loads(request.data)
-		for d in data['payload']:
-			if (
-				d.get("name", None) == "accelerometer"
-			):  #  modify to access different sensors
-				ts = datetime.fromtimestamp(d["time"] / 1000000000)
-				if len(time) == 0 or ts > time[-1]:
-					time.append(ts)
-					# modify the following based on which sensor is accessed, log the raw json for guidance
-					accel_x.append(d["values"]["x"])
-					accel_y.append(d["values"]["y"])
-					accel_z.append(d["values"]["z"])
-	return "success"
+    payload = request.get_json(force=True, silent=True) or {}
+    with lock:
+        for d in payload.get("payload", []):
+            if d.get("name") == "accelerometer":  # modify to access different sensors
+                ts = datetime.fromtimestamp(d["time"] / 1_000_000_000)
+                if not time or ts > time[-1]:
+                    # modify the following based on which sensor is accessed, log the raw json for guidance
+                    values = d["values"]
+                    x, y, z = values["x"], values["y"], values["z"]
+                    time.append(ts)
+                    accel_x.append(x)
+                    accel_y.append(y)
+                    accel_z.append(z)
+    return "success"
 
 
 if __name__ == "__main__":
-	app.run(port=8000, host="0.0.0.0")
+    app.run(port=8000, host="0.0.0.0")
 ```
 
-Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the localhost of the device you are running the webserver on, you can, for example, do something like this in Python. 
+Run this Python script and visit `http://localhost:8000/` on your computer. Then you have to enter the correct Push URL in Sensor Logger on your phone under the settings page. To find out the LAN IP address of the device you are running the webserver on, you can, for example, do something like this in Python:
 
-```
+```python
 import socket
-hostname = socket.gethostname()
-print(socket.gethostbyname(hostname))
+
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+    s.connect(("8.8.8.8", 80))
+    print(s.getsockname()[0])
 ```
 
 For example, if it returns `192.168.1.168`, then you want to enter `http://192.168.1.168:8000/data` in Sensor Logger. Use the "Tap to Test Pushing" button to test whether Sensor Logger can properly reach the endpoint. If you get a 200 response, then you are good to go! Start a recording as usual, and you should begin to see data being streamed in:
@@ -282,11 +286,11 @@ A simple web based demo app is available at https://github.com/tszheichoi/sensor
 
 ### Consuming From the Broker
 Once your measurements have reached the broker, it is up to you how to use those messages. Typically, you would set up another client to consume these messages. As an example, you can do this via Python. 
-```
+```bash
 pip install paho-mqtt
 ```
 Then you can adapt the following Python script for your use cases. 
-```
+```python
 import paho.mqtt.client as mqtt
 
 BROKER_URL = "your_broker.com"
@@ -294,8 +298,8 @@ BROKER_PORT = 8884
 USERNAME = "your_username"
 PASSWORD = "your_password"
 
-def on_connect(*args):
-    print(f"Connected with result code {args[3]}")
+def on_connect(client, userdata, flags, reason_code, properties):
+    print(f"Connected with result code {reason_code}")
     client.subscribe("sensor-logger")
 
 def on_message(client, userdata, msg):
@@ -305,7 +309,7 @@ client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, transport="websockets")
 client.username_pw_set(username=USERNAME, password=PASSWORD)
 client.on_connect = on_connect
 client.on_message = on_message
-client.tls_set(tls_version=mqtt.ssl.PROTOCOL_TLSv1_2)
+client.tls_set()
 client.connect(BROKER_URL, BROKER_PORT, 60)
 client.loop_forever()
 ```
@@ -350,12 +354,12 @@ By default, notifications from a Rule are limited to one every 60 seconds (5 sec
 
 Regardless of whether you are using MQTT or HTTP Push, you can use the following Typescript definitions.  
 
-```js
+```ts
 type Message = {
   messageId: number;
   sessionId: string;
   deviceId: string;
-  userId: string;
+  userId?: string;
   payload: SensorReading[];
 };
 
@@ -391,7 +395,7 @@ type LocationReading = {
     speedAccuracy: number;
     bearingAccuracy: number;
     latitude: number;
-    altitudeAboveMeanSeaLevel: number;
+    altitudeAboveMeanSeaLevel?: number;
     bearing: number;
     horizontalAccuracy: number;
     verticalAccuracy: number;
@@ -408,8 +412,7 @@ type XYZReading = {
     | "magnetometer"
     | "gyroscope"
     | "accelerometer"
-    | "gravity"
-    | "magnetometer";
+    | "gravity";
   time: number;
   values: {
     z: number;

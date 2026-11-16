@@ -73,7 +73,7 @@ For a page the user looks at, such as a game or a live plot. Opening it as a loc
       conn.send({ type: "start", sensors: ["accelerometer", "orientation"] }),
     );
     conn.on("data", (msg) => {
-      if (msg.sensor) console.log(msg);
+      if (msg?.sensor) console.log(msg);
     });
   });
 </script>
@@ -104,10 +104,16 @@ import QRCode from "qrcode";
 Object.assign(globalThis, webrtc);
 // PeerJS checks for WebRTC on load, so import it after the polyfill
 const { Peer } = (await import("peerjs")).default;
-const ALLOWED = "accelerometer,gyroscope,orientation,magnetometer,barometer";
-const SENSORS = process.argv[2].split(",");
-if (!SENSORS.every((s) => ALLOWED.split(",").includes(s)))
-  throw new Error(`sensors: ${ALLOWED}`);
+const ALLOWED = new Set([
+  "accelerometer",
+  "gyroscope",
+  "orientation",
+  "magnetometer",
+  "barometer",
+]);
+const SENSORS = (process.argv[2] ?? "").split(",").filter(Boolean);
+if (!SENSORS.length || !SENSORS.every((s) => ALLOWED.has(s)))
+  throw new Error(`sensors: ${[...ALLOWED].join(",")}`);
 const phones = {}; // "p1" -> connection
 let count = 0;
 
@@ -127,6 +133,7 @@ peer.on("connection", (conn) => {
   });
   conn.on("data", (msg) => console.log(JSON.stringify({ phone, ...msg })));
   conn.on("close", () => delete phones[phone]);
+  conn.on("error", () => delete phones[phone]);
 });
 
 // POST /send[?phone=p1] with a command as the body
@@ -134,7 +141,9 @@ http
   .createServer(async (req, res) => {
     const url = new URL(req.url, "http://localhost");
     if (url.pathname !== "/send") return res.writeHead(404).end();
+    if (req.method !== "POST") return res.writeHead(405).end();
     try {
+      req.setEncoding("utf8");
       let body = "";
       for await (const chunk of req) body += chunk;
       const msg = JSON.parse(body);
