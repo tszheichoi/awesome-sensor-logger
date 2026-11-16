@@ -55,7 +55,7 @@ The orientation is derived from the rotation rate and references the same axes. 
 
 Orientation is reported using a Tait‑Bryan Z‑X′‑Y″ (yaw → pitch → roll) intrinsic rotation sequence, meaning the device is first rotated around the z axis (yaw), then the rotated x axis (pitch), and finally the twice-rotated y axis (roll). 
 
-Additionally, orientation has an arbitrary offset, as it is an integrated value from the rotation rate (i.e. an integration constant). For this, Sensor Logger uses the `x-north-z-vertical` reference frame, meaning the `yaw` value is 0 when the `x` axis is aligned with the north (i.e. the angle between the device's `y` axis and the north). 
+Additionally, orientation has an arbitrary offset, as it is an integrated value from the rotation rate (i.e. an integration constant). For this, Sensor Logger uses the `x-north-z-vertical` reference frame, meaning the `yaw` value is 0 when the `x` axis is aligned with the north (i.e. the angle between the device's `x` axis and the north). 
 
 ### Differences Between iOS and Android
 Due to legacy reasons and backwards compatibility reasons, there are some key differences in interpreting the yaw value:

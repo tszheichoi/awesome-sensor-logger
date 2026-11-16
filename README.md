@@ -230,17 +230,17 @@ Sensor Logger gives you the option to log raw, uncalibrated data from the accele
 
 Use `pandas` to import `.csv` and convert timestamps. Use Plotly to visualise data interactively. Here, we show the acceleration experienced by a user during a roller coaster ride.
 
-```
+```python
 import pandas as pd
 import plotly.graph_objects as go
 
 df = pd.read_csv('Accelerometer.csv')
-df.index = pd.to_datetime(df['time'], unit = 'ns')
+df.index = pd.to_datetime(df['time'], unit='ns')
 
 fig = go.Figure()
 
 for axis in ['x', 'y', 'z']:
-    fig.add_trace(go.Scatter(x = df.index, y = df[axis], name = axis))
+    fig.add_trace(go.Scatter(x=df.index, y=df[axis], name=axis))
 
 fig.show()
 ```
@@ -249,7 +249,7 @@ fig.show()
 
 Some sensors may also report uncertainties, which is important for analysis and multi-sensor fusion. For example, the speed from GPS has associated errors.
 
-```
+```python
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -270,16 +270,16 @@ fig.show()
 
 Real-world measurements are never evenly sampled. It is important to double-check before any analysis. For example, this particular GPS location data recorded on an iPhone has `avg_sampling_rate` of 0.93Hz, but the measurement gap ranges between 0.99 to 12 seconds.
 
-```
+```python
 import pandas as pd
 import numpy as np
 
 df = pd.read_csv('Location.csv')
-consecutive_deltas = df['seconds_elapsed'].diff()
+consecutive_deltas = df['time'].diff() / 1e9
 avg_sampling_rate = 1 / np.mean(consecutive_deltas)
 shortest_gap = np.min(consecutive_deltas)
 maximum_gap = np.max(consecutive_deltas)
-total_num_of_samples = len(df.index)
+total_num_of_samples = len(df)
 ```
 
 To resample your data, for example, to minute periods:
@@ -585,7 +585,7 @@ Some recently published papers citing / using Sensor Logger:
 - Degambur, L.-N. (2024). Replay attack prevention in decentralised contact tracing: A blockchain-based approach. OALib, 11(02), 1–17. https://doi.org/10.4236/oalib.1111179
 - Xiping Sun, Jing Chen, Cong Wu, Kun He, Haozhe Xu, Yebo Feng, Ruiying Du, & Xianhao Chen. (2024). MagLive: Near-Field Magnetic Sensing-Based Voice Liveness Detection on Smartphones.
 - Gadelho, J., & Guedes Soares, C. (2024). Experimental Motion Measurements of a Floating Dual Chamber OWC Using the Smartphone Sensors as a Low Budget Solution. In Innovations in Renewable Energies Offshore Proceedings of the 6th International Conference on Renewable Energies Offshore.
-- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU Time-series data. Journal of Machine Intelligence and Data Science, 5. https://doi.org/10.11159/jmids.2024.007
+- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://doi.org/10.11159/jmids.2024.007
 - Zhang, J., Lau, M. C., & Zhu, Z. (2024). Advanced Exercise Classification with a hybrid CNN-GRU model: Utilising IMU data from cell phones. International Conference of Control, Dynamic Systems, and Robotics. https://doi.org/10.11159/cdsr24.115
 - Lee, M. J., Lin, J., & Hsu, L. T. (2024). Exploring the Feasibility of Automated Data Standardization using Large Language Models for Seamless Positioning. arXiv preprint arXiv:2408.12080.
 - Vallivaara, I., Dong, Y., & Arslan, T. (2024). Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM. arXiv preprint arXiv:2409.01242.
@@ -593,7 +593,6 @@ Some recently published papers citing / using Sensor Logger:
 - Yonetani, R., Baba, J., & Furukawa, Y. (2024, October). RetailOpt: Opt-In, Easy-to-Deploy Trajectory Estimation from Smartphone Motion Data and Retail Facility Information. In Proceedings of the 2024 ACM International Symposium on Wearable Computers (pp. 125-132).
 - Lozano, Wilson and Neal, Tempestt, "Efficient Smartphone Sensor Analysis for Behavioral Profiling in Transportation Research: A Case Study of Driver and Passenger Classification" (2024). Research Reports. 51. https://digitalcommons.usf.edu/cutr_nicr/51
 - Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
-- Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
 - U.S. Food & Drug Administration, Center for Devices and Radiological Health (2024). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250.
 - Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop for Computing & Advanced Localization (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf

@@ -58,7 +58,7 @@ epoch_ms(frame) = filename_ms + (pts_time - first_pts) * 1000
 ```
 
 ```bash
-ffprobe -v error -select_streams v:0 -show_entries frame=pts_time -of csv=p=0 file.mp4
+ffprobe -v error -select_streams v:0 -show_entries frame=pts_time -of default=noprint_wrappers=1:nokey=1 file.mp4
 ```
 
 - Subtract the first PTS, because it is not always zero.
