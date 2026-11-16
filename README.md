@@ -481,11 +481,11 @@ def remove_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
 
 Michael Haberler has helpfully put together a command-line tool `sensorlogger-utils` to take the JSON exported from Sensor Logger and convert it to GPX or InfluxDB formats: https://github.com/mhaberler/sensorlogger-util
 
-```
-python sensorlogger -g <json file>
+```bash
+python sensorlogger.py -g <json file>
 ```
 
-```
+```bash
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
 
