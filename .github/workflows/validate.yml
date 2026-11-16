@@ -1,0 +1,155 @@
+name: Validate Translations & Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate translation JSONs, code snippets, and sampling tables
+        run: |
+          python3 - <<'PY'
+          import ast
+          import glob
+          import json
+          import math
+          import os
+          import re
+          import sys
+
+          errors = []
+
+          def load_json_no_duplicates(path: str):
+              duplicates = []
+              def hook(pairs):
+                  obj = {}
+                  for k, v in pairs:
+                      if k in obj:
+                          duplicates.append(k)
+                      obj[k] = v
+                  return obj
+              with open(path, encoding="utf-8") as f:
+                  data = json.load(f, object_pairs_hook=hook)
+              if duplicates:
+                  errors.append(f"{path}: duplicate JSON keys: {duplicates}")
+              return data
+
+          def flatten(obj, prefix: str = ""):
+              out = {}
+              for k, v in obj.items():
+                  key = f"{prefix}.{k}" if prefix else k
+                  if isinstance(v, dict):
+                      out.update(flatten(v, key))
+                  else:
+                      out[key] = v
+              return out
+
+          # 1. Validate translations/*.json against translations/en.json
+          en_path = "translations/en.json"
+          en_flat = flatten(load_json_no_duplicates(en_path))
+          ph_re = re.compile(r"%\{[^}]+\}|\{\{[^}]+\}\}")
+          unclosed_ph_re = re.compile(r"%\{[^}]*$|\{\{[^}]*$")
+          optional_phs = {"%{plural}"}
+
+          for path in sorted(glob.glob("translations/*.json")):
+              if os.path.normpath(path) == os.path.normpath(en_path):
+                  continue
+              try:
+                  data = load_json_no_duplicates(path)
+              except Exception as exc:
+                  errors.append(f"{path}: invalid JSON: {exc}")
+                  continue
+
+              flat = flatten(data)
+              missing = sorted(set(en_flat) - set(flat))
+              extra = sorted(set(flat) - set(en_flat))
+              if missing:
+                  errors.append(f"{path}: missing {len(missing)} key(s), e.g. {missing[:5]}")
+              if extra:
+                  errors.append(f"{path}: extra {len(extra)} key(s), e.g. {extra[:5]}")
+
+              for k in sorted(set(en_flat) & set(flat)):
+                  en_val = en_flat[k]
+                  tr_val = flat[k]
+                  if not isinstance(tr_val, str):
+                      errors.append(f"{path}:{k}: expected string, got {type(tr_val).__name__}")
+                      continue
+                  if en_val.strip() and not tr_val.strip():
+                      errors.append(f"{path}:{k}: translation is empty")
+                  if unclosed_ph_re.search(tr_val):
+                      errors.append(f"{path}:{k}: unclosed interpolation placeholder in {tr_val!r}")
+                  en_phs = set(ph_re.findall(en_val))
+                  tr_phs = set(ph_re.findall(tr_val))
+                  unknown_phs = sorted(tr_phs - en_phs)
+                  missing_phs = sorted((en_phs - optional_phs) - tr_phs)
+                  if unknown_phs:
+                      errors.append(f"{path}:{k}: unknown placeholder(s) {unknown_phs} (expected {sorted(en_phs)})")
+                  if missing_phs:
+                      errors.append(f"{path}:{k}: missing placeholder(s) {missing_phs}")
+
+          # 2. Syntax-check fenced Python and JSON blocks across Markdown docs
+          fence_re = re.compile(r"^```([a-zA-Z0-9_-]*)\r?\n(.*?)^```", re.MULTILINE | re.DOTALL)
+          for md_path in sorted(glob.glob("*.md") + glob.glob("translations/*.md")):
+              with open(md_path, encoding="utf-8") as f:
+                  text = f.read()
+              for match in fence_re.finditer(text):
+                  lang = match.group(1).strip().lower()
+                  code = match.group(2)
+                  line_no = text.count("\n", 0, match.start()) + 1
+                  if lang in ("python", "py"):
+                      try:
+                          ast.parse(code, filename=md_path)
+                      except SyntaxError as exc:
+                          errors.append(f"{md_path}:{line_no}: invalid Python snippet: {exc}")
+                  elif lang == "json":
+                      try:
+                          json.loads(code)
+                      except Exception as exc:
+                          errors.append(f"{md_path}:{line_no}: invalid JSON snippet: {exc}")
+
+          # 3. Validate SAMPLING.md table structure & numeric sanity
+          if os.path.exists("SAMPLING.md"):
+              section = None
+              seen_models = {}
+              with open("SAMPLING.md", encoding="utf-8") as f:
+                  for idx, line in enumerate(f, 1):
+                      if line.startswith("### "):
+                          section = line[4:].strip()
+                          seen_models[section] = set()
+                      elif (
+                          section
+                          and line.startswith("|")
+                          and not line.startswith("| Device Model")
+                          and not re.match(r"^\|\s*-+", line)
+                      ):
+                          cols = [c.strip() for c in line.strip().strip("|").split("|")]
+                          if len(cols) != 3:
+                              errors.append(f"SAMPLING.md:{idx}: expected 3 columns, got {len(cols)}")
+                              continue
+                          model, hz_s, var_s = cols
+                          if model in seen_models[section]:
+                              errors.append(f"SAMPLING.md:{idx}: duplicate model {model!r} in {section}")
+                          seen_models[section].add(model)
+                          try:
+                              hz, var = float(hz_s), float(var_s)
+                              if not (math.isfinite(hz) and math.isfinite(var) and hz > 0 and var >= 0):
+                                  errors.append(f"SAMPLING.md:{idx}: out-of-range metrics ({hz}, {var})")
+                          except ValueError:
+                              errors.append(f"SAMPLING.md:{idx}: non-numeric metrics ({hz_s!r}, {var_s!r})")
+
+          if errors:
+              print("Validation failed:", file=sys.stderr)
+              for err in errors:
+                  print(f"  - {err}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"All checks passed ({len(en_flat)} translation keys across {len(glob.glob('translations/*.json'))} locales).")
+          PY
