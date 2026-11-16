@@ -42,18 +42,18 @@ With these three pieces of information, you can then download the uploaded recor
 
 Once downloaded, you can extract and analyze the data as needed and output either a markdown document or PDF, which you can POST back to the users via `https://sensorlogger.app/api/study/webhook/v1?studyId={studyId}&uploadId={uploadId}` with header
 
-```
+```python
 {
-    "Authorization": secret_code,
+    "Authorization": secretCode,
     "Content-Type": "text/markdown"
-},
+}
 ```
 or
-```
+```python
 {
-    "Authorization": secret_code,
+    "Authorization": secretCode,
     "Content-Type": "application/pdf"
-},
+}
 ```
 depending on whether you are posting the results back as markdown or PDF, respectively. 
 
