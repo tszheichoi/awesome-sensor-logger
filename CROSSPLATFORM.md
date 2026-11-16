@@ -1,7 +1,7 @@
 # Cross-Platform Differences & Standardisation
 Sensor Logger is a cross-platform app available on both iOS (iPhone, Apple Watch & AirPods) and Android. Whilst the user experience of the application is largely the same, some units and reference frame definitions are different. 
 
-- [Cross-Platform Differences](#cross-platform-differences)
+- [Cross-Platform Differences & Standardisation](#cross-platform-differences--standardisation)
   * [Coordinate Differences](#coordinate-differences)
     + [Acceleration](#acceleration)
     + [Gravity](#gravity)

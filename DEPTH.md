@@ -25,7 +25,6 @@ Then you can extract accordingly:
 import subprocess
 import numpy as np
 from PIL import Image
-import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -39,15 +38,15 @@ with open(output_file, 'wb') as out_f:
         check=True
     )
 
-original_img = Image.open(input_file)
-depth_img = Image.open(output_file)
+with Image.open(input_file) as original_img:
+    original_array = np.array(original_img)
 
-original_array = np.array(original_img)
-depth_array = np.array(depth_img)
+with Image.open(output_file) as depth_img:
+    depth_array = np.array(depth_img)
 
 fig = make_subplots(rows=1, cols=2, subplot_titles=["Original Image", "Depth Map"])
 fig.add_trace(go.Image(z=original_array), row=1, col=1)
-fig.add_trace(go.Heatmap(z=np.fliplr(np.rot90(depth_array, 2)), colorscale="gray", showscale=False), row=1, col=2)
+fig.add_trace(go.Heatmap(z=np.flipud(depth_array), colorscale="gray", showscale=False), row=1, col=2)
 fig.show()
 ```
 <img width="1135" alt="Screenshot 2025-02-08 at 18 13 08" src="https://github.com/user-attachments/assets/e1f8c1fb-e8ee-4bd2-982e-84d8f784449d" />

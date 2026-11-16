@@ -81,11 +81,19 @@ import pandas as pd
 import json
 
 df = pd.read_csv('my_recording_questionnaires.csv')
-df['Questionnaire'] = df['Questionnaire'].apply(json.loads)
 
-for index, row in df.iterrows():
-    for key, value in row['Questionnaire'].items():
-        df.at[index, key] = json.dumps(value) if isinstance(value, list) else value
+
+def parse_questionnaire(raw):
+    if pd.isna(raw):
+        return {}
+    return {
+        k: json.dumps(v) if isinstance(v, list) else v
+        for k, v in json.loads(raw).items()
+    }
+
+
+unpacked = pd.json_normalize(df['Questionnaire'].map(parse_questionnaire))
+df = pd.concat([df.drop(columns=['Questionnaire']), unpacked], axis=1)
 ```
 
 This yields a Dataframe of the following structure.
@@ -132,7 +140,7 @@ All signatures are stored as vector strokes, and the recommended way to view and
 
 The structure of the value field for a question of signature type is a list of lists representing each distinct stroke. For each stroke, it is an array of two values representing the `x` and `y` coordinates. Divide the integers by 1000 to get the relative coordinates. Note that, following convention, the origin (`(0, 0)`, after dividing by 1000) is at the upper left-hand corner, so the y-axis may be reversed. 
 
-You can adapt the following script for your needs -- it iterates over the rows and plots out each signature, assuming the signature field is named `signature_field` 
+You can adapt the following script for your needs -- it reads `StudyMetadata.json` and plots the strokes of a signature question:
 
 ```python
 import json
@@ -142,14 +150,19 @@ with open('/work/StudyMetadata.json', 'r') as f:
     study_metadata = json.load(f)
 
 question = study_metadata[0] # array of questions, take the first one
-signature_path = question['value'] # we know this is a signature
+signature_path = question['value'] # we know this is a signature
 
 fig = go.Figure()
 for stroke in signature_path:
-    x_values = [point[0] * 1000 for point in stroke]
-    y_values = [point[1] * 1000 for point in stroke]
+    x_values = [point[0] / 1000 for point in stroke]
+    y_values = [point[1] / 1000 for point in stroke]
     fig.add_trace(go.Scatter(x=x_values, y=y_values, mode='lines', showlegend=False))
-fig.update_layout(yaxis_autorange='reversed', xaxis_visible=False, yaxis_visible=False)
+fig.update_layout(
+    yaxis_autorange='reversed',
+    yaxis_scaleanchor='x',
+    xaxis_visible=False,
+    yaxis_visible=False,
+)
 fig.show()
 ```
 
