@@ -89,7 +89,7 @@ See the [Coordinates Reference](https://github.com/tszheichoi/awesome-sensor-log
 
 ## Microphone
 
-- `dBFS` is [decibels relative to full scale](https://en.wikipedia.org/wiki/DBFS) and is dimensionless.
+- `dBFS` is [decibels relative to full scale](https://en.wikipedia.org/wiki/DBFS) and is dimensionless (`0` dBFS is full scale; `-160` dBFS is the digital floor / null value reported when no audio signal is received).
 
 For more information about the audio file, see https://github.com/tszheichoi/awesome-sensor-logger/blob/main/MICROPHONE.md
 
@@ -141,6 +141,9 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 
 > 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences.
 
+- **Attitude reference frame**: AirPods (`CMHeadphoneMotionManager`) have no magnetometer, so `pitch` and `roll` are referenced to gravity, whereas `yaw` (and the quaternion heading) starts from an arbitrary initial orientation and drifts over time. Do not compare absolute `yaw` from `Headphone.csv` directly against north-referenced phone `Orientation.csv` or watch `WristMotion.csv`.
+- **iOS audio limitation**: Due to an iOS system limitation, AirPods `Headphone` motion data cannot be recorded simultaneously with `Microphone` audio recording on the same iPhone. See [MICROPHONE.md](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/MICROPHONE.md#simultaneous-airpods-motion-headphone-and-audio-on-ios).
+
 ## Heartrate
 
 - `bpm` in beats per minute.
@@ -154,6 +157,8 @@ For more information about the audio file, see https://github.com/tszheichoi/awe
 - `pitch`, `roll` and `yaw`, in radians. (New since version 1.44)
 
 > 💡: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ removes all platform-dependent units and coordinate systems differences.
+
+- **Attitude reference frame**: On Apple Watch, attitude is estimated independently on the watch (`CMMotionManager` with `xTrueNorthZVertical`) using the watch's own IMU and magnetometer rather than sharing the iPhone's filter state, so a few degrees of relative `yaw` offset or drift between `WristMotion.csv` and `Orientation.csv` is expected.
 
 ## WatchBarometer
 

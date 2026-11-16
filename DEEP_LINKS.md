@@ -115,3 +115,11 @@ Combine deep links for more powerful automations:
 - **Lab experiment**: NFC tag at each station → `annotate/station_1`, `annotate/station_2`, etc.
 - **Transportation study**: Shortcuts widget with buttons for "Bus", "Train", "Walk", "Car" — each opens `annotate/bus`, etc.
 - **Daily routine**: Time-of-day automation at 8am → `start`, at 6pm → `stop`
+
+### Remote & Hardware Triggers (Arduino, Microcontrollers, Scripts)
+
+Deep links (`sensorlogger://start`, `sensorlogger://stop`, `sensorlogger://boot`, `sensorlogger://config/{code}`) navigate the app to the foreground and are designed for on-device automation (iOS Shortcuts, Action Button, Back Tap, NFC tags, Android Tasker). Due to mobile OS background restrictions, deep links cannot reliably start a new recording silently while the phone is locked or in the background.
+
+If you want to control or annotate a session wirelessly from external hardware (such as an Arduino, ESP32, or Raspberry Pi over Wi-Fi) or a remote server:
+1. Start the recording session on the phone beforehand.
+2. Configure **MQTT Subscription** and **Rules Driven by MQTT** (see [PUSHING.md](PUSHING.md#rules-driven-by-mqtt)) so messages published by your microcontroller or script pause/resume logging, record templated annotations, or trigger alerts in real time.

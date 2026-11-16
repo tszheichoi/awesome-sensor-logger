@@ -67,3 +67,13 @@ Due to legacy reasons and backwards compatibility reasons, there are some key di
 Further, on Android, there are additional Orientations you can log with various trade-offs. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/ORIENTATION.md. 
 
 > 💡: **New in Version 1.29**: Toggling **Standardise Units & Frames** under _Settings > Sensor Configuration_ will eliminate 2 and 3 by automatically converting values logged on iOS to the Android convention. See [this](https://github.com/tszheichoi/awesome-sensor-logger/blob/main/CROSSPLATFORM.md) for more information. 
+
+### Multi-Device Attitude Reference Frames (iPhone, Apple Watch & AirPods)
+
+While the device-local `x`, `y`, and `z` axes follow a consistent convention across iPhone, Apple Watch, and AirPods, **each device initializes and maintains its own world attitude estimate independently**:
+
+- **iPhone (`Orientation.csv`)**: Uses the phone's `CMMotionManager` with the `xTrueNorthZVertical` reference frame.
+- **Apple Watch (`WristMotion.csv`)**: Runs its own `CMMotionManager` filter on the watch with `xTrueNorthZVertical` using the watch's onboard magnetometer. Because the phone and watch filters are not cross-registered (and nearby device or strap magnets can perturb local magnetic fields), a few degrees of relative `yaw` difference or slow drift between rigidly mounted devices is expected.
+- **AirPods (`Headphone.csv`)**: Uses `CMHeadphoneMotionManager`. AirPods have no magnetometer, so `pitch` and `roll` are referenced to gravity, whereas `yaw` has an arbitrary initial origin and drifts over time.
+
+If you require tight relative orientation across multiple Apple devices, fuse their `Gravity` vectors (which share a drift-free vertical reference) with short-window `Gyroscope` integration rather than comparing absolute `yaw` or raw world-frame quaternions directly.
