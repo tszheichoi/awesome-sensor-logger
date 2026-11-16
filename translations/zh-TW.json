@@ -1171,7 +1171,7 @@
     "microphoneConfiguration": "麥克風配置",
     "accelerometer": {
       "subtitle": "線性加速度",
-      "description": "測量裝置座標系中的加速度。重力的影響已被移除。此後處理由作業系統執行，而非本應用程式。當可用時，將記錄一個名為總加速度的附加檔案，其中包含線性加速度和重力加速度矢量的總和。",
+      "description": "測量裝置座標系中的加速度。重力的影響已被移除。此後處理由作業系統執行，而非本應用程式。當可用時，將記錄一個名為 TotalAcceleration 的附加檔案，其中包含線性加速度和重力加速度矢量的總和。",
       "units": "以m/s²報告。始終在裝置座標系(x, y, z)中。假設g為9.80665m/s²。"
     },
     "gravity": {
@@ -1204,7 +1204,7 @@
     },
     "barometer": {
       "subtitle": "海拔和壓力",
-      "description": "測量海拔以上的氣壓高度。",
+      "description": "測量大氣壓力與相對高度變化。",
       "units": "壓力以毫巴報告，相對高度以米為單位報告，自記錄開始以來。"
     },
     "location": {
@@ -1295,7 +1295,7 @@
     },
     "headphone": {
       "subtitle": "AirPods 移動",
-      "description": "記錄來自AirPods無線藍牙耳塞的運動讀數。您可以將其用於頭部追蹤等應用。這包括加速度(x, y和z)、重力矢量(x, y和z)、旋轉速率(x, y和z)和姿態。由於限制，一次只有一個耳塞記錄運動數據。活動耳塞由sensorLocation字段指示。",
+      "description": "記錄來自AirPods無線藍牙耳塞的運動讀數。您可以將其用於頭部追蹤等應用。這包括加速度(x, y和z)、重力矢量(x, y和z)、旋轉速率(x, y和z)和姿態。由於限制，一次只有一個耳塞記錄運動數據。活動耳塞由devicelocation字段指示。",
       "frequency": "不可配置且可變，最新型號最高25Hz，較舊型號15Hz。",
       "units": "加速度以標準重力 (g) 報告，而重力向量已經是 m/s²，因此兩者不同。啟用「標準化單位和座標系」後，加速度也將轉換為 m/s²，使兩者與手機一致。所有其他值與手機上相應感測器相同。",
       "warning": "您必須佩戴配對的AirPods，您可以同時佩戴兩個或只佩戴一個耳塞。如果您在AirPods設定中關閉'自動耳朵檢測'，只要它們連接到您的手機，就可以在不在耳朵中時記錄AirPods的運動。"
@@ -1334,7 +1334,7 @@
       "subtitle": "步行、跑步、駕駛",
       "description": "追蹤自記錄會話開始以來的運動活動，如步行、跑步、騎自行車或駕駛。這是由作業系統估算的，而不是Sensor Logger。",
       "frequency": "事件驅動，這意味著只有在活動發生變化時才會記錄新數據。不可配置。",
-      "units": "活動類型可以是步行、跑步、騎自行車、汽車、靜止、傾斜或未知之一。置信度可以是低、中、高或未知之一。"
+      "units": "活動類型可以是 walking、running、cycling、automotive、stationary、tilting 或 unknown 之一。信賴度可以是 low、medium、high 或 unknown 之一。"
     },
     "bluetooth": {
       "subtitle": "所有附近裝置",

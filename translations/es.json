@@ -1112,7 +1112,7 @@
     "microphoneConfiguration": "Configuración de micrófono",
     "accelerometer": {
       "subtitle": "Aceleración lineal",
-      "description": "Mide la aceleración en el sistema de coordenadas del dispositivo. Se ha eliminado la influencia de la gravedad. Este post-procesamiento lo realiza el sistema operativo, no esta aplicación. Cuando está disponible, se registra un archivo adicional llamado Aceleración Total, que contiene la suma de la aceleración lineal y el vector de aceleración gravitacional.",
+      "description": "Mide la aceleración en el sistema de coordenadas del dispositivo. Se ha eliminado la influencia de la gravedad. Este post-procesamiento lo realiza el sistema operativo, no esta aplicación. Cuando está disponible, se registra un archivo adicional llamado TotalAcceleration, que contiene la suma de la aceleración lineal y el vector de aceleración gravitacional.",
       "units": "Se reporta en m/s². Siempre en el sistema de coordenadas del dispositivo (x, y, z). Asume que g es 9.80665m/s²."
     },
     "gravity": {
@@ -1145,7 +1145,7 @@
     },
     "barometer": {
       "subtitle": "Altitud y presión",
-      "description": "Mide la altitud barométrica sobre el nivel del mar.",
+      "description": "Mide la presión atmosférica y los cambios de altitud relativa.",
       "units": "La presión se reporta en mbar, y la altitud relativa se reporta en metros desde el inicio de la grabación."
     },
     "location": {
@@ -1218,7 +1218,7 @@
       "subtitle": "Audio y nivel",
       "description": "Devuelve una grabación de audio que está sincronizada con marca de tiempo con otras mediciones. También devuelve la medida de volumen en dBFS (Decibelios relativos a escala completa), donde el nivel de 0 dBFS es el nivel digital máximo posible. Consulte wikipedia.org/wiki/DBFS para obtener más información.",
       "frequency": "Puedes cambiar la compresión entre con pérdida y sin pérdida utilizando el ícono de engranaje junto al botón Iniciar grabación. La frecuencia de muestreo para el volumen no se puede ajustar.",
-      "units": "Volumen en dbFS. El audio está en .mp4, la tasa de muestreo varía según la configuración.",
+      "units": "Volumen en dBFS. El audio está en .mp4, la tasa de muestreo varía según la configuración.",
       "warning": "Ten en cuenta que Sensor Logger siempre usa el micrófono de tu teléfono, no de ningún auricular conectado."
     },
     "light": {
@@ -1236,7 +1236,7 @@
     },
     "headphone": {
       "subtitle": "Movimiento de AirPods",
-      "description": "Registra lecturas de movimiento de tus auriculares Bluetooth inalámbricos AirPods. Puedes usar esto para aplicaciones como seguimiento de cabeza. Esto incluye la aceleración (en x, y y z), el vector de gravedad (en x, y y z), la tasa de rotación (en x, y y z) y la actitud. Debido a limitaciones, solo un auricular registra datos de movimiento a la vez. El auricular activo está indicado por el campo sensorLocation.",
+      "description": "Registra lecturas de movimiento de tus auriculares Bluetooth inalámbricos AirPods. Puedes usar esto para aplicaciones como seguimiento de cabeza. Esto incluye la aceleración (en x, y y z), el vector de gravedad (en x, y y z), la tasa de rotación (en x, y y z) y la actitud. Debido a limitaciones, solo un auricular registra datos de movimiento a la vez. El auricular activo está indicado por el campo devicelocation.",
       "frequency": "No configurable y variable, hasta 25Hz en los modelos más recientes y 15Hz en modelos más antiguos.",
       "units": "La aceleración se reporta en gravedad estándar (g) mientras que el vector de gravedad ya está en m/s², por lo que ambos difieren. Cuando \"Estandarizar Unidades y Marcos\" está activado, la aceleración también se convierte a m/s² para que ambos coincidan con el teléfono. Todos los demás valores coinciden con los sensores correspondientes en el teléfono.",
       "warning": "Debes estar usando tus AirPods emparejados; puedes usar ambos o solo uno de los auriculares. Si desactivas 'Detección automática de oído' en la configuración de AirPods, es posible registrar el movimiento de los AirPods cuando no están en tus oídos siempre que estén conectados a tu teléfono."
@@ -1263,7 +1263,7 @@
       "subtitle": "Tipo y calidad de red",
       "description": "Reporta información sobre el tipo de conexión de red y su calidad. Esto incluye el tipo de red (por ejemplo, WiFi, celular) y más. Esto también podría usarse como un proxy para la ubicación del dispositivo, especialmente si el sensor GPS no está disponible.",
       "frequency": "Muestras a 2Hz, no configurable.",
-      "units": "El tipo puede ser uno de ninguno, desconocido, celular, wifi, Bluetooth, ethernet, wimax, vpn u otro. La fuerza es un número entre 0 y 100. La dirección IP es la dirección IP externa. Puede ser IPv4 o IPv6. La frecuencia es la frecuencia de red. Por ejemplo, 2.4GHz devolverá 2457. La generación celular puede ser una de 2g, 3g, 4g, 5g o nula."
+      "units": "El tipo puede ser uno de none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn u other. La fuerza es un número entre 0 y 100. La dirección IP es la dirección IP externa. Puede ser IPv4 o IPv6. La frecuencia es la frecuencia de red. Por ejemplo, 2.4GHz devolverá 2457. La generación celular puede ser una de 2g, 3g, 4g, 5g o null."
     },
     "wifi": {
       "subtitle": "Redes cercanas",
@@ -1275,7 +1275,7 @@
       "subtitle": "Caminar, Correr, Conducir",
       "description": "Rastrea la actividad de movimiento como caminar, correr, andar en bicicleta o conducir desde el inicio de la sesión de grabación. Esto es estimado por el sistema operativo, no por Sensor Logger.",
       "frequency": "Impulsado por eventos, lo que significa que solo se registran nuevos datos cuando hay un cambio en la actividad. No configurable.",
-      "units": "El tipo de actividad puede ser caminar, correr, andar en bicicleta, automotriz, estacionario, inclinación o desconocido. La confianza puede ser baja, media, alta o desconocida."
+      "units": "El tipo de actividad puede ser uno de walking, running, cycling, automotive, stationary, tilting o unknown. La confianza puede ser una de low, medium, high o unknown."
     },
     "bluetooth": {
       "subtitle": "Todos los dispositivos cercanos",

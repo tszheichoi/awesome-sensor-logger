@@ -254,7 +254,7 @@
     "confirmDeletion": "Silmeyi Onayla",
     "deleteConfirmation": "%{count} kaydı silmek istediğinizden emin misiniz?",
     "selected": "seçili",
-    "showingCount": "%{total} kayıttan %{filtered} tanesi gösteriliyor%{plural}",
+    "showingCount": "%{total} kayıttan %{filtered} tanesi gösteriliyor",
     "clearExportCache": "Dışa Aktarma Önbelleğini Temizle",
     "nothingToClear": "Temizlenecek Bir Şey Yok",
     "noCachedExports": "Hiçbir kayıt dışa aktarılmadığı için silinecek önbelleğe alınmış dışa aktarma yok.",
@@ -1171,7 +1171,7 @@
     "microphoneConfiguration": "Mikrofon Yapılandırması",
     "accelerometer": {
       "subtitle": "Doğrusal İvme",
-      "description": "Cihazın koordinat sistemindeki ivmeyi ölçer. Yerçekiminin etkisi kaldırılmıştır. Bu son işleme, bu uygulama tarafından değil, işletim sistemi tarafından gerçekleştirilir. Mümkün olduğunda, doğrusal ivme ve yerçekimi ivme vektörünün toplamını içeren Toplam İvme adlı ek bir dosya kaydedilir.",
+      "description": "Cihazın koordinat sistemindeki ivmeyi ölçer. Yerçekiminin etkisi kaldırılmıştır. Bu son işleme, bu uygulama tarafından değil, işletim sistemi tarafından gerçekleştirilir. Mümkün olduğunda, doğrusal ivme ve yerçekimi ivme vektörünün toplamını içeren TotalAcceleration adlı ek bir dosya kaydedilir.",
       "units": "m/s² cinsinden raporlar. Her zaman cihazın koordinat sisteminde (x, y, z). g değerini 9,80665m/s² olarak varsayar."
     },
     "gravity": {
@@ -1204,7 +1204,7 @@
     },
     "barometer": {
       "subtitle": "Yükseklik ve Basınç",
-      "description": "Deniz seviyesinden barometrik yüksekliği ölçer.",
+      "description": "Atmosferik basıncı ve bağıl yükseklik değişimlerini ölçer.",
       "units": "Basınç mbar cinsinden, bağıl yükseklik ise kaydın başlangıcından itibaren metre cinsinden raporlanır."
     },
     "bluetooth": {
@@ -1313,7 +1313,7 @@
     },
     "headphone": {
       "subtitle": "AirPods Hareketi",
-      "description": "AirPods kablosuz Bluetooth kulaklıklarınızdan hareket okumalarını kaydeder. Bunu baş takibi gibi uygulamalar için kullanabilirsiniz. Bu, ivme (x, y ve z), yerçekimi vektörü (x, y ve z), dönüş hızı (x, y ve z) ve tutumu içerir. Sınırlamalar nedeniyle aynı anda yalnızca bir kulaklık hareket verisi kaydeder. Aktif kulaklık sensorLocation alanıyla belirtilir.",
+      "description": "AirPods kablosuz Bluetooth kulaklıklarınızdan hareket okumalarını kaydeder. Bunu baş takibi gibi uygulamalar için kullanabilirsiniz. Bu, ivme (x, y ve z), yerçekimi vektörü (x, y ve z), dönüş hızı (x, y ve z) ve tutumu içerir. Sınırlamalar nedeniyle aynı anda yalnızca bir kulaklık hareket verisi kaydeder. Aktif kulaklık devicelocation alanıyla belirtilir.",
       "frequency": "Yapılandırılamaz ve değişkendir, en yeni modellerde 25Hz'e, eski modellerde 15Hz'e kadar.",
       "units": "İvme standart yerçekimi (g) cinsinden raporlanırken yerçekimi vektörü zaten m/s² cinsindendir, bu nedenle ikisi farklıdır. \"Birimleri ve Çerçeveleri Standartlaştır\" etkinleştirildiğinde ivme de m/s²’ye dönüştürülür, böylece ikisi de telefonla eşleşir. Diğer tüm değerler telefondaki karşılık gelen sensörlerle aynıdır.",
       "warning": "Eşleştirilmiş AirPods'larınızı takıyor olmalısınız -- her iki kulaklığı veya yalnızca birini takabilirsiniz. AirPods ayarlarında 'Otomatik Kulak Algılama'yı kapatırsanız, AirPods'lar telefonunuza bağlı olduğu sürece kulaklarınızda olmadığında bile hareketini kaydetmek mümkündür."

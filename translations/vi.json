@@ -254,7 +254,7 @@
     "confirmDeletion": "Xác nhận xóa",
     "deleteConfirmation": "Bạn có chắc muốn xóa %{count} bản ghi không?",
     "selected": "đã chọn",
-    "showingCount": "Hiển thị %{filtered} trong tổng số %{total} bản ghi%{plural}",
+    "showingCount": "Hiển thị %{filtered} trong tổng số %{total} bản ghi",
     "clearExportCache": "Xóa bộ nhớ đệm xuất",
     "nothingToClear": "Không có gì để xóa",
     "noCachedExports": "Không có bản xuất được lưu đệm để xóa vì chưa có bản ghi nào được xuất.",
@@ -1171,7 +1171,7 @@
     "microphoneConfiguration": "Cấu hình micrô",
     "accelerometer": {
       "subtitle": "Gia tốc tuyến tính",
-      "description": "Đo gia tốc trong hệ tọa độ thiết bị. Ảnh hưởng của trọng lực đã được loại bỏ. Xử lý hậu kỳ này được thực hiện bởi hệ điều hành, không phải ứng dụng này. Khi khả dụng, một tệp bổ sung có tên Gia tốc tổng được ghi, chứa tổng của gia tốc tuyến tính và vector gia tốc trọng trường.",
+      "description": "Đo gia tốc trong hệ tọa độ thiết bị. Ảnh hưởng của trọng lực đã được loại bỏ. Xử lý hậu kỳ này được thực hiện bởi hệ điều hành, không phải ứng dụng này. Khi khả dụng, một tệp bổ sung có tên TotalAcceleration được ghi, chứa tổng của gia tốc tuyến tính và vector gia tốc trọng trường.",
       "units": "Báo cáo bằng m/s². Luôn trong hệ tọa độ thiết bị (x, y, z). Giả định g là 9,80665m/s²."
     },
     "gravity": {
@@ -1204,7 +1204,7 @@
     },
     "barometer": {
       "subtitle": "Độ cao & Áp suất",
-      "description": "Đo độ cao khí áp so với mực nước biển.",
+      "description": "Đo áp suất khí quyển và độ thay đổi độ cao tương đối.",
       "units": "Áp suất được báo cáo bằng mbar, và độ cao tương đối được báo cáo bằng mét kể từ khi bắt đầu ghi."
     },
     "bluetooth": {
@@ -1313,7 +1313,7 @@
     },
     "headphone": {
       "subtitle": "Chuyển động AirPods",
-      "description": "Ghi số đo chuyển động từ tai nghe không dây Bluetooth AirPods. Bạn có thể sử dụng cho các ứng dụng như theo dõi đầu. Bao gồm gia tốc (x, y, z), vector trọng lực (x, y, z), tốc độ quay (x, y, z) và tư thế. Do giới hạn, chỉ một tai nghe ghi dữ liệu chuyển động tại một thời điểm. Tai nghe đang hoạt động được chỉ báo bởi trường sensorLocation.",
+      "description": "Ghi số đo chuyển động từ tai nghe không dây Bluetooth AirPods. Bạn có thể sử dụng cho các ứng dụng như theo dõi đầu. Bao gồm gia tốc (x, y, z), vector trọng lực (x, y, z), tốc độ quay (x, y, z) và tư thế. Do giới hạn, chỉ một tai nghe ghi dữ liệu chuyển động tại một thời điểm. Tai nghe đang hoạt động được chỉ báo bởi trường devicelocation.",
       "frequency": "Không thể cấu hình và thay đổi, lên đến 25Hz trên mẫu mới nhất và 15Hz trên mẫu cũ hơn.",
       "units": "Gia tốc được báo cáo bằng trọng lực chuẩn (g) trong khi vectơ trọng lực đã tính bằng m/s², nên hai giá trị này khác nhau. Khi \"Chuẩn hóa đơn vị & Khung tham chiếu\" được bật, gia tốc cũng được chuyển đổi sang m/s² để cả hai khớp với điện thoại. Tất cả các giá trị khác giống với các cảm biến tương ứng trên điện thoại.",
       "warning": "Bạn phải đeo AirPods đã ghép nối -- bạn có thể đeo cả hai hoặc chỉ một tai nghe. Nếu tắt 'Phát hiện tai tự động' trong cài đặt AirPods, có thể ghi chuyển động AirPods khi chúng không đeo miễn là chúng kết nối với điện thoại."
@@ -1340,7 +1340,7 @@
       "subtitle": "Loại & Chất lượng",
       "description": "Báo cáo thông tin về loại kết nối mạng và chất lượng. Bao gồm loại mạng (ví dụ WiFi, di động) và nhiều hơn nữa. Có thể dùng làm đại diện cho vị trí thiết bị, đặc biệt nếu cảm biến GPS không khả dụng.",
       "frequency": "Lấy mẫu ở 2Hz, không thể cấu hình.",
-      "units": "Loại có thể là none, unknown, cellular, wifi, bluetooth, ethernet, wimax, vpn hoặc other. Cường độ là số từ 0 đến 100. Địa chỉ IP là IP bên ngoài. Có thể là IPv4 hoặc IPv6. Tần số là tần số mạng. Ví dụ, 2,4GHz sẽ trả về 2457. Thế hệ di động có thể là 2g, 3g, 4g, 5g hoặc null."
+      "units": "Loại có thể là none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn hoặc other. Cường độ là số từ 0 đến 100. Địa chỉ IP là IP bên ngoài. Có thể là IPv4 hoặc IPv6. Tần số là tần số mạng. Ví dụ, 2,4GHz sẽ trả về 2457. Thế hệ di động có thể là 2g, 3g, 4g, 5g hoặc null."
     },
     "wifi": {
       "subtitle": "Mạng gần đó",

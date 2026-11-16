@@ -254,7 +254,7 @@
     "confirmDeletion": "Löschen bestätigen",
     "deleteConfirmation": "Möchten Sie %{count} Aufnahmen wirklich löschen?",
     "selected": "ausgewählt",
-    "showingCount": "%{filtered} von %{total} Aufnahme%{plural} angezeigt",
+    "showingCount": "%{filtered} von %{total} Aufnahmen angezeigt",
     "clearExportCache": "Export-Cache löschen",
     "nothingToClear": "Nichts zu löschen",
     "noCachedExports": "Keine zwischengespeicherten Exporte zu löschen, da keine Aufnahmen exportiert wurden.",
@@ -1112,7 +1112,7 @@
     "microphoneConfiguration": "Mikrofonkonfiguration",
     "accelerometer": {
       "subtitle": "Lineare Beschleunigung",
-      "description": "Misst die Beschleunigung im Koordinatensystem des Geräts. Der Einfluss der Schwerkraft wurde entfernt. Diese Nachbearbeitung wird vom Betriebssystem durchgeführt, nicht von dieser App. Wenn verfügbar, wird eine zusätzliche Datei namens Gesamtbeschleunigung aufgezeichnet, die die Summe der linearen Beschleunigung und des Schwerkraftbeschleunigungsvektors enthält.",
+      "description": "Misst die Beschleunigung im Koordinatensystem des Geräts. Der Einfluss der Schwerkraft wurde entfernt. Diese Nachbearbeitung wird vom Betriebssystem durchgeführt, nicht von dieser App. Wenn verfügbar, wird eine zusätzliche Datei namens TotalAcceleration aufgezeichnet, die die Summe der linearen Beschleunigung und des Schwerkraftbeschleunigungsvektors enthält.",
       "units": "Berichte in m/s². Immer im Koordinatensystem des Geräts (x, y, z). Nimmt g als 9,80665m/s² an."
     },
     "gravity": {
@@ -1145,7 +1145,7 @@
     },
     "barometer": {
       "subtitle": "Höhe & Druck",
-      "description": "Misst die barometrische Höhe über dem Meeresspiegel.",
+      "description": "Misst den atmosphärischen Druck und relative Höhenänderungen.",
       "units": "Druck wird in mbar berichtet, und relative Höhe wird in Metern seit Beginn der Aufnahme berichtet."
     },
     "location": {
@@ -1236,7 +1236,7 @@
     },
     "headphone": {
       "subtitle": "AirPods-Bewegung",
-      "description": "Protokolliert Bewegungsmesswerte von Ihren drahtlosen AirPods Bluetooth-Ohrhörern. Sie können dies für Anwendungen wie Kopfverfolgung verwenden. Dies umfasst die Beschleunigung (in x, y und z), Schwerkraftvektor (in x, y und z), Rotationsrate (in x, y und z) und die Haltung. Aufgrund von Einschränkungen zeichnet jeweils nur ein Ohrhörer Bewegungsdaten auf. Der aktive Ohrhörer wird durch das Feld sensorLocation angezeigt.",
+      "description": "Protokolliert Bewegungsmesswerte von Ihren drahtlosen AirPods Bluetooth-Ohrhörern. Sie können dies für Anwendungen wie Kopfverfolgung verwenden. Dies umfasst die Beschleunigung (in x, y und z), Schwerkraftvektor (in x, y und z), Rotationsrate (in x, y und z) und die Haltung. Aufgrund von Einschränkungen zeichnet jeweils nur ein Ohrhörer Bewegungsdaten auf. Der aktive Ohrhörer wird durch das Feld devicelocation angezeigt.",
       "frequency": "Nicht konfigurierbar und variabel, bis zu 25Hz auf den neuesten Modellen und 15Hz auf älteren Modellen.",
       "units": "Beschleunigung wird in Normalfallbeschleunigung (g) berichtet, während der Schwerkraftvektor bereits in m/s² angegeben wird, sodass die beiden voneinander abweichen. Wenn „Einheiten & Frames standardisieren“ aktiviert ist, wird auch die Beschleunigung in m/s² umgerechnet, sodass beide dem Telefon entsprechen. Alle anderen Werte entsprechen den zugehörigen Sensoren am Telefon.",
       "warning": "Sie müssen Ihre gekoppelten AirPods tragen -- Sie können beide oder nur einen der Ohrhörer tragen. Wenn Sie 'Automatische Ohrerkennung' in den AirPods-Einstellungen ausschalten, ist es möglich, die Bewegung der AirPods aufzuzeichnen, wenn sie nicht in Ihren Ohren sind, solange sie mit Ihrem Telefon verbunden sind."
@@ -1275,7 +1275,7 @@
       "subtitle": "Gehen, Laufen, Fahren",
       "description": "Verfolgt Bewegungsaktivitäten wie Gehen, Laufen, Radfahren oder Fahren seit Beginn der Aufnahmesitzung. Dies wird vom Betriebssystem geschätzt, nicht von Sensor Logger.",
       "frequency": "Ereignisgesteuert, was bedeutet, dass neue Daten nur aufgezeichnet werden, wenn sich die Aktivität ändert. Nicht konfigurierbar.",
-      "units": "Aktivitätstyp kann einer von Gehen, Laufen, Radfahren, Fahrzeug, Stationär, Kippen oder Unbekannt sein. Vertrauen kann einer von niedrig, mittel, hoch oder unbekannt sein."
+      "units": "Aktivitätstyp kann einer von walking, running, cycling, automotive, stationary, tilting oder unknown sein. Konfidenz kann einer von low, medium, high oder unknown sein."
     },
     "bluetooth": {
       "subtitle": "Alle Geräte in der Nähe",

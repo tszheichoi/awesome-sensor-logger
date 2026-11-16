@@ -420,7 +420,7 @@
     "notConnectedInternet": "Não Conectado à Internet",
     "notConnectedMessage": "Esta gravação será salva apenas localmente. Para contribuir com o estudo, você deve fazer o upload mais tarde na página de Gravações.",
     "uploadRecording": "Fazer Upload da Gravação",
-    "uploadToCloud": "Fazer upload da gravação para a Nuvem do Sensor Logger para que o investigador do estudo possa baixá-la mais tarde.",
+    "uploadToCloud": "Fazer upload da gravação para o Sensor Logger Cloud para que o investigador do estudo possa baixá-la mais tarde.",
     "uploadToBucket": "Fazer upload da gravação para um Bucket de armazenamento que o investigador configurou.",
     "uploadNow": "Fazer Upload Agora",
     "uploadAndDelete": "Enviar e Excluir",
@@ -847,7 +847,7 @@
       "partOfStudy": "Parte de um Estudo",
       "uploadingRecording": "Enviando Gravação: %{progress}%",
       "keepAppOpen": "Mantenha o app aberto até que o upload seja concluído.",
-      "uploadToCloud": "Por favor, envie esta gravação para a Nuvem do Sensor Logger. Toque para mais.",
+      "uploadToCloud": "Por favor, envie esta gravação para o Sensor Logger Cloud. Toque para mais.",
       "studyNoLongerExists": "Você fez esta gravação para um estudo que não existe mais."
     },
     "buttons": {
@@ -1112,7 +1112,7 @@
     "microphoneConfiguration": "Configuração do Microfone",
     "accelerometer": {
       "subtitle": "Aceleração Linear",
-      "description": "Mede a aceleração no sistema de coordenadas do dispositivo. A influência da gravidade foi removida. Este pós-processamento é realizado pelo sistema operacional, não por este app. Quando disponível, um arquivo adicional chamado Aceleração Total é gravado, contendo a soma da aceleração linear e do vetor de aceleração gravitacional.",
+      "description": "Mede a aceleração no sistema de coordenadas do dispositivo. A influência da gravidade foi removida. Este pós-processamento é realizado pelo sistema operacional, não por este app. Quando disponível, um arquivo adicional chamado TotalAcceleration é gravado, contendo a soma da aceleração linear e do vetor de aceleração gravitacional.",
       "units": "Reporta em m/s². Sempre no sistema de coordenadas do dispositivo (x, y, z). Assume g como 9,80665m/s²."
     },
     "gravity": {
@@ -1145,7 +1145,7 @@
     },
     "barometer": {
       "subtitle": "Altitude e Pressão",
-      "description": "Mede a altitude barométrica acima do nível do mar.",
+      "description": "Mede a pressão atmosférica e as variações de altitude relativa.",
       "units": "Pressão é reportada em mbar e altitude relativa é reportada em metros desde o início da gravação."
     },
     "location": {
@@ -1218,7 +1218,7 @@
       "subtitle": "Áudio e Nível",
       "description": "Retorna uma gravação de áudio que é sincronizada por timestamp com outras medições. Também retorna medida de volume em dBFS (Decibéis relativos à escala completa), onde o nível de 0 dBFS é o nível digital máximo possível. Veja wikipedia.org/wiki/DBFS para mais informações.",
       "frequency": "Você pode alterar a compressão entre com perda e sem perda usando o ícone de engrenagem ao lado do botão Iniciar Gravação. A frequência de amostragem para o volume não pode ser ajustada.",
-      "units": "Volume em dbFS. O áudio está em .mp4, a taxa de amostragem varia dependendo da configuração.",
+      "units": "Volume em dBFS. O áudio está em .mp4, a taxa de amostragem varia dependendo da configuração.",
       "warning": "Observe que o Sensor Logger sempre usa o microfone do seu telefone, não de fones de ouvido conectados."
     },
     "light": {
@@ -1236,7 +1236,7 @@
     },
     "headphone": {
       "subtitle": "Movimento dos AirPods",
-      "description": "Registra leituras de movimento dos seus fones de ouvido sem fio Bluetooth AirPods. Você pode usar isso para aplicações como rastreamento de cabeça. Isso inclui a aceleração (em x, y e z), vetor de gravidade (em x, y e z), taxa de rotação (em x, y e z) e a atitude. Devido a limitações, apenas um fone de ouvido registra dados de movimento por vez. O fone de ouvido ativo é indicado pelo campo sensorLocation.",
+      "description": "Registra leituras de movimento dos seus fones de ouvido sem fio Bluetooth AirPods. Você pode usar isso para aplicações como rastreamento de cabeça. Isso inclui a aceleração (em x, y e z), vetor de gravidade (em x, y e z), taxa de rotação (em x, y e z) e a atitude. Devido a limitações, apenas um fone de ouvido registra dados de movimento por vez. O fone de ouvido ativo é indicado pelo campo devicelocation.",
       "frequency": "Não configurável e variável, até 25Hz nos modelos mais recentes e 15Hz nos modelos mais antigos.",
       "units": "Aceleração é reportada em gravidade padrão (g) enquanto o vetor de gravidade já está em m/s², portanto os dois diferem. Quando \"Padronizar Unidades e Quadros\" está ativado, a aceleração também é convertida para m/s² para que ambos correspondam ao telefone. Todos os outros valores correspondem aos sensores correspondentes no telefone.",
       "warning": "Você deve estar usando seus AirPods pareados -- você pode usar ambos ou apenas um dos fones de ouvido. Se você desligar 'Detecção Automática de Ouvido' nas configurações dos AirPods, é possível gravar o movimento dos AirPods quando eles não estão em seus ouvidos, desde que estejam conectados ao seu telefone."
@@ -1263,7 +1263,7 @@
       "subtitle": "Tipo e Qualidade da Rede",
       "description": "Reporta informações sobre o tipo de conexão de rede e sua qualidade. Isso inclui o tipo de rede (por exemplo, WiFi, celular) e mais. Isso também pode ser usado como um proxy para a localização do dispositivo, especialmente se o sensor GPS não estiver disponível.",
       "frequency": "Amostra a 2Hz, não configurável.",
-      "units": "Tipo pode ser um de nenhum, desconhecido, celular, wifi, Bluetooth, ethernet, wimax, vpn ou outro. Intensidade é um número entre 0 e 100. Endereço IP é o endereço IP externo. Pode ser IPv4 ou IPv6. Frequência é a frequência da rede. Por exemplo, 2,4GHz retornará 2457. Geração celular pode ser um de 2g, 3g, 4g, 5g ou nulo."
+      "units": "Tipo pode ser um de none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn ou other. Intensidade é um número entre 0 e 100. Endereço IP é o endereço IP externo. Pode ser IPv4 ou IPv6. Frequência é a frequência da rede. Por exemplo, 2,4GHz retornará 2457. Geração celular pode ser um de 2g, 3g, 4g, 5g ou null."
     },
     "wifi": {
       "subtitle": "Redes Próximas",
@@ -1275,7 +1275,7 @@
       "subtitle": "Caminhar, Correr, Dirigir",
       "description": "Rastreia a atividade de movimento como caminhar, correr, andar de bicicleta ou dirigir desde o início da sessão de gravação. Isso é estimado pelo sistema operacional, não pelo Sensor Logger.",
       "frequency": "Acionado por evento, o que significa que novos dados só são gravados quando há uma mudança na atividade. Não configurável.",
-      "units": "O tipo de atividade pode ser um de caminhar, correr, andar de bicicleta, automotivo, estacionário, inclinação ou desconhecido. A confiança pode ser uma de baixa, média, alta ou desconhecida."
+      "units": "O tipo de atividade pode ser um de walking, running, cycling, automotive, stationary, tilting ou unknown. A confiança pode ser uma de low, medium, high ou unknown."
     },
     "bluetooth": {
       "subtitle": "Todos os dispositivos próximos",

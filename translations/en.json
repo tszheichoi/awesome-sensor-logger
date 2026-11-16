@@ -11,7 +11,7 @@
     "privacy": "Privacy",
     "settingsPreview": "Settings Preview",
     "questionnaire": "Questionnaire",
-    "whatsNew": "Whats New",
+    "whatsNew": "What's New",
     "healthCheck": "Health Check",
     "plot": "Plot",
     "tags": "Tags",
@@ -146,7 +146,7 @@
     "viewExamplesDescription": "Tap to view a gallery of example Stories for inspiration.",
     "freeFootnote": "Story is free to use. Every user gets a small amount of free Sensor Logger Cloud storage. If you wish to upload more, consider upgrading to one of the paid tiers.",
     "whatsNext": "What's Next?",
-    "whatsNextDescription": "A new Story has been created with this recording attached. Visit this link on any browser to continue. You edit and build your Story there. ",
+    "whatsNextDescription": "A new Story has been created with this recording attached. Visit this link on any browser to continue. You can edit and build your Story there.",
     "viewStory": "View Story",
     "storiesTabFootnote": "You can always find this link, and all other Stories you own, under the Stories tab in the app."
   },
@@ -294,7 +294,7 @@
     "feedbackSubtext": "Help improve Sensor Logger",
     "resources": "Resources",
     "resourcesSubtext": "Tutorials & sample code",
-    "whatsNew": "Whats New",
+    "whatsNew": "What's New",
     "whatsNewSubtext": "Release notes",
     "healthCheck": "Health Check",
     "healthCheckSubtext": "Diagnose Recording Issues",
@@ -480,7 +480,7 @@
     "notConnectedMessage": "This recording will only be saved locally. To contribute to the study, you should upload it later from the Recordings page.",
     "uploadRecording": "Upload Recording",
     "uploadToCloud": "Upload the recording to Sensor Logger Cloud so the study investigator can download it later.",
-    "uploadToBucket": "Upload the recording to a storage Bucket that the investigator has setup.",
+    "uploadToBucket": "Upload the recording to a storage Bucket that the investigator has set up.",
     "uploadNow": "Upload Now",
     "uploadAndDelete": "Upload and Delete",
     "uploadAndDeleteMessage": "This recording will be deleted from your device after it is uploaded successfully.",
@@ -891,7 +891,7 @@
       },
       "failedToExport": {
         "title": "Failed to export",
-        "message": "An error occured during export"
+        "message": "An error occurred during export."
       },
       "confirmDeletion": {
         "title": "Confirm Deletion",
@@ -951,7 +951,7 @@
     "invalidQrCode": "Invalid QR code detected.",
     "invalidCodeAlert": {
       "title": "Invalid Code",
-      "message": "The study code  provided by the study investigator should be between 6 to 8 characters."
+      "message": "The study code provided by the study investigator should be between 6 to 8 characters."
     },
     "viewStudy": "View Study"
   },
@@ -987,7 +987,7 @@
       "studyEnded": "Study Ended",
       "studyEndedEditMessage": "This study has ended and can no longer be edited. You can reactivate it to make changes.",
       "studyTooOld": "Study Too Old",
-      "studyTooOldMessage": "This Study has been inactivate for more than 90 days. In accordance to Sensor Logger's data privacy and retention policy, data associated with this Study has already been purged. You will need to create a new Study.",
+      "studyTooOldMessage": "This Study has been inactive for more than 90 days. In accordance with Sensor Logger's data privacy and retention policy, data associated with this Study has already been purged. You will need to create a new Study.",
       "subscriptionRequired": "Subscription Required",
       "reactivateSubscriptionMessage": "You need to be subscribed to any one of the paid tiers to reactivate a Study. Otherwise, you can duplicate this Study under 'Manage'.",
       "joinedStudy": "Joined Study"
@@ -1053,7 +1053,7 @@
     "openStudiesTabInstruction": "Open Sensor Logger to the Studies tab and tap on the 'Create / Join' button. Then tap 'Join a Study'.",
     "enterCodeInstruction": "Enter the code below.",
     "investigatorJoinTip": "As an investigator, you can also join the study yourself to contribute your own recordings to the study.",
-    "leaveStudyTip": "You can leave a study at anytime.",
+    "leaveStudyTip": "You can leave a study at any time.",
     "copied": "Copied!",
     "ownerMessage": "You are the owner of this study.",
     "activateMessage": "Activate to start contributing to this study.",
@@ -1171,7 +1171,7 @@
     "microphoneConfiguration": "Microphone Configuration",
     "accelerometer": {
       "subtitle": "Linear Acceleration",
-      "description": "Measures the acceleration in the device's coordinate system. The influence of the gravity has been removed. This post-processing is performed by the operating system, not by this app. When available, an additional file named Total Acceleration is recorded, containing the sum of the linear acceleration and the gravitational acceleration vector.",
+      "description": "Measures the acceleration in the device's coordinate system. The influence of the gravity has been removed. This post-processing is performed by the operating system, not by this app. When available, an additional file named TotalAcceleration is recorded, containing the sum of the linear acceleration and the gravitational acceleration vector.",
       "units": "Reports in m/s². Always in the device's coordinate system (x, y, z). Assumes g to be 9.80665m/s²."
     },
     "gravity": {
@@ -1204,7 +1204,7 @@
     },
     "barometer": {
       "subtitle": "Altitude & Pressure",
-      "description": "Measures the barometric altitude above sea level.",
+      "description": "Measures atmospheric pressure and relative altitude changes.",
       "units": "Pressure is reported in mbar, and relative altitude is reported in meters since the start of the recording."
     },
     "bluetooth": {
@@ -1248,14 +1248,14 @@
     },
     "wristMotion": {
       "subtitle": "From Paired Watch",
-      "description": "Logs motion related readings from your watch on your wrist. This includes the rotation rate (in x, y and z), gravity vector (in x, y, and z), acceleration (in x, y, and z) and the attitude in quaternion.",
+      "description": "Logs motion related readings from your watch on your wrist. This includes the rotation rate (in x, y and z), gravity vector (in x, y, and z), acceleration (in x, y, and z) and the attitude (pitch, roll, yaw and quaternion).",
       "frequency": "Not configurable, typically at 100Hz",
       "units": "Acceleration and the gravity vector are reported in standard gravity (g), unlike the phone which uses m/s². When Standardise Units & Frames is enabled, both are converted to m/s² to match the phone. All other values match the corresponding sensors on the phone. The uncalibrated accelerometer stream from the watch follows the same units.",
       "warning": "These sensors will always work if the watch app is in the foreground with the watch screen on. If you want background recording, you must also enable the heart rate sensor and grant the relevant permissions. This indirectly enables background recording of wrist motion data."
     },
     "watchLocation": {
       "subtitle": "From Paired Watch",
-      "description": "Logs locations readings from your watch on your wrist.",
+      "description": "Logs location readings from your watch on your wrist.",
       "frequency": "Not configurable.",
       "units": "Same units as the corresponding sensors on the phone.",
       "warning": "These sensors will always work if the watch app is in the foreground with the watch screen on. If you want background recording, you must also enable the heart rate sensor and grant the relevant permissions. This indirectly enables background recording of location data."
@@ -1295,7 +1295,7 @@
       "subtitle": "Audio & Level",
       "description": "Returns an audio recording that is timestamp synchronized against other measurements. Also returns loudness measure in dBFS (Decibels relative to full scale), where the level of 0 dBFS is the maximum possible digital level. See wikipedia.org/wiki/DBFS for more information.",
       "frequency": "You may change the compression between lossy and lossless using the gear icon next to the Start Recording button. The sampling frequency for the loudness cannot be adjusted.",
-      "units": "Loudness in dbFS. The audio is in .mp4, the sampling rate varies depending on the configuration.",
+      "units": "Loudness in dBFS. The audio is in .mp4, the sampling rate varies depending on the configuration.",
       "warning": "Note that Sensor Logger always uses the microphone on your phone, not from any connected headsets."
     },
     "light": {
@@ -1313,7 +1313,7 @@
     },
     "headphone": {
       "subtitle": "AirPods Motion",
-      "description": "Logs motion readings from your AirPods wireless Bluetooth earbuds. You can use this for applications such as head tracking. This includes the acceleration (in x, y, and z), gravity vector (in x, y, and z), rotation rate (in x, y, and z) and the attitude. Due to limitations only one earbud records motion data at a time. The active earbud is indicated by the sensorLocation field.",
+      "description": "Logs motion readings from your AirPods wireless Bluetooth earbuds. You can use this for applications such as head tracking. This includes the acceleration (in x, y, and z), gravity vector (in x, y, and z), rotation rate (in x, y, and z) and the attitude. Due to limitations only one earbud records motion data at a time. The active earbud is indicated by the devicelocation field.",
       "frequency": "Not configurable and variable, up to 25Hz on the latest models and 15Hz on older models.",
       "units": "Acceleration is reported in standard gravity (g) while the gravity vector is already in m/s², so the two differ. When Standardise Units & Frames is enabled, acceleration is also converted to m/s² so that both match the phone. All other values match the corresponding sensors on the phone.",
       "warning": "You must be wearing your paired AirPods -- you can wear both or just one of the earbuds. If you turn off 'Automatic Ear Detection' in the AirPods settings, it is possible to record the motion of the AirPods when they are not in your ears as long as they are connected to your phone."

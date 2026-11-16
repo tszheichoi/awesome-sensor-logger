@@ -1112,7 +1112,7 @@
     "microphoneConfiguration": "Configuration du microphone",
     "accelerometer": {
       "subtitle": "Accélération linéaire",
-      "description": "Mesure l'accélération dans le système de coordonnées de l'appareil. L'influence de la gravité a été supprimée. Ce post-traitement est effectué par le système d'exploitation, pas par cette application. Lorsque disponible, un fichier supplémentaire nommé Accélération totale est enregistré, contenant la somme de l'accélération linéaire et du vecteur d'accélération gravitationnelle.",
+      "description": "Mesure l'accélération dans le système de coordonnées de l'appareil. L'influence de la gravité a été supprimée. Ce post-traitement est effectué par le système d'exploitation, pas par cette application. Lorsque disponible, un fichier supplémentaire nommé TotalAcceleration est enregistré, contenant la somme de l'accélération linéaire et du vecteur d'accélération gravitationnelle.",
       "units": "Rapporté en m/s². Toujours dans le système de coordonnées de l'appareil (x, y, z). Suppose que g est de 9,80665 m/s²."
     },
     "gravity": {
@@ -1145,7 +1145,7 @@
     },
     "barometer": {
       "subtitle": "Altitude et pression",
-      "description": "Mesure l'altitude barométrique au-dessus du niveau de la mer.",
+      "description": "Mesure la pression atmosphérique et les variations d'altitude relative.",
       "units": "La pression est rapportée en mbar, et l'altitude relative est rapportée en mètres depuis le début de l'enregistrement."
     },
     "location": {
@@ -1236,7 +1236,7 @@
     },
     "headphone": {
       "subtitle": "Mouvement des AirPods",
-      "description": "Enregistre les lectures de mouvement de vos écouteurs sans fil Bluetooth AirPods. Vous pouvez l'utiliser pour des applications telles que le suivi de la tête. Cela inclut l'accélération (en x, y et z), le vecteur de gravité (en x, y et z), le taux de rotation (en x, y et z) et l'attitude. En raison de limitations, un seul écouteur enregistre les données de mouvement à la fois. L'écouteur actif est indiqué par le champ sensorLocation.",
+      "description": "Enregistre les lectures de mouvement de vos écouteurs sans fil Bluetooth AirPods. Vous pouvez l'utiliser pour des applications telles que le suivi de la tête. Cela inclut l'accélération (en x, y et z), le vecteur de gravité (en x, y et z), le taux de rotation (en x, y et z) et l'attitude. En raison de limitations, un seul écouteur enregistre les données de mouvement à la fois. L'écouteur actif est indiqué par le champ devicelocation.",
       "frequency": "Non configurable et variable, jusqu'à 25 Hz sur les derniers modèles et 15 Hz sur les modèles plus anciens.",
       "units": "L'accélération est rapportée en gravité standard (g) tandis que le vecteur de gravité est déjà en m/s², les deux diffèrent donc. Lorsque « Standardiser les unités et les cadres » est activé, l'accélération est également convertie en m/s² afin que les deux correspondent au téléphone. Toutes les autres valeurs correspondent aux capteurs correspondants sur le téléphone.",
       "warning": "Vous devez porter vos AirPods appariés -- vous pouvez porter les deux ou un seul des écouteurs. Si vous désactivez 'Détection automatique des oreilles' dans les paramètres des AirPods, il est possible d'enregistrer le mouvement des AirPods lorsqu'ils ne sont pas dans vos oreilles tant qu'ils sont connectés à votre téléphone."
@@ -1245,7 +1245,7 @@
       "subtitle": "Niveau de batterie",
       "description": "Mesure le niveau de la batterie de l'appareil. Enregistre également l'état de la batterie (en charge, pleine, etc.) et l'état du mode économie d'énergie. Sur les appareils pris en charge, cela enregistre également la tension de la batterie, le courant de charge et l'état de santé général de la batterie.",
       "frequency": "Échantillonne à 1 Hz, non configurable.",
-      "units": "Niveau sous forme de fraction (por ex. 0,5 pour 50%), état sous forme de chaîne. Là où c'est pris en charge, la tension est rapportée en volts, le courant en mA et l'état de santé sous forme de chaîne."
+      "units": "Niveau sous forme de fraction (par ex. 0,5 pour 50%), état sous forme de chaîne. Là où c'est pris en charge, la tension est rapportée en volts, le courant en mA et l'état de santé sous forme de chaîne."
     },
     "batteryTemp": {
       "subtitle": "Température de la batterie",
@@ -1263,7 +1263,7 @@
       "subtitle": "Type et qualité du réseau",
       "description": "Rapporte des informations sur le type de connexion réseau et sa qualité. Cela inclut le type de réseau (par exemple WiFi, cellulaire) et plus encore. Cela pourrait également être utilisé comme proxy pour l'emplacement de l'appareil, en particulier si le capteur GPS n'est pas disponible.",
       "frequency": "Échantillonne à 2 Hz, non configurable.",
-      "units": "Le type peut être l'un des suivants : aucun, inconnu, cellulaire, wifi, Bluetooth, ethernet, wimax, vpn ou autre. La force est un nombre entre 0 et 100. L'adresse IP est l'adresse IP externe. Peut être IPv4 ou IPv6. La fréquence est la fréquence du réseau. Par exemple, 2,4 GHz renverra 2457. La génération cellulaire peut être l'une des suivantes : 2g, 3g, 4g, 5g ou null."
+      "units": "Le type peut être l'un des suivants : none, unknown, cellular, wifi, Bluetooth, ethernet, wimax, vpn ou other. La force est un nombre entre 0 et 100. L'adresse IP est l'adresse IP externe. Peut être IPv4 ou IPv6. La fréquence est la fréquence du réseau. Par exemple, 2,4 GHz renverra 2457. La génération cellulaire peut être l'une des suivantes : 2g, 3g, 4g, 5g ou null."
     },
     "wifi": {
       "subtitle": "Réseaux à proximité",
@@ -1275,7 +1275,7 @@
       "subtitle": "Marcher, Courir, Conduire",
       "description": "Suit l'activité de mouvement telle que la marche, la course, le vélo ou la conduite depuis le début de la session d'enregistrement. Ceci est estimé par le système d'exploitation, pas par Sensor Logger.",
       "frequency": "Piloté par les événements, ce qui signifie que de nouvelles données ne sont enregistrées que lorsqu'il y a un changement d'activité. Non configurable.",
-      "units": "Le type d'activité peut être l'un des suivants : marche, course, vélo, automobile, stationnaire, inclinaison ou inconnu. La confiance peut être faible, moyenne, élevée ou inconnue."
+      "units": "Le type d'activité peut être l'un des suivants : walking, running, cycling, automotive, stationary, tilting ou unknown. La confiance peut être l'une des suivantes : low, medium, high ou unknown."
     },
     "bluetooth": {
       "subtitle": "Tous les appareils à proximité",

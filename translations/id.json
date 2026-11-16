@@ -254,7 +254,7 @@
     "confirmDeletion": "Konfirmasi Penghapusan",
     "deleteConfirmation": "Apakah Anda yakin ingin menghapus %{count} rekaman?",
     "selected": "dipilih",
-    "showingCount": "Menampilkan %{filtered} dari %{total} Rekaman%{plural}",
+    "showingCount": "Menampilkan %{filtered} dari %{total} Rekaman",
     "clearExportCache": "Hapus Cache Ekspor",
     "nothingToClear": "Tidak Ada yang Perlu Dihapus",
     "noCachedExports": "Tidak ada ekspor yang di-cache untuk dihapus karena belum ada rekaman yang diekspor.",
@@ -1171,7 +1171,7 @@
     "microphoneConfiguration": "Konfigurasi Mikrofon",
     "accelerometer": {
       "subtitle": "Akselerasi Linear",
-      "description": "Mengukur akselerasi dalam sistem koordinat perangkat. Pengaruh gravitasi telah dihilangkan. Pemrosesan ini dilakukan oleh sistem operasi, bukan oleh aplikasi ini. Jika tersedia, file tambahan bernama Akselerasi Total direkam, yang berisi jumlah akselerasi linear dan vektor akselerasi gravitasi.",
+      "description": "Mengukur akselerasi dalam sistem koordinat perangkat. Pengaruh gravitasi telah dihilangkan. Pemrosesan ini dilakukan oleh sistem operasi, bukan oleh aplikasi ini. Jika tersedia, file tambahan bernama TotalAcceleration direkam, yang berisi jumlah akselerasi linear dan vektor akselerasi gravitasi.",
       "units": "Dilaporkan dalam m/s². Selalu dalam sistem koordinat perangkat (x, y, z). Mengasumsikan g sebesar 9,80665m/s²."
     },
     "gravity": {
@@ -1204,7 +1204,7 @@
     },
     "barometer": {
       "subtitle": "Ketinggian & Tekanan",
-      "description": "Mengukur ketinggian barometrik di atas permukaan laut.",
+      "description": "Mengukur tekanan atmosfer dan perubahan ketinggian relatif.",
       "units": "Tekanan dilaporkan dalam mbar, dan ketinggian relatif dilaporkan dalam meter sejak awal perekaman."
     },
     "bluetooth": {
@@ -1313,7 +1313,7 @@
     },
     "headphone": {
       "subtitle": "Gerakan AirPods",
-      "description": "Mencatat pembacaan gerakan dari earbuds nirkabel Bluetooth AirPods Anda. Anda dapat menggunakan ini untuk aplikasi seperti pelacakan kepala. Ini termasuk akselerasi (dalam x, y, dan z), vektor gravitasi (dalam x, y, dan z), kecepatan rotasi (dalam x, y, dan z) dan sikap. Karena keterbatasan, hanya satu earbud yang merekam data gerakan pada satu waktu. Earbud aktif ditunjukkan oleh bidang sensorLocation.",
+      "description": "Mencatat pembacaan gerakan dari earbuds nirkabel Bluetooth AirPods Anda. Anda dapat menggunakan ini untuk aplikasi seperti pelacakan kepala. Ini termasuk akselerasi (dalam x, y, dan z), vektor gravitasi (dalam x, y, dan z), kecepatan rotasi (dalam x, y, dan z) dan sikap. Karena keterbatasan, hanya satu earbud yang merekam data gerakan pada satu waktu. Earbud aktif ditunjukkan oleh bidang devicelocation.",
       "frequency": "Tidak dapat dikonfigurasi dan bervariasi, hingga 25Hz pada model terbaru dan 15Hz pada model lama.",
       "units": "Akselerasi dilaporkan dalam gravitasi standar (g) sementara vektor gravitasi sudah dalam m/s², sehingga keduanya berbeda. Ketika \"Standardisasi Satuan & Kerangka\" diaktifkan, akselerasi juga dikonversi ke m/s² sehingga keduanya sesuai dengan ponsel. Semua nilai lainnya sama dengan sensor yang sesuai di ponsel.",
       "warning": "Anda harus memakai AirPods yang dipasangkan -- Anda dapat memakai keduanya atau hanya satu earbud. Jika Anda menonaktifkan 'Deteksi Telinga Otomatis' di pengaturan AirPods, dimungkinkan untuk merekam gerakan AirPods saat tidak di telinga Anda selama masih terhubung ke ponsel Anda."
