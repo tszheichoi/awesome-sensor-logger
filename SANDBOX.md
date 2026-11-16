@@ -62,6 +62,7 @@ For a page the user looks at, such as a game or a live plot. Opening it as a loc
 <script type="module">
   import QRCode from "https://cdn.jsdelivr.net/npm/qrcode@1.5.4/+esm";
   const peer = new peerjs.Peer();
+  peer.on("error", console.error);
   peer.on("open", (id) =>
     QRCode.toCanvas(
       document.getElementById("qr"),
@@ -73,7 +74,8 @@ For a page the user looks at, such as a game or a live plot. Opening it as a loc
       conn.send({ type: "start", sensors: ["accelerometer", "orientation"] }),
     );
     conn.on("data", (msg) => {
-      if (msg?.sensor) console.log(msg);
+      const data = typeof msg === "string" ? JSON.parse(msg) : msg;
+      if (data?.sensor) console.log(data);
     });
   });
 </script>
