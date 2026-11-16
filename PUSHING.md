@@ -99,7 +99,7 @@ If you prefer sticking with Python, here is an implementation using Plotly Dash 
 
 ```python
 from collections import deque
-from datetime import datetime
+from datetime import datetime, timezone
 import threading
 from dash import Dash, Input, Output, dcc, html
 from flask import Flask, request
@@ -154,22 +154,25 @@ def update_graph(_counter):
         ),
     }
     if t:  # cannot adjust plot ranges until there is at least one data point
-        graph["layout"]["xaxis"]["range"] = [t[0], t[-1]]
-        graph["layout"]["yaxis"]["range"] = [
-            min(min(xs), min(ys), min(zs)),
-            max(max(xs), max(ys), max(zs)),
-        ]
+        if t[0] < t[-1]:
+            graph["layout"]["xaxis"]["range"] = [t[0], t[-1]]
+        y_min = min(min(xs), min(ys), min(zs))
+        y_max = max(max(xs), max(ys), max(zs))
+        if y_min < y_max:
+            graph["layout"]["yaxis"]["range"] = [y_min, y_max]
 
     return graph
 
 
 @server.route("/data", methods=["POST"])
 def data():  # listens to the data streamed from the sensor logger
-    payload = request.get_json(force=True, silent=True) or {}
+    payload = request.get_json(force=True, silent=True)
+    if not isinstance(payload, dict):
+        return "success"
     with lock:
-        for d in payload.get("payload", []):
-            if d.get("name") == "accelerometer":  # modify to access different sensors
-                ts = datetime.fromtimestamp(d["time"] / 1_000_000_000)
+        for d in payload.get("payload") or []:
+            if isinstance(d, dict) and d.get("name") == "accelerometer":  # modify to access different sensors
+                ts = datetime.fromtimestamp(d["time"] / 1_000_000_000, tz=timezone.utc)
                 if not time or ts > time[-1]:
                     # modify the following based on which sensor is accessed, log the raw json for guidance
                     values = d["values"]
@@ -456,8 +459,8 @@ type NetworkReading = {
   time: number;
   values: {
     type?: string;
-    isConnected?: boolean;
-    isInternetReachable?: boolean;
+    isConnected?: boolean | null;
+    isInternetReachable?: boolean | null;
     isWifiEnabled?: boolean;
     isConnectionExpensive?: boolean;
     ssid?: string;
@@ -465,7 +468,7 @@ type NetworkReading = {
     strength?: number;
     ipAddress?: string;
     frequency?: number;
-    cellularGeneration?: string;
+    cellularGeneration?: "2g" | "3g" | "4g" | "5g" | null;
     carrier?: string;
   };
 };
@@ -477,6 +480,15 @@ type BatteryReading = {
     batteryLevel: number;
     batteryState: "unknown" | "unplugged" | "charging" | "full";
     lowPowerMode: boolean;
+    voltage?: number;
+    chargingCurrent?: number;
+    health?:
+      | "good"
+      | "overheat"
+      | "dead"
+      | "over_voltage"
+      | "unspecified_failure"
+      | "cold";
   };
 };
 
@@ -488,6 +500,8 @@ type BluetoothReading = {
     rssi: number | null;
     txPowerLevel?: number;
     manufacturerData?: string;
+    advertisement?: string;
+    serviceData?: string;
   };
 };
 
@@ -500,6 +514,8 @@ type BluetoothMetadataReading = {
     isConnectable: number;
     localName?: string;
     serviceUUIDs?: string;
+    manufacturer?: string;
+    model?: string;
   };
 };
 
@@ -520,6 +536,9 @@ type WristMotionReading = {
     quaternionX: number;
     quaternionY: number;
     quaternionZ: number;
+    pitch: number;
+    roll: number;
+    yaw: number;
   };
 };
 

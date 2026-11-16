@@ -87,7 +87,10 @@ If you are setting this up for, for example, an AI agent, this is a more suitabl
 mkdir sandbox && cd sandbox && npm init -y && npm i peerjs@1.5.5 node-datachannel qrcode
 # save sandbox-host.mjs (below), then:
 node sandbox-host.mjs accelerometer,gyroscope > stream.jsonl 2> host.log &
-until [ -s host.log ]; do sleep 1; done
+until grep -q '^sensorlogger://' host.log 2>/dev/null; do
+  kill -0 $! 2>/dev/null || { cat host.log >&2; exit 1; }
+  sleep 1
+done
 open sandbox-qr.png   # show the QR to the user (xdg-open on Linux)
 until [ -s stream.jsonl ]; do sleep 1; done   # first sample from a phone
 tail -n 5 stream.jsonl
@@ -119,9 +122,14 @@ let count = 0;
 
 const peer = new Peer();
 peer.on("open", async (id) => {
-  const link = `sensorlogger://sandbox/${id}`;
-  await QRCode.toFile("sandbox-qr.png", link);
-  console.error(link);
+  try {
+    const link = `sensorlogger://sandbox/${id}`;
+    await QRCode.toFile("sandbox-qr.png", link);
+    console.error(link);
+  } catch (err) {
+    console.error(err);
+    process.exitCode = 1;
+  }
 });
 peer.on("error", console.error);
 peer.on("connection", (conn) => {
@@ -131,7 +139,11 @@ peer.on("connection", (conn) => {
     conn.send({ type: "setName", playerName: phone });
     conn.send({ type: "start", sensors: SENSORS });
   });
-  conn.on("data", (msg) => console.log(JSON.stringify({ phone, ...msg })));
+  conn.on("data", (msg) => {
+    const data = typeof msg === "string" ? JSON.parse(msg) : msg;
+    if (data && typeof data === "object")
+      console.log(JSON.stringify({ phone, ...data }));
+  });
   conn.on("close", () => delete phones[phone]);
   conn.on("error", () => delete phones[phone]);
 });
@@ -147,9 +159,20 @@ http
       let body = "";
       for await (const chunk of req) body += chunk;
       const msg = JSON.parse(body);
+      if (!msg || typeof msg !== "object" || Array.isArray(msg))
+        throw new Error("Command must be a JSON object");
       const target = url.searchParams.get("phone");
-      const sent = Object.keys(phones).filter((p) => !target || p === target);
-      sent.forEach((p) => phones[p].send(msg));
+      const sent = [];
+      for (const p of Object.keys(phones)) {
+        if (target && p !== target) continue;
+        try {
+          phones[p].send(msg);
+          sent.push(p);
+        } catch {
+          delete phones[p];
+        }
+      }
+      res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ sent }));
     } catch (e) {
       res.writeHead(400).end(e.message);
@@ -161,7 +184,7 @@ http
 If you can't open an image, print a text QR and put it in a code block.
 
 ```bash
-node -e 'require("qrcode").toString(process.argv[1], { type: "utf8" }).then(console.log)' "$(head -1 host.log)"
+node -e 'require("qrcode").toString(process.argv[1], { type: "utf8" }).then(console.log)' "$(grep -m1 '^sensorlogger://' host.log)"
 ```
 
 ### Reading Data
