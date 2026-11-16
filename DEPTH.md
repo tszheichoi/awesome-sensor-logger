@@ -24,25 +24,29 @@ Then you can extract accordingly:
 ```python
 import subprocess
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 input_file = 'image_from_sensor_logger.jpg'
 output_file = 'depth_map.jpg'
 
+result = subprocess.run(
+    ['exiftool', '-b', '-MPImage3', input_file],
+    capture_output=True,
+    check=True,
+)
+if not result.stdout:
+    raise ValueError("MPImage3 is empty — check 'exiftool -json' output for the right MPImage tag (e.g. -MPImage2)")
+
 with open(output_file, 'wb') as out_f:
-    subprocess.run(
-        ['exiftool', '-b', '-MPImage3', input_file],
-        stdout=out_f,
-        check=True
-    )
+    out_f.write(result.stdout)
 
 with Image.open(input_file) as original_img:
-    original_array = np.array(original_img)
+    original_array = np.array(ImageOps.exif_transpose(original_img))
 
 with Image.open(output_file) as depth_img:
-    depth_array = np.array(depth_img)
+    depth_array = np.array(ImageOps.exif_transpose(depth_img).convert('L'))
 
 fig = make_subplots(rows=1, cols=2, subplot_titles=["Original Image", "Depth Map"])
 fig.add_trace(go.Image(z=original_array), row=1, col=1)
