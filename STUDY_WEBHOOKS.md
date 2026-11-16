@@ -45,7 +45,7 @@ Once downloaded, you can extract and analyze the data as needed and output eithe
 ```python
 {
     "Authorization": secretCode,
-    "Content-Type": "text/markdown"
+    "Content-Type": "text/markdown; charset=utf-8"
 }
 ```
 or
@@ -55,7 +55,22 @@ or
     "Content-Type": "application/pdf"
 }
 ```
-depending on whether you are posting the results back as markdown or PDF, respectively. 
+depending on whether you are posting the results back as markdown or PDF, respectively. When posting Markdown text from Python `requests`, encode the string as UTF-8 bytes (`data=markdown_report.encode("utf-8")`) so non-ASCII characters (such as `m/s²`, `µT`, `°`, or emojis) do not raise a `latin-1` `UnicodeEncodeError`:
+
+```python
+import requests
+
+response = requests.post(
+    "https://sensorlogger.app/api/study/webhook/v1",
+    params={"studyId": studyId, "uploadId": uploadId},
+    headers={
+        "Authorization": secretCode,
+        "Content-Type": "text/markdown; charset=utf-8",
+    },
+    data=markdown_report.encode("utf-8"),
+)
+response.raise_for_status()
+```
 
 ## Creating a Study with Webhooks
 Create a new Study in Sensor Logger. In the Webhooks section, you can select whether you want to enable Notify or Notify & Respond webhooks, as shown in A. Specify the Webhook URL in B. 
