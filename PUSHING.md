@@ -169,18 +169,23 @@ def data():  # listens to the data streamed from the sensor logger
     payload = request.get_json(force=True, silent=True)
     if not isinstance(payload, dict):
         return "success"
+    samples = []
+    for d in payload.get("payload") or []:
+        if isinstance(d, dict) and d.get("name") == "accelerometer":  # modify to access different sensors
+            try:
+                values = d["values"]
+                samples.append((d["time"], values["x"], values["y"], values["z"]))
+            except (KeyError, TypeError):
+                continue
+    samples.sort(key=lambda s: s[0])
     with lock:
-        for d in payload.get("payload") or []:
-            if isinstance(d, dict) and d.get("name") == "accelerometer":  # modify to access different sensors
-                ts = datetime.fromtimestamp(d["time"] / 1_000_000_000, tz=timezone.utc)
-                if not time or ts > time[-1]:
-                    # modify the following based on which sensor is accessed, log the raw json for guidance
-                    values = d["values"]
-                    x, y, z = values["x"], values["y"], values["z"]
-                    time.append(ts)
-                    accel_x.append(x)
-                    accel_y.append(y)
-                    accel_z.append(z)
+        for raw_ns, x, y, z in samples:
+            ts = datetime.fromtimestamp(raw_ns / 1_000_000_000, tz=timezone.utc)
+            if not time or ts > time[-1]:
+                time.append(ts)
+                accel_x.append(x)
+                accel_y.append(y)
+                accel_z.append(z)
     return "success"
 
 

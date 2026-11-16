@@ -74,8 +74,10 @@ For a page the user looks at, such as a game or a live plot. Opening it as a loc
       conn.send({ type: "start", sensors: ["accelerometer", "orientation"] }),
     );
     conn.on("data", (msg) => {
-      const data = typeof msg === "string" ? JSON.parse(msg) : msg;
-      if (data?.sensor) console.log(data);
+      try {
+        const data = typeof msg === "string" ? JSON.parse(msg) : msg;
+        if (data?.sensor) console.log(data);
+      } catch {}
     });
   });
 </script>
@@ -142,9 +144,11 @@ peer.on("connection", (conn) => {
     conn.send({ type: "start", sensors: SENSORS });
   });
   conn.on("data", (msg) => {
-    const data = typeof msg === "string" ? JSON.parse(msg) : msg;
-    if (data && typeof data === "object")
-      console.log(JSON.stringify({ phone, ...data }));
+    try {
+      const data = typeof msg === "string" ? JSON.parse(msg) : msg;
+      if (data && typeof data === "object" && !Array.isArray(data))
+        console.log(JSON.stringify({ ...data, phone }));
+    } catch {}
   });
   conn.on("close", () => delete phones[phone]);
   conn.on("error", () => delete phones[phone]);
@@ -156,10 +160,14 @@ http
     const url = new URL(req.url, "http://localhost");
     if (url.pathname !== "/send") return res.writeHead(404).end();
     if (req.method !== "POST") return res.writeHead(405).end();
+    if (req.headers.origin) return res.writeHead(403).end();
     try {
       req.setEncoding("utf8");
       let body = "";
-      for await (const chunk of req) body += chunk;
+      for await (const chunk of req) {
+        body += chunk;
+        if (body.length > 65536) return res.writeHead(413).end();
+      }
       const msg = JSON.parse(body);
       if (!msg || typeof msg !== "object" || Array.isArray(msg))
         throw new Error("Command must be a JSON object");
