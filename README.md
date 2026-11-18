@@ -97,6 +97,8 @@ If you are performing cross-platform analysis using Sensor Logger, please beware
 
 Measurements made using the Sensor Logger can be exported in `.zip`, `.csv`, `.json`, `.kml` or `.sqlite` formats. For data analysis, the zip export is recommended as it is free and contains all the raw data. See www.tszheichoi.com/sensorloggerhelp for more about how exporting works.
 
+> 💡 **Continuous & Automated Export**: For long-running or unattended collection without manually stopping to export, enable **Checkpoint** (under _Settings > Recording & Workflow_) to automatically split continuous recordings into periodic entries (e.g. hourly) with zero interruption, and pair it with **Backups** + the [Backups API](BACKUPS_API.md) or [Sensor Logger Stream](PUSHING.md#sensor-logger-stream) (which produces hourly `.zip` archives in the cloud). You can also automate recording start/stop/configuration on-device via [Deep Links](DEEP_LINKS.md).
+
 ### Recommended Tools
 
 Python is recommended for analysing the outputs from Sensor Logger. For interactive data exploration and visualisation, use Jupyter Notebooks, which you can run for free easily with tools like Google Colab or Deep Notes. Your typical data science Python packages apply:
@@ -306,6 +308,11 @@ To understand the implications and robustness of resampling and dealing with mis
 - https://towardsdatascience.com/preprocessing-iot-data-linear-resampling-dde750910531
 - Impact of Reduced Sampling Rate on Accelerometer-based Physical Activity Monitoring and Machine Learning Activity Classification: https://www.medrxiv.org/content/10.1101/2020.10.22.20217927v1.full
 - Sensor Data Augmentation by Resampling for Contrastive Learning for Human Activity Recognition: https://arxiv.org/pdf/2109.02054.pdf
+
+> ⚠️ **Preventing Missing Data ("Holes") When Recording With the Screen Off**: Mobile operating systems aggressively throttle background apps unless foreground/location exemptions are granted. To avoid gaps in screen-off recordings (especially on Android 14/15+):
+> - Set Sensor Logger's **Location** permission to **Always Allow** (even if you are not logging GPS coordinates), which grants background execution priority. If the _Start Recording_ button is orange, background permissions are incomplete.
+> - On Android, set **Battery Optimization** for Sensor Logger to **Unrestricted** and disable **Low Power / Battery Saver Mode**.
+> - Run **About > Health Check** in the app before starting a study session to verify all background recording requirements, and see _Going into the Background_ at https://www.tszheichoi.com/sensorloggerhelp.
 
 ### Mapping GPS Tracks
 
