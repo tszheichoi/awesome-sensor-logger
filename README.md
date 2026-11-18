@@ -188,29 +188,22 @@ All records for a given sensor are grouped together and are then sorted by time.
 
 For reading data exported using the SQLite option in Python, you may try:
 
-```
+```python
+from contextlib import closing
 import sqlite3
 
 database_file = 'your_database_file.sqlite'
 
 try:
-    connection = sqlite3.connect(database_file)
-    cursor = connection.cursor()
-
-    sql_query = "SELECT * FROM Accelerometer"
-
-    cursor.execute(sql_query)
-    results = cursor.fetchall()
-
-    for row in results:
-        print(row)
+    with closing(sqlite3.connect(database_file)) as connection:
+        with closing(connection.cursor()) as cursor:
+            sql_query = "SELECT * FROM Accelerometer"
+            cursor.execute(sql_query)
+            for row in cursor:
+                print(row)
 
 except sqlite3.Error as e:
     print(f"SQLite error: {e}")
-
-finally:
-    cursor.close()
-    connection.close()
 ```
 
 ### Accessing Recording Metadata
@@ -237,17 +230,17 @@ Sensor Logger gives you the option to log raw, uncalibrated data from the accele
 
 Use `pandas` to import `.csv` and convert timestamps. Use Plotly to visualise data interactively. Here, we show the acceleration experienced by a user during a roller coaster ride.
 
-```
+```python
 import pandas as pd
 import plotly.graph_objects as go
 
 df = pd.read_csv('Accelerometer.csv')
-df.index = pd.to_datetime(df['time'], unit = 'ns')
+df.index = pd.to_datetime(df['time'], unit='ns')
 
 fig = go.Figure()
 
 for axis in ['x', 'y', 'z']:
-    fig.add_trace(go.Scatter(x = df.index, y = df[axis], name = axis))
+    fig.add_trace(go.Scatter(x=df.index, y=df[axis], name=axis))
 
 fig.show()
 ```
@@ -256,7 +249,7 @@ fig.show()
 
 Some sensors may also report uncertainties, which is important for analysis and multi-sensor fusion. For example, the speed from GPS has associated errors.
 
-```
+```python
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -277,26 +270,26 @@ fig.show()
 
 Real-world measurements are never evenly sampled. It is important to double-check before any analysis. For example, this particular GPS location data recorded on an iPhone has `avg_sampling_rate` of 0.93Hz, but the measurement gap ranges between 0.99 to 12 seconds.
 
-```
+```python
 import pandas as pd
 import numpy as np
 
 df = pd.read_csv('Location.csv')
-consecutive_deltas = df['seconds_elapsed'].diff()
+consecutive_deltas = df['time'].diff() / 1e9
 avg_sampling_rate = 1 / np.mean(consecutive_deltas)
 shortest_gap = np.min(consecutive_deltas)
 maximum_gap = np.max(consecutive_deltas)
-total_num_of_samples = len(df.index)
+total_num_of_samples = len(df)
 ```
 
 To resample your data, for example, to minute periods:
 
-```
+```python
 import pandas as pd
 
 df = pd.read_csv('Location.csv')
-df.index = pd.to_datetime(df['time'], unit = 'ns')
-df.resample('1T').median()
+df.index = pd.to_datetime(df['time'], unit='ns')
+df.resample('1min').median(numeric_only=True)
 ```
 
 Also read https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/
@@ -314,12 +307,12 @@ Use tools like Folium, which is built on top of leaflet.js to overlay GPS tracks
 - https://towardsdatascience.com/build-interactive-gps-activity-maps-from-gpx-files-using-folium-cf9eebba1fe7
 - https://towardsdatascience.com/simple-gps-data-visualization-using-python-and-open-street-maps-50f992e9b676
 
-```
+```python
 import folium
 import pandas as pd
 
 df = pd.read_csv("Location.csv")
-coords = [(row.latitude, row.longitude) for _, row in df.iterrows()]
+coords = df[["latitude", "longitude"]].dropna().to_numpy().tolist()
 
 my_map = folium.Map(location=[df.latitude.mean(), df.longitude.mean()], zoom_start=16)
 folium.PolyLine(coords, color="blue", weight=5.0).add_to(my_map)
@@ -337,9 +330,9 @@ Often, one has to align measurements across sensors -- for instance, gyroscope a
 
 <img width="659" alt="Screenshot 2023-10-25 at 15 07 19" src="https://github.com/tszheichoi/awesome-sensor-logger/assets/30114997/f31366ae-ba81-4ff5-9984-156f8ccf5732">
 
-- Option 1: Perform an outer join and then interpolate missing values for both sensors. By default, `pandas` interpolates linearly, but see the documentation for more advanced options.
+- Option 1: Perform an outer join and then interpolate missing values for both sensors. Pass `method='time'` so `pandas` interpolates proportionally to the timestamps rather than assuming equally spaced rows; see the documentation for more advanced options.
 
-```
+```python
 import pandas as pd
 import numpy as np
 
@@ -347,15 +340,18 @@ df_gyro = pd.read_csv('Gyroscope.csv')
 df_acce = pd.read_csv('Accelerometer.csv')
 
 for df in [df_gyro, df_acce]:
-    df.index = pd.to_datetime(df['time'], unit = 'ns')
+    df.index = pd.to_datetime(df['time'], unit='ns')
 
-df = df_gyro.join(df_acce, lsuffix = '_gyro', rsuffix = '_acce', how = 'outer').interpolate()
+df = df_gyro.join(df_acce, lsuffix='_gyro', rsuffix='_acce', how='outer')
+num_cols = df.select_dtypes(include='number').columns
+df[num_cols] = df[num_cols].interpolate(method='time')
 ```
 
-- Option 2: Interpolate one sensor onto the timestamps of another -- probably better if the two sensors have wildly different sampling rates. For example:
+- Option 2: Interpolate one sensor onto the timestamps of another -- probably better if the two sensors have wildly different sampling rates. Subtracting a shared `int64` reference timestamp preserves full nanosecond precision in `float64`:
 
-```
-np.interp(df_acce.index, df_gyro.index, df_gyro['x'])
+```python
+t0 = df_gyro['time'].iloc[0]
+gyro_x_aligned = np.interp(df_acce['time'] - t0, df_gyro['time'] - t0, df_gyro['x'])
 ```
 
 Using option 1 above, the altitude readings from both the GPS and barometer are resampled and aligned. As you can see, the GPS is not great at characterising rapid altitude changes, and exhibits biases during transient periods.
@@ -391,21 +387,21 @@ print(smoothed_gyro)
 
 Use Fourier transforms to understand any periodicity in your logged values. For example, you can detect walking by simply thresholding the gravity vector measurements in frequency space. Here is a simple example of Fourier transforming the gravity measurements taken on [Zodiac, a spinning ride at Thorpe Park](<https://en.wikipedia.org/wiki/Zodiac_(ride)>). As you can see, there is a peak around 0.25 Hz (i.e. the ride goes around one revolution every 4 seconds).
 
-```
+```python
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as go
 
 df = pd.read_csv('Gravity.csv')
-ts = pd.to_datetime(df['time'], unit = 'ns')
-period = np.nanmedian(ts.diff().dt.total_seconds())
+period = df['time'].diff().median() / 1e9
 
-sp = np.fft.fft(df['x'])
-freq = np.fft.fftfreq(len(df.index), period)
+sp = np.fft.rfft(df['x'].to_numpy())
+freq = np.fft.rfftfreq(len(df), d=period)
 
-mask = (freq >= 0) & (freq < 1)
+mask = freq < 1
 
 fig = go.Figure()
-fig.add_trace(go.Scatter(x = freq[mask], y = [np.linalg.norm(s) for s in sp[mask]]))
+fig.add_trace(go.Scatter(x=freq[mask], y=np.abs(sp[mask])))
 fig.show()
 ```
 
@@ -419,7 +415,7 @@ You can use algorithms like Douglas-Peucker to simplify recorded GPS tracks to s
 
 Scipy's `find_peaks` is the easiest place to get started. For example:
 
-```
+```python
 import pandas as pd
 import numpy as np
 from scipy.signal import find_peaks
@@ -431,8 +427,8 @@ min_distance = 25
 peaks, _ = find_peaks(signal, distance=min_distance)
 
 fig = go.Figure()
-fig.add_trace(go.Scatter(x=peaks, y=signal[peaks], mode='markers', marker=dict(color='red', size=10)))
-fig.add_trace(go.Scatter(x=range(len(signal)), y=signal, mode='lines'))
+fig.add_trace(go.Scatter(x=peaks, y=signal.iloc[peaks], mode='markers', marker=dict(color='red', size=10)))
+fig.add_trace(go.Scatter(x=np.arange(len(signal)), y=signal, mode='lines'))
 fig.show()
 
 print("Indices of peaks:", peaks)
@@ -462,14 +458,12 @@ Also see:
 
 Sometimes, erroneous sensors may report the same value twice with identical timestamps, likely due to caching. Try something like this to remove them:
 
-```
-def remove_duplicated_rows(df: pd.DataFrame):
-    _df = df[
-        ~(df["timeStamp"].diff() < 0)
-    ]  # be careful that diff() gives nan for first row
-    if len(_df.index) != len(df.index):
+```python
+def remove_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
+    _df = df.drop_duplicates(subset=["time"], keep="first")
+    if len(_df) != len(df):
         print(
-            f"duplicated rows detected in the input file ({len(df.index) - len(_df.index)})"
+            f"duplicated rows detected in the input file ({len(df) - len(_df)})"
         )
     return _df
 ```
@@ -487,11 +481,11 @@ def remove_duplicated_rows(df: pd.DataFrame):
 
 Michael Haberler has helpfully put together a command-line tool `sensorlogger-utils` to take the JSON exported from Sensor Logger and convert it to GPX or InfluxDB formats: https://github.com/mhaberler/sensorlogger-util
 
-```
-python sensorlogger -g <json file>
+```bash
+python sensorlogger.py -g <json file>
 ```
 
-```
+```bash
 python sensorlogger.py -2 [--bucket sensorlogger] --token xxx  --org yyyy --url http://host:8086 2022-06-14_03-15-05.json
 ```
 
@@ -591,7 +585,7 @@ Some recently published papers citing / using Sensor Logger:
 - Degambur, L.-N. (2024). Replay attack prevention in decentralised contact tracing: A blockchain-based approach. OALib, 11(02), 1–17. https://doi.org/10.4236/oalib.1111179
 - Xiping Sun, Jing Chen, Cong Wu, Kun He, Haozhe Xu, Yebo Feng, Ruiying Du, & Xianhao Chen. (2024). MagLive: Near-Field Magnetic Sensing-Based Voice Liveness Detection on Smartphones.
 - Gadelho, J., & Guedes Soares, C. (2024). Experimental Motion Measurements of a Floating Dual Chamber OWC Using the Smartphone Sensors as a Low Budget Solution. In Innovations in Renewable Energies Offshore Proceedings of the 6th International Conference on Renewable Energies Offshore.
-- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU Time-series data. Journal of Machine Intelligence and Data Science, 5. https://doi.org/10.11159/jmids.2024.007
+- Zhang, J., Lau, M. C., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://doi.org/10.11159/jmids.2024.007
 - Zhang, J., Lau, M. C., & Zhu, Z. (2024). Advanced Exercise Classification with a hybrid CNN-GRU model: Utilising IMU data from cell phones. International Conference of Control, Dynamic Systems, and Robotics. https://doi.org/10.11159/cdsr24.115
 - Lee, M. J., Lin, J., & Hsu, L. T. (2024). Exploring the Feasibility of Automated Data Standardization using Large Language Models for Seamless Positioning. arXiv preprint arXiv:2408.12080.
 - Vallivaara, I., Dong, Y., & Arslan, T. (2024). Saying goodbyes to rotating your phone: Magnetometer calibration during SLAM. arXiv preprint arXiv:2409.01242.
@@ -599,7 +593,6 @@ Some recently published papers citing / using Sensor Logger:
 - Yonetani, R., Baba, J., & Furukawa, Y. (2024, October). RetailOpt: Opt-In, Easy-to-Deploy Trajectory Estimation from Smartphone Motion Data and Retail Facility Information. In Proceedings of the 2024 ACM International Symposium on Wearable Computers (pp. 125-132).
 - Lozano, Wilson and Neal, Tempestt, "Efficient Smartphone Sensor Analysis for Behavioral Profiling in Transportation Research: A Case Study of Driver and Passenger Classification" (2024). Research Reports. 51. https://digitalcommons.usf.edu/cutr_nicr/51
 - Khandakar, A., Michelson, D.G., Naznine, M. et al. Harnessing Smartphone Sensors for Enhanced Road Safety: A Comprehensive Dataset and Review. Sci Data 12, 418 (2025). https://doi.org/10.1038/s41597-024-04193-0
-- Zhang, J., Lau, M., & Zhu, Z. (2024). Hybrid CNN-GRU model for exercise classification using IMU time-series data. Journal of Machine Intelligence and Data Science, 5, 54–64. https://jmids.avestia.com/2024/007.html
 - Sheikh Asif Imran Shouborno, Mohammad Nur Hossain Khan, Subrata Biswas, and Bashima Islam. 2026. LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25). Association for Computing Machinery, New York, NY, USA, 893–899. https://doi.org/10.1145/3714394.3756187
 - U.S. Food & Drug Administration, Center for Devices and Radiological Health (2024). Open-access wearables dataset for gait: Evaluating factors that impact precision and accuracy of gait metrics derived from smartphones. Synapse. https://www.synapse.org/Synapse:syn51664250.
 - Choi, K. T. H. (2025). Studies: A Managed Solution for Standardized, Scalable, Privacy-First Smartphone Sensor Data Collection for Indoor Positioning Research. In Proceedings of the Workshop for Computing & Advanced Localization (WCAL) at the 2025 15th International Conference on Indoor Positioning and Indoor Navigation (IPIN), Tampere, Finland. CEUR-WS Vol-4047. https://ceur-ws.org/Vol-4047/short5.pdf
