@@ -24,7 +24,7 @@ Then you can extract accordingly:
 ```python
 import subprocess
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -43,10 +43,10 @@ with open(output_file, 'wb') as out_f:
     out_f.write(result.stdout)
 
 with Image.open(input_file) as original_img:
-    original_array = np.array(ImageOps.exif_transpose(original_img))
+    original_array = np.array(original_img)
 
 with Image.open(output_file) as depth_img:
-    depth_array = np.array(ImageOps.exif_transpose(depth_img).convert('L'))
+    depth_array = np.array(depth_img.convert('L'))
 
 fig = make_subplots(rows=1, cols=2, subplot_titles=["Original Image", "Depth Map"])
 fig.add_trace(go.Image(z=original_array), row=1, col=1)

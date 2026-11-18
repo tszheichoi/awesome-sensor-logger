@@ -160,6 +160,7 @@ for stroke in signature_path:
 fig.update_layout(
     yaxis_autorange='reversed',
     yaxis_scaleanchor='x',
+    yaxis_scaleratio=0.4,  # the signature pad is 2.5:1 (width:height), and x and y are each normalised to 0-1000
     xaxis_visible=False,
     yaxis_visible=False,
 )
