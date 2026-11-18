@@ -18,6 +18,7 @@ import requests
 apiKey = "secret" # replace with real key, but be mindful not to commit it to git!
 url = "https://sensorlogger.app/api/backup/v1"
 response = requests.get(url, headers={"Authorization": apiKey})
+response.raise_for_status()
 print(response.json())
 ```
 
@@ -62,10 +63,17 @@ import requests
 
 apiKey = "secret"
 backupId = "backupId"
-url = f"https://sensorlogger.app/api/backup/file/v1?backupId={backupId}"
-response = requests.get(url, headers={"Authorization": apiKey})
-with open(f"{backupId}.zip", "wb") as f:
-    f.write(response.content)
+url = "https://sensorlogger.app/api/backup/file/v1"
+with requests.get(
+    url,
+    params={"backupId": backupId},
+    headers={"Authorization": apiKey},
+    stream=True,
+) as response:
+    response.raise_for_status()
+    with open(f"{backupId}.zip", "wb") as f:
+        for chunk in response.iter_content(chunk_size=65536):
+            f.write(chunk)
 ```
 
 Backups are always stored as Zip, regardless of the export format configured in the app.
@@ -79,8 +87,13 @@ import requests
 
 apiKey = "secret"
 backupId = "backupId"
-url = f"https://sensorlogger.app/api/backup/file/v1?backupId={backupId}"
-response = requests.delete(url, headers={"Authorization": apiKey})
+url = "https://sensorlogger.app/api/backup/file/v1"
+response = requests.delete(
+    url,
+    params={"backupId": backupId},
+    headers={"Authorization": apiKey},
+)
+response.raise_for_status()
 print(response.json())
 ```
 

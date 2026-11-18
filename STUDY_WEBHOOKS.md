@@ -40,22 +40,37 @@ You will need to create a HTTP endpoint that Sensor Logger Cloud will POST to _f
 
 With these three pieces of information, you can then download the uploaded recording with GET `https://sensorlogger.app/api/study/file/v1?studyId={studyId}&uploadId={uploadId}`. You must also put the `secretCode` in the HTTP GET request with the header `Authorization: {secretCode}`. This is in fact part of the wider set of APIs available with Studies. See https://github.com/tszheichoi/awesome-sensor-logger/blob/main/STUDY_API.md for more information.
 
-Once downloaded, you can extract and analyze the data as needed and output either a markdown document or PDF, which you can POST back to the users via `https://sensorlogger.app/api/study/webhook/v1?studyId={studyId}&uploadId={uploadId}` with header
+Once downloaded, you can extract and analyze the data as needed and output either a markdown document or PDF, which you can PUT back to the users via `https://sensorlogger.app/api/study/webhook/v1?studyId={studyId}&uploadId={uploadId}` with header
 
-```
+```python
 {
-    "Authorization": secret_code,
+    "Authorization": secretCode,
     "Content-Type": "text/markdown"
-},
+}
 ```
 or
-```
+```python
 {
-    "Authorization": secret_code,
+    "Authorization": secretCode,
     "Content-Type": "application/pdf"
-},
+}
 ```
-depending on whether you are posting the results back as markdown or PDF, respectively. 
+depending on whether you are sending the results back as markdown or PDF, respectively. The `Content-Type` must be exactly one of these two values. When uploading Markdown text from Python `requests`, encode the string as UTF-8 bytes (`data=markdown_report.encode("utf-8")`) so non-Latin-1 characters such as emoji do not raise a `UnicodeEncodeError`:
+
+```python
+import requests
+
+response = requests.put(
+    "https://sensorlogger.app/api/study/webhook/v1",
+    params={"studyId": studyId, "uploadId": uploadId},
+    headers={
+        "Authorization": secretCode,
+        "Content-Type": "text/markdown",
+    },
+    data=markdown_report.encode("utf-8"),
+)
+response.raise_for_status()
+```
 
 ## Creating a Study with Webhooks
 Create a new Study in Sensor Logger. In the Webhooks section, you can select whether you want to enable Notify or Notify & Respond webhooks, as shown in A. Specify the Webhook URL in B. 

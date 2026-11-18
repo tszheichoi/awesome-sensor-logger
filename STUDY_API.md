@@ -16,8 +16,13 @@ import requests
 
 studyId = "test" # replace with real id
 secretCode = "secret" # replace with real secret, but be mindful not to commit it to git!
-url = f"https://sensorlogger.app/api/study/v1?studyId={studyId}"
-response = requests.get(url, headers={"Authorization": secretCode})
+url = "https://sensorlogger.app/api/study/v1"
+response = requests.get(
+    url,
+    params={"studyId": studyId},
+    headers={"Authorization": secretCode},
+)
+response.raise_for_status()
 print(response.json())
 ```
 
@@ -47,7 +52,7 @@ For more information about the `questionAnswers` schema, see https://github.com/
 
 ### Download a Specific Recording
 
-Download a specific upload ID `uploadId` for the Study ID `test` and secret code `secret` to a file named `test.zip` using the GET method:
+Download a specific upload ID `uploadId` for the Study ID `test` and secret code `secret` to a file named `uploadId.zip` using the GET method:
 
 ```python
 import requests
@@ -55,10 +60,17 @@ import requests
 studyId = "test"
 secretCode = "secret"
 uploadId = "uploadId"
-url = f"https://sensorlogger.app/api/study/file/v1?studyId={studyId}&uploadId={uploadId}"
-response = requests.get(url, headers={"Authorization": secretCode})
-with open(f"{uploadId}.zip", "wb") as f: # Change the extension if needed
-    f.write(response.content)
+url = "https://sensorlogger.app/api/study/file/v1"
+with requests.get(
+    url,
+    params={"studyId": studyId, "uploadId": uploadId},
+    headers={"Authorization": secretCode},
+    stream=True,
+) as response:
+    response.raise_for_status()
+    with open(f"{uploadId}.zip", "wb") as f: # Change the extension if needed
+        for chunk in response.iter_content(chunk_size=65536):
+            f.write(chunk)
 ```
 
 Replace `.zip` with the desired extension if you have configured your Study export not to be Zip (e.g. `.json`) 
@@ -73,10 +85,14 @@ import requests
 studyId = "test"
 secretCode = "secret"
 uploadId = "uploadId"
-url = f"https://sensorlogger.app/api/study/file/v1?studyId={studyId}&uploadId={uploadId}"
-response = requests.delete(url, headers={"Authorization": secretCode})
+url = "https://sensorlogger.app/api/study/file/v1"
+response = requests.delete(
+    url,
+    params={"studyId": studyId, "uploadId": uploadId},
+    headers={"Authorization": secretCode},
+)
+response.raise_for_status()
 print(response.json())
-
 ```
 
 Example JSON response is as follows:
